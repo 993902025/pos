@@ -15,10 +15,10 @@ using System.Runtime.InteropServices;
 
 namespace WindowsFormsApp2
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
+        public LogOnForm logonform;
         int _pageNum;        //界面标记 1=主界面 2=投注界面
-
 
         SocketClass betsock = new SocketClass();
 
@@ -33,24 +33,78 @@ namespace WindowsFormsApp2
         int betport = 9901;
         static int _lsh = 1;
         
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            _pageNum = 1;
-            ShowPage_1(_pageNum);
-                        
+
+
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            logonform = new LogOnForm();
+            logonform.ShowDialog();
+            if (logonform.DialogResult == DialogResult.OK)
+            {
+                //Application.Run(new MainForm());
+                try
+                {
+
+                    logonform.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+            }
+            else
+            {
+                try
+                {
+
+                    this.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+
+                try
+                {
+
+                    logonform.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+
+                return;
+            }
+            //_pageNum = 1;
+            //ShowPage_1(_pageNum);
         }
 
         void ShowPage_1(int pagenum)
         {
             panel_Parameters.Show();
             panel_Bet.Show();
+            panel_keyboard.Show();
         }
 
         void PanelParameters()
         {
 
         }
+        string _agentpra, _pra;
+        int GetPra(string agentpra, ref string pra)
+        {
+            int re_num = 0;
+            return re_num;
+        }
+
 
 
         //select 
@@ -298,5 +352,7 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        
     }
 }
