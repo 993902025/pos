@@ -17,6 +17,9 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+        int _pageNum;        //界面标记 1=主界面 2=投注界面
+
+
         SocketClass betsock = new SocketClass();
 
         static int sequence = 0;
@@ -28,14 +31,28 @@ namespace WindowsFormsApp2
         string ServerIP = "10.1.1.192";
         int selport = 9902;
         int betport = 9901;
-        static int lsh = 1;
+        static int _lsh = 1;
         
         public Form1()
         {
             InitializeComponent();
+            _pageNum = 1;
+            ShowPage_1(_pageNum);
                         
         }
-                        
+
+        void ShowPage_1(int pagenum)
+        {
+            panel_Parameters.Show();
+            panel_Bet.Show();
+        }
+
+        void PanelParameters()
+        {
+
+        }
+
+
         //select 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -45,49 +62,49 @@ namespace WindowsFormsApp2
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
         private void button2_Click(object sender, EventArgs e)
         {
-            string sball = redballstring.Text;
-            sendbetstr = ini_betstr(sball);
+            //string sball = redballstring.Text;
+            //sendbetstr = ini_betstr(sball);
         }
 
         //新期查询
         private void issuequery_msg()
         {
-            SocketClass selsock = new SocketClass();
+            //SocketClass selsock = new SocketClass();
 
-            string shead = "1|1|0|003170|ISSUEQUERY|" + agentidbox.Text + "|";
-            string sbody = agentidbox.Text + "$" + gamenamebox.Text + "$" + "2017020$"; 
-            string s1 = shead + sbody + sk;
-            StringBuilder s2 = new StringBuilder(512);
+            //string shead = "1|1|0|003170|ISSUEQUERY|" + agentidbox.Text + "|";
+            //string sbody = agentidbox.Text + "$" + gamenamebox.Text + "$" + "2017020$"; 
+            //string s1 = shead + sbody + sk;
+            //StringBuilder s2 = new StringBuilder(512);
 
-            //BzWebSec bzsec = new BzWebSec();//不需要new 因为bzwebsec中这些方法是static
-            BzWebSec.WebMD5String32(s1, s2);
-            string szy = s2.ToString();
-            int stp = -1;
-            stp = BzWebSec.WebEncodeString(sbody, sk, s2);
-            string msbody = s2.ToString();
-            int imsglen = shead.Length + szy.Length + msbody.Length + 1;
-            string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
-            smsg2 = msglen + shead + msbody + "|" + szy;
-            //建socket链接
-            if ( 0 == selsock.inisocket(ServerIP, selport))
-            {
-                //发送send
-                selsock.sendmsg(smsg2);
-                textBox3.Text += "send message is:" + smsg2 + "\r\n";
-                //接受recv
-                string srecmsg = selsock.recvmsg();
-                textBox4.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
-                string[] sArray = srecmsg.Split('|');
-                string srembody = sArray[7];
-                BzWebSec.WebDecodeString(srembody, sk, s2);
-                string srebody = s2.ToString();
-                textBox4.Text += "\r\n" + srebody;
-                selsock.closesock();
-            }
-            else
-            {
-                textBox4.Text += " " + "\r\n" + SocketClass.errstring;
-            }
+            ////BzWebSec bzsec = new BzWebSec();//不需要new 因为bzwebsec中这些方法是static
+            //BzWebSec.WebMD5String32(s1, s2);
+            //string szy = s2.ToString();
+            //int stp = -1;
+            //stp = BzWebSec.WebEncodeString(sbody, sk, s2);
+            //string msbody = s2.ToString();
+            //int imsglen = shead.Length + szy.Length + msbody.Length + 1;
+            //string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
+            //smsg2 = msglen + shead + msbody + "|" + szy;
+            ////建socket链接
+            //if ( 0 == selsock.inisocket(ServerIP, selport))
+            //{
+            //    //发送send
+            //    selsock.sendmsg(smsg2);
+            //    textBox3.Text += "send message is:" + smsg2 + "\r\n";
+            //    //接受recv
+            //    string srecmsg = selsock.recvmsg();
+            //    textBox4.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
+            //    string[] sArray = srecmsg.Split('|');
+            //    string srembody = sArray[7];
+            //    BzWebSec.WebDecodeString(srembody, sk, s2);
+            //    string srebody = s2.ToString();
+            //    textBox4.Text += "\r\n" + srebody;
+            //    selsock.closesock();
+            //}
+            //else
+            //{
+            //    textBox4.Text += " " + "\r\n" + SocketClass.errstring;
+            //}
         }
 
         #region 检查选号
@@ -151,10 +168,10 @@ namespace WindowsFormsApp2
             DateTime.Now.ToShortTimeString();
             DateTime dt = DateTime.Now;
 
-            string agentid = agentidbox.Text;           //渠道编号
-            string gamename = gamenamebox.Text;         //玩法编号
-            string drawno = drawnobox.Text;             //期号
-            string ticket = agentidbox.Text + string.Format("{0:yyyyMMddHHmmss}",dt) + (lsh.ToString()).PadLeft(6, '0');         //票ID
+            string agentid = AgentId.Text;           //渠道编号
+            string gamename = GameName.Text;         //玩法编号
+            string drawno = DrawNo.Text;             //期号
+            string ticket = AgentId.Text + string.Format("{0:yyyyMMddHHmmss}",dt) + (_lsh.ToString()).PadLeft(6, '0');         //票ID
 
             BetNum betnum = new BetNum();
             string playtype = "";                       //投注方式
@@ -163,8 +180,8 @@ namespace WindowsFormsApp2
             //检查投注号码合法 + 计算投注方式和金额        
             if (0 == betnum.cfof_check_ball(sball, ref playtype, ref money))
             {
-                string betdetail = ((mulbox.Text == string.Empty) ? "1" : mulbox.Text).PadLeft(3, '0') + (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
-                money = money * Convert.ToInt16((mulbox.Text == string.Empty) ? "1" : mulbox.Text);
+                string betdetail = ((Multiple.Text == string.Empty) ? "1" : Multiple.Text).PadLeft(3, '0') + (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
+                money = money * Convert.ToInt16((Multiple.Text == string.Empty) ? "1" : Multiple.Text);
                 string smoney = string.Format("{0:f2}", money);
                 string betmsgbody = agentid + "$" + gamename + "$" + drawno + "$" + ticket + "$" + playtype + "$" + smoney + "$" + betdetail + "$" + "$" + "$" + "$" + "$" + "01" + "$" + "$";
                 textBox3.Text += "\r\nbetbody:" + betmsgbody;
@@ -197,7 +214,7 @@ namespace WindowsFormsApp2
             }
             sequence++;
             string sequenceid = sequence.ToString().PadLeft(6, '0');
-            string shead = "1|1|0|" + sequenceid + "|BET|" + agentidbox.Text + "|";
+            string shead = "1|1|0|" + sequenceid + "|BET|" + AgentId.Text + "|";
             string sbody = betbody;
             string s1 = shead + sbody + sk;
             StringBuilder s2 = new StringBuilder(5120);
@@ -239,7 +256,7 @@ namespace WindowsFormsApp2
         //bet button
         private void button3_Click(object sender, EventArgs e)
         {
-            string sball = redballstring.Text;
+            string sball = textBox13.Text;
             sendbetstr = ini_betstr(sball);
             bet_msg(sendbetstr);
         }
