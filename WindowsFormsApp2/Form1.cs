@@ -271,5 +271,10 @@ namespace WindowsFormsApp2
             textBox4.ScrollToCaret();
             
         }
+
+        private void Page_C515_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
