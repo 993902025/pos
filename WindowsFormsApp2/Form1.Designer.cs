@@ -59,8 +59,11 @@
             this.Num_8 = new System.Windows.Forms.Button();
             this.Num_7 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Page_Lot = new System.Windows.Forms.TabPage();
             this.Page_C515 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label_Lsh = new System.Windows.Forms.Label();
+            this.textBox_Lsh = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -72,6 +75,7 @@
             this.textBox_GameName = new System.Windows.Forms.TextBox();
             this.textBox_DrawNo = new System.Windows.Forms.TextBox();
             this.lable_DrawNo = new System.Windows.Forms.Label();
+            this.Page_Lot = new System.Windows.Forms.TabPage();
             this.Page_P3 = new System.Windows.Forms.TabPage();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -88,20 +92,16 @@
             this.Num_F9 = new System.Windows.Forms.Button();
             this.Num_Del = new System.Windows.Forms.Button();
             this.Num_0 = new System.Windows.Forms.Button();
-            this.label_Lsh = new System.Windows.Forms.Label();
-            this.textBox_Lsh = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
-            this.Page_Lot.SuspendLayout();
             this.Page_C515.SuspendLayout();
+            this.Page_Lot.SuspendLayout();
             this.Page_P3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // select_button
             // 
-            this.select_button.Location = new System.Drawing.Point(658, 195);
+            this.select_button.Location = new System.Drawing.Point(660, 244);
             this.select_button.Name = "select_button";
             this.select_button.Size = new System.Drawing.Size(75, 23);
             this.select_button.TabIndex = 0;
@@ -111,14 +111,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(617, 168);
+            this.textBox1.Location = new System.Drawing.Point(619, 217);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(511, 168);
+            this.textBox2.Location = new System.Drawing.Point(513, 217);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 2;
@@ -127,12 +127,12 @@
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox3.Location = new System.Drawing.Point(12, 168);
+            this.textBox3.Location = new System.Drawing.Point(12, 247);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(358, 130);
+            this.textBox3.Size = new System.Drawing.Size(358, 109);
             this.textBox3.TabIndex = 3;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -140,17 +140,17 @@
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(12, 304);
+            this.textBox4.Location = new System.Drawing.Point(12, 362);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(358, 184);
+            this.textBox4.Size = new System.Drawing.Size(358, 126);
             this.textBox4.TabIndex = 4;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(739, 168);
+            this.button2.Location = new System.Drawing.Point(741, 217);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -194,7 +194,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(739, 197);
+            this.button3.Location = new System.Drawing.Point(741, 246);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
@@ -374,29 +374,8 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(815, 152);
+            this.tabControl1.Size = new System.Drawing.Size(815, 228);
             this.tabControl1.TabIndex = 19;
-            // 
-            // Page_Lot
-            // 
-            this.Page_Lot.Controls.Add(this.redballstring);
-            this.Page_Lot.Controls.Add(this.blueballstring);
-            this.Page_Lot.Controls.Add(this.mulbox);
-            this.Page_Lot.Controls.Add(this.label1);
-            this.Page_Lot.Controls.Add(this.textBox6);
-            this.Page_Lot.Controls.Add(this.agentidbox);
-            this.Page_Lot.Controls.Add(this.label2);
-            this.Page_Lot.Controls.Add(this.label4);
-            this.Page_Lot.Controls.Add(this.gamenamebox);
-            this.Page_Lot.Controls.Add(this.drawnobox);
-            this.Page_Lot.Controls.Add(this.label3);
-            this.Page_Lot.Location = new System.Drawing.Point(4, 22);
-            this.Page_Lot.Name = "Page_Lot";
-            this.Page_Lot.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_Lot.Size = new System.Drawing.Size(807, 126);
-            this.Page_Lot.TabIndex = 1;
-            this.Page_Lot.Text = "LOT";
-            this.Page_Lot.UseVisualStyleBackColor = true;
             // 
             // Page_C515
             // 
@@ -418,11 +397,45 @@
             this.Page_C515.Location = new System.Drawing.Point(4, 22);
             this.Page_C515.Name = "Page_C515";
             this.Page_C515.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_C515.Size = new System.Drawing.Size(807, 126);
+            this.Page_C515.Size = new System.Drawing.Size(807, 202);
             this.Page_C515.TabIndex = 0;
             this.Page_C515.Text = "C515";
             this.Page_C515.UseVisualStyleBackColor = true;
             this.Page_C515.Click += new System.EventHandler(this.Page_C515_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(4, 88);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "小计";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(50, 93);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(100, 21);
+            this.textBox17.TabIndex = 33;
+            // 
+            // label_Lsh
+            // 
+            this.label_Lsh.AutoSize = true;
+            this.label_Lsh.Location = new System.Drawing.Point(5, 73);
+            this.label_Lsh.Name = "label_Lsh";
+            this.label_Lsh.Size = new System.Drawing.Size(41, 12);
+            this.label_Lsh.TabIndex = 30;
+            this.label_Lsh.Text = "流水号";
+            this.label_Lsh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox_Lsh
+            // 
+            this.textBox_Lsh.Location = new System.Drawing.Point(50, 70);
+            this.textBox_Lsh.Name = "textBox_Lsh";
+            this.textBox_Lsh.Size = new System.Drawing.Size(100, 21);
+            this.textBox_Lsh.TabIndex = 31;
             // 
             // textBox13
             // 
@@ -450,10 +463,10 @@
             // 
             // label_AgentId
             // 
-            this.label_AgentId.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_AgentId.Location = new System.Drawing.Point(4, 44);
+            this.label_AgentId.AutoSize = true;
+            this.label_AgentId.Location = new System.Drawing.Point(6, 50);
             this.label_AgentId.Name = "label_AgentId";
-            this.label_AgentId.Size = new System.Drawing.Size(50, 21);
+            this.label_AgentId.Size = new System.Drawing.Size(29, 12);
             this.label_AgentId.TabIndex = 19;
             this.label_AgentId.Text = "站点";
             this.label_AgentId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -467,7 +480,7 @@
             // 
             // textBox_AgentId
             // 
-            this.textBox_AgentId.Location = new System.Drawing.Point(60, 44);
+            this.textBox_AgentId.Location = new System.Drawing.Point(50, 53);
             this.textBox_AgentId.Name = "textBox_AgentId";
             this.textBox_AgentId.Size = new System.Drawing.Size(100, 21);
             this.textBox_AgentId.TabIndex = 20;
@@ -475,11 +488,11 @@
             // 
             // label_GameNo
             // 
-            this.label_GameNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_GameNo.AutoSize = true;
             this.label_GameNo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_GameNo.Location = new System.Drawing.Point(4, 0);
+            this.label_GameNo.Location = new System.Drawing.Point(6, 9);
             this.label_GameNo.Name = "label_GameNo";
-            this.label_GameNo.Size = new System.Drawing.Size(50, 21);
+            this.label_GameNo.Size = new System.Drawing.Size(29, 12);
             this.label_GameNo.TabIndex = 21;
             this.label_GameNo.Text = "玩法";
             this.label_GameNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -487,7 +500,7 @@
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.Location = new System.Drawing.Point(419, 53);
+            this.label11.Location = new System.Drawing.Point(419, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 12);
             this.label11.TabIndex = 27;
@@ -495,7 +508,7 @@
             // 
             // textBox_GameName
             // 
-            this.textBox_GameName.Location = new System.Drawing.Point(60, 0);
+            this.textBox_GameName.Location = new System.Drawing.Point(50, 6);
             this.textBox_GameName.Name = "textBox_GameName";
             this.textBox_GameName.Size = new System.Drawing.Size(100, 21);
             this.textBox_GameName.TabIndex = 22;
@@ -503,7 +516,7 @@
             // 
             // textBox_DrawNo
             // 
-            this.textBox_DrawNo.Location = new System.Drawing.Point(60, 22);
+            this.textBox_DrawNo.Location = new System.Drawing.Point(50, 29);
             this.textBox_DrawNo.Name = "textBox_DrawNo";
             this.textBox_DrawNo.Size = new System.Drawing.Size(100, 21);
             this.textBox_DrawNo.TabIndex = 25;
@@ -511,14 +524,36 @@
             // 
             // lable_DrawNo
             // 
-            this.lable_DrawNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lable_DrawNo.AutoSize = true;
             this.lable_DrawNo.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lable_DrawNo.Location = new System.Drawing.Point(4, 22);
+            this.lable_DrawNo.Location = new System.Drawing.Point(6, 31);
+            this.lable_DrawNo.Margin = new System.Windows.Forms.Padding(3);
             this.lable_DrawNo.Name = "lable_DrawNo";
-            this.lable_DrawNo.Size = new System.Drawing.Size(50, 21);
+            this.lable_DrawNo.Size = new System.Drawing.Size(29, 12);
             this.lable_DrawNo.TabIndex = 26;
             this.lable_DrawNo.Text = "期号";
             this.lable_DrawNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Page_Lot
+            // 
+            this.Page_Lot.Controls.Add(this.redballstring);
+            this.Page_Lot.Controls.Add(this.blueballstring);
+            this.Page_Lot.Controls.Add(this.mulbox);
+            this.Page_Lot.Controls.Add(this.label1);
+            this.Page_Lot.Controls.Add(this.textBox6);
+            this.Page_Lot.Controls.Add(this.agentidbox);
+            this.Page_Lot.Controls.Add(this.label2);
+            this.Page_Lot.Controls.Add(this.label4);
+            this.Page_Lot.Controls.Add(this.gamenamebox);
+            this.Page_Lot.Controls.Add(this.drawnobox);
+            this.Page_Lot.Controls.Add(this.label3);
+            this.Page_Lot.Location = new System.Drawing.Point(4, 22);
+            this.Page_Lot.Name = "Page_Lot";
+            this.Page_Lot.Padding = new System.Windows.Forms.Padding(3);
+            this.Page_Lot.Size = new System.Drawing.Size(807, 202);
+            this.Page_Lot.TabIndex = 1;
+            this.Page_Lot.Text = "LOT";
+            this.Page_Lot.UseVisualStyleBackColor = true;
             // 
             // Page_P3
             // 
@@ -536,7 +571,7 @@
             this.Page_P3.Location = new System.Drawing.Point(4, 22);
             this.Page_P3.Name = "Page_P3";
             this.Page_P3.Padding = new System.Windows.Forms.Padding(3);
-            this.Page_P3.Size = new System.Drawing.Size(807, 126);
+            this.Page_P3.Size = new System.Drawing.Size(807, 202);
             this.Page_P3.TabIndex = 2;
             this.Page_P3.Text = "3D";
             this.Page_P3.UseVisualStyleBackColor = true;
@@ -681,40 +716,6 @@
             this.Num_0.Text = "0";
             this.Num_0.UseVisualStyleBackColor = true;
             // 
-            // label_Lsh
-            // 
-            this.label_Lsh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_Lsh.Location = new System.Drawing.Point(4, 66);
-            this.label_Lsh.Name = "label_Lsh";
-            this.label_Lsh.Size = new System.Drawing.Size(50, 21);
-            this.label_Lsh.TabIndex = 30;
-            this.label_Lsh.Text = "流水号";
-            this.label_Lsh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox_Lsh
-            // 
-            this.textBox_Lsh.Location = new System.Drawing.Point(60, 66);
-            this.textBox_Lsh.Name = "textBox_Lsh";
-            this.textBox_Lsh.Size = new System.Drawing.Size(100, 21);
-            this.textBox_Lsh.TabIndex = 31;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.Location = new System.Drawing.Point(4, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 21);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "小计";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(60, 88);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 21);
-            this.textBox17.TabIndex = 33;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -733,10 +734,10 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl1.ResumeLayout(false);
-            this.Page_Lot.ResumeLayout(false);
-            this.Page_Lot.PerformLayout();
             this.Page_C515.ResumeLayout(false);
             this.Page_C515.PerformLayout();
+            this.Page_Lot.ResumeLayout(false);
+            this.Page_Lot.PerformLayout();
             this.Page_P3.ResumeLayout(false);
             this.Page_P3.PerformLayout();
             this.panel1.ResumeLayout(false);
