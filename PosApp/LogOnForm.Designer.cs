@@ -43,6 +43,7 @@
             this.label_IP = new System.Windows.Forms.Label();
             this.textBox_Port = new System.Windows.Forms.TextBox();
             this.textBox_IP = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_LogOn.SuspendLayout();
             this.panel_SetConfig.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +93,6 @@
             // panel_LogOn
             // 
             this.panel_LogOn.Controls.Add(this.Btn_Exit);
-            this.panel_LogOn.Controls.Add(this.Btn_Set);
             this.panel_LogOn.Controls.Add(this.Btn_SignIn);
             this.panel_LogOn.Controls.Add(this.label_PsWd);
             this.panel_LogOn.Controls.Add(this.label_UserName);
@@ -115,11 +115,11 @@
             // 
             // Btn_Set
             // 
-            this.Btn_Set.Location = new System.Drawing.Point(246, 174);
+            this.Btn_Set.Location = new System.Drawing.Point(242, 50);
             this.Btn_Set.Name = "Btn_Set";
-            this.Btn_Set.Size = new System.Drawing.Size(51, 23);
+            this.Btn_Set.Size = new System.Drawing.Size(150, 30);
             this.Btn_Set.TabIndex = 5;
-            this.Btn_Set.Text = "Set";
+            this.Btn_Set.Text = "Setting";
             this.Btn_Set.UseVisualStyleBackColor = true;
             this.Btn_Set.Click += new System.EventHandler(this.Btn_Set_Click);
             // 
@@ -189,11 +189,22 @@
             this.textBox_IP.Size = new System.Drawing.Size(100, 21);
             this.textBox_IP.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(92, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 30);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // LogOnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_Set);
             this.Controls.Add(this.panel_LogOn);
             this.Controls.Add(this.panel_SetConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -227,5 +238,6 @@
         private System.Windows.Forms.Button Btn_Save;
         private System.Windows.Forms.Button Btn_Set;
         private System.Windows.Forms.Button Btn_Exit;
+        private System.Windows.Forms.Button button1;
     }
 }

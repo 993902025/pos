@@ -34,16 +34,12 @@ namespace WindowsFormsApp2
         //登录 按钮
         private void Btn_SignIn_Click(object sender, EventArgs e)
         {
-
             if (Con_Director(ip, port) == 0)
             {
-
-                this.DialogResult = DialogResult.OK;
-
-                this.Close();
-                                                               
+                this.DialogResult = DialogResult.OK;   
             }
 
+            this.Close();
         }
 
         int Con_Director(string ip, int port)
@@ -110,9 +106,7 @@ namespace WindowsFormsApp2
 
         private void Btn_Exit_Click(object sender, EventArgs e)
         {
-
             this.DialogResult = DialogResult.Cancel;
-
             this.Close();
         }
 
@@ -128,6 +122,11 @@ namespace WindowsFormsApp2
         {
             panel_LogOn.Visible = true;
             panel_SetConfig.Visible = false;
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

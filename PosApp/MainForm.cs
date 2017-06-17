@@ -17,8 +17,17 @@ namespace WindowsFormsApp2
 {
     public partial class MainForm : Form
     {
-        public LogOnForm logonform;
-        int _pageNum;        //界面标记 1=主界面 2=投注界面
+        /*
+         * 定义类
+         */
+        public LogOnForm logonform;     //登录界面类
+        public PosBack posback;     //后台业务处理类
+        PosConfig posconfig;        //配置文件类      
+        /*
+         *界面参数配置 
+         */
+        public static short _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
+        string _loginPattern;       //启动模式，由配置文件获取
 
         SocketClass betsock = new SocketClass();
 
@@ -29,15 +38,11 @@ namespace WindowsFormsApp2
         
         string smsg2 = "";
         string ServerIP = "10.1.1.192";
-        int selport = 9902;
+        //int selport = 9902;
         int betport = 9901;
         static int _lsh = 1;
         Timer dtime;
-
-        PosConfig posconfig;
-
-        short logonformswitch;
-
+        
         public MainForm()
         {
             InitializeComponent();
@@ -45,74 +50,111 @@ namespace WindowsFormsApp2
             dtime.Interval = 1000;
             dtime.Tick += new EventHandler(dtime_tick);
             posconfig = new PosConfig();
+            posback = new PosBack();
+            logonform = new LogOnForm();
+            _pageNum = 1;
+            _loginPattern = posconfig.LoginPattern;
 
         }
+
+        //处理登录界面返回结果
+        int LogonFormResult(short pageNum)
+        {
+            //确认登录
+            if (logonform.DialogResult == DialogResult.OK)
+            {                
+                try
+                {
+                    //  TODO:   此处建立acceptor连接
+                    //          调用取参
+
+                    //
+                    logonform.Close();
+                    return 0;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    return 100;
+                }
+            }
+            //退出 or 取消登录
+            else if(logonform.DialogResult == DialogResult.Cancel)
+            {
+                //程序启动时将直接退出，而不是返回主界面
+                if (_pageNum == 0)
+                {
+                    try
+                    {
+                        this.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.ToString());
+                        throw;
+                    }
+                    return -1;
+                }                
+                try
+                {
+                    logonform.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+                return 0;
+            }
+            return -2;
+        }
+
+        //加载主界面
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            logonform = new LogOnForm();
-            logonform.ShowDialog();
-            if (logonform.DialogResult == DialogResult.OK)
+            if (_pageNum == 0)
             {
-                label_LoginPattern.Text = posconfig.LoginPattern;
-                dtime.Start();
-                //Application.Run(new MainForm());
-                try
+                logonform.ShowDialog();     //加载登录界面
+                if ( LogonFormResult(_pageNum) == 0) //登录结果
                 {
-                    logonform.Close();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                    throw;
-                }
+                    //posback.GetPra();
+                }      
             }
-            else
-            {
-                try
-                {
+            _pageNum = 1;
+            label_LoginPattern.Text = posconfig.LoginPattern;   //显示启动模式
+            dtime.Start();      //开启显示时间
+            posback.GetPra();       //模拟取参
+            Update_panel_Parameters_Show();
+            tabControl1.Visible = true;
+            panel_Parameters.Visible = true;
 
-                    this.Close();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                    throw;
-                }
-
-                try
-                {
-
-                    logonform.Close();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                    throw;
-                }
-
-                return;
-            }
+            toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
+            toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
+            toolTip1.SetToolTip(label_Date, posconfig.ServerIP + "\r\n" + posconfig.Port);
 
 
-            if (true)
-            {
-
-            }
-
-            //_pageNum = 1;
-            //ShowPage_1(_pageNum);
         }
 
+        void Update_panel_Parameters_Show()
+        {
+            
+            GameName.Text = posback.gamename;
+            DrawNo.Text = posback.drawno;
+            AgentId.Text = posback.xszbm;
+            Lsh.Text = posback.lsh;
+            SmallCount.Text = posback.smallcount;
+            Balance.Text = posback.balance;
+            TQTime.Text = posback.tqtime;
+
+        }
+
+        //显示时间
         void dtime_tick(object sender, EventArgs e)
         {
+            //显示时间
             label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
         }
 
-        void LogonFormSwitch()
-        {
-
-        }
 
         void ShowPage_1(int pagenum)
         {
@@ -125,14 +167,37 @@ namespace WindowsFormsApp2
         {
 
         }
-        string _agentpra, _pra;
-        int GetPra(string agentpra, ref string pra)
+
+        
+        //点击标签切换玩法
+        private void Page_C515_Click(object sender, EventArgs e)
         {
-            int re_num = 0;
-            return re_num;
+
         }
 
+        //投注 F8
+        private void Num_F8_Click(object sender, EventArgs e)
+        {
+            Betqueren();
+        }
 
+        //登录\注销
+        private void Btn_Logonoff_Click(object sender, EventArgs e)
+        {
+            logonform = new LogOnForm();
+            logonform.ShowDialog();            
+            LogonFormResult(_pageNum);
+        }
+
+        //投注确认 显示票面
+        void Betqueren()
+        {
+            if (true)
+            {
+                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
+            }
+        }
+        
 
         //select 
         private void button1_Click(object sender, EventArgs e)
@@ -141,13 +206,16 @@ namespace WindowsFormsApp2
         }
 
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_test_Click(object sender, EventArgs e)
         {
+            PosFile pf = new PosFile(); 
+            textBox_test.Text += pf.ReadFile();
+            textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
         }
 
-        //新期查询
+        //新期查询 暂未启用 lias投注版本的
         private void issuequery_msg()
         {
             //SocketClass selsock = new SocketClass();
@@ -270,23 +338,23 @@ namespace WindowsFormsApp2
             }
             else if (-1 == betnum.cfof_check_ball(sball, ref playtype, ref money))
             {
-                textBox4.Text += "\r\n[ERR]:" + "投注号码个数有误";
+                textBox_test.Text += "\r\n[ERR]:" + "投注号码个数有误";
                 return "";
             }
             else if (-3 == betnum.cfof_check_ball(sball, ref playtype, ref money))
             {
-                textBox4.Text += "\r\n[ERR]:" + "投注号码有重复";
+                textBox_test.Text += "\r\n[ERR]:" + "投注号码有重复";
                 return "";
             }
             else
             {
-                textBox4.Text += "\r\n[ERR]:" + betnum.cfof_check_ball(sball, ref playtype, ref money);
+                textBox_test.Text += "\r\n[ERR]:" + betnum.cfof_check_ball(sball, ref playtype, ref money);
                 return "";
             }
         }
         #endregion
 
-        //投注
+        //投注 暂未启用 lias投注版本的
         private void bet_msg(string betbody)
         {
             if (betbody.Length == 0 || betbody == "")
@@ -318,23 +386,23 @@ namespace WindowsFormsApp2
                 //接受recv
                 string srecmsg = betsock.recvmsg();
 
-                textBox4.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
+                textBox_test.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
                 string[] sArray = srecmsg.Split('|');
 
                 string srembody = sArray[7];
                 BzWebSec.WebDecodeString(srembody, sk, s2);
                 string srebody = s2.ToString();
 
-                textBox4.Text += "\r\n" + srebody;
+                textBox_test.Text += "\r\n" + srebody;
             }
             else
             {
-                textBox4.Text += " " + "\r\n" + SocketClass.errstring;
+                textBox_test.Text += " " + "\r\n" + SocketClass.errstring;
             }
 
         }
 
-        //bet button
+        //bet button 弃用 lias投注版本的
         private void button3_Click(object sender, EventArgs e)
         {
             string sball = textBox13.Text;
@@ -342,11 +410,19 @@ namespace WindowsFormsApp2
             bet_msg(sendbetstr);
         }
 
+        //关闭窗口事件
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            if (_pageNum == 0)  //完整版应该为 (_pageNum != 0 ) 调试版本省略确认框 == 0
             {
-                
+                if (MessageBox.Show("确认退出程序？", "程序退出确认", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+
+            }
+            try
+            {                
                 betsock.closesock();
             }
             catch
@@ -354,6 +430,7 @@ namespace WindowsFormsApp2
             }
         }
 
+        //信息输出栏定位末行
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             textBox3.Focus();//获取焦点
@@ -361,36 +438,18 @@ namespace WindowsFormsApp2
             textBox3.ScrollToCaret();
         }
 
+        //信息输出栏定位末行
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             
-            textBox4.Focus();//获取焦点
-            textBox4.Select(textBox4.TextLength, 0);//光标定位到文本最后
-            textBox4.ScrollToCaret();
+            textBox_test.Focus();//获取焦点
+            textBox_test.Select(textBox_test.TextLength, 0);//光标定位到文本最后
+            textBox_test.ScrollToCaret();
             
         }
 
-        private void Page_C515_Click(object sender, EventArgs e)
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
-            
-        }
-
-        private void Num_F8_Click(object sender, EventArgs e)
-        {
-            Betqueren();
-        }
-
-        private void Btn_Logonoff_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        void Betqueren()
-        {
-            if (true)
-            {
-                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
-            }
         }
 
         

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.select_button = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBox_test = new System.Windows.Forms.TextBox();
+            this.btn_test = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.Num_Enter = new System.Windows.Forms.Button();
             this.Num_3 = new System.Windows.Forms.Button();
@@ -166,14 +167,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox_LotteryPicture = new System.Windows.Forms.GroupBox();
             this.Btn_Logonoff = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.Page_C515.SuspendLayout();
             this.panel_Parameters.SuspendLayout();
             this.panel_Bet.SuspendLayout();
             this.panel_SmallKeyBoard.SuspendLayout();
             this.panel_keyboard.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel_SomePra.SuspendLayout();
             this.SuspendLayout();
             // 
             // select_button
@@ -198,26 +200,26 @@
             this.textBox3.TabIndex = 3;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox4
+            // textBox_test
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox4.Location = new System.Drawing.Point(32, 610);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(208, 55);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.textBox_test.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.textBox_test.Location = new System.Drawing.Point(688, 414);
+            this.textBox_test.Multiline = true;
+            this.textBox_test.Name = "textBox_test";
+            this.textBox_test.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_test.Size = new System.Drawing.Size(277, 106);
+            this.textBox_test.TabIndex = 4;
+            this.textBox_test.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // button2
+            // btn_test
             // 
-            this.button2.Location = new System.Drawing.Point(246, 601);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "showbet";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_test.Location = new System.Drawing.Point(813, 534);
+            this.btn_test.Name = "btn_test";
+            this.btn_test.Size = new System.Drawing.Size(75, 23);
+            this.btn_test.TabIndex = 5;
+            this.btn_test.Text = "test";
+            this.btn_test.UseVisualStyleBackColor = true;
+            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // button3
             // 
@@ -1716,14 +1718,13 @@
             this.panel_keyboard.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
             this.panel_keyboard.Size = new System.Drawing.Size(610, 285);
             this.panel_keyboard.TabIndex = 26;
-            this.panel_keyboard.Visible = false;
             // 
             // label_Date
             // 
             this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(203, 0);
+            this.label_Date.Location = new System.Drawing.Point(180, 0);
             this.label_Date.Name = "label_Date";
             this.label_Date.Size = new System.Drawing.Size(161, 28);
             this.label_Date.TabIndex = 1;
@@ -1735,12 +1736,12 @@
             this.label_Date0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Date0.AutoSize = true;
-            this.label_Date0.Location = new System.Drawing.Point(156, 0);
+            this.label_Date0.Location = new System.Drawing.Point(133, 0);
             this.label_Date0.Name = "label_Date0";
             this.label_Date0.Size = new System.Drawing.Size(41, 28);
             this.label_Date0.TabIndex = 0;
             this.label_Date0.Text = "时间：";
-            this.label_Date0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_Date0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_LoginPattern
             // 
@@ -1748,7 +1749,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_LoginPattern.Location = new System.Drawing.Point(50, 0);
             this.label_LoginPattern.Name = "label_LoginPattern";
-            this.label_LoginPattern.Size = new System.Drawing.Size(100, 28);
+            this.label_LoginPattern.Size = new System.Drawing.Size(77, 28);
             this.label_LoginPattern.TabIndex = 2;
             this.label_LoginPattern.Text = "LoginPattern";
             this.label_LoginPattern.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1762,14 +1763,14 @@
             this.label2.Size = new System.Drawing.Size(41, 28);
             this.label2.TabIndex = 3;
             this.label2.Text = "模式：";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox_LotteryPicture
             // 
             this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(772, 69);
+            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(772, 44);
             this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
-            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(269, 297);
+            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(270, 300);
             this.groupBox_LotteryPicture.TabIndex = 28;
             this.groupBox_LotteryPicture.TabStop = false;
             this.groupBox_LotteryPicture.Text = "票面";
@@ -1781,7 +1782,7 @@
             this.Btn_Logonoff.AutoSize = true;
             this.Btn_Logonoff.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Btn_Logonoff.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Btn_Logonoff.Location = new System.Drawing.Point(370, 3);
+            this.Btn_Logonoff.Location = new System.Drawing.Point(347, 3);
             this.Btn_Logonoff.Name = "Btn_Logonoff";
             this.Btn_Logonoff.Size = new System.Drawing.Size(69, 22);
             this.Btn_Logonoff.TabIndex = 4;
@@ -1789,39 +1790,46 @@
             this.Btn_Logonoff.UseVisualStyleBackColor = true;
             this.Btn_Logonoff.Click += new System.EventHandler(this.Btn_Logonoff_Click);
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel_SomePra
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.Btn_Logonoff, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label_Date, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label_LoginPattern, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label_Date0, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(599, 10);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(442, 28);
-            this.tableLayoutPanel1.TabIndex = 29;
+            this.tableLayoutPanel_SomePra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel_SomePra.AutoSize = true;
+            this.tableLayoutPanel_SomePra.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel_SomePra.ColumnCount = 5;
+            this.tableLayoutPanel_SomePra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel_SomePra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel_SomePra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel_SomePra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel_SomePra.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel_SomePra.Controls.Add(this.Btn_Logonoff, 4, 0);
+            this.tableLayoutPanel_SomePra.Controls.Add(this.label_Date, 3, 0);
+            this.tableLayoutPanel_SomePra.Controls.Add(this.label_LoginPattern, 1, 0);
+            this.tableLayoutPanel_SomePra.Controls.Add(this.label_Date0, 2, 0);
+            this.tableLayoutPanel_SomePra.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel_SomePra.Location = new System.Drawing.Point(622, 10);
+            this.tableLayoutPanel_SomePra.Name = "tableLayoutPanel_SomePra";
+            this.tableLayoutPanel_SomePra.RowCount = 1;
+            this.tableLayoutPanel_SomePra.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel_SomePra.Size = new System.Drawing.Size(419, 28);
+            this.tableLayoutPanel_SomePra.TabIndex = 29;
+            this.toolTip1.SetToolTip(this.tableLayoutPanel_SomePra, "ip port");
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 677);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel_SomePra);
             this.Controls.Add(this.panel_keyboard);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btn_test);
+            this.Controls.Add(this.textBox_test);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.select_button);
             this.Controls.Add(this.tabControl1);
@@ -1843,8 +1851,8 @@
             this.panel_Bet.PerformLayout();
             this.panel_SmallKeyBoard.ResumeLayout(false);
             this.panel_keyboard.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel_SomePra.ResumeLayout(false);
+            this.tableLayoutPanel_SomePra.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1854,8 +1862,8 @@
 
         private System.Windows.Forms.Button select_button;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox_test;
+        private System.Windows.Forms.Button btn_test;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button Num_Enter;
         private System.Windows.Forms.Button Num_3;
@@ -1989,7 +1997,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox_LotteryPicture;
         private System.Windows.Forms.Button Btn_Logonoff;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SomePra;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
