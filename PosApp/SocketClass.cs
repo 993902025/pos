@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 
-namespace WindowsFormsApp2
+namespace LotPos
 {
     public class SocketClass
     {

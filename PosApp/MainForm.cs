@@ -13,7 +13,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 
 
-namespace WindowsFormsApp2
+namespace LotPos
 {
     public partial class MainForm : Form
     {
@@ -209,7 +209,6 @@ namespace WindowsFormsApp2
         private void btn_test_Click(object sender, EventArgs e)
         {
             PosFile pf = new PosFile(); 
-            textBox_test.Text += pf.ReadFile();
             textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);

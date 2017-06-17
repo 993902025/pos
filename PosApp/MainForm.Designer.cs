@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace LotPos
 {
     partial class MainForm
     {

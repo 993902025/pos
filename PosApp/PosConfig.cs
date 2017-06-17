@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 //using System.Data;
 
-namespace WindowsFormsApp2
+namespace LotPos
 {
     public class PosConfig
     {
