@@ -17,8 +17,9 @@ namespace WindowsFormsApp2
         public string configName;
 
         public string configValue;
-        string ServerIP;
-        int Port;
+        public string ServerIP;
+        public int Port;
+        public string LoginPattern;
 
         public void GetIPAndPort(ref string serverip, ref int port)
         {
@@ -30,6 +31,10 @@ namespace WindowsFormsApp2
 
             Console.WriteLine("|" + serverip + "\t" + port);
 
+        }
+        public void GetLoginPattern()
+        {
+            LoginPattern = ConfigurationManager.AppSettings["LoginPattern"];
         }
 
         public void UpdateIp(string serverip)
@@ -48,12 +53,16 @@ namespace WindowsFormsApp2
 
         {
 
+            ServerIP = ConfigurationManager.AppSettings["ServerIP"];
+
+            Port = Convert.ToInt16(ConfigurationManager.AppSettings["Port"]);
             //
+            LoginPattern = ConfigurationManager.AppSettings["LoginPattern"];
 
             // TODO: 在此处添加构造函数逻辑
 
             //
-    
+
         }
 
         public string ReadConfig(string configKey)

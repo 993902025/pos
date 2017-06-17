@@ -160,12 +160,20 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.panel_keyboard = new System.Windows.Forms.Panel();
+            this.label_Date = new System.Windows.Forms.Label();
+            this.label_Date0 = new System.Windows.Forms.Label();
+            this.label_LoginPattern = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox_LotteryPicture = new System.Windows.Forms.GroupBox();
+            this.Btn_Logonoff = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.Page_C515.SuspendLayout();
             this.panel_Parameters.SuspendLayout();
             this.panel_Bet.SuspendLayout();
             this.panel_SmallKeyBoard.SuspendLayout();
             this.panel_keyboard.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // select_button
@@ -270,6 +278,7 @@
             this.Num_F8.TabIndex = 7;
             this.Num_F8.Text = "F8\r\n(bet)";
             this.Num_F8.UseVisualStyleBackColor = true;
+            this.Num_F8.Click += new System.EventHandler(this.Num_F8_Click);
             // 
             // Num_6
             // 
@@ -351,7 +360,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(842, 265);
+            this.tabControl1.Size = new System.Drawing.Size(610, 265);
             this.tabControl1.TabIndex = 19;
             this.tabControl1.Visible = false;
             // 
@@ -364,7 +373,7 @@
             this.Page_C515.Margin = new System.Windows.Forms.Padding(10);
             this.Page_C515.Name = "Page_C515";
             this.Page_C515.Padding = new System.Windows.Forms.Padding(10);
-            this.Page_C515.Size = new System.Drawing.Size(834, 239);
+            this.Page_C515.Size = new System.Drawing.Size(602, 239);
             this.Page_C515.TabIndex = 0;
             this.Page_C515.Text = "C515";
             this.Page_C515.Click += new System.EventHandler(this.Page_C515_Click);
@@ -660,7 +669,6 @@
             this.panel_Bet.Size = new System.Drawing.Size(401, 219);
             this.panel_Bet.TabIndex = 43;
             this.panel_Bet.Visible = false;
-            this.panel_Bet.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // Multiple
             // 
@@ -670,6 +678,7 @@
             this.Multiple.Name = "Multiple";
             this.Multiple.Size = new System.Drawing.Size(25, 21);
             this.Multiple.TabIndex = 28;
+            this.Multiple.Text = "99";
             this.Multiple.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_EBlue
@@ -1709,11 +1718,105 @@
             this.panel_keyboard.TabIndex = 26;
             this.panel_keyboard.Visible = false;
             // 
+            // label_Date
+            // 
+            this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Date.AutoSize = true;
+            this.label_Date.Location = new System.Drawing.Point(203, 0);
+            this.label_Date.Name = "label_Date";
+            this.label_Date.Size = new System.Drawing.Size(161, 28);
+            this.label_Date.TabIndex = 1;
+            this.label_Date.Text = "2017-06-17 12:54:57 星期六";
+            this.label_Date.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label_Date0
+            // 
+            this.label_Date0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Date0.AutoSize = true;
+            this.label_Date0.Location = new System.Drawing.Point(156, 0);
+            this.label_Date0.Name = "label_Date0";
+            this.label_Date0.Size = new System.Drawing.Size(41, 28);
+            this.label_Date0.TabIndex = 0;
+            this.label_Date0.Text = "时间：";
+            this.label_Date0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label_LoginPattern
+            // 
+            this.label_LoginPattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_LoginPattern.Location = new System.Drawing.Point(50, 0);
+            this.label_LoginPattern.Name = "label_LoginPattern";
+            this.label_LoginPattern.Size = new System.Drawing.Size(100, 28);
+            this.label_LoginPattern.TabIndex = 2;
+            this.label_LoginPattern.Text = "LoginPattern";
+            this.label_LoginPattern.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "模式：";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox_LotteryPicture
+            // 
+            this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(772, 69);
+            this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
+            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(269, 297);
+            this.groupBox_LotteryPicture.TabIndex = 28;
+            this.groupBox_LotteryPicture.TabStop = false;
+            this.groupBox_LotteryPicture.Text = "票面";
+            // 
+            // Btn_Logonoff
+            // 
+            this.Btn_Logonoff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Logonoff.AutoSize = true;
+            this.Btn_Logonoff.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Btn_Logonoff.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Btn_Logonoff.Location = new System.Drawing.Point(370, 3);
+            this.Btn_Logonoff.Name = "Btn_Logonoff";
+            this.Btn_Logonoff.Size = new System.Drawing.Size(69, 22);
+            this.Btn_Logonoff.TabIndex = 4;
+            this.Btn_Logonoff.Text = "登录/注销";
+            this.Btn_Logonoff.UseVisualStyleBackColor = true;
+            this.Btn_Logonoff.Click += new System.EventHandler(this.Btn_Logonoff_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.Btn_Logonoff, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label_Date, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label_LoginPattern, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label_Date0, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(599, 10);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(442, 28);
+            this.tableLayoutPanel1.TabIndex = 29;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 677);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel_keyboard);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox13);
@@ -1722,6 +1825,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.select_button);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.groupBox_LotteryPicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Alpha;
@@ -1739,6 +1843,8 @@
             this.panel_Bet.PerformLayout();
             this.panel_SmallKeyBoard.ResumeLayout(false);
             this.panel_keyboard.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1877,6 +1983,13 @@
         private System.Windows.Forms.TextBox BetNo_A9;
         private System.Windows.Forms.Label label_BlueBetNo;
         private System.Windows.Forms.Label label_NinthBetNo;
+        private System.Windows.Forms.Label label_Date0;
+        private System.Windows.Forms.Label label_Date;
+        private System.Windows.Forms.Label label_LoginPattern;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox_LotteryPicture;
+        private System.Windows.Forms.Button Btn_Logonoff;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

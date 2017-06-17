@@ -24,14 +24,11 @@ namespace WindowsFormsApp2
 
         private void LogOnForm_Load(object sender, EventArgs e)
         {
-
-
-
+            
             posconfig = new PosConfig();
 
             posconfig.GetIPAndPort(ref ip, ref port);
-
-
+            
         }
 
         //登录 按钮
@@ -40,12 +37,11 @@ namespace WindowsFormsApp2
 
             if (Con_Director(ip, port) == 0)
             {
+
                 this.DialogResult = DialogResult.OK;
 
                 this.Close();
-
-
-                
+                                                               
             }
 
         }

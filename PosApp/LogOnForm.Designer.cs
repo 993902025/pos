@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_UserName = new System.Windows.Forms.TextBox();
+            this.textBox_PsWd = new System.Windows.Forms.TextBox();
+            this.label_UserName = new System.Windows.Forms.Label();
+            this.label_PsWd = new System.Windows.Forms.Label();
             this.Btn_SignIn = new System.Windows.Forms.Button();
             this.panel_LogOn = new System.Windows.Forms.Panel();
             this.Btn_Exit = new System.Windows.Forms.Button();
@@ -47,41 +47,41 @@
             this.panel_SetConfig.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBox_UserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 0;
+            this.textBox_UserName.Location = new System.Drawing.Point(133, 34);
+            this.textBox_UserName.Name = "textBox_UserName";
+            this.textBox_UserName.Size = new System.Drawing.Size(100, 21);
+            this.textBox_UserName.TabIndex = 0;
             // 
-            // textBox2
+            // textBox_PsWd
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 1;
+            this.textBox_PsWd.Location = new System.Drawing.Point(133, 98);
+            this.textBox_PsWd.Name = "textBox_PsWd";
+            this.textBox_PsWd.Size = new System.Drawing.Size(100, 21);
+            this.textBox_PsWd.TabIndex = 1;
             // 
-            // label1
+            // label_UserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label_UserName.AutoSize = true;
+            this.label_UserName.Location = new System.Drawing.Point(67, 37);
+            this.label_UserName.Name = "label_UserName";
+            this.label_UserName.Size = new System.Drawing.Size(53, 12);
+            this.label_UserName.TabIndex = 2;
+            this.label_UserName.Text = "UserName";
             // 
-            // label2
+            // label_PsWd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label_PsWd.AutoSize = true;
+            this.label_PsWd.Location = new System.Drawing.Point(67, 101);
+            this.label_PsWd.Name = "label_PsWd";
+            this.label_PsWd.Size = new System.Drawing.Size(53, 12);
+            this.label_PsWd.TabIndex = 3;
+            this.label_PsWd.Text = "PassWord";
             // 
             // Btn_SignIn
             // 
-            this.Btn_SignIn.Location = new System.Drawing.Point(56, 135);
+            this.Btn_SignIn.Location = new System.Drawing.Point(68, 143);
             this.Btn_SignIn.Name = "Btn_SignIn";
             this.Btn_SignIn.Size = new System.Drawing.Size(71, 23);
             this.Btn_SignIn.TabIndex = 4;
@@ -94,20 +94,20 @@
             this.panel_LogOn.Controls.Add(this.Btn_Exit);
             this.panel_LogOn.Controls.Add(this.Btn_Set);
             this.panel_LogOn.Controls.Add(this.Btn_SignIn);
-            this.panel_LogOn.Controls.Add(this.label2);
-            this.panel_LogOn.Controls.Add(this.label1);
-            this.panel_LogOn.Controls.Add(this.textBox2);
-            this.panel_LogOn.Controls.Add(this.textBox1);
-            this.panel_LogOn.Location = new System.Drawing.Point(100, 50);
+            this.panel_LogOn.Controls.Add(this.label_PsWd);
+            this.panel_LogOn.Controls.Add(this.label_UserName);
+            this.panel_LogOn.Controls.Add(this.textBox_PsWd);
+            this.panel_LogOn.Controls.Add(this.textBox_UserName);
+            this.panel_LogOn.Location = new System.Drawing.Point(92, 80);
             this.panel_LogOn.Name = "panel_LogOn";
             this.panel_LogOn.Size = new System.Drawing.Size(300, 200);
             this.panel_LogOn.TabIndex = 5;
             // 
             // Btn_Exit
             // 
-            this.Btn_Exit.Location = new System.Drawing.Point(153, 135);
+            this.Btn_Exit.Location = new System.Drawing.Point(162, 143);
             this.Btn_Exit.Name = "Btn_Exit";
-            this.Btn_Exit.Size = new System.Drawing.Size(67, 23);
+            this.Btn_Exit.Size = new System.Drawing.Size(71, 23);
             this.Btn_Exit.TabIndex = 6;
             this.Btn_Exit.Text = "Exit";
             this.Btn_Exit.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.panel_SetConfig.Controls.Add(this.label_IP);
             this.panel_SetConfig.Controls.Add(this.textBox_Port);
             this.panel_SetConfig.Controls.Add(this.textBox_IP);
-            this.panel_SetConfig.Location = new System.Drawing.Point(100, 60);
+            this.panel_SetConfig.Location = new System.Drawing.Point(92, 80);
             this.panel_SetConfig.Name = "panel_SetConfig";
             this.panel_SetConfig.Size = new System.Drawing.Size(300, 200);
             this.panel_SetConfig.TabIndex = 6;
@@ -139,9 +139,9 @@
             // 
             // Btn_Cancel
             // 
-            this.Btn_Cancel.Location = new System.Drawing.Point(141, 139);
+            this.Btn_Cancel.Location = new System.Drawing.Point(166, 145);
             this.Btn_Cancel.Name = "Btn_Cancel";
-            this.Btn_Cancel.Size = new System.Drawing.Size(61, 24);
+            this.Btn_Cancel.Size = new System.Drawing.Size(69, 24);
             this.Btn_Cancel.TabIndex = 5;
             this.Btn_Cancel.Text = "Cancel";
             this.Btn_Cancel.UseVisualStyleBackColor = true;
@@ -149,9 +149,9 @@
             // 
             // Btn_Save
             // 
-            this.Btn_Save.Location = new System.Drawing.Point(34, 139);
+            this.Btn_Save.Location = new System.Drawing.Point(68, 145);
             this.Btn_Save.Name = "Btn_Save";
-            this.Btn_Save.Size = new System.Drawing.Size(61, 24);
+            this.Btn_Save.Size = new System.Drawing.Size(69, 24);
             this.Btn_Save.TabIndex = 4;
             this.Btn_Save.Text = "Save";
             this.Btn_Save.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             // label_Port
             // 
             this.label_Port.AutoSize = true;
-            this.label_Port.Location = new System.Drawing.Point(31, 92);
+            this.label_Port.Location = new System.Drawing.Point(66, 98);
             this.label_Port.Name = "label_Port";
             this.label_Port.Size = new System.Drawing.Size(29, 12);
             this.label_Port.TabIndex = 3;
@@ -169,7 +169,7 @@
             // label_IP
             // 
             this.label_IP.AutoSize = true;
-            this.label_IP.Location = new System.Drawing.Point(31, 31);
+            this.label_IP.Location = new System.Drawing.Point(66, 35);
             this.label_IP.Name = "label_IP";
             this.label_IP.Size = new System.Drawing.Size(17, 12);
             this.label_IP.TabIndex = 2;
@@ -177,14 +177,14 @@
             // 
             // textBox_Port
             // 
-            this.textBox_Port.Location = new System.Drawing.Point(102, 89);
+            this.textBox_Port.Location = new System.Drawing.Point(135, 95);
             this.textBox_Port.Name = "textBox_Port";
             this.textBox_Port.Size = new System.Drawing.Size(100, 21);
             this.textBox_Port.TabIndex = 1;
             // 
             // textBox_IP
             // 
-            this.textBox_IP.Location = new System.Drawing.Point(101, 28);
+            this.textBox_IP.Location = new System.Drawing.Point(135, 32);
             this.textBox_IP.Name = "textBox_IP";
             this.textBox_IP.Size = new System.Drawing.Size(100, 21);
             this.textBox_IP.TabIndex = 0;
@@ -212,10 +212,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_UserName;
+        private System.Windows.Forms.TextBox textBox_PsWd;
+        private System.Windows.Forms.Label label_UserName;
+        private System.Windows.Forms.Label label_PsWd;
         private System.Windows.Forms.Button Btn_SignIn;
         private System.Windows.Forms.Panel panel_LogOn;
         private System.Windows.Forms.Panel panel_SetConfig;

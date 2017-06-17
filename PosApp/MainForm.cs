@@ -32,23 +32,33 @@ namespace WindowsFormsApp2
         int selport = 9902;
         int betport = 9901;
         static int _lsh = 1;
-        
+        Timer dtime;
+
+        PosConfig posconfig;
+
+        short logonformswitch;
+
         public MainForm()
         {
             InitializeComponent();
-
+            dtime = new Timer();
+            dtime.Interval = 1000;
+            dtime.Tick += new EventHandler(dtime_tick);
+            posconfig = new PosConfig();
 
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
             logonform = new LogOnForm();
             logonform.ShowDialog();
             if (logonform.DialogResult == DialogResult.OK)
             {
+                label_LoginPattern.Text = posconfig.LoginPattern;
+                dtime.Start();
                 //Application.Run(new MainForm());
                 try
                 {
-
                     logonform.Close();
                 }
                 catch (Exception exc)
@@ -83,8 +93,25 @@ namespace WindowsFormsApp2
 
                 return;
             }
+
+
+            if (true)
+            {
+
+            }
+
             //_pageNum = 1;
             //ShowPage_1(_pageNum);
+        }
+
+        void dtime_tick(object sender, EventArgs e)
+        {
+            label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
+        }
+
+        void LogonFormSwitch()
+        {
+
         }
 
         void ShowPage_1(int pagenum)
@@ -348,9 +375,22 @@ namespace WindowsFormsApp2
             
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void Num_F8_Click(object sender, EventArgs e)
+        {
+            Betqueren();
+        }
+
+        private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
 
+        }
+
+        void Betqueren()
+        {
+            if (true)
+            {
+                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
+            }
         }
 
         
