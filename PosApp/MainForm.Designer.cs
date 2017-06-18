@@ -257,6 +257,7 @@
             this.Num_3.TabStop = false;
             this.Num_3.Text = "3";
             this.Num_3.UseVisualStyleBackColor = true;
+            this.Num_3.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_2
             // 
@@ -268,6 +269,7 @@
             this.Num_2.TabStop = false;
             this.Num_2.Text = "2";
             this.Num_2.UseVisualStyleBackColor = true;
+            this.Num_2.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_1
             // 
@@ -279,6 +281,7 @@
             this.Num_1.TabStop = false;
             this.Num_1.Text = "1";
             this.Num_1.UseVisualStyleBackColor = true;
+            this.Num_1.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_F8
             // 
@@ -302,6 +305,7 @@
             this.Num_6.TabStop = false;
             this.Num_6.Text = "6";
             this.Num_6.UseVisualStyleBackColor = true;
+            this.Num_6.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_5
             // 
@@ -313,6 +317,7 @@
             this.Num_5.TabStop = false;
             this.Num_5.Text = "5";
             this.Num_5.UseVisualStyleBackColor = true;
+            this.Num_5.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_4
             // 
@@ -324,6 +329,7 @@
             this.Num_4.TabStop = false;
             this.Num_4.Text = "4";
             this.Num_4.UseVisualStyleBackColor = true;
+            this.Num_4.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_Backspace
             // 
@@ -346,6 +352,7 @@
             this.Num_9.TabStop = false;
             this.Num_9.Text = "9";
             this.Num_9.UseVisualStyleBackColor = true;
+            this.Num_9.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_8
             // 
@@ -357,6 +364,7 @@
             this.Num_8.TabStop = false;
             this.Num_8.Text = "8";
             this.Num_8.UseVisualStyleBackColor = true;
+            this.Num_8.Click += new System.EventHandler(this.Num_Click);
             // 
             // Num_7
             // 
@@ -368,6 +376,7 @@
             this.Num_7.TabStop = false;
             this.Num_7.Text = "7";
             this.Num_7.UseVisualStyleBackColor = true;
+            this.Num_7.Click += new System.EventHandler(this.Num_Click);
             // 
             // tabControl1
             // 
@@ -959,6 +968,8 @@
             this.BetNo_ABlue.Size = new System.Drawing.Size(25, 21);
             this.BetNo_ABlue.TabIndex = 9;
             this.BetNo_ABlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_ABlue.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_ABlue.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_A9
             // 
@@ -970,6 +981,8 @@
             this.BetNo_A9.TabIndex = 8;
             this.BetNo_A9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A9.Visible = false;
+            this.BetNo_A9.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A9.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_A8
             // 
@@ -981,6 +994,8 @@
             this.BetNo_A8.TabIndex = 7;
             this.BetNo_A8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A8.Visible = false;
+            this.BetNo_A8.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A8.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_A7
             // 
@@ -992,6 +1007,8 @@
             this.BetNo_A7.TabIndex = 6;
             this.BetNo_A7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A7.Visible = false;
+            this.BetNo_A7.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A7.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_C5
             // 
@@ -1013,6 +1030,8 @@
             this.BetNo_A6.Size = new System.Drawing.Size(25, 21);
             this.BetNo_A6.TabIndex = 5;
             this.BetNo_A6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A6.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A6.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_B5
             // 
@@ -1033,6 +1052,8 @@
             this.BetNo_A5.Size = new System.Drawing.Size(25, 21);
             this.BetNo_A5.TabIndex = 4;
             this.BetNo_A5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A5.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A5.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_E4
             // 
@@ -1086,6 +1107,8 @@
             this.BetNo_A4.Size = new System.Drawing.Size(25, 21);
             this.BetNo_A4.TabIndex = 3;
             this.BetNo_A4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A4.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A4.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_E3
             // 
@@ -1139,6 +1162,8 @@
             this.BetNo_A3.Size = new System.Drawing.Size(25, 21);
             this.BetNo_A3.TabIndex = 2;
             this.BetNo_A3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A3.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A3.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_E2
             // 
@@ -1192,7 +1217,8 @@
             this.BetNo_A2.Size = new System.Drawing.Size(25, 21);
             this.BetNo_A2.TabIndex = 1;
             this.BetNo_A2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_A2_Enter);
+            this.BetNo_A2.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // BetNo_E1
             // 
@@ -1248,8 +1274,8 @@
             this.BetNo_A1.TabIndex = 0;
             this.BetNo_A1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A1.WordWrap = false;
-            this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_A1_TextChanged);
-            this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_A1_Enter);
+            this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
+            this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_Enter);
             this.BetNo_A1.Validated += new System.EventHandler(this.BetNo_A1_Validated);
             // 
             // label_Multiple
@@ -1511,8 +1537,7 @@
             this.Num_0.TabStop = false;
             this.Num_0.Text = "0";
             this.Num_0.UseVisualStyleBackColor = true;
-            this.Num_0.Click += new System.EventHandler(this.Num_0_Click);
-            this.Num_0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Num_0_MouseClick);
+            this.Num_0.Click += new System.EventHandler(this.Num_Click);
             // 
             // button1
             // 

@@ -18,6 +18,7 @@ namespace LotPos
 {
     public partial class MainForm : Form
     {
+        TextBox nownumbox = null;
         /* 定义类
          */
         public LogOnForm logonform;     //登录界面类
@@ -34,14 +35,14 @@ namespace LotPos
         string sk = "111111";
         string sendbetstr = "";
         byte[] btmsg = new byte[1024];
-        
+
         string smsg2 = "";
         string ServerIP = "10.1.1.192";
         //int selport = 9902;
         int betport = 9901;
         static int _lsh = 1;
         Timer dtime;
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace LotPos
         {
             //确认登录
             if (logonform.DialogResult == DialogResult.OK)
-            {                
+            {
                 try
                 {
                     //  TODO:   此处建立acceptor连接
@@ -78,7 +79,7 @@ namespace LotPos
                 }
             }
             //退出 or 取消登录
-            else if(logonform.DialogResult == DialogResult.Cancel)
+            else if (logonform.DialogResult == DialogResult.Cancel)
             {
                 //程序启动时将直接退出，而不是返回主界面
                 if (_pageNum == 0)
@@ -93,7 +94,7 @@ namespace LotPos
                         throw;
                     }
                     return -1;
-                }                
+                }
                 try
                 {
                     logonform.Close();
@@ -114,10 +115,10 @@ namespace LotPos
             if (_pageNum == 0)
             {
                 logonform.ShowDialog();     //加载登录界面
-                if ( LogonFormResult(_pageNum) == 0) //登录结果
+                if (LogonFormResult(_pageNum) == 0) //登录结果
                 {
                     //posback.GetPra();
-                }      
+                }
             }
             _pageNum = 1;
             label_LoginPattern.Text = posconfig.LoginPattern;   //显示启动模式
@@ -137,7 +138,7 @@ namespace LotPos
 
         void Update_panel_Parameters_Show()
         {
-            
+
             GameName.Text = posback.gamename;
             DrawNo.Text = posback.drawno;
             AgentId.Text = posback.xszbm;
@@ -153,7 +154,6 @@ namespace LotPos
         {
             //显示时间
             label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
-            ActiveControl.TextChanged += new System.EventHandler(ChangeFocus);
         }
 
 
@@ -169,7 +169,7 @@ namespace LotPos
 
         }
 
-        
+
         //点击标签切换玩法
         private void Page_C515_Click(object sender, EventArgs e)
         {
@@ -186,7 +186,7 @@ namespace LotPos
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
             logonform = new LogOnForm();
-            logonform.ShowDialog();            
+            logonform.ShowDialog();
             LogonFormResult(_pageNum);
         }
 
@@ -198,7 +198,7 @@ namespace LotPos
                 groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
             }
         }
-        
+
 
         //select 
         private void button1_Click(object sender, EventArgs e)
@@ -209,7 +209,7 @@ namespace LotPos
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            PosFile pf = new PosFile(); 
+            PosFile pf = new PosFile();
             textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
@@ -264,8 +264,8 @@ namespace LotPos
             int rballen = sred.Length;
             int blulen = sblu.Length;
             if (rballen % 2 != 0)
-            {                
-                return -1; 
+            {
+                return -1;
             }
             if (blulen % 2 != 0)
             {
@@ -320,7 +320,7 @@ namespace LotPos
             string agentid = AgentId.Text;           //渠道编号
             string gamename = GameName.Text;         //玩法编号
             string drawno = DrawNo.Text;             //期号
-            string ticket = AgentId.Text + string.Format("{0:yyyyMMddHHmmss}",dt) + (_lsh.ToString()).PadLeft(6, '0');         //票ID
+            string ticket = AgentId.Text + string.Format("{0:yyyyMMddHHmmss}", dt) + (_lsh.ToString()).PadLeft(6, '0');         //票ID
 
             BetNum betnum = new BetNum();
             string playtype = "";                       //投注方式
@@ -422,7 +422,7 @@ namespace LotPos
 
             }
             try
-            {                
+            {
                 betsock.closesock();
             }
             catch
@@ -441,69 +441,99 @@ namespace LotPos
         //信息输出栏定位末行
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            
+
             textBox_test.Focus();//获取焦点
             textBox_test.Select(textBox_test.TextLength, 0);//光标定位到文本最后
             textBox_test.ScrollToCaret();
-            
+
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
         }
 
-        private void BetNo_A1_TextChanged(object sender, EventArgs e)
+        /*
+         * 
+         * 
+         * 
+         * */
+        #region 号码输入框输入的处理块
+
+        //A1 - ABlu 输入内容长度>=2时跳到下一输入框
+        /// <summary>
+        /// 满足(TextBox.Text.Length >= 2)，焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
+        /// </summary>
+        /// <param name="sender"></param>
+        void BetMoveFocus(object sender)
         {
-            //ChangeFocus((TextBox)sender, null);
-            //if (BetNo_A1.Text.Length >= 2)
-            //{
-            //    this.BetNo_A2.Focus();
-            //}
+            if (((TextBox)sender).Text.Length >= 2)
+            {
+                SelectNextControl((Control)this.ActiveControl, true, true, true, false);
+            }
         }
+        /// <summary>
+        /// 所有 BetNo(BetNo_A1 - BetNo_XX) 的 TextChanged 事件都指向该时间实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BetNo_TextChanged(object sender, EventArgs e)
+        {
+            BetMoveFocus(sender);
+        }
+
+        /// <summary>
+        /// 所有 BetNo(BetNo_A1 - BetNo_XX) 的 Enter 事件都指向该时间实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BetNo_Enter(object sender, EventArgs e)
+        {
+            nownumbox = (TextBox)sender;
+        }
+
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (e.KeyChar == 1 )
+            nownumbox.Focus();
+            //SendKeys.SendWait(e.KeyChar.ToString());
+            nownumbox.Text += e.KeyChar;
+            //if (e.KeyChar == )
             //{
-            //    BetNo_A1.Text += "1";
+
             //}
         }
-
+        
         private void MainForm_Activated(object sender, EventArgs e)
         {
             BetNo_A1.Focus();
         }
 
-        private void BetNo_A1_Enter(object sender, EventArgs e)
-        {
-            //if (BetNo_A1.Text.Length >= 2)
-            //{
-            //    this.BetNo_A2.Focus();
-            //}
-        }
 
-        private void BetNo_A2_Enter(object sender, EventArgs e)
-        {
-            
-        }
+        //private void Num_Click(object sender, EventArgs e)
+        //{
+        //    //string numstr = "0";
+        //    //nownumbox.Text += "0";
+        //    nownumbox.Focus();
 
-        private void Num_0_Click(object sender, EventArgs e)
+        //    SendKeys.SendWait(((Button)sender).Text);
+        //}
+
+        private void Num_Click(object sender, EventArgs e)
         {
             //string numstr = "0";
-            //bet_input(BetNo_A1, numstr);
-        }
-
-
-        void bet_input(object sender, string numstr)
-        {
-            BetNo_A1.Text = numstr;
+            //nownumbox.Text += "0";
+            nownumbox.Focus();
             
+            SendKeys.SendWait(((Button)sender).Text);
         }
 
-        private void Num_0_MouseClick(object sender, MouseEventArgs e)
+
+        void bet_input(string numstr)
         {
-            ActiveControl.Text += "0";
+            ActiveControl.Text += numstr;
+
         }
+
 
         private void BetNo_A1_Validated(object sender, EventArgs e)
         {
@@ -519,22 +549,33 @@ namespace LotPos
         //    {
         //        SelectNextControl((Control)this.ActiveControl, true, true, true, false);
 
-                
+
         //        //ActiveControl.Focus();
         //    }
         //}
-        private void ChangeFocus(object sender, EventArgs e)
-        {
-            if (((Control)this.ActiveControl).Text.Length >= 2)
-            {
-                SelectNextControl((Control)this.ActiveControl, true, true, true, false);
-            }
-            else if (((Control)this.ActiveControl).Text.Length <= 0)
-            {
-                SelectNextControl((Control)this.ActiveControl, false, true, true, false);
-            }
+        //private void ChangeFocus(object sender, EventArgs e)
+        //{
+        //    if (((Control)this.ActiveControl).Text.Length >= 2)
+        //    {
+        //        SelectNextControl((Control)this.ActiveControl, true, true, true, false);
+        //    }
+        //    else if (((Control)this.ActiveControl).Text.Length <= 0)
+        //    {
+        //        SelectNextControl((Control)this.ActiveControl, false, true, true, false);
+        //    }
 
+        //}
+
+        void SendNum(string strNum)
+        {
+            ActiveControl.Text += "0";
         }
 
+
+
+
+        #endregion
+
+        
     }
 }
