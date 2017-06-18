@@ -11,20 +11,19 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Windows.Controls;
 
 
 namespace LotPos
 {
     public partial class MainForm : Form
     {
-        /*
-         * 定义类
+        /* 定义类
          */
         public LogOnForm logonform;     //登录界面类
         public PosBack posback;     //后台业务处理类
         PosConfig posconfig;        //配置文件类      
-        /*
-         *界面参数配置 
+        /*界面参数配置 
          */
         public static short _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
@@ -125,8 +124,9 @@ namespace LotPos
             dtime.Start();      //开启显示时间
             posback.GetPra();       //模拟取参
             Update_panel_Parameters_Show();
-            tabControl1.Visible = true;
-            panel_Parameters.Visible = true;
+            tabControl1.Visible = true;     //标签控制页
+            panel_Parameters.Visible = true;    //显示参数区域
+            panel_Bet.Visible = true;       //显示投注号码区域
 
             toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
             toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
@@ -153,6 +153,7 @@ namespace LotPos
         {
             //显示时间
             label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
+            ActiveControl.TextChanged += new System.EventHandler(ChangeFocus);
         }
 
 
@@ -451,6 +452,89 @@ namespace LotPos
         {
         }
 
-        
+        private void BetNo_A1_TextChanged(object sender, EventArgs e)
+        {
+            //ChangeFocus((TextBox)sender, null);
+            //if (BetNo_A1.Text.Length >= 2)
+            //{
+            //    this.BetNo_A2.Focus();
+            //}
+        }
+
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar == 1 )
+            //{
+            //    BetNo_A1.Text += "1";
+            //}
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            BetNo_A1.Focus();
+        }
+
+        private void BetNo_A1_Enter(object sender, EventArgs e)
+        {
+            //if (BetNo_A1.Text.Length >= 2)
+            //{
+            //    this.BetNo_A2.Focus();
+            //}
+        }
+
+        private void BetNo_A2_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Num_0_Click(object sender, EventArgs e)
+        {
+            //string numstr = "0";
+            //bet_input(BetNo_A1, numstr);
+        }
+
+
+        void bet_input(object sender, string numstr)
+        {
+            BetNo_A1.Text = numstr;
+            
+        }
+
+        private void Num_0_MouseClick(object sender, MouseEventArgs e)
+        {
+            ActiveControl.Text += "0";
+        }
+
+        private void BetNo_A1_Validated(object sender, EventArgs e)
+        {
+            //if (Text.Length >= 2)
+            //{
+            //    ChangeFocus();
+            //}
+        }
+
+        //void ChangeFocus(Control sender, EventArgs e)
+        //{
+        //    if (((Control)this.ActiveControl).Text.Length >= 2)
+        //    {
+        //        SelectNextControl((Control)this.ActiveControl, true, true, true, false);
+
+                
+        //        //ActiveControl.Focus();
+        //    }
+        //}
+        private void ChangeFocus(object sender, EventArgs e)
+        {
+            if (((Control)this.ActiveControl).Text.Length >= 2)
+            {
+                SelectNextControl((Control)this.ActiveControl, true, true, true, false);
+            }
+            else if (((Control)this.ActiveControl).Text.Length <= 0)
+            {
+                SelectNextControl((Control)this.ActiveControl, false, true, true, false);
+            }
+
+        }
+
     }
 }

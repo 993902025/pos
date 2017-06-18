@@ -16,21 +16,24 @@ namespace LotPos
         string _path;
 
         //F:\123\C#/pos/PosApp/bin/Debug/LotPos.exe
-         public  PosFile()
+        public  PosFile()
         {
             _path = Application.StartupPath;
             _filename = Process.GetCurrentProcess().ProcessName + ".txt";
 
-            if (!File.Exists(_path + _filename))
+            if (!File.Exists(@".\" +  _filename))
             {
                 try
                 {
-                    Console.WriteLine(@".\" + _filename);
-                    File.Create(@".\" + _filename).Close();
+                    Console.WriteLine("初始化模拟参数文件：" + @".\" + _filename);
+                    string inistr = "gamename=\r\n\r\ndrawno=\r\n\r\nxszbm=\r\n\r\nlsh=\r\n\r\nsmallcount=\r\n\r\nbalance=\r\n\r\ntqtime=\r\n".ToUpper();
+                    FileStream newfile = File.Create(@".\" + _filename);
+                    newfile.Write(Encoding.UTF8.GetBytes(inistr),0, inistr.Length);
+                    newfile.Close();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
             }
         }
@@ -56,6 +59,15 @@ namespace LotPos
         //    return _str_result;            
         //}
 
+
+        /// <summary>
+        /// 用于单机模拟取参,传入要查询的key，获取对应的value
+        /// 文件格式，处理了忽略空格
+        /// key1=value1
+        /// key2=value2
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void AnalysisFile(string key, ref string value)
         {
             string temstr = string.Empty;
@@ -64,31 +76,24 @@ namespace LotPos
                 if (!File.Exists(_path + _filename))
                 {
                     StreamReader sread = new StreamReader(@".\" + _filename);
-
                     while (!sread.EndOfStream)
                     {
                         temstr = Regex.Replace(sread.ReadLine(), @"\s", "");
-                        if (temstr.IndexOf(key) >= 0)
+                        
+                        if ( temstr.IndexOf(key,StringComparison.OrdinalIgnoreCase) >= 0 && temstr.Length >= key.Length + 1)//使用IndexOf()进行字符串 temstr 内查找 key (将第二个参数设置为StringComparison.OrdinalIgnoreCase 以忽略大小写)*
                         {
                             value = temstr.Substring(key.Length + 1, temstr.Length - key.Length - 1);
                             break;
                         }
                     }
                     sread.Close();
-                }
-
-                
+                }                
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.ToString());
                 throw;
             }
-
-
         }
-
-
-
     }
 }

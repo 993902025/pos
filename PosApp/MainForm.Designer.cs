@@ -183,7 +183,8 @@
             this.select_button.Location = new System.Drawing.Point(426, 601);
             this.select_button.Name = "select_button";
             this.select_button.Size = new System.Drawing.Size(75, 23);
-            this.select_button.TabIndex = 0;
+            this.select_button.TabIndex = 111;
+            this.select_button.TabStop = false;
             this.select_button.Text = "select";
             this.select_button.UseVisualStyleBackColor = true;
             this.select_button.Click += new System.EventHandler(this.button1_Click);
@@ -197,7 +198,8 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox3.Size = new System.Drawing.Size(208, 57);
-            this.textBox3.TabIndex = 3;
+            this.textBox3.TabIndex = 3111;
+            this.textBox3.TabStop = false;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox_test
@@ -208,7 +210,8 @@
             this.textBox_test.Name = "textBox_test";
             this.textBox_test.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_test.Size = new System.Drawing.Size(277, 106);
-            this.textBox_test.TabIndex = 4;
+            this.textBox_test.TabIndex = 411;
+            this.textBox_test.TabStop = false;
             this.textBox_test.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // btn_test
@@ -216,7 +219,8 @@
             this.btn_test.Location = new System.Drawing.Point(813, 534);
             this.btn_test.Name = "btn_test";
             this.btn_test.Size = new System.Drawing.Size(75, 23);
-            this.btn_test.TabIndex = 5;
+            this.btn_test.TabIndex = 5111;
+            this.btn_test.TabStop = false;
             this.btn_test.Text = "test";
             this.btn_test.UseVisualStyleBackColor = true;
             this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
@@ -226,7 +230,8 @@
             this.button3.Location = new System.Drawing.Point(334, 601);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
+            this.button3.TabIndex = 101;
+            this.button3.TabStop = false;
             this.button3.Text = "bet";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -238,6 +243,7 @@
             this.Num_Enter.Name = "Num_Enter";
             this.Num_Enter.Size = new System.Drawing.Size(50, 100);
             this.Num_Enter.TabIndex = 11;
+            this.Num_Enter.TabStop = false;
             this.Num_Enter.Text = "Enter";
             this.Num_Enter.UseVisualStyleBackColor = true;
             // 
@@ -248,6 +254,7 @@
             this.Num_3.Name = "Num_3";
             this.Num_3.Size = new System.Drawing.Size(50, 45);
             this.Num_3.TabIndex = 10;
+            this.Num_3.TabStop = false;
             this.Num_3.Text = "3";
             this.Num_3.UseVisualStyleBackColor = true;
             // 
@@ -258,6 +265,7 @@
             this.Num_2.Name = "Num_2";
             this.Num_2.Size = new System.Drawing.Size(50, 45);
             this.Num_2.TabIndex = 9;
+            this.Num_2.TabStop = false;
             this.Num_2.Text = "2";
             this.Num_2.UseVisualStyleBackColor = true;
             // 
@@ -268,6 +276,7 @@
             this.Num_1.Name = "Num_1";
             this.Num_1.Size = new System.Drawing.Size(50, 45);
             this.Num_1.TabIndex = 8;
+            this.Num_1.TabStop = false;
             this.Num_1.Text = "1";
             this.Num_1.UseVisualStyleBackColor = true;
             // 
@@ -278,6 +287,7 @@
             this.Num_F8.Name = "Num_F8";
             this.Num_F8.Size = new System.Drawing.Size(50, 100);
             this.Num_F8.TabIndex = 7;
+            this.Num_F8.TabStop = false;
             this.Num_F8.Text = "F8\r\n(bet)";
             this.Num_F8.UseVisualStyleBackColor = true;
             this.Num_F8.Click += new System.EventHandler(this.Num_F8_Click);
@@ -289,6 +299,7 @@
             this.Num_6.Name = "Num_6";
             this.Num_6.Size = new System.Drawing.Size(50, 45);
             this.Num_6.TabIndex = 6;
+            this.Num_6.TabStop = false;
             this.Num_6.Text = "6";
             this.Num_6.UseVisualStyleBackColor = true;
             // 
@@ -299,6 +310,7 @@
             this.Num_5.Name = "Num_5";
             this.Num_5.Size = new System.Drawing.Size(50, 45);
             this.Num_5.TabIndex = 5;
+            this.Num_5.TabStop = false;
             this.Num_5.Text = "5";
             this.Num_5.UseVisualStyleBackColor = true;
             // 
@@ -309,6 +321,7 @@
             this.Num_4.Name = "Num_4";
             this.Num_4.Size = new System.Drawing.Size(50, 45);
             this.Num_4.TabIndex = 4;
+            this.Num_4.TabStop = false;
             this.Num_4.Text = "4";
             this.Num_4.UseVisualStyleBackColor = true;
             // 
@@ -318,7 +331,8 @@
             this.Num_Backspace.Margin = new System.Windows.Forms.Padding(5);
             this.Num_Backspace.Name = "Num_Backspace";
             this.Num_Backspace.Size = new System.Drawing.Size(50, 45);
-            this.Num_Backspace.TabIndex = 3;
+            this.Num_Backspace.TabIndex = 32;
+            this.Num_Backspace.TabStop = false;
             this.Num_Backspace.Text = "←";
             this.Num_Backspace.UseVisualStyleBackColor = true;
             // 
@@ -328,7 +342,8 @@
             this.Num_9.Margin = new System.Windows.Forms.Padding(5);
             this.Num_9.Name = "Num_9";
             this.Num_9.Size = new System.Drawing.Size(50, 45);
-            this.Num_9.TabIndex = 2;
+            this.Num_9.TabIndex = 24;
+            this.Num_9.TabStop = false;
             this.Num_9.Text = "9";
             this.Num_9.UseVisualStyleBackColor = true;
             // 
@@ -339,6 +354,7 @@
             this.Num_8.Name = "Num_8";
             this.Num_8.Size = new System.Drawing.Size(50, 45);
             this.Num_8.TabIndex = 1;
+            this.Num_8.TabStop = false;
             this.Num_8.Text = "8";
             this.Num_8.UseVisualStyleBackColor = true;
             // 
@@ -349,6 +365,7 @@
             this.Num_7.Name = "Num_7";
             this.Num_7.Size = new System.Drawing.Size(50, 45);
             this.Num_7.TabIndex = 0;
+            this.Num_7.TabStop = false;
             this.Num_7.Text = "7";
             this.Num_7.UseVisualStyleBackColor = true;
             // 
@@ -363,7 +380,8 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(610, 265);
-            this.tabControl1.TabIndex = 19;
+            this.tabControl1.TabIndex = 99;
+            this.tabControl1.TabStop = false;
             this.tabControl1.Visible = false;
             // 
             // Page_C515
@@ -663,13 +681,12 @@
             this.panel_Bet.Controls.Add(this.label_ELineBetNo);
             this.panel_Bet.Controls.Add(this.label_FirstBetNo);
             this.panel_Bet.Controls.Add(this.label_SecondBetNo);
-            this.panel_Bet.Enabled = false;
             this.panel_Bet.Location = new System.Drawing.Point(174, 10);
             this.panel_Bet.Margin = new System.Windows.Forms.Padding(10);
             this.panel_Bet.Name = "panel_Bet";
             this.panel_Bet.Padding = new System.Windows.Forms.Padding(10);
             this.panel_Bet.Size = new System.Drawing.Size(401, 219);
-            this.panel_Bet.TabIndex = 43;
+            this.panel_Bet.TabIndex = 0;
             this.panel_Bet.Visible = false;
             // 
             // Multiple
@@ -680,6 +697,7 @@
             this.Multiple.Name = "Multiple";
             this.Multiple.Size = new System.Drawing.Size(25, 21);
             this.Multiple.TabIndex = 28;
+            this.Multiple.TabStop = false;
             this.Multiple.Text = "99";
             this.Multiple.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -691,6 +709,7 @@
             this.BetNo_EBlue.Name = "BetNo_EBlue";
             this.BetNo_EBlue.Size = new System.Drawing.Size(25, 21);
             this.BetNo_EBlue.TabIndex = 28;
+            this.BetNo_EBlue.TabStop = false;
             this.BetNo_EBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_E9
@@ -701,6 +720,7 @@
             this.BetNo_E9.Name = "BetNo_E9";
             this.BetNo_E9.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E9.TabIndex = 28;
+            this.BetNo_E9.TabStop = false;
             this.BetNo_E9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_E9.Visible = false;
             // 
@@ -712,6 +732,7 @@
             this.BetNo_E8.Name = "BetNo_E8";
             this.BetNo_E8.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E8.TabIndex = 28;
+            this.BetNo_E8.TabStop = false;
             this.BetNo_E8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_E8.Visible = false;
             // 
@@ -723,6 +744,7 @@
             this.BetNo_E7.Name = "BetNo_E7";
             this.BetNo_E7.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E7.TabIndex = 28;
+            this.BetNo_E7.TabStop = false;
             this.BetNo_E7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_E7.Visible = false;
             // 
@@ -734,6 +756,7 @@
             this.BetNo_E6.Name = "BetNo_E6";
             this.BetNo_E6.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E6.TabIndex = 28;
+            this.BetNo_E6.TabStop = false;
             this.BetNo_E6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_DBlue
@@ -744,6 +767,7 @@
             this.BetNo_DBlue.Name = "BetNo_DBlue";
             this.BetNo_DBlue.Size = new System.Drawing.Size(25, 21);
             this.BetNo_DBlue.TabIndex = 28;
+            this.BetNo_DBlue.TabStop = false;
             this.BetNo_DBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_D9
@@ -754,6 +778,7 @@
             this.BetNo_D9.Name = "BetNo_D9";
             this.BetNo_D9.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D9.TabIndex = 28;
+            this.BetNo_D9.TabStop = false;
             this.BetNo_D9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_D9.Visible = false;
             // 
@@ -765,6 +790,7 @@
             this.BetNo_D8.Name = "BetNo_D8";
             this.BetNo_D8.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D8.TabIndex = 28;
+            this.BetNo_D8.TabStop = false;
             this.BetNo_D8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_D8.Visible = false;
             // 
@@ -776,6 +802,7 @@
             this.BetNo_D7.Name = "BetNo_D7";
             this.BetNo_D7.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D7.TabIndex = 28;
+            this.BetNo_D7.TabStop = false;
             this.BetNo_D7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_D7.Visible = false;
             // 
@@ -787,6 +814,7 @@
             this.BetNo_D6.Name = "BetNo_D6";
             this.BetNo_D6.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D6.TabIndex = 28;
+            this.BetNo_D6.TabStop = false;
             this.BetNo_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_E5
@@ -797,6 +825,7 @@
             this.BetNo_E5.Name = "BetNo_E5";
             this.BetNo_E5.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E5.TabIndex = 28;
+            this.BetNo_E5.TabStop = false;
             this.BetNo_E5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_CBlue
@@ -807,6 +836,7 @@
             this.BetNo_CBlue.Name = "BetNo_CBlue";
             this.BetNo_CBlue.Size = new System.Drawing.Size(25, 21);
             this.BetNo_CBlue.TabIndex = 28;
+            this.BetNo_CBlue.TabStop = false;
             this.BetNo_CBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_C9
@@ -817,6 +847,7 @@
             this.BetNo_C9.Name = "BetNo_C9";
             this.BetNo_C9.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C9.TabIndex = 28;
+            this.BetNo_C9.TabStop = false;
             this.BetNo_C9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_C9.Visible = false;
             // 
@@ -828,6 +859,7 @@
             this.BetNo_C8.Name = "BetNo_C8";
             this.BetNo_C8.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C8.TabIndex = 28;
+            this.BetNo_C8.TabStop = false;
             this.BetNo_C8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_C8.Visible = false;
             // 
@@ -839,6 +871,7 @@
             this.BetNo_C7.Name = "BetNo_C7";
             this.BetNo_C7.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C7.TabIndex = 28;
+            this.BetNo_C7.TabStop = false;
             this.BetNo_C7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_C7.Visible = false;
             // 
@@ -850,6 +883,7 @@
             this.BetNo_C6.Name = "BetNo_C6";
             this.BetNo_C6.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C6.TabIndex = 28;
+            this.BetNo_C6.TabStop = false;
             this.BetNo_C6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_BBlue
@@ -859,7 +893,7 @@
             this.BetNo_BBlue.MaxLength = 2;
             this.BetNo_BBlue.Name = "BetNo_BBlue";
             this.BetNo_BBlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_BBlue.TabIndex = 28;
+            this.BetNo_BBlue.TabIndex = 19;
             this.BetNo_BBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B9
@@ -869,7 +903,7 @@
             this.BetNo_B9.MaxLength = 2;
             this.BetNo_B9.Name = "BetNo_B9";
             this.BetNo_B9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B9.TabIndex = 28;
+            this.BetNo_B9.TabIndex = 18;
             this.BetNo_B9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_B9.Visible = false;
             // 
@@ -880,7 +914,7 @@
             this.BetNo_B8.MaxLength = 2;
             this.BetNo_B8.Name = "BetNo_B8";
             this.BetNo_B8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B8.TabIndex = 28;
+            this.BetNo_B8.TabIndex = 17;
             this.BetNo_B8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_B8.Visible = false;
             // 
@@ -891,7 +925,7 @@
             this.BetNo_B7.MaxLength = 2;
             this.BetNo_B7.Name = "BetNo_B7";
             this.BetNo_B7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B7.TabIndex = 28;
+            this.BetNo_B7.TabIndex = 16;
             this.BetNo_B7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_B7.Visible = false;
             // 
@@ -903,6 +937,7 @@
             this.BetNo_D5.Name = "BetNo_D5";
             this.BetNo_D5.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D5.TabIndex = 28;
+            this.BetNo_D5.TabStop = false;
             this.BetNo_D5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B6
@@ -912,7 +947,7 @@
             this.BetNo_B6.MaxLength = 2;
             this.BetNo_B6.Name = "BetNo_B6";
             this.BetNo_B6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B6.TabIndex = 28;
+            this.BetNo_B6.TabIndex = 15;
             this.BetNo_B6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_ABlue
@@ -922,7 +957,7 @@
             this.BetNo_ABlue.MaxLength = 2;
             this.BetNo_ABlue.Name = "BetNo_ABlue";
             this.BetNo_ABlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_ABlue.TabIndex = 28;
+            this.BetNo_ABlue.TabIndex = 9;
             this.BetNo_ABlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A9
@@ -932,7 +967,7 @@
             this.BetNo_A9.MaxLength = 2;
             this.BetNo_A9.Name = "BetNo_A9";
             this.BetNo_A9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A9.TabIndex = 28;
+            this.BetNo_A9.TabIndex = 8;
             this.BetNo_A9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A9.Visible = false;
             // 
@@ -943,7 +978,7 @@
             this.BetNo_A8.MaxLength = 2;
             this.BetNo_A8.Name = "BetNo_A8";
             this.BetNo_A8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A8.TabIndex = 28;
+            this.BetNo_A8.TabIndex = 7;
             this.BetNo_A8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A8.Visible = false;
             // 
@@ -954,7 +989,7 @@
             this.BetNo_A7.MaxLength = 2;
             this.BetNo_A7.Name = "BetNo_A7";
             this.BetNo_A7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A7.TabIndex = 28;
+            this.BetNo_A7.TabIndex = 6;
             this.BetNo_A7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A7.Visible = false;
             // 
@@ -966,6 +1001,7 @@
             this.BetNo_C5.Name = "BetNo_C5";
             this.BetNo_C5.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C5.TabIndex = 28;
+            this.BetNo_C5.TabStop = false;
             this.BetNo_C5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A6
@@ -975,7 +1011,7 @@
             this.BetNo_A6.MaxLength = 2;
             this.BetNo_A6.Name = "BetNo_A6";
             this.BetNo_A6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A6.TabIndex = 28;
+            this.BetNo_A6.TabIndex = 5;
             this.BetNo_A6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B5
@@ -985,7 +1021,7 @@
             this.BetNo_B5.MaxLength = 2;
             this.BetNo_B5.Name = "BetNo_B5";
             this.BetNo_B5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B5.TabIndex = 28;
+            this.BetNo_B5.TabIndex = 14;
             this.BetNo_B5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A5
@@ -995,7 +1031,7 @@
             this.BetNo_A5.MaxLength = 2;
             this.BetNo_A5.Name = "BetNo_A5";
             this.BetNo_A5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A5.TabIndex = 28;
+            this.BetNo_A5.TabIndex = 4;
             this.BetNo_A5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_E4
@@ -1006,6 +1042,7 @@
             this.BetNo_E4.Name = "BetNo_E4";
             this.BetNo_E4.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E4.TabIndex = 28;
+            this.BetNo_E4.TabStop = false;
             this.BetNo_E4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_D4
@@ -1016,6 +1053,7 @@
             this.BetNo_D4.Name = "BetNo_D4";
             this.BetNo_D4.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D4.TabIndex = 28;
+            this.BetNo_D4.TabStop = false;
             this.BetNo_D4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_C4
@@ -1026,6 +1064,7 @@
             this.BetNo_C4.Name = "BetNo_C4";
             this.BetNo_C4.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C4.TabIndex = 28;
+            this.BetNo_C4.TabStop = false;
             this.BetNo_C4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B4
@@ -1035,7 +1074,7 @@
             this.BetNo_B4.MaxLength = 2;
             this.BetNo_B4.Name = "BetNo_B4";
             this.BetNo_B4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B4.TabIndex = 28;
+            this.BetNo_B4.TabIndex = 13;
             this.BetNo_B4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A4
@@ -1045,7 +1084,7 @@
             this.BetNo_A4.MaxLength = 2;
             this.BetNo_A4.Name = "BetNo_A4";
             this.BetNo_A4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A4.TabIndex = 28;
+            this.BetNo_A4.TabIndex = 3;
             this.BetNo_A4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_E3
@@ -1056,6 +1095,7 @@
             this.BetNo_E3.Name = "BetNo_E3";
             this.BetNo_E3.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E3.TabIndex = 28;
+            this.BetNo_E3.TabStop = false;
             this.BetNo_E3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_D3
@@ -1066,6 +1106,7 @@
             this.BetNo_D3.Name = "BetNo_D3";
             this.BetNo_D3.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D3.TabIndex = 28;
+            this.BetNo_D3.TabStop = false;
             this.BetNo_D3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_C3
@@ -1076,6 +1117,7 @@
             this.BetNo_C3.Name = "BetNo_C3";
             this.BetNo_C3.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C3.TabIndex = 28;
+            this.BetNo_C3.TabStop = false;
             this.BetNo_C3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B3
@@ -1085,7 +1127,7 @@
             this.BetNo_B3.MaxLength = 2;
             this.BetNo_B3.Name = "BetNo_B3";
             this.BetNo_B3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B3.TabIndex = 28;
+            this.BetNo_B3.TabIndex = 12;
             this.BetNo_B3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A3
@@ -1095,7 +1137,7 @@
             this.BetNo_A3.MaxLength = 2;
             this.BetNo_A3.Name = "BetNo_A3";
             this.BetNo_A3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A3.TabIndex = 28;
+            this.BetNo_A3.TabIndex = 2;
             this.BetNo_A3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_E2
@@ -1106,6 +1148,7 @@
             this.BetNo_E2.Name = "BetNo_E2";
             this.BetNo_E2.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E2.TabIndex = 28;
+            this.BetNo_E2.TabStop = false;
             this.BetNo_E2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_D2
@@ -1116,6 +1159,7 @@
             this.BetNo_D2.Name = "BetNo_D2";
             this.BetNo_D2.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D2.TabIndex = 28;
+            this.BetNo_D2.TabStop = false;
             this.BetNo_D2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_C2
@@ -1126,6 +1170,7 @@
             this.BetNo_C2.Name = "BetNo_C2";
             this.BetNo_C2.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C2.TabIndex = 28;
+            this.BetNo_C2.TabStop = false;
             this.BetNo_C2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B2
@@ -1135,7 +1180,7 @@
             this.BetNo_B2.MaxLength = 2;
             this.BetNo_B2.Name = "BetNo_B2";
             this.BetNo_B2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B2.TabIndex = 28;
+            this.BetNo_B2.TabIndex = 11;
             this.BetNo_B2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A2
@@ -1145,8 +1190,9 @@
             this.BetNo_A2.MaxLength = 2;
             this.BetNo_A2.Name = "BetNo_A2";
             this.BetNo_A2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A2.TabIndex = 28;
+            this.BetNo_A2.TabIndex = 1;
             this.BetNo_A2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_A2_Enter);
             // 
             // BetNo_E1
             // 
@@ -1156,6 +1202,7 @@
             this.BetNo_E1.Name = "BetNo_E1";
             this.BetNo_E1.Size = new System.Drawing.Size(25, 21);
             this.BetNo_E1.TabIndex = 28;
+            this.BetNo_E1.TabStop = false;
             this.BetNo_E1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_D1
@@ -1166,6 +1213,7 @@
             this.BetNo_D1.Name = "BetNo_D1";
             this.BetNo_D1.Size = new System.Drawing.Size(25, 21);
             this.BetNo_D1.TabIndex = 28;
+            this.BetNo_D1.TabStop = false;
             this.BetNo_D1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_C1
@@ -1176,6 +1224,7 @@
             this.BetNo_C1.Name = "BetNo_C1";
             this.BetNo_C1.Size = new System.Drawing.Size(25, 21);
             this.BetNo_C1.TabIndex = 28;
+            this.BetNo_C1.TabStop = false;
             this.BetNo_C1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_B1
@@ -1185,18 +1234,23 @@
             this.BetNo_B1.MaxLength = 2;
             this.BetNo_B1.Name = "BetNo_B1";
             this.BetNo_B1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B1.TabIndex = 28;
+            this.BetNo_B1.TabIndex = 10;
             this.BetNo_B1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BetNo_A1
             // 
+            this.BetNo_A1.ImeMode = System.Windows.Forms.ImeMode.Alpha;
             this.BetNo_A1.Location = new System.Drawing.Point(42, 57);
             this.BetNo_A1.Margin = new System.Windows.Forms.Padding(5);
             this.BetNo_A1.MaxLength = 2;
             this.BetNo_A1.Name = "BetNo_A1";
             this.BetNo_A1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A1.TabIndex = 28;
+            this.BetNo_A1.TabIndex = 0;
             this.BetNo_A1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BetNo_A1.WordWrap = false;
+            this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_A1_TextChanged);
+            this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_A1_Enter);
+            this.BetNo_A1.Validated += new System.EventHandler(this.BetNo_A1_Validated);
             // 
             // label_Multiple
             // 
@@ -1397,7 +1451,8 @@
             this.textBox13.Location = new System.Drawing.Point(236, 638);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(635, 21);
-            this.textBox13.TabIndex = 23;
+            this.textBox13.TabIndex = 231;
+            this.textBox13.TabStop = false;
             this.textBox13.Text = "0102030405";
             // 
             // panel_SmallKeyBoard
@@ -1428,6 +1483,7 @@
             this.Num_F9.Name = "Num_F9";
             this.Num_F9.Size = new System.Drawing.Size(50, 45);
             this.Num_F9.TabIndex = 14;
+            this.Num_F9.TabStop = false;
             this.Num_F9.Text = "F9";
             this.Num_F9.UseVisualStyleBackColor = true;
             // 
@@ -1438,19 +1494,25 @@
             this.Num_Del.Name = "Num_Del";
             this.Num_Del.Size = new System.Drawing.Size(50, 45);
             this.Num_Del.TabIndex = 13;
+            this.Num_Del.TabStop = false;
             this.Num_Del.Text = "DEL";
             this.Num_Del.UseVisualStyleBackColor = true;
             // 
             // Num_0
             // 
+            this.Num_0.CausesValidation = false;
+            this.Num_0.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.Num_0.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Num_0.Location = new System.Drawing.Point(5, 170);
             this.Num_0.Margin = new System.Windows.Forms.Padding(5);
             this.Num_0.Name = "Num_0";
             this.Num_0.Size = new System.Drawing.Size(50, 45);
-            this.Num_0.TabIndex = 12;
+            this.Num_0.TabIndex = 100;
+            this.Num_0.TabStop = false;
             this.Num_0.Text = "0";
             this.Num_0.UseVisualStyleBackColor = true;
+            this.Num_0.Click += new System.EventHandler(this.Num_0_Click);
+            this.Num_0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Num_0_MouseClick);
             // 
             // button1
             // 
@@ -1459,6 +1521,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 45);
             this.button1.TabIndex = 25;
+            this.button1.TabStop = false;
             this.button1.Text = "F5";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -1469,6 +1532,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(50, 45);
             this.button4.TabIndex = 25;
+            this.button4.TabStop = false;
             this.button4.Text = "F4";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -1479,6 +1543,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(50, 45);
             this.button5.TabIndex = 25;
+            this.button5.TabStop = false;
             this.button5.Text = "F3";
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -1489,6 +1554,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(50, 45);
             this.button6.TabIndex = 25;
+            this.button6.TabStop = false;
             this.button6.Text = "F2";
             this.button6.UseVisualStyleBackColor = true;
             // 
@@ -1499,6 +1565,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(50, 45);
             this.button7.TabIndex = 25;
+            this.button7.TabStop = false;
             this.button7.Text = "F7";
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -1509,6 +1576,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(50, 45);
             this.button8.TabIndex = 25;
+            this.button8.TabStop = false;
             this.button8.Text = "F11";
             this.button8.UseVisualStyleBackColor = true;
             // 
@@ -1519,6 +1587,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(50, 45);
             this.button9.TabIndex = 25;
+            this.button9.TabStop = false;
             this.button9.Text = "F1";
             this.button9.UseVisualStyleBackColor = true;
             // 
@@ -1529,6 +1598,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(50, 45);
             this.button10.TabIndex = 25;
+            this.button10.TabStop = false;
             this.button10.Text = "F6";
             this.button10.UseVisualStyleBackColor = true;
             // 
@@ -1539,6 +1609,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(50, 45);
             this.button11.TabIndex = 25;
+            this.button11.TabStop = false;
             this.button11.Text = "F10";
             this.button11.UseVisualStyleBackColor = true;
             // 
@@ -1549,6 +1620,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(50, 45);
             this.button12.TabIndex = 25;
+            this.button12.TabStop = false;
             this.button12.Text = "PgUp";
             this.button12.UseVisualStyleBackColor = true;
             // 
@@ -1559,6 +1631,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(50, 45);
             this.button13.TabIndex = 25;
+            this.button13.TabStop = false;
             this.button13.Text = "PgDn";
             this.button13.UseVisualStyleBackColor = true;
             // 
@@ -1569,6 +1642,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(50, 45);
             this.button14.TabIndex = 25;
+            this.button14.TabStop = false;
             this.button14.Text = "A";
             this.button14.UseVisualStyleBackColor = true;
             // 
@@ -1579,6 +1653,7 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(50, 45);
             this.button15.TabIndex = 25;
+            this.button15.TabStop = false;
             this.button15.Text = "B";
             this.button15.UseVisualStyleBackColor = true;
             // 
@@ -1589,6 +1664,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(50, 45);
             this.button16.TabIndex = 25;
+            this.button16.TabStop = false;
             this.button16.Text = "C";
             this.button16.UseVisualStyleBackColor = true;
             // 
@@ -1599,6 +1675,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(50, 45);
             this.button17.TabIndex = 25;
+            this.button17.TabStop = false;
             this.button17.Text = "ESC";
             this.button17.UseVisualStyleBackColor = true;
             // 
@@ -1609,6 +1686,7 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(50, 45);
             this.button18.TabIndex = 25;
+            this.button18.TabStop = false;
             this.button18.Text = "G";
             this.button18.UseVisualStyleBackColor = true;
             // 
@@ -1619,6 +1697,7 @@
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(50, 45);
             this.button19.TabIndex = 25;
+            this.button19.TabStop = false;
             this.button19.Text = "F";
             this.button19.UseVisualStyleBackColor = true;
             // 
@@ -1629,6 +1708,7 @@
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(50, 45);
             this.button20.TabIndex = 25;
+            this.button20.TabStop = false;
             this.button20.Text = "E";
             this.button20.UseVisualStyleBackColor = true;
             // 
@@ -1639,6 +1719,7 @@
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(50, 45);
             this.button21.TabIndex = 25;
+            this.button21.TabStop = false;
             this.button21.Text = "D";
             this.button21.UseVisualStyleBackColor = true;
             // 
@@ -1649,6 +1730,7 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(50, 45);
             this.button22.TabIndex = 25;
+            this.button22.TabStop = false;
             this.button22.Text = "K";
             this.button22.UseVisualStyleBackColor = true;
             // 
@@ -1659,6 +1741,7 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(50, 45);
             this.button23.TabIndex = 25;
+            this.button23.TabStop = false;
             this.button23.Text = "J";
             this.button23.UseVisualStyleBackColor = true;
             // 
@@ -1669,6 +1752,7 @@
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(50, 45);
             this.button24.TabIndex = 25;
+            this.button24.TabStop = false;
             this.button24.Text = "I";
             this.button24.UseVisualStyleBackColor = true;
             // 
@@ -1679,6 +1763,7 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(50, 45);
             this.button25.TabIndex = 25;
+            this.button25.TabStop = false;
             this.button25.Text = "H";
             this.button25.UseVisualStyleBackColor = true;
             // 
@@ -1727,7 +1812,7 @@
             this.label_Date.Location = new System.Drawing.Point(180, 0);
             this.label_Date.Name = "label_Date";
             this.label_Date.Size = new System.Drawing.Size(161, 28);
-            this.label_Date.TabIndex = 1;
+            this.label_Date.TabIndex = 33;
             this.label_Date.Text = "2017-06-17 12:54:57 星期六";
             this.label_Date.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1739,7 +1824,7 @@
             this.label_Date0.Location = new System.Drawing.Point(133, 0);
             this.label_Date0.Name = "label_Date0";
             this.label_Date0.Size = new System.Drawing.Size(41, 28);
-            this.label_Date0.TabIndex = 0;
+            this.label_Date0.TabIndex = 44;
             this.label_Date0.Text = "时间：";
             this.label_Date0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -1750,7 +1835,7 @@
             this.label_LoginPattern.Location = new System.Drawing.Point(50, 0);
             this.label_LoginPattern.Name = "label_LoginPattern";
             this.label_LoginPattern.Size = new System.Drawing.Size(77, 28);
-            this.label_LoginPattern.TabIndex = 2;
+            this.label_LoginPattern.TabIndex = 45;
             this.label_LoginPattern.Text = "LoginPattern";
             this.label_LoginPattern.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1761,7 +1846,7 @@
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 28);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 56;
             this.label2.Text = "模式：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -1786,6 +1871,7 @@
             this.Btn_Logonoff.Name = "Btn_Logonoff";
             this.Btn_Logonoff.Size = new System.Drawing.Size(69, 22);
             this.Btn_Logonoff.TabIndex = 4;
+            this.Btn_Logonoff.TabStop = false;
             this.Btn_Logonoff.Text = "登录/注销";
             this.Btn_Logonoff.UseVisualStyleBackColor = true;
             this.Btn_Logonoff.Click += new System.EventHandler(this.Btn_Logonoff_Click);
@@ -1841,8 +1927,10 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "福彩投注终端";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.tabControl1.ResumeLayout(false);
             this.Page_C515.ResumeLayout(false);
             this.panel_Parameters.ResumeLayout(false);
@@ -1901,7 +1989,6 @@
         private System.Windows.Forms.Label label_TQtime;
         private System.Windows.Forms.Panel panel_Parameters;
         private System.Windows.Forms.Panel panel_Bet;
-        private System.Windows.Forms.TextBox BetNo_A1;
         private System.Windows.Forms.TextBox BetNo_A2;
         private System.Windows.Forms.TextBox BetNo_A3;
         private System.Windows.Forms.TextBox BetNo_A5;
@@ -1999,6 +2086,7 @@
         private System.Windows.Forms.Button Btn_Logonoff;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SomePra;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox BetNo_A1;
     }
 }
 
