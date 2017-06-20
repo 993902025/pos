@@ -33,7 +33,7 @@ namespace LotPos
         */
         public static short _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
-        
+
         Timer dtime;
 
 
@@ -182,7 +182,7 @@ namespace LotPos
         }
 
         //投注 F8
-        
+
 
         //登录\注销
         private void Btn_Logonoff_Click(object sender, EventArgs e)
@@ -462,13 +462,13 @@ namespace LotPos
          * */
         #region 号码输入框输入的处理块
 
-        //A1 - ABlu 输入内容长度>=2时跳到下一输入框
         
         /// <summary>
         /// 满足(TextBox.Text.Length >= 2)，焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
         /// </summary>
         /// <param name="sender"></param>
-        void BetMoveFocus(object sender)
+        /// 参数
+        void CheckTextFocus(object sender)
         {
             if ( ((TextBox)sender ).Text.Length >= 2 )
             {
@@ -484,6 +484,7 @@ namespace LotPos
             }
             
         }
+
         /// <summary>
         /// 所有 BetNo(BetNo_A1 - BetNo_XX) 的 TextChanged 事件都指向该事件实现
         /// </summary>
@@ -491,7 +492,7 @@ namespace LotPos
         /// <param name="e"></param>
         private void BetNo_TextChanged(object sender, EventArgs e)
         {
-            BetMoveFocus(sender);
+            CheckTextFocus(sender);
         }
 
         /// <summary>
@@ -504,25 +505,26 @@ namespace LotPos
             nownumbox = (TextBox)sender;
         }
 
+
+        //     键盘事件。
         private void PosKeyPress(object sender, KeyPressEventArgs e)
         {
-            nownumbox.Focus();
-            if (PosBack.IsNumber(e.KeyChar.ToString()))
+            //nownumbox.Focus();
+            if (PosBack.IsNumber(e.KeyChar.ToString()) && (TextBox)sender == nownumbox)
             {
-                nownumbox.Text += e.KeyChar ;
+               
+                ;   //由于是输入框，字符会录入，不需再给text更新值（否则会一次性出现两个字符）
             }
-            else if (e.KeyChar == (Char)Keys.Back)
+            else if (e.KeyChar == (Char)Keys.Back )
             {
-                //调用 back
+                
             }
             //else if (PosBack.IsLetter(e.KeyChar.ToString()))
-            else
+            else if (e.KeyChar.ToString() == Btn_Backspace.Name)
             {
-                if (e.KeyChar.ToString() == Btn_Backspace.Name)
-                {
                     nownumbox.Focus();
                     //TestLog("click name " + ((Button)sender).Name);
-                }
+            }
                 else if (e.KeyChar.ToString() == BtnEsc.Name)
                 {
                     // 此处调用 ESC 相关
@@ -539,15 +541,15 @@ namespace LotPos
                 //nownumbox.Text += e.KeyChar;
                 //keypresstest(null,e);
                 //TestLog(e.ToString());
-            }
+           
             //textBox_test.Text += ((Control)sender).Name;
         }
 
-        void keypresstest(object sender, EventArgs e)
-        {        
-            string strtest = e.ToString();
-            TestLog("keypresstest " + strtest);
-        }
+        //void keypresstest(object sender, EventArgs e)
+        //{        
+        //    string strtest = e.ToString();
+        //    TestLog("keypresstest " + strtest);
+        //}
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
