@@ -12,7 +12,7 @@ namespace LotPos
     class PosFile
     {
         public string _filename;
-        public string _str_result; //存读到的值
+        //public string _str_result; //存读到的值
         string _path;
 
         //F:\123\C#/pos/PosApp/bin/Debug/LotPos.exe

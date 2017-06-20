@@ -39,11 +39,11 @@
             this.Num_3 = new System.Windows.Forms.Button();
             this.Num_2 = new System.Windows.Forms.Button();
             this.Num_1 = new System.Windows.Forms.Button();
-            this.Num_F8 = new System.Windows.Forms.Button();
+            this.BtnF8Bet = new System.Windows.Forms.Button();
             this.Num_6 = new System.Windows.Forms.Button();
             this.Num_5 = new System.Windows.Forms.Button();
             this.Num_4 = new System.Windows.Forms.Button();
-            this.Num_Backspace = new System.Windows.Forms.Button();
+            this.Btn_Backspace = new System.Windows.Forms.Button();
             this.Num_9 = new System.Windows.Forms.Button();
             this.Num_8 = new System.Windows.Forms.Button();
             this.Num_7 = new System.Windows.Forms.Button();
@@ -148,10 +148,10 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.BtnA = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.BtnEsc = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
@@ -187,7 +187,7 @@
             this.select_button.TabStop = false;
             this.select_button.Text = "select";
             this.select_button.UseVisualStyleBackColor = true;
-            this.select_button.Click += new System.EventHandler(this.button1_Click);
+            this.select_button.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBox3
             // 
@@ -200,7 +200,7 @@
             this.textBox3.Size = new System.Drawing.Size(208, 57);
             this.textBox3.TabIndex = 3111;
             this.textBox3.TabStop = false;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // textBox_test
             // 
@@ -208,11 +208,12 @@
             this.textBox_test.Location = new System.Drawing.Point(688, 414);
             this.textBox_test.Multiline = true;
             this.textBox_test.Name = "textBox_test";
+            this.textBox_test.ReadOnly = true;
             this.textBox_test.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox_test.Size = new System.Drawing.Size(277, 106);
             this.textBox_test.TabIndex = 411;
             this.textBox_test.TabStop = false;
-            this.textBox_test.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.textBox_test.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
             // 
             // btn_test
             // 
@@ -223,7 +224,7 @@
             this.btn_test.TabStop = false;
             this.btn_test.Text = "test";
             this.btn_test.UseVisualStyleBackColor = true;
-            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
+            this.btn_test.Click += new System.EventHandler(this.Btn_test_Click);
             // 
             // button3
             // 
@@ -234,7 +235,7 @@
             this.button3.TabStop = false;
             this.button3.Text = "bet";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Num_Enter
             // 
@@ -246,6 +247,8 @@
             this.Num_Enter.TabStop = false;
             this.Num_Enter.Text = "Enter";
             this.Num_Enter.UseVisualStyleBackColor = true;
+            this.Num_Enter.Click += new System.EventHandler(this.KeyBtnClick);
+            this.Num_Enter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // Num_3
             // 
@@ -283,17 +286,18 @@
             this.Num_1.UseVisualStyleBackColor = true;
             this.Num_1.Click += new System.EventHandler(this.Num_Click);
             // 
-            // Num_F8
+            // BtnF8Bet
             // 
-            this.Num_F8.Location = new System.Drawing.Point(185, 5);
-            this.Num_F8.Margin = new System.Windows.Forms.Padding(5);
-            this.Num_F8.Name = "Num_F8";
-            this.Num_F8.Size = new System.Drawing.Size(50, 100);
-            this.Num_F8.TabIndex = 7;
-            this.Num_F8.TabStop = false;
-            this.Num_F8.Text = "F8\r\n(bet)";
-            this.Num_F8.UseVisualStyleBackColor = true;
-            this.Num_F8.Click += new System.EventHandler(this.Num_F8_Click);
+            this.BtnF8Bet.Location = new System.Drawing.Point(185, 5);
+            this.BtnF8Bet.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF8Bet.Name = "BtnF8Bet";
+            this.BtnF8Bet.Size = new System.Drawing.Size(50, 100);
+            this.BtnF8Bet.TabIndex = 7;
+            this.BtnF8Bet.TabStop = false;
+            this.BtnF8Bet.Text = "F8\r\nBet";
+            this.BtnF8Bet.UseVisualStyleBackColor = true;
+            this.BtnF8Bet.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF8Bet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // Num_6
             // 
@@ -331,16 +335,18 @@
             this.Num_4.UseVisualStyleBackColor = true;
             this.Num_4.Click += new System.EventHandler(this.Num_Click);
             // 
-            // Num_Backspace
+            // Btn_Backspace
             // 
-            this.Num_Backspace.Location = new System.Drawing.Point(545, 5);
-            this.Num_Backspace.Margin = new System.Windows.Forms.Padding(5);
-            this.Num_Backspace.Name = "Num_Backspace";
-            this.Num_Backspace.Size = new System.Drawing.Size(50, 45);
-            this.Num_Backspace.TabIndex = 32;
-            this.Num_Backspace.TabStop = false;
-            this.Num_Backspace.Text = "←";
-            this.Num_Backspace.UseVisualStyleBackColor = true;
+            this.Btn_Backspace.Location = new System.Drawing.Point(545, 5);
+            this.Btn_Backspace.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_Backspace.Name = "Btn_Backspace";
+            this.Btn_Backspace.Size = new System.Drawing.Size(50, 45);
+            this.Btn_Backspace.TabIndex = 32;
+            this.Btn_Backspace.TabStop = false;
+            this.Btn_Backspace.Text = "←";
+            this.Btn_Backspace.UseVisualStyleBackColor = true;
+            this.Btn_Backspace.Click += new System.EventHandler(this.KeyBtnClick);
+            this.Btn_Backspace.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // Num_9
             // 
@@ -970,6 +976,7 @@
             this.BetNo_ABlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_ABlue.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_ABlue.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_ABlue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_A9
             // 
@@ -983,6 +990,7 @@
             this.BetNo_A9.Visible = false;
             this.BetNo_A9.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A9.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_A8
             // 
@@ -996,6 +1004,7 @@
             this.BetNo_A8.Visible = false;
             this.BetNo_A8.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A8.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_A7
             // 
@@ -1009,6 +1018,7 @@
             this.BetNo_A7.Visible = false;
             this.BetNo_A7.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A7.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_C5
             // 
@@ -1032,6 +1042,7 @@
             this.BetNo_A6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A6.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A6.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_B5
             // 
@@ -1054,6 +1065,7 @@
             this.BetNo_A5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A5.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A5.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_E4
             // 
@@ -1109,6 +1121,7 @@
             this.BetNo_A4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A4.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A4.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_E3
             // 
@@ -1164,6 +1177,7 @@
             this.BetNo_A3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A3.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A3.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_E2
             // 
@@ -1219,6 +1233,7 @@
             this.BetNo_A2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_A2.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_Enter);
+            this.BetNo_A2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // BetNo_E1
             // 
@@ -1276,7 +1291,7 @@
             this.BetNo_A1.WordWrap = false;
             this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_Enter);
-            this.BetNo_A1.Validated += new System.EventHandler(this.BetNo_A1_Validated);
+            this.BetNo_A1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // label_Multiple
             // 
@@ -1493,7 +1508,7 @@
             this.panel_SmallKeyBoard.Controls.Add(this.Num_2);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_9);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_1);
-            this.panel_SmallKeyBoard.Controls.Add(this.Num_F8);
+            this.panel_SmallKeyBoard.Controls.Add(this.BtnF8Bet);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_4);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_6);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_5);
@@ -1582,6 +1597,7 @@
             this.button6.TabStop = false;
             this.button6.Text = "F2";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // button7
             // 
@@ -1615,6 +1631,8 @@
             this.button9.TabStop = false;
             this.button9.Text = "F1";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.KeyBtnClick);
+            this.button9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // button10
             // 
@@ -1660,16 +1678,18 @@
             this.button13.Text = "PgDn";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // BtnA
             // 
-            this.button14.Location = new System.Drawing.Point(65, 5);
-            this.button14.Margin = new System.Windows.Forms.Padding(5);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(50, 45);
-            this.button14.TabIndex = 25;
-            this.button14.TabStop = false;
-            this.button14.Text = "A";
-            this.button14.UseVisualStyleBackColor = true;
+            this.BtnA.Location = new System.Drawing.Point(65, 5);
+            this.BtnA.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnA.Name = "BtnA";
+            this.BtnA.Size = new System.Drawing.Size(50, 45);
+            this.BtnA.TabIndex = 25;
+            this.BtnA.TabStop = false;
+            this.BtnA.Text = "A";
+            this.BtnA.UseVisualStyleBackColor = true;
+            this.BtnA.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // button15
             // 
@@ -1681,6 +1701,8 @@
             this.button15.TabStop = false;
             this.button15.Text = "B";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.KeyBtnClick);
+            this.button15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // button16
             // 
@@ -1692,17 +1714,20 @@
             this.button16.TabStop = false;
             this.button16.Text = "C";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button17
+            // BtnEsc
             // 
-            this.button17.Location = new System.Drawing.Point(5, 5);
-            this.button17.Margin = new System.Windows.Forms.Padding(5);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(50, 45);
-            this.button17.TabIndex = 25;
-            this.button17.TabStop = false;
-            this.button17.Text = "ESC";
-            this.button17.UseVisualStyleBackColor = true;
+            this.BtnEsc.Location = new System.Drawing.Point(5, 5);
+            this.BtnEsc.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnEsc.Name = "BtnEsc";
+            this.BtnEsc.Size = new System.Drawing.Size(50, 45);
+            this.BtnEsc.TabIndex = 25;
+            this.BtnEsc.TabStop = false;
+            this.BtnEsc.Text = "ESC";
+            this.BtnEsc.UseVisualStyleBackColor = true;
+            this.BtnEsc.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnEsc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // button18
             // 
@@ -1804,7 +1829,7 @@
             this.panel_keyboard.Controls.Add(this.button8);
             this.panel_keyboard.Controls.Add(this.button1);
             this.panel_keyboard.Controls.Add(this.button7);
-            this.panel_keyboard.Controls.Add(this.Num_Backspace);
+            this.panel_keyboard.Controls.Add(this.Btn_Backspace);
             this.panel_keyboard.Controls.Add(this.button11);
             this.panel_keyboard.Controls.Add(this.button4);
             this.panel_keyboard.Controls.Add(this.button10);
@@ -1812,14 +1837,14 @@
             this.panel_keyboard.Controls.Add(this.button6);
             this.panel_keyboard.Controls.Add(this.button21);
             this.panel_keyboard.Controls.Add(this.button9);
-            this.panel_keyboard.Controls.Add(this.button17);
+            this.panel_keyboard.Controls.Add(this.BtnEsc);
             this.panel_keyboard.Controls.Add(this.button16);
             this.panel_keyboard.Controls.Add(this.button24);
             this.panel_keyboard.Controls.Add(this.button15);
             this.panel_keyboard.Controls.Add(this.button23);
             this.panel_keyboard.Controls.Add(this.button18);
             this.panel_keyboard.Controls.Add(this.button20);
-            this.panel_keyboard.Controls.Add(this.button14);
+            this.panel_keyboard.Controls.Add(this.BtnA);
             this.panel_keyboard.Controls.Add(this.button19);
             this.panel_keyboard.Controls.Add(this.button22);
             this.panel_keyboard.Location = new System.Drawing.Point(10, 281);
@@ -1928,7 +1953,7 @@
             // toolTip1
             // 
             this.toolTip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
             // 
             // MainForm
             // 
@@ -1955,7 +1980,6 @@
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.tabControl1.ResumeLayout(false);
             this.Page_C515.ResumeLayout(false);
             this.panel_Parameters.ResumeLayout(false);
@@ -1982,11 +2006,11 @@
         private System.Windows.Forms.Button Num_3;
         private System.Windows.Forms.Button Num_2;
         private System.Windows.Forms.Button Num_1;
-        private System.Windows.Forms.Button Num_F8;
+        private System.Windows.Forms.Button BtnF8Bet;
         private System.Windows.Forms.Button Num_6;
         private System.Windows.Forms.Button Num_5;
         private System.Windows.Forms.Button Num_4;
-        private System.Windows.Forms.Button Num_Backspace;
+        private System.Windows.Forms.Button Btn_Backspace;
         private System.Windows.Forms.Button Num_9;
         private System.Windows.Forms.Button Num_8;
         private System.Windows.Forms.Button Num_7;
@@ -2055,10 +2079,10 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button BtnA;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button BtnEsc;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
