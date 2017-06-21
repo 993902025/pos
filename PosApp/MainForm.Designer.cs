@@ -35,7 +35,7 @@
             this.textBox_test = new System.Windows.Forms.TextBox();
             this.btn_test = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Num_Enter = new System.Windows.Forms.Button();
+            this.BtnEnter = new System.Windows.Forms.Button();
             this.Num_3 = new System.Windows.Forms.Button();
             this.Num_2 = new System.Windows.Forms.Button();
             this.Num_1 = new System.Windows.Forms.Button();
@@ -237,18 +237,19 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // Num_Enter
+            // BtnEnter
             // 
-            this.Num_Enter.Location = new System.Drawing.Point(185, 115);
-            this.Num_Enter.Margin = new System.Windows.Forms.Padding(5);
-            this.Num_Enter.Name = "Num_Enter";
-            this.Num_Enter.Size = new System.Drawing.Size(50, 100);
-            this.Num_Enter.TabIndex = 11;
-            this.Num_Enter.TabStop = false;
-            this.Num_Enter.Text = "Enter";
-            this.Num_Enter.UseVisualStyleBackColor = true;
-            this.Num_Enter.Click += new System.EventHandler(this.KeyBtnClick);
-            this.Num_Enter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
+            this.BtnEnter.Location = new System.Drawing.Point(185, 115);
+            this.BtnEnter.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnEnter.Name = "BtnEnter";
+            this.BtnEnter.Size = new System.Drawing.Size(50, 100);
+            this.BtnEnter.TabIndex = 11;
+            this.BtnEnter.TabStop = false;
+            this.BtnEnter.Tag = "10";
+            this.BtnEnter.Text = "Enter";
+            this.BtnEnter.UseVisualStyleBackColor = true;
+            this.BtnEnter.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnEnter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // Num_3
             // 
@@ -1234,6 +1235,7 @@
             this.BetNo_A2.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_Enter);
             this.BetNo_A2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
+            this.BetNo_A2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.BfKeyDown);
             // 
             // BetNo_E1
             // 
@@ -1292,6 +1294,7 @@
             this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_Enter);
             this.BetNo_A1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
+            this.BetNo_A1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.BfKeyDown);
             // 
             // label_Multiple
             // 
@@ -1503,7 +1506,7 @@
             this.panel_SmallKeyBoard.Controls.Add(this.Num_0);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_3);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_7);
-            this.panel_SmallKeyBoard.Controls.Add(this.Num_Enter);
+            this.panel_SmallKeyBoard.Controls.Add(this.BtnEnter);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_8);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_2);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_9);
@@ -1724,9 +1727,11 @@
             this.BtnEsc.Size = new System.Drawing.Size(50, 45);
             this.BtnEsc.TabIndex = 25;
             this.BtnEsc.TabStop = false;
+            this.BtnEsc.Tag = "27";
             this.BtnEsc.Text = "ESC";
             this.BtnEsc.UseVisualStyleBackColor = true;
             this.BtnEsc.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnEsc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
             this.BtnEsc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PosKeyPress);
             // 
             // button18
@@ -2002,7 +2007,7 @@
         private System.Windows.Forms.TextBox textBox_test;
         private System.Windows.Forms.Button btn_test;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button Num_Enter;
+        private System.Windows.Forms.Button BtnEnter;
         private System.Windows.Forms.Button Num_3;
         private System.Windows.Forms.Button Num_2;
         private System.Windows.Forms.Button Num_1;

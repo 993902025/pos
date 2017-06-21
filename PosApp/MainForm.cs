@@ -503,38 +503,52 @@ namespace LotPos
         private void BetNo_Enter(object sender, EventArgs e)
         {
             nownumbox = (TextBox)sender;
+            nownumbox.Select(textBox_test.TextLength, 0);
         }
 
 
         //     键盘事件。
+
+
         private void PosKeyPress(object sender, KeyPressEventArgs e)
         {
             //nownumbox.Focus();
-            if (PosBack.IsNumber(e.KeyChar.ToString()) && (TextBox)sender == nownumbox)
+            if (!(Char.IsNumber(e.KeyChar)) && (e.KeyChar != (Char)Keys.Back))
             {
+                object keytobtn = new object();
+                keytobtn = (int)e.KeyChar;
+                e.Handled = true;   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
+                KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
                
-                ;   //由于是输入框，字符会录入，不需再给text更新值（否则会一次性出现两个字符）
+
+
             }
-            else if (e.KeyChar == (Char)Keys.Back )
+            else if (PosBack.IsLetter(e.KeyChar.ToString() ))
             {
-                
+                e.Handled = true;
+                TestLog("功能：" + e.KeyChar) ;
             }
+
+            //else if (e.KeyChar == (Char)Keys.Back)
+            //{
+
+            //}
             //else if (PosBack.IsLetter(e.KeyChar.ToString()))
-            else if (e.KeyChar.ToString() == Btn_Backspace.Name)
-            {
-                    nownumbox.Focus();
+            //if (e.KeyChar.ToString() == Btn_Backspace.Name)
+            //{
+            //        nownumbox.Focus();
                     //TestLog("click name " + ((Button)sender).Name);
-            }
-                else if (e.KeyChar.ToString() == BtnEsc.Name)
-                {
+           // }
+             //   else if (e.KeyChar.ToString() == BtnEsc.Name)
+             //   {
                     // 此处调用 ESC 相关
-                    TestLog("调用 BtnEsc ");
-                }
-                else if (e.KeyChar.ToString() + "Bet" == BtnF8Bet.Name)
-                {
+              //      TestLog("调用 BtnEsc ");
+              //  }
+              //  else if (e.KeyChar.ToString() + "Bet" == BtnF8Bet.Name)
+              //  {
                     // 调用 F8Bet 投注相关
-                    Betqueren();
-                }
+              //      Betqueren();
+              //  }
 
                 //调用功能键
                 //KeyBtnClick(sender, e)
@@ -576,24 +590,33 @@ namespace LotPos
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void KeyBtnClick(object sender, EventArgs e)
-        {
-            string BtnName = ((Button)sender).Name;
-            string BtnText = ((Button)sender).Text;
-            if (BtnName == Btn_Backspace.Name  )
+        {            
+            //var BtnNameNum = sender.GetType() == typeof(int) ? Convert.ToInt16(sender) : Convert.ToInt16(((Control)sender).Text);
+            //var BtnText = ((Control)sender).Text;
+            if (sender.GetType() == typeof(int) )
             {
-                nownumbox.Focus();
-                // 调用BACKSPACE
-                //TestLog("click name " + ((Button)sender).Name);
+               int BtnNameNum = Convert.ToInt16(sender);//((char)sender).ToString();
             }
-            else if (BtnName == BtnEsc.Name)
+            else
+            {
+                a = 
+            }
+
+            //string BtnText = ((Control)sender).Text;
+            TestLog("oo" + sender + "pp");
+            if (BtnNameNum == Convert.ToInt16(BtnEsc.Tag))
             {
                 // 此处调用 ESC 相关
-                TestLog("调用 BtnEsc ");
+                TestLog("调用:ESC" + BtnNameNum);
             }
-            else if (BtnName == BtnF8Bet.Name)
+            else if (BtnNameNum == Convert.ToInt16(BtnEnter.Tag))
             {
                 // 调用 F8Bet 投注相关
-                Betqueren();
+                TestLog("调用:Enter" + BtnNameNum); //Betqueren();
+            }
+            else
+            {
+                TestLog("调用：" + BtnNameNum);
             }
         }
 
@@ -649,6 +672,30 @@ namespace LotPos
             textBox_test.Text += str + "\r\n";
 
             
+        }
+
+        private void BfKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            
+        }
+
+        private void PosKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!(PosBack.IsNumber)) && (e.KeyCode != Keys.Back))
+            {
+                object keytobtn = new object();
+                keytobtn = e.KeyValue;
+                e.Handled = true;   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
+                KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
+
+
+
+            }
+            else if (PosBack.IsNumber(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+                TestLog("功能：" + e.KeyChar);
+            }
         }
     }
 }
