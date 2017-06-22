@@ -205,7 +205,8 @@
             // textBox_test
             // 
             this.textBox_test.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox_test.Location = new System.Drawing.Point(669, 414);
+            this.textBox_test.CausesValidation = false;
+            this.textBox_test.Location = new System.Drawing.Point(632, 432);
             this.textBox_test.Multiline = true;
             this.textBox_test.Name = "textBox_test";
             this.textBox_test.ReadOnly = true;
@@ -217,7 +218,7 @@
             // 
             // btn_test
             // 
-            this.btn_test.Location = new System.Drawing.Point(813, 534);
+            this.btn_test.Location = new System.Drawing.Point(716, 544);
             this.btn_test.Name = "btn_test";
             this.btn_test.Size = new System.Drawing.Size(75, 23);
             this.btn_test.TabIndex = 5111;
@@ -394,7 +395,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(572, 265);
+            this.tabControl1.Size = new System.Drawing.Size(610, 265);
             this.tabControl1.TabIndex = 99;
             this.tabControl1.TabStop = false;
             this.tabControl1.Visible = false;
@@ -408,7 +409,7 @@
             this.Page_C515.Margin = new System.Windows.Forms.Padding(10);
             this.Page_C515.Name = "Page_C515";
             this.Page_C515.Padding = new System.Windows.Forms.Padding(10);
-            this.Page_C515.Size = new System.Drawing.Size(564, 239);
+            this.Page_C515.Size = new System.Drawing.Size(602, 239);
             this.Page_C515.TabIndex = 0;
             this.Page_C515.Text = "C515";
             this.Page_C515.Click += new System.EventHandler(this.Page_C515_Click);
@@ -432,7 +433,7 @@
             this.panel_Parameters.Location = new System.Drawing.Point(10, 10);
             this.panel_Parameters.Margin = new System.Windows.Forms.Padding(10);
             this.panel_Parameters.Name = "panel_Parameters";
-            this.panel_Parameters.Size = new System.Drawing.Size(144, 154);
+            this.panel_Parameters.Size = new System.Drawing.Size(145, 155);
             this.panel_Parameters.TabIndex = 42;
             this.panel_Parameters.Visible = false;
             // 
@@ -696,11 +697,11 @@
             this.panel_Bet.Controls.Add(this.label_ELineBetNo);
             this.panel_Bet.Controls.Add(this.label_FirstBetNo);
             this.panel_Bet.Controls.Add(this.label_SecondBetNo);
-            this.panel_Bet.Location = new System.Drawing.Point(174, 10);
+            this.panel_Bet.Location = new System.Drawing.Point(175, 10);
             this.panel_Bet.Margin = new System.Windows.Forms.Padding(10);
             this.panel_Bet.Name = "panel_Bet";
             this.panel_Bet.Padding = new System.Windows.Forms.Padding(10);
-            this.panel_Bet.Size = new System.Drawing.Size(401, 219);
+            this.panel_Bet.Size = new System.Drawing.Size(407, 220);
             this.panel_Bet.TabIndex = 0;
             this.panel_Bet.Visible = false;
             // 
@@ -1291,7 +1292,6 @@
             this.BetNo_A1.WordWrap = false;
             this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
             this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_Enter);
-            this.BetNo_A1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
             // 
             // label_Multiple
             // 
@@ -1308,7 +1308,7 @@
             // 
             this.label_BlueBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_BlueBetNo.AutoSize = true;
-            this.label_BlueBetNo.Location = new System.Drawing.Point(355, 35);
+            this.label_BlueBetNo.Location = new System.Drawing.Point(355, 36);
             this.label_BlueBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_BlueBetNo.Name = "label_BlueBetNo";
             this.label_BlueBetNo.Size = new System.Drawing.Size(29, 12);
@@ -1320,7 +1320,7 @@
             // 
             this.label_NinthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_NinthBetNo.AutoSize = true;
-            this.label_NinthBetNo.Location = new System.Drawing.Point(320, 35);
+            this.label_NinthBetNo.Location = new System.Drawing.Point(320, 36);
             this.label_NinthBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_NinthBetNo.Name = "label_NinthBetNo";
             this.label_NinthBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1333,7 +1333,7 @@
             // 
             this.label_EighthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_EighthBetNo.AutoSize = true;
-            this.label_EighthBetNo.Location = new System.Drawing.Point(285, 35);
+            this.label_EighthBetNo.Location = new System.Drawing.Point(285, 36);
             this.label_EighthBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_EighthBetNo.Name = "label_EighthBetNo";
             this.label_EighthBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1347,7 +1347,7 @@
             this.label_SeventhBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_SeventhBetNo.AutoSize = true;
             this.label_SeventhBetNo.Enabled = false;
-            this.label_SeventhBetNo.Location = new System.Drawing.Point(250, 35);
+            this.label_SeventhBetNo.Location = new System.Drawing.Point(250, 36);
             this.label_SeventhBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_SeventhBetNo.Name = "label_SeventhBetNo";
             this.label_SeventhBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1360,7 +1360,7 @@
             // 
             this.label_SixthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_SixthBetNo.AutoSize = true;
-            this.label_SixthBetNo.Location = new System.Drawing.Point(215, 35);
+            this.label_SixthBetNo.Location = new System.Drawing.Point(215, 36);
             this.label_SixthBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_SixthBetNo.Name = "label_SixthBetNo";
             this.label_SixthBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1372,7 +1372,7 @@
             // 
             this.label_FifthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_FifthBetNo.AutoSize = true;
-            this.label_FifthBetNo.Location = new System.Drawing.Point(180, 35);
+            this.label_FifthBetNo.Location = new System.Drawing.Point(180, 36);
             this.label_FifthBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_FifthBetNo.Name = "label_FifthBetNo";
             this.label_FifthBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1384,7 +1384,7 @@
             // 
             this.label_FourthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_FourthBetNo.AutoSize = true;
-            this.label_FourthBetNo.Location = new System.Drawing.Point(145, 35);
+            this.label_FourthBetNo.Location = new System.Drawing.Point(145, 36);
             this.label_FourthBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_FourthBetNo.Name = "label_FourthBetNo";
             this.label_FourthBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1396,7 +1396,7 @@
             // 
             this.label_ThirdBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_ThirdBetNo.AutoSize = true;
-            this.label_ThirdBetNo.Location = new System.Drawing.Point(110, 35);
+            this.label_ThirdBetNo.Location = new System.Drawing.Point(110, 36);
             this.label_ThirdBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_ThirdBetNo.Name = "label_ThirdBetNo";
             this.label_ThirdBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1419,7 +1419,7 @@
             // 
             this.label_BLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_BLineBetNo.AutoSize = true;
-            this.label_BLineBetNo.Location = new System.Drawing.Point(15, 93);
+            this.label_BLineBetNo.Location = new System.Drawing.Point(15, 94);
             this.label_BLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_BLineBetNo.Name = "label_BLineBetNo";
             this.label_BLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -1431,7 +1431,7 @@
             // 
             this.label_CLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_CLineBetNo.AutoSize = true;
-            this.label_CLineBetNo.Location = new System.Drawing.Point(15, 124);
+            this.label_CLineBetNo.Location = new System.Drawing.Point(15, 125);
             this.label_CLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_CLineBetNo.Name = "label_CLineBetNo";
             this.label_CLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -1443,7 +1443,7 @@
             // 
             this.label_DLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_DLineBetNo.AutoSize = true;
-            this.label_DLineBetNo.Location = new System.Drawing.Point(15, 155);
+            this.label_DLineBetNo.Location = new System.Drawing.Point(15, 156);
             this.label_DLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_DLineBetNo.Name = "label_DLineBetNo";
             this.label_DLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -1455,7 +1455,7 @@
             // 
             this.label_ELineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_ELineBetNo.AutoSize = true;
-            this.label_ELineBetNo.Location = new System.Drawing.Point(15, 186);
+            this.label_ELineBetNo.Location = new System.Drawing.Point(15, 187);
             this.label_ELineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_ELineBetNo.Name = "label_ELineBetNo";
             this.label_ELineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -1467,7 +1467,7 @@
             // 
             this.label_FirstBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_FirstBetNo.AutoSize = true;
-            this.label_FirstBetNo.Location = new System.Drawing.Point(45, 35);
+            this.label_FirstBetNo.Location = new System.Drawing.Point(45, 36);
             this.label_FirstBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_FirstBetNo.Name = "label_FirstBetNo";
             this.label_FirstBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1479,7 +1479,7 @@
             // 
             this.label_SecondBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_SecondBetNo.AutoSize = true;
-            this.label_SecondBetNo.Location = new System.Drawing.Point(75, 35);
+            this.label_SecondBetNo.Location = new System.Drawing.Point(75, 36);
             this.label_SecondBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_SecondBetNo.Name = "label_SecondBetNo";
             this.label_SecondBetNo.Size = new System.Drawing.Size(11, 12);
@@ -1525,6 +1525,7 @@
             this.BtnF9.Size = new System.Drawing.Size(50, 45);
             this.BtnF9.TabIndex = 14;
             this.BtnF9.TabStop = false;
+            this.BtnF9.Tag = "120";
             this.BtnF9.Text = "F9";
             this.BtnF9.UseVisualStyleBackColor = true;
             this.BtnF9.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1537,6 +1538,7 @@
             this.BtnDel.Size = new System.Drawing.Size(50, 45);
             this.BtnDel.TabIndex = 13;
             this.BtnDel.TabStop = false;
+            this.BtnDel.Tag = "46";
             this.BtnDel.Text = "DEL";
             this.BtnDel.UseVisualStyleBackColor = true;
             this.BtnDel.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1564,6 +1566,7 @@
             this.button1.Size = new System.Drawing.Size(50, 45);
             this.button1.TabIndex = 25;
             this.button1.TabStop = false;
+            this.button1.Tag = "116";
             this.button1.Text = "F5";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1576,6 +1579,7 @@
             this.button4.Size = new System.Drawing.Size(50, 45);
             this.button4.TabIndex = 25;
             this.button4.TabStop = false;
+            this.button4.Tag = "115";
             this.button4.Text = "F4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1588,6 +1592,7 @@
             this.button5.Size = new System.Drawing.Size(50, 45);
             this.button5.TabIndex = 25;
             this.button5.TabStop = false;
+            this.button5.Tag = "114";
             this.button5.Text = "F3";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1600,6 +1605,7 @@
             this.button6.Size = new System.Drawing.Size(50, 45);
             this.button6.TabIndex = 25;
             this.button6.TabStop = false;
+            this.button6.Tag = "113";
             this.button6.Text = "F2";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1612,6 +1618,7 @@
             this.button7.Size = new System.Drawing.Size(50, 45);
             this.button7.TabIndex = 25;
             this.button7.TabStop = false;
+            this.button7.Tag = "118";
             this.button7.Text = "F7";
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -1623,6 +1630,7 @@
             this.button8.Size = new System.Drawing.Size(50, 45);
             this.button8.TabIndex = 25;
             this.button8.TabStop = false;
+            this.button8.Tag = "122";
             this.button8.Text = "F11";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1635,6 +1643,7 @@
             this.button9.Size = new System.Drawing.Size(50, 45);
             this.button9.TabIndex = 25;
             this.button9.TabStop = false;
+            this.button9.Tag = "112";
             this.button9.Text = "F1";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1647,6 +1656,7 @@
             this.button10.Size = new System.Drawing.Size(50, 45);
             this.button10.TabIndex = 25;
             this.button10.TabStop = false;
+            this.button10.Tag = "117";
             this.button10.Text = "F6";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1659,6 +1669,7 @@
             this.button11.Size = new System.Drawing.Size(50, 45);
             this.button11.TabIndex = 25;
             this.button11.TabStop = false;
+            this.button11.Tag = "121";
             this.button11.Text = "F10";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1671,6 +1682,7 @@
             this.button12.Size = new System.Drawing.Size(50, 45);
             this.button12.TabIndex = 25;
             this.button12.TabStop = false;
+            this.button12.Tag = "33";
             this.button12.Text = "PgUp";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1683,6 +1695,7 @@
             this.button13.Size = new System.Drawing.Size(50, 45);
             this.button13.TabIndex = 25;
             this.button13.TabStop = false;
+            this.button13.Tag = "34";
             this.button13.Text = "PgDn";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.KeyBtnClick);
@@ -1920,9 +1933,9 @@
             // 
             this.groupBox_LotteryPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(707, 44);
+            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(632, 44);
             this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
-            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(270, 300);
+            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(240, 300);
             this.groupBox_LotteryPicture.TabIndex = 28;
             this.groupBox_LotteryPicture.TabStop = false;
             this.groupBox_LotteryPicture.Text = "票面";
@@ -1997,6 +2010,8 @@
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.PosPreviewKeyDown);
             this.tabControl1.ResumeLayout(false);
             this.Page_C515.ResumeLayout(false);
             this.panel_Parameters.ResumeLayout(false);

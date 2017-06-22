@@ -461,8 +461,7 @@ namespace LotPos
          * 
          * */
         #region 号码输入框输入的处理块
-
-        
+            
         /// <summary>
         /// 满足(TextBox.Text.Length >= 2)，焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
         /// </summary>
@@ -476,7 +475,7 @@ namespace LotPos
                 nownumbox = (TextBox)ActiveControl;
                 TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
             }
-            else if ( ((TextBox)sender).Text.Length <= 0 )
+            else if ( ((TextBox)sender).Text.Length <= 0 && nownumbox != BetNo_A1)
             {
                 SelectNextControl((Control)this.ActiveControl, false, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
@@ -505,6 +504,29 @@ namespace LotPos
             nownumbox = (TextBox)sender;
             nownumbox.Select(textBox_test.TextLength, 0);
         }
+        //keypress
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+
+            TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + (ConsoleKey)keyData);
+            
+            int keyvalue = Convert.ToInt32(keyData.ToString("D"));     // Convert.ToInt16(e.KeyChar);
+            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105)) || keyvalue == 8 || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552)
+            {
+                return false;
+            }
+            else      //
+            {   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
+                object keytobtn = new object();
+                keytobtn = keyvalue;
+                KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
+
+                return true;
+                //TestLog("功能：" + e.KeyChar);
+            }
+        }
+
+
 
 
         //     键盘事件。
@@ -512,7 +534,7 @@ namespace LotPos
         {
             TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
 
-            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || ((e.KeyValue >= 96 && e.KeyValue <= 105)) || e.KeyValue == 8)
+            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || ((e.KeyValue >= 96 && e.KeyValue <= 105)) || e.KeyValue == 8 )
             {
                 e.Handled = false;
             }
@@ -542,6 +564,10 @@ namespace LotPos
             string numstr = ((Control)sender).Text;
             //
             nownumbox.Focus();
+            if (nownumbox.Text.Length > 0)
+            {
+                CheckTextFocus(nownumbox);
+            }
             nownumbox.Text += numstr;
             //BetNo_TextChanged((Object)nownumbox, null);
             TestLog("NumClick " + ((Button)sender).Text);
@@ -559,23 +585,24 @@ namespace LotPos
             string BtnName = string.Empty;
             if (sender.GetType() == typeof(int) )
             {
-                BtnNameNum = Convert.ToInt16(sender);//((char)sender).ToString();
+               BtnNameNum = Convert.ToInt16(sender);//((char)sender).ToString();
             }
             else
             {
                 BtnName = ((Control)sender).Name;
             }
             //string BtnText = ((Control)sender).Text;
-            TestLog("oo" + sender + "pp");
             //退格BACKSPACE
             if (BtnNameNum == Convert.ToInt16(Btn_Backspace.Tag) || BtnName == Btn_Backspace.Name)
             {
                 if (nownumbox.Text.Length > 0)
                 {
+                    nownumbox.Focus();
                     nownumbox.Text = nownumbox.Text.Remove(nownumbox.Text.Length - 1);
                 }
                 else
                 {
+                    nownumbox.Focus();
                     CheckTextFocus(nownumbox);
                 }
             }
@@ -594,22 +621,46 @@ namespace LotPos
             //F8Bet
             else if (BtnNameNum == Convert.ToInt16(BtnF8Bet.Tag) || BtnName == BtnF8Bet.Name)
             {
-                Betqueren();
                 TestLog( "调用：F8Bet" + BtnNameNum);
+                DOF8Bet();
+                Betqueren();
             }
             //
-            else if (BtnNameNum == Convert.ToInt16(BtnF9.Tag) || BtnName == BtnF8Bet.Name)
+            else if (BtnNameNum == Convert.ToInt16(BtnF9.Tag) || BtnName == BtnF9.Name)
             {
 
             }
         }
-        
+
         #endregion
+
+        List<TextBox> BetText = new List<TextBox>() ;
+        void DOF8Bet()
+        {
+            foreach (Control conindex in panel_Bet.Controls)
+            {
+                Console.Write(conindex.Name + "||" + conindex.Text + "||" + conindex.TabIndex + "\r\n");
+            }
+            string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6;
+        }
+
+        void CheckBetNum(string str)
+        {
+
+        }
 
         void TestLog(string str)
         {
             Console.WriteLine(str);
             textBox_test.Text += str + "\r\n";
+        }
+
+        private void PosPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyData) == 229)
+            {
+                TestLog("" + e.KeyData + "||" + e.KeyData.ToString() + e.KeyValue);
+            }
         }
     }
 }
