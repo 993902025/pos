@@ -211,10 +211,11 @@ namespace LotPos
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
         private void Btn_test_Click(object sender, EventArgs e)
         {
-            PosFile pf = new PosFile();
-            textBox_test.Text += pf._filename;
+            //PosFile pf = new PosFile();
+            //textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
+            TestLog("" + string.Compare(BetNo_A1.Name, BetNo_A2.Name));
         }
 
         //新期查询 暂未启用 lias投注版本的
@@ -473,13 +474,13 @@ namespace LotPos
             {
                 SelectNextControl((Control)this.ActiveControl, true, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
-                TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
+                //TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
             }
             else if ( ((TextBox)sender).Text.Length <= 0 && nownumbox != BetNo_A1)
             {
                 SelectNextControl((Control)this.ActiveControl, false, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
-                TestLog("focus to " + ActiveControl.Name);
+                //TestLog("focus to " + ActiveControl.Name);
             }
             
         }
@@ -508,9 +509,7 @@ namespace LotPos
         ///keypress
         protected override bool ProcessDialogKey(Keys keyData)
         {
-
-            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);
-            
+            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);            
             int keyvalue = Convert.ToInt32(keyData.ToString("D"));     // Convert.ToInt16(e.KeyChar);
             if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105)) || keyvalue == 8 || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552)
             {
@@ -521,7 +520,6 @@ namespace LotPos
                 object keytobtn = new object();
                 keytobtn = Convert.ToString(keyData);
                 KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
-
                 return true;
                 //TestLog("功能：" + e.KeyChar);
             }
@@ -530,8 +528,7 @@ namespace LotPos
         //     键盘事件。
         private void PosKeyDown(object sender, KeyEventArgs e)
         {
-            TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
-
+            //TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
             if ((e.KeyValue >= 48 && e.KeyValue <= 57) || ((e.KeyValue >= 96 && e.KeyValue <= 105)) || e.KeyValue == 8 )
             {
                 e.Handled = false;
@@ -542,7 +539,6 @@ namespace LotPos
                 object keytobtn = new object();
                 keytobtn = e.KeyValue;
                 KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
-
                 //TestLog("功能：" + e.KeyChar);
             }
         }
@@ -611,6 +607,10 @@ namespace LotPos
             else if (BtnName == BtnF8.Name)
             {
                 TestLog( "调用：Bet " + BtnName);
+                if (true)
+                {
+
+                }
                 DOF8Bet();
                 Betqueren();
             }
@@ -628,34 +628,62 @@ namespace LotPos
         #endregion
 
         List<TextBox> BetText = new List<TextBox>() ;
-        void DOF8Bet()
+        int DOF8Bet()
         {
-            Control.ControlCollection cons = panel_Bet.Controls;
-            foreach (TextBox conindex in cons)
+
+            posback = new PosBack();
+            //string key = "";
+            //Control[] pancon;
+            //pancon = panel_Bet.Controls.Find(key, true);
+            Control.ControlCollection pans= panel_Bet.Controls;
+            foreach (Control panel in pans)
             {
+                if (panel.GetType() == typeof(Panel) && panel.Name == panelA.Name)
+                {
+                    Control.ControlCollection tboxs = panelA.Controls;
+                    foreach (Control tbox in tboxs)
+                    {
+                        if (tbox.GetType() == typeof(TextBox) && tbox.Visible == true)
+                        {
+                            if (tbox.Text == string.Empty)
+                            {
+                                TestLog("号码不足");
+                                return -1;
+                            }
+                            //TestLog(tbox.Name + "||" + tbox.Text);
+                            posback.ListBetNum(tbox);
+                        }
+                    }
+                    posback.SortBetNum();
+                    TestLog("\r\n-----");
+                    foreach (Control tbox in PosBack.tboxlist)
+                    {
+                        TestLog(tbox.Name + "||" + tbox.Text);
+                    }
+                }
                 //Console.Write(conindex.Name + "||" + conindex.Text + "||" + conindex.TabIndex + "\r\n");
-                TestLog(conindex.Text);
             }
+            return 0;
             string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6 + BetNo_A7 + BetNo_A8 + BetNo_A9;
 
         }
 
-        int CheckBetNum(string str)
-        {
-            Control.ControlCollection cons = panel_Bet.Controls;
-            foreach (Button btn in cons)
-            {
-                if (btn.Text == str)
-                {
-                    string errstr = "号码重复";
-                    TestLog(errstr);
-                    break;
-                }   
-            }
-            return 0;
-        }
+        //int CheckBetNum(string str)
+        //{
+        //    Control.ControlCollection cons = panel_Bet.Controls;
+        //    foreach (Button btn in cons)
+        //    {
+        //        if (btn.Text == str)
+        //        {
+        //            string errstr = "号码重复";
+        //            TestLog(errstr);
+        //            break;
+        //        }   
+        //    }
+        //    return 0;
+        //}
 
-        void TestLog(string str)
+        public void TestLog(string str)
         {
             Console.WriteLine(str);
             textBox_test.Text += str + "\r\n";

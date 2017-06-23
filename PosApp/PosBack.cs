@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LotPos
 {
@@ -99,5 +100,53 @@ namespace LotPos
 
 
         //投注F8
+        public static List<Control> tboxlist = new List<Control>();
+        public void ListBetNum(Control tbox)
+        {
+            tboxlist.Add(tbox);
+            for (int i = 0; i < tboxlist.Count - 1; i++)
+            {
+                if (tbox.Text == tboxlist[i].Text)
+                {
+                    Console.WriteLine("\r\n号码重复！！\r\n");
+                    break;
+                }
+            }       
+        }
+        public void SortBetNum()
+        {
+            Control strtemp;
+            for (int i = tboxlist.Count -1; i > 0; i--)
+            {
+                for (int j = i - 1; j >= 0; j--)
+                {
+                    //if (Convert.ToInt16(tboxlist[i].Text) < Convert.ToInt16(tboxlist[j].Text))
+                    if (string.Compare(tboxlist[i].Name, tboxlist[j].Name) < 0)
+                    {
+                        strtemp = tboxlist[j];
+                        tboxlist[j] = tboxlist[i];
+                        tboxlist[i] = strtemp;
+                    }
+                }
+            }
+        }
+
+        public void CheckBetNum()
+        {
+            Control strtemp;
+            for (int i = 0 ; i < tboxlist.Count - 1; i--)
+            {
+                for (int j = i - 1; j >= 0; j--)
+                {
+                    //if (Convert.ToInt16(tboxlist[i].Text) < Convert.ToInt16(tboxlist[j].Text))
+                    if (string.Compare(tboxlist[i].Name, tboxlist[j].Name) > 0)
+                    {
+                        strtemp = tboxlist[j];
+                        tboxlist[j] = tboxlist[i];
+                        tboxlist[i] = strtemp;
+                    }
+                }
+            }
+        }
     }
 }
