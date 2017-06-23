@@ -39,11 +39,11 @@
             this.Num_3 = new System.Windows.Forms.Button();
             this.Num_2 = new System.Windows.Forms.Button();
             this.Num_1 = new System.Windows.Forms.Button();
-            this.BtnF8Bet = new System.Windows.Forms.Button();
+            this.BtnF8 = new System.Windows.Forms.Button();
             this.Num_6 = new System.Windows.Forms.Button();
             this.Num_5 = new System.Windows.Forms.Button();
             this.Num_4 = new System.Windows.Forms.Button();
-            this.Btn_Backspace = new System.Windows.Forms.Button();
+            this.BtnBack = new System.Windows.Forms.Button();
             this.Num_9 = new System.Windows.Forms.Button();
             this.Num_8 = new System.Windows.Forms.Button();
             this.Num_7 = new System.Windows.Forms.Button();
@@ -137,29 +137,29 @@
             this.BtnF9 = new System.Windows.Forms.Button();
             this.BtnDel = new System.Windows.Forms.Button();
             this.Num_0 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.BtnF5 = new System.Windows.Forms.Button();
+            this.BtnF4 = new System.Windows.Forms.Button();
+            this.BtnF3 = new System.Windows.Forms.Button();
+            this.BtnF2 = new System.Windows.Forms.Button();
+            this.BtnF7 = new System.Windows.Forms.Button();
+            this.Btn11 = new System.Windows.Forms.Button();
+            this.BtnF1 = new System.Windows.Forms.Button();
+            this.BtnF6 = new System.Windows.Forms.Button();
+            this.BtnF10 = new System.Windows.Forms.Button();
+            this.BtnPageUp = new System.Windows.Forms.Button();
+            this.BtnPageDown = new System.Windows.Forms.Button();
             this.BtnA = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.BtnEsc = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
+            this.BtnB = new System.Windows.Forms.Button();
+            this.BtnC = new System.Windows.Forms.Button();
+            this.BtnEscape = new System.Windows.Forms.Button();
+            this.BtnG = new System.Windows.Forms.Button();
+            this.BtnF = new System.Windows.Forms.Button();
+            this.BtnE = new System.Windows.Forms.Button();
+            this.BtnD = new System.Windows.Forms.Button();
+            this.BtnK = new System.Windows.Forms.Button();
+            this.BtnJ = new System.Windows.Forms.Button();
+            this.BtnI = new System.Windows.Forms.Button();
+            this.BtnH = new System.Windows.Forms.Button();
             this.panel_keyboard = new System.Windows.Forms.Panel();
             this.label_Date = new System.Windows.Forms.Label();
             this.label_Date0 = new System.Windows.Forms.Label();
@@ -287,18 +287,18 @@
             this.Num_1.UseVisualStyleBackColor = true;
             this.Num_1.Click += new System.EventHandler(this.Num_Click);
             // 
-            // BtnF8Bet
+            // BtnF8
             // 
-            this.BtnF8Bet.Location = new System.Drawing.Point(185, 5);
-            this.BtnF8Bet.Margin = new System.Windows.Forms.Padding(5);
-            this.BtnF8Bet.Name = "BtnF8Bet";
-            this.BtnF8Bet.Size = new System.Drawing.Size(50, 100);
-            this.BtnF8Bet.TabIndex = 7;
-            this.BtnF8Bet.TabStop = false;
-            this.BtnF8Bet.Tag = "119";
-            this.BtnF8Bet.Text = "F8\r\nBet";
-            this.BtnF8Bet.UseVisualStyleBackColor = true;
-            this.BtnF8Bet.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF8.Location = new System.Drawing.Point(185, 5);
+            this.BtnF8.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF8.Name = "BtnF8";
+            this.BtnF8.Size = new System.Drawing.Size(50, 100);
+            this.BtnF8.TabIndex = 7;
+            this.BtnF8.TabStop = false;
+            this.BtnF8.Tag = "119";
+            this.BtnF8.Text = "F8\r\nBet";
+            this.BtnF8.UseVisualStyleBackColor = true;
+            this.BtnF8.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // Num_6
             // 
@@ -336,18 +336,18 @@
             this.Num_4.UseVisualStyleBackColor = true;
             this.Num_4.Click += new System.EventHandler(this.Num_Click);
             // 
-            // Btn_Backspace
+            // BtnBack
             // 
-            this.Btn_Backspace.Location = new System.Drawing.Point(545, 5);
-            this.Btn_Backspace.Margin = new System.Windows.Forms.Padding(5);
-            this.Btn_Backspace.Name = "Btn_Backspace";
-            this.Btn_Backspace.Size = new System.Drawing.Size(50, 45);
-            this.Btn_Backspace.TabIndex = 32;
-            this.Btn_Backspace.TabStop = false;
-            this.Btn_Backspace.Tag = "8";
-            this.Btn_Backspace.Text = "←";
-            this.Btn_Backspace.UseVisualStyleBackColor = true;
-            this.Btn_Backspace.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnBack.Location = new System.Drawing.Point(545, 5);
+            this.BtnBack.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(50, 45);
+            this.BtnBack.TabIndex = 32;
+            this.BtnBack.TabStop = false;
+            this.BtnBack.Tag = "8";
+            this.BtnBack.Text = "←";
+            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // Num_9
             // 
@@ -1508,7 +1508,7 @@
             this.panel_SmallKeyBoard.Controls.Add(this.Num_2);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_9);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_1);
-            this.panel_SmallKeyBoard.Controls.Add(this.BtnF8Bet);
+            this.panel_SmallKeyBoard.Controls.Add(this.BtnF8);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_4);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_6);
             this.panel_SmallKeyBoard.Controls.Add(this.Num_5);
@@ -1558,147 +1558,147 @@
             this.Num_0.UseVisualStyleBackColor = true;
             this.Num_0.Click += new System.EventHandler(this.Num_Click);
             // 
-            // button1
+            // BtnF5
             // 
-            this.button1.Location = new System.Drawing.Point(485, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 45);
-            this.button1.TabIndex = 25;
-            this.button1.TabStop = false;
-            this.button1.Tag = "116";
-            this.button1.Text = "F5";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF5.Location = new System.Drawing.Point(485, 5);
+            this.BtnF5.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF5.Name = "BtnF5";
+            this.BtnF5.Size = new System.Drawing.Size(50, 45);
+            this.BtnF5.TabIndex = 25;
+            this.BtnF5.TabStop = false;
+            this.BtnF5.Tag = "116";
+            this.BtnF5.Text = "F5";
+            this.BtnF5.UseVisualStyleBackColor = true;
+            this.BtnF5.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button4
+            // BtnF4
             // 
-            this.button4.Location = new System.Drawing.Point(425, 5);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 45);
-            this.button4.TabIndex = 25;
-            this.button4.TabStop = false;
-            this.button4.Tag = "115";
-            this.button4.Text = "F4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF4.Location = new System.Drawing.Point(425, 5);
+            this.BtnF4.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF4.Name = "BtnF4";
+            this.BtnF4.Size = new System.Drawing.Size(50, 45);
+            this.BtnF4.TabIndex = 25;
+            this.BtnF4.TabStop = false;
+            this.BtnF4.Tag = "115";
+            this.BtnF4.Text = "F4";
+            this.BtnF4.UseVisualStyleBackColor = true;
+            this.BtnF4.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button5
+            // BtnF3
             // 
-            this.button5.Location = new System.Drawing.Point(365, 5);
-            this.button5.Margin = new System.Windows.Forms.Padding(5);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(50, 45);
-            this.button5.TabIndex = 25;
-            this.button5.TabStop = false;
-            this.button5.Tag = "114";
-            this.button5.Text = "F3";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF3.Location = new System.Drawing.Point(365, 5);
+            this.BtnF3.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF3.Name = "BtnF3";
+            this.BtnF3.Size = new System.Drawing.Size(50, 45);
+            this.BtnF3.TabIndex = 25;
+            this.BtnF3.TabStop = false;
+            this.BtnF3.Tag = "114";
+            this.BtnF3.Text = "F3";
+            this.BtnF3.UseVisualStyleBackColor = true;
+            this.BtnF3.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button6
+            // BtnF2
             // 
-            this.button6.Location = new System.Drawing.Point(305, 5);
-            this.button6.Margin = new System.Windows.Forms.Padding(5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(50, 45);
-            this.button6.TabIndex = 25;
-            this.button6.TabStop = false;
-            this.button6.Tag = "113";
-            this.button6.Text = "F2";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF2.Location = new System.Drawing.Point(305, 5);
+            this.BtnF2.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF2.Name = "BtnF2";
+            this.BtnF2.Size = new System.Drawing.Size(50, 45);
+            this.BtnF2.TabIndex = 25;
+            this.BtnF2.TabStop = false;
+            this.BtnF2.Tag = "113";
+            this.BtnF2.Text = "F2";
+            this.BtnF2.UseVisualStyleBackColor = true;
+            this.BtnF2.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button7
+            // BtnF7
             // 
-            this.button7.Location = new System.Drawing.Point(305, 60);
-            this.button7.Margin = new System.Windows.Forms.Padding(5);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(50, 45);
-            this.button7.TabIndex = 25;
-            this.button7.TabStop = false;
-            this.button7.Tag = "118";
-            this.button7.Text = "F7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.BtnF7.Location = new System.Drawing.Point(305, 60);
+            this.BtnF7.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF7.Name = "BtnF7";
+            this.BtnF7.Size = new System.Drawing.Size(50, 45);
+            this.BtnF7.TabIndex = 25;
+            this.BtnF7.TabStop = false;
+            this.BtnF7.Tag = "118";
+            this.BtnF7.Text = "F7";
+            this.BtnF7.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // Btn11
             // 
-            this.button8.Location = new System.Drawing.Point(305, 115);
-            this.button8.Margin = new System.Windows.Forms.Padding(5);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(50, 45);
-            this.button8.TabIndex = 25;
-            this.button8.TabStop = false;
-            this.button8.Tag = "122";
-            this.button8.Text = "F11";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.KeyBtnClick);
+            this.Btn11.Location = new System.Drawing.Point(305, 115);
+            this.Btn11.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn11.Name = "Btn11";
+            this.Btn11.Size = new System.Drawing.Size(50, 45);
+            this.Btn11.TabIndex = 25;
+            this.Btn11.TabStop = false;
+            this.Btn11.Tag = "122";
+            this.Btn11.Text = "F11";
+            this.Btn11.UseVisualStyleBackColor = true;
+            this.Btn11.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button9
+            // BtnF1
             // 
-            this.button9.Location = new System.Drawing.Point(245, 5);
-            this.button9.Margin = new System.Windows.Forms.Padding(5);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(50, 45);
-            this.button9.TabIndex = 25;
-            this.button9.TabStop = false;
-            this.button9.Tag = "112";
-            this.button9.Text = "F1";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF1.Location = new System.Drawing.Point(245, 5);
+            this.BtnF1.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF1.Name = "BtnF1";
+            this.BtnF1.Size = new System.Drawing.Size(50, 45);
+            this.BtnF1.TabIndex = 25;
+            this.BtnF1.TabStop = false;
+            this.BtnF1.Tag = "112";
+            this.BtnF1.Text = "F1";
+            this.BtnF1.UseVisualStyleBackColor = true;
+            this.BtnF1.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button10
+            // BtnF6
             // 
-            this.button10.Location = new System.Drawing.Point(245, 60);
-            this.button10.Margin = new System.Windows.Forms.Padding(5);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(50, 45);
-            this.button10.TabIndex = 25;
-            this.button10.TabStop = false;
-            this.button10.Tag = "117";
-            this.button10.Text = "F6";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF6.Location = new System.Drawing.Point(245, 60);
+            this.BtnF6.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF6.Name = "BtnF6";
+            this.BtnF6.Size = new System.Drawing.Size(50, 45);
+            this.BtnF6.TabIndex = 25;
+            this.BtnF6.TabStop = false;
+            this.BtnF6.Tag = "117";
+            this.BtnF6.Text = "F6";
+            this.BtnF6.UseVisualStyleBackColor = true;
+            this.BtnF6.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button11
+            // BtnF10
             // 
-            this.button11.Location = new System.Drawing.Point(245, 115);
-            this.button11.Margin = new System.Windows.Forms.Padding(5);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(50, 45);
-            this.button11.TabIndex = 25;
-            this.button11.TabStop = false;
-            this.button11.Tag = "121";
-            this.button11.Text = "F10";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF10.Location = new System.Drawing.Point(245, 115);
+            this.BtnF10.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF10.Name = "BtnF10";
+            this.BtnF10.Size = new System.Drawing.Size(50, 45);
+            this.BtnF10.TabIndex = 25;
+            this.BtnF10.TabStop = false;
+            this.BtnF10.Tag = "121";
+            this.BtnF10.Text = "F10";
+            this.BtnF10.UseVisualStyleBackColor = true;
+            this.BtnF10.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button12
+            // BtnPageUp
             // 
-            this.button12.Location = new System.Drawing.Point(305, 170);
-            this.button12.Margin = new System.Windows.Forms.Padding(5);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(50, 45);
-            this.button12.TabIndex = 25;
-            this.button12.TabStop = false;
-            this.button12.Tag = "33";
-            this.button12.Text = "PgUp";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnPageUp.Location = new System.Drawing.Point(305, 170);
+            this.BtnPageUp.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnPageUp.Name = "BtnPageUp";
+            this.BtnPageUp.Size = new System.Drawing.Size(50, 45);
+            this.BtnPageUp.TabIndex = 25;
+            this.BtnPageUp.TabStop = false;
+            this.BtnPageUp.Tag = "33";
+            this.BtnPageUp.Text = "PgUp";
+            this.BtnPageUp.UseVisualStyleBackColor = true;
+            this.BtnPageUp.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button13
+            // BtnPageDown
             // 
-            this.button13.Location = new System.Drawing.Point(305, 225);
-            this.button13.Margin = new System.Windows.Forms.Padding(5);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(50, 45);
-            this.button13.TabIndex = 25;
-            this.button13.TabStop = false;
-            this.button13.Tag = "34";
-            this.button13.Text = "PgDn";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnPageDown.Location = new System.Drawing.Point(305, 225);
+            this.BtnPageDown.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnPageDown.Name = "BtnPageDown";
+            this.BtnPageDown.Size = new System.Drawing.Size(50, 45);
+            this.BtnPageDown.TabIndex = 25;
+            this.BtnPageDown.TabStop = false;
+            this.BtnPageDown.Tag = "34";
+            this.BtnPageDown.Text = "PgDn";
+            this.BtnPageDown.UseVisualStyleBackColor = true;
+            this.BtnPageDown.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // BtnA
             // 
@@ -1712,170 +1712,170 @@
             this.BtnA.UseVisualStyleBackColor = true;
             this.BtnA.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button15
+            // BtnB
             // 
-            this.button15.Location = new System.Drawing.Point(125, 5);
-            this.button15.Margin = new System.Windows.Forms.Padding(5);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(50, 45);
-            this.button15.TabIndex = 25;
-            this.button15.TabStop = false;
-            this.button15.Text = "B";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnB.Location = new System.Drawing.Point(125, 5);
+            this.BtnB.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnB.Name = "BtnB";
+            this.BtnB.Size = new System.Drawing.Size(50, 45);
+            this.BtnB.TabIndex = 25;
+            this.BtnB.TabStop = false;
+            this.BtnB.Text = "B";
+            this.BtnB.UseVisualStyleBackColor = true;
+            this.BtnB.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button16
+            // BtnC
             // 
-            this.button16.Location = new System.Drawing.Point(185, 5);
-            this.button16.Margin = new System.Windows.Forms.Padding(5);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(50, 45);
-            this.button16.TabIndex = 25;
-            this.button16.TabStop = false;
-            this.button16.Text = "C";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnC.Location = new System.Drawing.Point(185, 5);
+            this.BtnC.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnC.Name = "BtnC";
+            this.BtnC.Size = new System.Drawing.Size(50, 45);
+            this.BtnC.TabIndex = 25;
+            this.BtnC.TabStop = false;
+            this.BtnC.Text = "C";
+            this.BtnC.UseVisualStyleBackColor = true;
+            this.BtnC.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // BtnEsc
+            // BtnEscape
             // 
-            this.BtnEsc.Location = new System.Drawing.Point(5, 5);
-            this.BtnEsc.Margin = new System.Windows.Forms.Padding(5);
-            this.BtnEsc.Name = "BtnEsc";
-            this.BtnEsc.Size = new System.Drawing.Size(50, 45);
-            this.BtnEsc.TabIndex = 25;
-            this.BtnEsc.TabStop = false;
-            this.BtnEsc.Tag = "27";
-            this.BtnEsc.Text = "ESC";
-            this.BtnEsc.UseVisualStyleBackColor = true;
-            this.BtnEsc.Click += new System.EventHandler(this.KeyBtnClick);
-            this.BtnEsc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
+            this.BtnEscape.Location = new System.Drawing.Point(5, 5);
+            this.BtnEscape.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnEscape.Name = "BtnEscape";
+            this.BtnEscape.Size = new System.Drawing.Size(50, 45);
+            this.BtnEscape.TabIndex = 25;
+            this.BtnEscape.TabStop = false;
+            this.BtnEscape.Tag = "27";
+            this.BtnEscape.Text = "ESC";
+            this.BtnEscape.UseVisualStyleBackColor = true;
+            this.BtnEscape.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnEscape.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
             // 
-            // button18
+            // BtnG
             // 
-            this.button18.Location = new System.Drawing.Point(185, 60);
-            this.button18.Margin = new System.Windows.Forms.Padding(5);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(50, 45);
-            this.button18.TabIndex = 25;
-            this.button18.TabStop = false;
-            this.button18.Text = "G";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnG.Location = new System.Drawing.Point(185, 60);
+            this.BtnG.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnG.Name = "BtnG";
+            this.BtnG.Size = new System.Drawing.Size(50, 45);
+            this.BtnG.TabIndex = 25;
+            this.BtnG.TabStop = false;
+            this.BtnG.Text = "G";
+            this.BtnG.UseVisualStyleBackColor = true;
+            this.BtnG.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button19
+            // BtnF
             // 
-            this.button19.Location = new System.Drawing.Point(125, 60);
-            this.button19.Margin = new System.Windows.Forms.Padding(5);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(50, 45);
-            this.button19.TabIndex = 25;
-            this.button19.TabStop = false;
-            this.button19.Text = "F";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnF.Location = new System.Drawing.Point(125, 60);
+            this.BtnF.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnF.Name = "BtnF";
+            this.BtnF.Size = new System.Drawing.Size(50, 45);
+            this.BtnF.TabIndex = 25;
+            this.BtnF.TabStop = false;
+            this.BtnF.Text = "F";
+            this.BtnF.UseVisualStyleBackColor = true;
+            this.BtnF.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button20
+            // BtnE
             // 
-            this.button20.Location = new System.Drawing.Point(65, 60);
-            this.button20.Margin = new System.Windows.Forms.Padding(5);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(50, 45);
-            this.button20.TabIndex = 25;
-            this.button20.TabStop = false;
-            this.button20.Text = "E";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnE.Location = new System.Drawing.Point(65, 60);
+            this.BtnE.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnE.Name = "BtnE";
+            this.BtnE.Size = new System.Drawing.Size(50, 45);
+            this.BtnE.TabIndex = 25;
+            this.BtnE.TabStop = false;
+            this.BtnE.Text = "E";
+            this.BtnE.UseVisualStyleBackColor = true;
+            this.BtnE.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button21
+            // BtnD
             // 
-            this.button21.Location = new System.Drawing.Point(5, 60);
-            this.button21.Margin = new System.Windows.Forms.Padding(5);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(50, 45);
-            this.button21.TabIndex = 25;
-            this.button21.TabStop = false;
-            this.button21.Text = "D";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnD.Location = new System.Drawing.Point(5, 60);
+            this.BtnD.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnD.Name = "BtnD";
+            this.BtnD.Size = new System.Drawing.Size(50, 45);
+            this.BtnD.TabIndex = 25;
+            this.BtnD.TabStop = false;
+            this.BtnD.Text = "D";
+            this.BtnD.UseVisualStyleBackColor = true;
+            this.BtnD.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button22
+            // BtnK
             // 
-            this.button22.Location = new System.Drawing.Point(185, 115);
-            this.button22.Margin = new System.Windows.Forms.Padding(5);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(50, 45);
-            this.button22.TabIndex = 25;
-            this.button22.TabStop = false;
-            this.button22.Text = "K";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnK.Location = new System.Drawing.Point(185, 115);
+            this.BtnK.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnK.Name = "BtnK";
+            this.BtnK.Size = new System.Drawing.Size(50, 45);
+            this.BtnK.TabIndex = 25;
+            this.BtnK.TabStop = false;
+            this.BtnK.Text = "K";
+            this.BtnK.UseVisualStyleBackColor = true;
+            this.BtnK.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button23
+            // BtnJ
             // 
-            this.button23.Location = new System.Drawing.Point(125, 115);
-            this.button23.Margin = new System.Windows.Forms.Padding(5);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(50, 45);
-            this.button23.TabIndex = 25;
-            this.button23.TabStop = false;
-            this.button23.Text = "J";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnJ.Location = new System.Drawing.Point(125, 115);
+            this.BtnJ.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnJ.Name = "BtnJ";
+            this.BtnJ.Size = new System.Drawing.Size(50, 45);
+            this.BtnJ.TabIndex = 25;
+            this.BtnJ.TabStop = false;
+            this.BtnJ.Text = "J";
+            this.BtnJ.UseVisualStyleBackColor = true;
+            this.BtnJ.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button24
+            // BtnI
             // 
-            this.button24.Location = new System.Drawing.Point(65, 115);
-            this.button24.Margin = new System.Windows.Forms.Padding(5);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(50, 45);
-            this.button24.TabIndex = 25;
-            this.button24.TabStop = false;
-            this.button24.Text = "I";
-            this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnI.Location = new System.Drawing.Point(65, 115);
+            this.BtnI.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnI.Name = "BtnI";
+            this.BtnI.Size = new System.Drawing.Size(50, 45);
+            this.BtnI.TabIndex = 25;
+            this.BtnI.TabStop = false;
+            this.BtnI.Text = "I";
+            this.BtnI.UseVisualStyleBackColor = true;
+            this.BtnI.Click += new System.EventHandler(this.KeyBtnClick);
             // 
-            // button25
+            // BtnH
             // 
-            this.button25.Location = new System.Drawing.Point(5, 115);
-            this.button25.Margin = new System.Windows.Forms.Padding(5);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(50, 45);
-            this.button25.TabIndex = 25;
-            this.button25.TabStop = false;
-            this.button25.Text = "H";
-            this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.KeyBtnClick);
+            this.BtnH.Location = new System.Drawing.Point(5, 115);
+            this.BtnH.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnH.Name = "BtnH";
+            this.BtnH.Size = new System.Drawing.Size(50, 45);
+            this.BtnH.TabIndex = 25;
+            this.BtnH.TabStop = false;
+            this.BtnH.Text = "H";
+            this.BtnH.UseVisualStyleBackColor = true;
+            this.BtnH.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // panel_keyboard
             // 
             this.panel_keyboard.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_keyboard.BackColor = System.Drawing.Color.Transparent;
             this.panel_keyboard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_keyboard.Controls.Add(this.button13);
-            this.panel_keyboard.Controls.Add(this.button25);
-            this.panel_keyboard.Controls.Add(this.button12);
+            this.panel_keyboard.Controls.Add(this.BtnPageDown);
+            this.panel_keyboard.Controls.Add(this.BtnH);
+            this.panel_keyboard.Controls.Add(this.BtnPageUp);
             this.panel_keyboard.Controls.Add(this.panel_SmallKeyBoard);
-            this.panel_keyboard.Controls.Add(this.button8);
-            this.panel_keyboard.Controls.Add(this.button1);
-            this.panel_keyboard.Controls.Add(this.button7);
-            this.panel_keyboard.Controls.Add(this.Btn_Backspace);
-            this.panel_keyboard.Controls.Add(this.button11);
-            this.panel_keyboard.Controls.Add(this.button4);
-            this.panel_keyboard.Controls.Add(this.button10);
-            this.panel_keyboard.Controls.Add(this.button5);
-            this.panel_keyboard.Controls.Add(this.button6);
-            this.panel_keyboard.Controls.Add(this.button21);
-            this.panel_keyboard.Controls.Add(this.button9);
-            this.panel_keyboard.Controls.Add(this.BtnEsc);
-            this.panel_keyboard.Controls.Add(this.button16);
-            this.panel_keyboard.Controls.Add(this.button24);
-            this.panel_keyboard.Controls.Add(this.button15);
-            this.panel_keyboard.Controls.Add(this.button23);
-            this.panel_keyboard.Controls.Add(this.button18);
-            this.panel_keyboard.Controls.Add(this.button20);
+            this.panel_keyboard.Controls.Add(this.Btn11);
+            this.panel_keyboard.Controls.Add(this.BtnF5);
+            this.panel_keyboard.Controls.Add(this.BtnF7);
+            this.panel_keyboard.Controls.Add(this.BtnBack);
+            this.panel_keyboard.Controls.Add(this.BtnF10);
+            this.panel_keyboard.Controls.Add(this.BtnF4);
+            this.panel_keyboard.Controls.Add(this.BtnF6);
+            this.panel_keyboard.Controls.Add(this.BtnF3);
+            this.panel_keyboard.Controls.Add(this.BtnF2);
+            this.panel_keyboard.Controls.Add(this.BtnD);
+            this.panel_keyboard.Controls.Add(this.BtnF1);
+            this.panel_keyboard.Controls.Add(this.BtnEscape);
+            this.panel_keyboard.Controls.Add(this.BtnC);
+            this.panel_keyboard.Controls.Add(this.BtnI);
+            this.panel_keyboard.Controls.Add(this.BtnB);
+            this.panel_keyboard.Controls.Add(this.BtnJ);
+            this.panel_keyboard.Controls.Add(this.BtnG);
+            this.panel_keyboard.Controls.Add(this.BtnE);
             this.panel_keyboard.Controls.Add(this.BtnA);
-            this.panel_keyboard.Controls.Add(this.button19);
-            this.panel_keyboard.Controls.Add(this.button22);
+            this.panel_keyboard.Controls.Add(this.BtnF);
+            this.panel_keyboard.Controls.Add(this.BtnK);
             this.panel_keyboard.Location = new System.Drawing.Point(10, 281);
             this.panel_keyboard.Margin = new System.Windows.Forms.Padding(10);
             this.panel_keyboard.Name = "panel_keyboard";
@@ -2011,7 +2011,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.PosPreviewKeyDown);
             this.tabControl1.ResumeLayout(false);
             this.Page_C515.ResumeLayout(false);
             this.panel_Parameters.ResumeLayout(false);
@@ -2038,11 +2037,11 @@
         private System.Windows.Forms.Button Num_3;
         private System.Windows.Forms.Button Num_2;
         private System.Windows.Forms.Button Num_1;
-        private System.Windows.Forms.Button BtnF8Bet;
+        private System.Windows.Forms.Button BtnF8;
         private System.Windows.Forms.Button Num_6;
         private System.Windows.Forms.Button Num_5;
         private System.Windows.Forms.Button Num_4;
-        private System.Windows.Forms.Button Btn_Backspace;
+        private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Button Num_9;
         private System.Windows.Forms.Button Num_8;
         private System.Windows.Forms.Button Num_7;
@@ -2100,29 +2099,29 @@
         private System.Windows.Forms.TextBox BetNo_E2;
         private System.Windows.Forms.TextBox BetNo_E1;
         private System.Windows.Forms.Label label_ELineBetNo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button BtnF5;
+        private System.Windows.Forms.Button BtnF4;
+        private System.Windows.Forms.Button BtnF3;
+        private System.Windows.Forms.Button BtnF2;
+        private System.Windows.Forms.Button BtnF7;
+        private System.Windows.Forms.Button Btn11;
+        private System.Windows.Forms.Button BtnF1;
+        private System.Windows.Forms.Button BtnF6;
+        private System.Windows.Forms.Button BtnF10;
+        private System.Windows.Forms.Button BtnPageUp;
+        private System.Windows.Forms.Button BtnPageDown;
         private System.Windows.Forms.Button BtnA;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button BtnEsc;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button BtnB;
+        private System.Windows.Forms.Button BtnC;
+        private System.Windows.Forms.Button BtnEscape;
+        private System.Windows.Forms.Button BtnG;
+        private System.Windows.Forms.Button BtnF;
+        private System.Windows.Forms.Button BtnE;
+        private System.Windows.Forms.Button BtnD;
+        private System.Windows.Forms.Button BtnK;
+        private System.Windows.Forms.Button BtnJ;
+        private System.Windows.Forms.Button BtnI;
+        private System.Windows.Forms.Button BtnH;
         private System.Windows.Forms.Panel panel_keyboard;
         private System.Windows.Forms.TextBox BetNo_E6;
         private System.Windows.Forms.TextBox BetNo_D6;

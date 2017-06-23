@@ -97,5 +97,7 @@ namespace LotPos
             return regex.IsMatch(str.Trim());
         }
 
+
+        //投注F8
     }
 }
