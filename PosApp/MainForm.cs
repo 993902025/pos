@@ -515,7 +515,7 @@ namespace LotPos
             {
                 return false;
             }
-            else      //
+            else     //
             {   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
                 object keytobtn = new object();
                 keytobtn = keyvalue;
@@ -621,7 +621,7 @@ namespace LotPos
             //F8Bet
             else if (BtnNameNum == Convert.ToInt16(BtnF8Bet.Tag) || BtnName == BtnF8Bet.Name)
             {
-                TestLog( "调用：F8Bet" + BtnNameNum);
+                TestLog( "调用：F8Bet " + BtnNameNum);
                 DOF8Bet();
                 Betqueren();
             }
@@ -629,6 +629,10 @@ namespace LotPos
             else if (BtnNameNum == Convert.ToInt16(BtnF9.Tag) || BtnName == BtnF9.Name)
             {
 
+            }
+            else if (BtnNameNum == Convert.ToInt16(BtnA.Tag) || BtnName == BtnA.Name)
+            {
+                TestLog("调用：BtnA " + BtnNameNum);
             }
         }
 

@@ -1281,7 +1281,7 @@
             // 
             // BetNo_A1
             // 
-            this.BetNo_A1.ImeMode = System.Windows.Forms.ImeMode.Alpha;
+            this.BetNo_A1.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.BetNo_A1.Location = new System.Drawing.Point(42, 57);
             this.BetNo_A1.Margin = new System.Windows.Forms.Padding(5);
             this.BetNo_A1.MaxLength = 2;
@@ -2002,7 +2002,7 @@
             this.Controls.Add(this.groupBox_LotteryPicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.Alpha;
+            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
