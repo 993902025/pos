@@ -21,7 +21,7 @@ namespace LotPos
         /* 定义类 
          */
         public LogOnForm logonform;     //登录界面类
-        public PosBack posback;     //后台业务处理类
+            //后台业务处理类
         PosConfig posconfig;        //配置文件类 
         SocketClass betsock = new SocketClass();
 
@@ -56,7 +56,7 @@ namespace LotPos
             };
             dtime.Tick += new EventHandler(Dtime_tick);
             posconfig = new PosConfig();
-            posback = new PosBack();
+            //posback = new PosBack();
             logonform = new LogOnForm();
             _pageNum = 1;
             _loginPattern = posconfig.LoginPattern;
@@ -72,6 +72,7 @@ namespace LotPos
                 try
                 {
                     //  TODO:   此处建立acceptor连接
+                    PosBack posback = new PosBack();
                     posback.GetPra();       //模拟取参
                     //
                     logonform.Close();
@@ -128,11 +129,14 @@ namespace LotPos
             _pageNum = 1;
             label_LoginPattern.Text = posconfig.LoginPattern;   //显示启动模式
             dtime.Start();      //开启显示时间
+            PosBack posback = new PosBack();
             posback.GetPra();       //模拟取参
             Update_panel_Parameters_Show();
             tabControl1.Visible = true;     //标签控制页
             panel_Parameters.Visible = true;    //显示参数区域
-            panel_Bet.Visible = true;       //显示投注号码区域
+
+            nownumbox = BetNo_A1;
+            nownumbox.Focus();
 
             toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
             toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
@@ -144,6 +148,7 @@ namespace LotPos
         void Update_panel_Parameters_Show()
         {
 
+            PosBack posback = new PosBack();
             GameName.Text = posback.gamename;
             DrawNo.Text = posback.drawno;
             AgentId.Text = posback.xszbm;
@@ -492,7 +497,14 @@ namespace LotPos
         /// <param name="e"></param>
         private void BetNo_TextChanged(object sender, EventArgs e)
         {
-            CheckTextFocus(sender);
+            if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text)> 32)
+            {
+                TestLog("选号不能超过32");                
+            }
+            else
+            {
+                CheckTextFocus(sender);
+            }
         }
 
         /// <summary>
@@ -503,15 +515,19 @@ namespace LotPos
         private void BetNo_Enter(object sender, EventArgs e)
         {
             nownumbox = (TextBox)sender;
-            nownumbox.Select(textBox_test.TextLength, 0);
+            nownumbox.Select(nownumbox.TextLength, 0);
         }
         
         ///keypress
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);            
+            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);         
+            if (keyData == Keys.Up)
+            {
+
+            }
             int keyvalue = Convert.ToInt32(keyData.ToString("D"));     // Convert.ToInt16(e.KeyChar);
-            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105)) || keyvalue == 8 || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552)
+            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105))  || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552)
             {
                 return false;
             }
@@ -529,7 +545,7 @@ namespace LotPos
         private void PosKeyDown(object sender, KeyEventArgs e)
         {
             //TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
-            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || ((e.KeyValue >= 96 && e.KeyValue <= 105)) || e.KeyValue == 8 )
+            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || (e.KeyValue >= 96 && e.KeyValue <= 105) || e.KeyValue == 262162 || e.KeyValue == 131089 || e.KeyValue == 65552)
             {
                 e.Handled = false;
             }
@@ -537,7 +553,7 @@ namespace LotPos
             {
                 e.Handled = true;   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
                 object keytobtn = new object();
-                keytobtn = e.KeyValue;
+                keytobtn = Convert.ToString(e.KeyData);
                 KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
                 //TestLog("功能：" + e.KeyChar);
             }
@@ -576,18 +592,17 @@ namespace LotPos
         private void KeyBtnClick(object sender, EventArgs e)
         {
             TypeToType tot = new TypeToType();
-            string BtnName = sender.GetType() == typeof(string) ? tot.StrToKey(sender) : ((Control)sender).Text;
+            string BtnName = sender.GetType() == typeof(string) ? tot.StrToKey(sender) : ((Control)sender).Name;
+            nownumbox.Focus();
             //退格BACKSPACE
             if ( BtnName == BtnBack.Name)
             {
                 if (nownumbox.Text.Length > 0)
                 {
-                    nownumbox.Focus();
                     nownumbox.Text = nownumbox.Text.Remove(nownumbox.Text.Length - 1);
                 }
                 else
                 {
-                    nownumbox.Focus();
                     CheckTextFocus(nownumbox);
                 }
             }
@@ -607,12 +622,10 @@ namespace LotPos
             else if (BtnName == BtnF8.Name)
             {
                 TestLog( "调用：Bet " + BtnName);
-                if (true)
+                if (DOF8Bet() == 0)
                 {
-
+                    Betqueren();
                 }
-                DOF8Bet();
-                Betqueren();
             }
             //
             else if ( BtnName == BtnF9.Name)
@@ -622,6 +635,12 @@ namespace LotPos
             else if ( BtnName == BtnA.Name)
             {
                 TestLog("调用：  " + BtnName);
+                panel_Bet.Visible = true;       //显示投注号码区域
+            }
+            else if (BtnName == BtnC.Name)
+            {
+                TestLog("调用：  " + BtnName);
+                SwitchPage(_pageNum);
             }
         }
 
@@ -631,6 +650,7 @@ namespace LotPos
         int DOF8Bet()
         {
 
+            PosBack posback = new PosBack();
             posback = new PosBack();
             //string key = "";
             //Control[] pancon;
@@ -651,7 +671,11 @@ namespace LotPos
                                 return -1;
                             }
                             //TestLog(tbox.Name + "||" + tbox.Text);
-                            posback.ListBetNum(tbox);
+                            if (posback.ListBetNum(tbox) != 0)
+                            {
+                                TestLog("号码重复！！");
+                                return -2;
+                            }
                         }
                     }
                     posback.SortBetNum();
@@ -668,20 +692,6 @@ namespace LotPos
 
         }
 
-        //int CheckBetNum(string str)
-        //{
-        //    Control.ControlCollection cons = panel_Bet.Controls;
-        //    foreach (Button btn in cons)
-        //    {
-        //        if (btn.Text == str)
-        //        {
-        //            string errstr = "号码重复";
-        //            TestLog(errstr);
-        //            break;
-        //        }   
-        //    }
-        //    return 0;
-        //}
 
         public void TestLog(string str)
         {
@@ -689,12 +699,20 @@ namespace LotPos
             textBox_test.Text += str + "\r\n";
         }
 
-        //private void PosPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        //{
-        //    if (Convert.ToInt32(e.KeyData) == 229)
-        //    {
-        //        TestLog("" + e.KeyData + "||" + e.KeyData.ToString() + e.KeyValue);
-        //    }
-        //}
+        void SwitchPage(int pagenum)
+        {
+            if (pagenum == 2)
+            {
+                panel_Bet.Visible = true;
+            }
+            else if (pagenum == 3)
+            {
+
+            }
+                
+        }
     }
+
+   
+
 }

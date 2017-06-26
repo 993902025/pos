@@ -24,16 +24,24 @@ namespace LotPos
         public string balance;
         public string tqtime;
 
+        public static List<Control> tboxlist;
+
         List<string> prakey = new List<string> { "gamename", "drawno", "xszbm", "lsh" ,"smallcount","balance","tqtime"};
         List<string> pravalue = new List<string>();
+
+        public PosBack()
+        {
+            tboxlist = new List<Control>();
+        }
+
         //取参
 
 
 
-            //联机模式取参
+        //联机模式取参
         //public int GetPra(ref string pra)
         //{
-            
+
         //     _pra = pra;
         //    int re_num = 0;
         //    return re_num;
@@ -100,18 +108,18 @@ namespace LotPos
 
 
         //投注F8
-        public static List<Control> tboxlist = new List<Control>();
-        public void ListBetNum(Control tbox)
+        public int ListBetNum(Control tbox)
         {
             tboxlist.Add(tbox);
             for (int i = 0; i < tboxlist.Count - 1; i++)
             {
                 if (tbox.Text == tboxlist[i].Text)
                 {
-                    Console.WriteLine("\r\n号码重复！！\r\n");
-                    break;
+                    //Console.WriteLine("\r\n号码重复！！\r\n");
+                    return -2;
                 }
-            }       
+            }
+            return 0;
         }
         public void SortBetNum()
         {
