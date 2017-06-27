@@ -18,16 +18,17 @@ namespace LotPos
         //F:\123\C#/pos/PosApp/bin/Debug/LotPos.exe
         public  PosFile()
         {
-            _path = Application.StartupPath;
+            _path = Application.StartupPath;//@".\"
             _filename = Process.GetCurrentProcess().ProcessName + ".txt";
 
-            if (!File.Exists(@".\" +  _filename))
+
+            if (!File.Exists(_path +  _filename))
             {
                 try
                 {
-                    Console.WriteLine("初始化模拟参数文件：" + @".\" + _filename);
+                    Console.WriteLine("初始化模拟参数文件：" + _path + _filename);
                     string inistr = "gamename=\r\n\r\ndrawno=\r\n\r\nxszbm=\r\n\r\nlsh=\r\n\r\nsmallcount=\r\n\r\nbalance=\r\n\r\ntqtime=\r\n".ToUpper();
-                    FileStream newfile = File.Create(@".\" + _filename);
+                    FileStream newfile = File.Create(_path + _filename);
                     newfile.Write(Encoding.UTF8.GetBytes(inistr),0, inistr.Length);
                     newfile.Close();
                 }
@@ -75,7 +76,7 @@ namespace LotPos
             {
                 if (!File.Exists(_path + _filename))
                 {
-                    StreamReader sread = new StreamReader(@".\" + _filename);
+                    StreamReader sread = new StreamReader(_path + _filename);
                     while (!sread.EndOfStream)
                     {
                         temstr = Regex.Replace(sread.ReadLine(), @"\s", "");

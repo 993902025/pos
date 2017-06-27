@@ -12,7 +12,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
-
+using LotPos.back;
 
 namespace LotPos
 {
@@ -20,7 +20,7 @@ namespace LotPos
     {
         /* 定义类 
          */
-        public LogOnForm logonform;     //登录界面类
+        //public LogOnForm logonform;     //登录界面类
             //后台业务处理类
         PosConfig posconfig;        //配置文件类 
         SocketClass betsock = new SocketClass();
@@ -31,7 +31,7 @@ namespace LotPos
 
         /* 界面参数配置
         */
-        public static short _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
+        public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
 
         Timer dtime;
@@ -57,32 +57,28 @@ namespace LotPos
             dtime.Tick += new EventHandler(Dtime_tick);
             posconfig = new PosConfig();
             //posback = new PosBack();
-            logonform = new LogOnForm();
             _pageNum = 1;
             _loginPattern = posconfig.LoginPattern;
 
         }
 
-        //处理登录界面返回结果
-        int LogonFormResult(short pageNum)
+        
+        /// <summary>
+        /// 处理登录界面返回结果
+        /// </summary>
+        /// <param name="pageNum"></param>
+        /// <returns></returns>
+        void AtLogonForm(int pageNum)
         {
+            LogOnForm logonform = new LogOnForm();
+            logonform.ShowDialog();
             //确认登录
             if (logonform.DialogResult == DialogResult.OK)
             {
-                try
-                {
-                    //  TODO:   此处建立acceptor连接
-                    PosBack posback = new PosBack();
-                    posback.GetPra();       //模拟取参
-                    //
-                    logonform.Close();
-                    return 0;
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                    return 100;
-                }
+                //  TODO:   此处建立acceptor连接
+                PosBack posback = new PosBack();
+                posback.GetPra();       //模拟取参
+                logonform.Close();              
             }
             //退出 or 取消登录
             else if (logonform.DialogResult == DialogResult.Cancel)
@@ -99,7 +95,6 @@ namespace LotPos
                         MessageBox.Show(exc.ToString());
                         throw;
                     }
-                    return -1;
                 }
                 try
                 {
@@ -110,33 +105,38 @@ namespace LotPos
                     MessageBox.Show(exc.ToString());
                     throw;
                 }
-                return 0;
             }
-            return -2;
         }
 
         //加载主界面
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (_pageNum == 0)
-            {
-                logonform.ShowDialog();     //加载登录界面
-                if (LogonFormResult(_pageNum) == 0) //登录结果
-                {
-                    //posback.GetPra();
-                }
+            
+            switch(_pageNum)
+            { 
+
+                case 0:
+                    AtLogonForm(_pageNum);//加载登录界面
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+
             }
+            
             _pageNum = 1;
+
             label_LoginPattern.Text = posconfig.LoginPattern;   //显示启动模式
             dtime.Start();      //开启显示时间
-            PosBack posback = new PosBack();
-            posback.GetPra();       //模拟取参
-            Update_panel_Parameters_Show();
-            tabControl1.Visible = true;     //标签控制页
-            panel_Parameters.Visible = true;    //显示参数区域
 
-            nownumbox = BetNo_A1;
-            nownumbox.Focus();
+            tabControl1.Visible = true;     //标签控制页
+            ShowPage_1(_pageNum);
+            Update_panel_Parameters_Show(); //
+
+            //初始化光标
+            nownumbox = BetNo_A1;  
+            nownumbox.Focus();      
 
             toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
             toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
@@ -145,10 +145,13 @@ namespace LotPos
 
         }
 
+        /// <summary>
+        /// 站点玩法等参数显示
+        /// </summary>
         void Update_panel_Parameters_Show()
         {
-
             PosBack posback = new PosBack();
+            posback.GetPra();       //模拟取参
             GameName.Text = posback.gamename;
             DrawNo.Text = posback.drawno;
             AgentId.Text = posback.xszbm;
@@ -157,9 +160,14 @@ namespace LotPos
             Balance.Text = posback.balance;
             TQTime.Text = posback.tqtime;
 
+            panel_Parameters.Visible = true;    //显示参数区域
         }
-
-        //显示时间
+               
+        /// <summary>
+        /// 右上角信息栏时间
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Dtime_tick(object sender, EventArgs e)
         {
             //显示时间
@@ -192,9 +200,7 @@ namespace LotPos
         //登录\注销
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
-            logonform = new LogOnForm();
-            logonform.ShowDialog();
-            LogonFormResult(_pageNum);
+            AtLogonForm(_pageNum);
         }
 
         //投注确认 显示票面
@@ -561,6 +567,7 @@ namespace LotPos
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
+
             nownumbox.Focus();
         }
 
@@ -688,7 +695,7 @@ namespace LotPos
                 //Console.Write(conindex.Name + "||" + conindex.Text + "||" + conindex.TabIndex + "\r\n");
             }
             return 0;
-            string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6 + BetNo_A7 + BetNo_A8 + BetNo_A9;
+            //string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6 + BetNo_A7 + BetNo_A8 + BetNo_A9;
 
         }
 
@@ -710,6 +717,22 @@ namespace LotPos
 
             }
                 
+        }
+
+        
+        private void InitBetBox()
+        {
+            
+        }
+
+
+        private void ClearBet()
+        {
+            
+            for (int i = 0; i < 50; i++)
+            {
+                
+            }
         }
     }
 

@@ -137,6 +137,7 @@
             this.BetNo_B7 = new System.Windows.Forms.TextBox();
             this.BetNo_B8 = new System.Windows.Forms.TextBox();
             this.BetNo_B9 = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.panel_SmallKeyBoard = new System.Windows.Forms.Panel();
             this.BtnF9 = new System.Windows.Forms.Button();
@@ -401,6 +402,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Page_C515);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Name = "tabControl1";
@@ -952,6 +954,7 @@
             this.panelA.Name = "panelA";
             this.panelA.Size = new System.Drawing.Size(304, 20);
             this.panelA.TabIndex = 0;
+            this.panelA.Visible = false;
             // 
             // BetNo_A2
             // 
@@ -1532,6 +1535,15 @@
             this.BetNo_B9.TabIndex = 18;
             this.BetNo_B9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BetNo_B9.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(602, 239);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBox13
             // 
@@ -2228,6 +2240,7 @@
         private System.Windows.Forms.Panel panelD;
         private System.Windows.Forms.Panel panelC;
         private System.Windows.Forms.Panel panelB;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 

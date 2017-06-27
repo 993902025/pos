@@ -88,11 +88,15 @@ namespace LotPos
             return 0;
         }
 
-        //登录验证
+        public int Con_Director(string ip, int port)
+        {
 
+            //socket 类处理
+            return 0;
+        }
         //
 
-            //按键是否为数字键
+        //按键是否为数字键
         public static bool IsNumber(string str)
         {
             string regextext = @"^(-?\d+)(\.\d+)?$";
