@@ -38,6 +38,7 @@ namespace LotPos
 
 
 
+
         //联机模式取参
         //public int GetPra(ref string pra)
         //{
