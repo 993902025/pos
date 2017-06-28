@@ -189,22 +189,29 @@ namespace LotPos
         }
 
 
-        //点击标签切换玩法
+        /// <summary>
+        /// 点击标签切换玩法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Page_C515_Click(object sender, EventArgs e)
         {
 
         }
-
-        //投注 F8
-
-
-        //登录\注销
+                        
+        /// <summary>
+        /// 登录\注销
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
             AtLogonForm(_pageNum);
         }
-
-        //投注确认 显示票面
+        
+        /// <summary>
+        /// 投注确认 显示票面
+        /// </summary>
         void Betqueren()
         {
             if (true)
@@ -478,8 +485,7 @@ namespace LotPos
         /// <summary>
         /// 满足(TextBox.Text.Length >= 2)，焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
         /// </summary>
-        /// <param name="sender"></param>
-        /// 参数
+        /// <param name="sender"> 控件对象 </param>
         void CheckTextFocus(object sender)
         {
             if ( ((TextBox)sender ).Text.Length >= 2 )
@@ -525,7 +531,11 @@ namespace LotPos
             nownumbox.Select(nownumbox.TextLength, 0);
         }
         
-        ///keypress
+        /// <summary>
+        /// 键盘事件，界面所有空间注册键盘事件的第一层事件处理
+        /// </summary>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
         protected override bool ProcessDialogKey(Keys keyData)
         {
             //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);         
@@ -548,7 +558,11 @@ namespace LotPos
             }
         }
 
-        //     键盘事件。
+        /// <summary>
+        /// 第一层键盘事件不处理的，第二层再处理部分；如退格、方向键等；
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PosKeyDown(object sender, KeyEventArgs e)
         {
             //TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
@@ -566,9 +580,13 @@ namespace LotPos
             }
         }
 
+        /// <summary>
+        /// 激活主界面时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Activated(object sender, EventArgs e)
         {
-
             nownumbox.Focus();
         }
 
@@ -648,27 +666,66 @@ namespace LotPos
             else if (BtnName == BtnC.Name)
             {
                 TestLog("调用：  " + BtnName);
-                SwitchPage(_pageNum);
             }
         }
 
         #endregion
 
-        List<TextBox> BetText = new List<TextBox>() ;
-        int DOF8Bet()
+        void DOF8Bet(int _wf)
         {
+            PosBack posback = new PosBack();
+            for (int i = 0; i < lstBox.Count; i++ )
+            {
+                bool isenough = true;        //该行号码个数是否足够，true=足够，false不足；
+                List<TextBox> lstcon = lstBox[i];
+                for (int j = 0; j < lstcon.Count; j++)
+                {
+                    Control conl = lstcon[j];
+                    if (conl.Text == string.Empty)
+                    {
+                        if (lstcon == lstBox[1])
+                        {
+                            TestLog("号码不足");
+                            return;
+                        }
+                        else
+                        {
+                            isenough = false;
+                        }
+                    }
+                }
+                for (int j = 0; j < lstcon.Count; j++)
+                {
+                    if (!isenough)
+                    {
+                        break;
+                    }
+                    Control conl = lstcon[j];
+                    for (int k = 0; k < posback.lstbetnum.Count; k++)    
+                    {
+                        string have = posback.lstbetnum[i];
+
+                        int result = posback.AddListBetNum(conl.Text, _wf);
+                        switch (result)
+                        {
+                            case 0:
+                                break;
+                            case -1:
+                                TestLog("号码重复 " + " " + conl.Text + "[" + conl.Name + "}");
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                }
+            }
+
+
+            
+
 
             PosBack posback = new PosBack();
-            posback = new PosBack();
-            //string key = "";
-            //Control[] pancon;
-            //pancon = panel_Bet.Controls.Find(key, true);
-            Control.ControlCollection pans= panel_Bet.Controls;
-            foreach (Control panel in pans)
-            {
-                if (panel.GetType() == typeof(Panel))
-                {
-                    Control.ControlCollection tboxs = Controls;
                     foreach (Control tbox in tboxs)
                     {
                         if (tbox.GetType() == typeof(TextBox) && tbox.Visible == true)
@@ -692,9 +749,9 @@ namespace LotPos
                     {
                         TestLog(tbox.Name + "||" + tbox.Text);
                     }
-                }
+                
                 //Console.Write(conindex.Name + "||" + conindex.Text + "||" + conindex.TabIndex + "\r\n");
-            }
+            
             return 0;
             //string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6 + BetNo_A7 + BetNo_A8 + BetNo_A9;
 
@@ -707,41 +764,35 @@ namespace LotPos
             textBox_test.Text += str + "\r\n";
         }
 
-        void SwitchPage(int pagenum)
+        private void GetNo()
         {
-            if (pagenum == 2)
+            foreach (List<TextBox> lstcon in lstBox)
             {
-                panel_Bet.Visible = true;
+                PosBack posback = new PosBack();
+                foreach (Control conl in lstcon)
+                {
+                    posback.ListBetNum(conl);
+                }
             }
-            else if (pagenum == 3)
-            {
-
-            }
-                
         }
-
         
-        private void InitBetBox()
-        {
-            
-        }
-
-
         private void ClearBet()
         {
-            
-            for (int i = 0; i < 50; i++)
+            foreach (List<TextBox> lstcon in lstBox)
             {
-                
+                foreach (Control conl in lstcon)
+                {
+                    conl.Text = string.Empty;
+                }
             }
         }
 
 
 
+        #region 初始化号码框
+
         string _wf;
-
         List<List<TextBox>> lstBox = new List<List<TextBox>>();
-
         int _location_x;    //锚点x
         int _location_y;    //锚点y
         int _count_x;       //单行个数
@@ -749,7 +800,12 @@ namespace LotPos
         int _margin;        //间距
         int _width;         //宽
         int _height;         //高
-
+        
+        /// <summary>
+        /// 动态初始化投注号码输入框部分，并将每个号码框放入List保存
+        /// </summary>
+        /// <param name="wf"> 玩法参数，不同玩法的号码框个数不同 </param>
+        /// 
         private void CreatBox(int wf)
         {
             _location_x = 40;   
@@ -808,6 +864,8 @@ namespace LotPos
                 Console.Write("y" + (i + 1) + ":" + _location_y + "\t");
             }
         }
+
+        #endregion
 
     }
 

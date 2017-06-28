@@ -111,21 +111,38 @@ namespace LotPos
             return regex.IsMatch(str.Trim());
         }
 
-
-        //投注F8
-        public int ListBetNum(Control tbox)
+        //保存投注号码串的List数组
+        public List<string> lstbetnum = new List<string>();
+        /// <summary>
+        /// 将合法数据放入号码串数组
+        /// </summary>
+        /// <param name="strnum"></param>
+        /// <param name="wf"></param>
+        /// <returns></returns>
+        public int AddListBetNum(string strnum, int wf)
         {
-            tboxlist.Add(tbox);
+            switch (wf)
+            {
+                case 0:
+                    lstbetnum.IndexOf(conl,);
+                    break;
+                default:
+                    break;
+            }
             for (int i = 0; i < tboxlist.Count - 1; i++)
             {
                 if (tbox.Text == tboxlist[i].Text)
                 {
-                    //Console.WriteLine("\r\n号码重复！！\r\n");
+                    //Console.WriteLine();
                     return -2;
                 }
             }
             return 0;
         }
+
+
+
+
         public void SortBetNum()
         {
             Control strtemp;
