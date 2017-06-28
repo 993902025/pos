@@ -9,8 +9,6 @@ namespace LotPos.back
     public class LoginBack
     {
         
-        int onoff;
-
         public LoginBack()
         {
         }

@@ -70,7 +70,6 @@
     <Compile Include="back\PageManager.cs" />
     <Compile Include="BetNum.cs" />
     <Compile Include="BzWebSec.cs" />
-    <Compile Include="form\BetPage.cs" />
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

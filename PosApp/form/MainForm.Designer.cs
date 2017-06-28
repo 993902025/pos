@@ -66,11 +66,6 @@
             this.Lsh = new System.Windows.Forms.Label();
             this.panel_Bet = new System.Windows.Forms.Panel();
             this.Multiple = new System.Windows.Forms.TextBox();
-            this.BetNo_EBlue = new System.Windows.Forms.TextBox();
-            this.BetNo_DBlue = new System.Windows.Forms.TextBox();
-            this.BetNo_CBlue = new System.Windows.Forms.TextBox();
-            this.BetNo_BBlue = new System.Windows.Forms.TextBox();
-            this.BetNo_ABlue = new System.Windows.Forms.TextBox();
             this.label_Multiple = new System.Windows.Forms.Label();
             this.label_BlueBetNo = new System.Windows.Forms.Label();
             this.label_NinthBetNo = new System.Windows.Forms.Label();
@@ -87,56 +82,6 @@
             this.label_ELineBetNo = new System.Windows.Forms.Label();
             this.label_FirstBetNo = new System.Windows.Forms.Label();
             this.label_SecondBetNo = new System.Windows.Forms.Label();
-            this.panelA = new System.Windows.Forms.Panel();
-            this.BetNo_A2 = new System.Windows.Forms.TextBox();
-            this.BetNo_A1 = new System.Windows.Forms.TextBox();
-            this.BetNo_A3 = new System.Windows.Forms.TextBox();
-            this.BetNo_A4 = new System.Windows.Forms.TextBox();
-            this.BetNo_A5 = new System.Windows.Forms.TextBox();
-            this.BetNo_A6 = new System.Windows.Forms.TextBox();
-            this.BetNo_A7 = new System.Windows.Forms.TextBox();
-            this.BetNo_A8 = new System.Windows.Forms.TextBox();
-            this.BetNo_A9 = new System.Windows.Forms.TextBox();
-            this.panelE = new System.Windows.Forms.Panel();
-            this.BetNo_E9 = new System.Windows.Forms.TextBox();
-            this.BetNo_E1 = new System.Windows.Forms.TextBox();
-            this.BetNo_E2 = new System.Windows.Forms.TextBox();
-            this.BetNo_E8 = new System.Windows.Forms.TextBox();
-            this.BetNo_E3 = new System.Windows.Forms.TextBox();
-            this.BetNo_E7 = new System.Windows.Forms.TextBox();
-            this.BetNo_E4 = new System.Windows.Forms.TextBox();
-            this.BetNo_E6 = new System.Windows.Forms.TextBox();
-            this.BetNo_E5 = new System.Windows.Forms.TextBox();
-            this.panelD = new System.Windows.Forms.Panel();
-            this.BetNo_D7 = new System.Windows.Forms.TextBox();
-            this.BetNo_D1 = new System.Windows.Forms.TextBox();
-            this.BetNo_D2 = new System.Windows.Forms.TextBox();
-            this.BetNo_D3 = new System.Windows.Forms.TextBox();
-            this.BetNo_D4 = new System.Windows.Forms.TextBox();
-            this.BetNo_D5 = new System.Windows.Forms.TextBox();
-            this.BetNo_D6 = new System.Windows.Forms.TextBox();
-            this.BetNo_D9 = new System.Windows.Forms.TextBox();
-            this.BetNo_D8 = new System.Windows.Forms.TextBox();
-            this.panelC = new System.Windows.Forms.Panel();
-            this.BetNo_C9 = new System.Windows.Forms.TextBox();
-            this.BetNo_C1 = new System.Windows.Forms.TextBox();
-            this.BetNo_C2 = new System.Windows.Forms.TextBox();
-            this.BetNo_C3 = new System.Windows.Forms.TextBox();
-            this.BetNo_C4 = new System.Windows.Forms.TextBox();
-            this.BetNo_C5 = new System.Windows.Forms.TextBox();
-            this.BetNo_C6 = new System.Windows.Forms.TextBox();
-            this.BetNo_C7 = new System.Windows.Forms.TextBox();
-            this.BetNo_C8 = new System.Windows.Forms.TextBox();
-            this.panelB = new System.Windows.Forms.Panel();
-            this.BetNo_B1 = new System.Windows.Forms.TextBox();
-            this.BetNo_B2 = new System.Windows.Forms.TextBox();
-            this.BetNo_B3 = new System.Windows.Forms.TextBox();
-            this.BetNo_B4 = new System.Windows.Forms.TextBox();
-            this.BetNo_B5 = new System.Windows.Forms.TextBox();
-            this.BetNo_B6 = new System.Windows.Forms.TextBox();
-            this.BetNo_B7 = new System.Windows.Forms.TextBox();
-            this.BetNo_B8 = new System.Windows.Forms.TextBox();
-            this.BetNo_B9 = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.panel_SmallKeyBoard = new System.Windows.Forms.Panel();
@@ -179,11 +124,6 @@
             this.Page_C515.SuspendLayout();
             this.panel_Parameters.SuspendLayout();
             this.panel_Bet.SuspendLayout();
-            this.panelA.SuspendLayout();
-            this.panelE.SuspendLayout();
-            this.panelD.SuspendLayout();
-            this.panelC.SuspendLayout();
-            this.panelB.SuspendLayout();
             this.panel_SmallKeyBoard.SuspendLayout();
             this.panel_keyboard.SuspendLayout();
             this.tableLayoutPanel_SomePra.SuspendLayout();
@@ -643,11 +583,6 @@
             // 
             this.panel_Bet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Bet.Controls.Add(this.Multiple);
-            this.panel_Bet.Controls.Add(this.BetNo_EBlue);
-            this.panel_Bet.Controls.Add(this.BetNo_DBlue);
-            this.panel_Bet.Controls.Add(this.BetNo_CBlue);
-            this.panel_Bet.Controls.Add(this.BetNo_BBlue);
-            this.panel_Bet.Controls.Add(this.BetNo_ABlue);
             this.panel_Bet.Controls.Add(this.label_Multiple);
             this.panel_Bet.Controls.Add(this.label_BlueBetNo);
             this.panel_Bet.Controls.Add(this.label_NinthBetNo);
@@ -664,11 +599,6 @@
             this.panel_Bet.Controls.Add(this.label_ELineBetNo);
             this.panel_Bet.Controls.Add(this.label_FirstBetNo);
             this.panel_Bet.Controls.Add(this.label_SecondBetNo);
-            this.panel_Bet.Controls.Add(this.panelA);
-            this.panel_Bet.Controls.Add(this.panelE);
-            this.panel_Bet.Controls.Add(this.panelD);
-            this.panel_Bet.Controls.Add(this.panelC);
-            this.panel_Bet.Controls.Add(this.panelB);
             this.panel_Bet.Location = new System.Drawing.Point(175, 10);
             this.panel_Bet.Margin = new System.Windows.Forms.Padding(10);
             this.panel_Bet.Name = "panel_Bet";
@@ -688,61 +618,6 @@
             this.Multiple.TabStop = false;
             this.Multiple.Text = "99";
             this.Multiple.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_EBlue
-            // 
-            this.BetNo_EBlue.Location = new System.Drawing.Point(357, 181);
-            this.BetNo_EBlue.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_EBlue.MaxLength = 2;
-            this.BetNo_EBlue.Name = "BetNo_EBlue";
-            this.BetNo_EBlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_EBlue.TabIndex = 9;
-            this.BetNo_EBlue.TabStop = false;
-            this.BetNo_EBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_DBlue
-            // 
-            this.BetNo_DBlue.Location = new System.Drawing.Point(357, 150);
-            this.BetNo_DBlue.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_DBlue.MaxLength = 2;
-            this.BetNo_DBlue.Name = "BetNo_DBlue";
-            this.BetNo_DBlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_DBlue.TabIndex = 7;
-            this.BetNo_DBlue.TabStop = false;
-            this.BetNo_DBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_CBlue
-            // 
-            this.BetNo_CBlue.Location = new System.Drawing.Point(357, 119);
-            this.BetNo_CBlue.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_CBlue.MaxLength = 2;
-            this.BetNo_CBlue.Name = "BetNo_CBlue";
-            this.BetNo_CBlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_CBlue.TabIndex = 5;
-            this.BetNo_CBlue.TabStop = false;
-            this.BetNo_CBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_BBlue
-            // 
-            this.BetNo_BBlue.Location = new System.Drawing.Point(357, 88);
-            this.BetNo_BBlue.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_BBlue.MaxLength = 2;
-            this.BetNo_BBlue.Name = "BetNo_BBlue";
-            this.BetNo_BBlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_BBlue.TabIndex = 3;
-            this.BetNo_BBlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_ABlue
-            // 
-            this.BetNo_ABlue.Location = new System.Drawing.Point(357, 57);
-            this.BetNo_ABlue.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_ABlue.MaxLength = 2;
-            this.BetNo_ABlue.Name = "BetNo_ABlue";
-            this.BetNo_ABlue.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_ABlue.TabIndex = 1;
-            this.BetNo_ABlue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_ABlue.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_ABlue.Enter += new System.EventHandler(this.BetNo_Enter);
             // 
             // label_Multiple
             // 
@@ -870,7 +745,7 @@
             // 
             this.label_BLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_BLineBetNo.AutoSize = true;
-            this.label_BLineBetNo.Location = new System.Drawing.Point(15, 94);
+            this.label_BLineBetNo.Location = new System.Drawing.Point(15, 90);
             this.label_BLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_BLineBetNo.Name = "label_BLineBetNo";
             this.label_BLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -882,7 +757,7 @@
             // 
             this.label_CLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_CLineBetNo.AutoSize = true;
-            this.label_CLineBetNo.Location = new System.Drawing.Point(15, 125);
+            this.label_CLineBetNo.Location = new System.Drawing.Point(15, 120);
             this.label_CLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_CLineBetNo.Name = "label_CLineBetNo";
             this.label_CLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -894,7 +769,7 @@
             // 
             this.label_DLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_DLineBetNo.AutoSize = true;
-            this.label_DLineBetNo.Location = new System.Drawing.Point(15, 156);
+            this.label_DLineBetNo.Location = new System.Drawing.Point(15, 150);
             this.label_DLineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_DLineBetNo.Name = "label_DLineBetNo";
             this.label_DLineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -906,7 +781,7 @@
             // 
             this.label_ELineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_ELineBetNo.AutoSize = true;
-            this.label_ELineBetNo.Location = new System.Drawing.Point(15, 187);
+            this.label_ELineBetNo.Location = new System.Drawing.Point(15, 180);
             this.label_ELineBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_ELineBetNo.Name = "label_ELineBetNo";
             this.label_ELineBetNo.Size = new System.Drawing.Size(17, 12);
@@ -918,7 +793,7 @@
             // 
             this.label_FirstBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_FirstBetNo.AutoSize = true;
-            this.label_FirstBetNo.Location = new System.Drawing.Point(45, 36);
+            this.label_FirstBetNo.Location = new System.Drawing.Point(40, 36);
             this.label_FirstBetNo.Margin = new System.Windows.Forms.Padding(5);
             this.label_FirstBetNo.Name = "label_FirstBetNo";
             this.label_FirstBetNo.Size = new System.Drawing.Size(11, 12);
@@ -937,604 +812,6 @@
             this.label_SecondBetNo.TabIndex = 27;
             this.label_SecondBetNo.Text = "2";
             this.label_SecondBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelA
-            // 
-            this.panelA.Controls.Add(this.BetNo_A2);
-            this.panelA.Controls.Add(this.BetNo_A1);
-            this.panelA.Controls.Add(this.BetNo_A3);
-            this.panelA.Controls.Add(this.BetNo_A4);
-            this.panelA.Controls.Add(this.BetNo_A5);
-            this.panelA.Controls.Add(this.BetNo_A6);
-            this.panelA.Controls.Add(this.BetNo_A7);
-            this.panelA.Controls.Add(this.BetNo_A8);
-            this.panelA.Controls.Add(this.BetNo_A9);
-            this.panelA.Location = new System.Drawing.Point(42, 57);
-            this.panelA.Margin = new System.Windows.Forms.Padding(2);
-            this.panelA.Name = "panelA";
-            this.panelA.Size = new System.Drawing.Size(304, 20);
-            this.panelA.TabIndex = 0;
-            this.panelA.Visible = false;
-            // 
-            // BetNo_A2
-            // 
-            this.BetNo_A2.Location = new System.Drawing.Point(35, 0);
-            this.BetNo_A2.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A2.MaxLength = 2;
-            this.BetNo_A2.Name = "BetNo_A2";
-            this.BetNo_A2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A2.TabIndex = 1;
-            this.BetNo_A2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A2.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A2.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A1
-            // 
-            this.BetNo_A1.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.BetNo_A1.Location = new System.Drawing.Point(0, 0);
-            this.BetNo_A1.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A1.MaxLength = 2;
-            this.BetNo_A1.Name = "BetNo_A1";
-            this.BetNo_A1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A1.TabIndex = 0;
-            this.BetNo_A1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A1.WordWrap = false;
-            this.BetNo_A1.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A1.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A3
-            // 
-            this.BetNo_A3.Location = new System.Drawing.Point(70, 0);
-            this.BetNo_A3.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A3.MaxLength = 2;
-            this.BetNo_A3.Name = "BetNo_A3";
-            this.BetNo_A3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A3.TabIndex = 2;
-            this.BetNo_A3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A3.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A3.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A4
-            // 
-            this.BetNo_A4.Location = new System.Drawing.Point(105, 0);
-            this.BetNo_A4.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A4.MaxLength = 2;
-            this.BetNo_A4.Name = "BetNo_A4";
-            this.BetNo_A4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A4.TabIndex = 3;
-            this.BetNo_A4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A4.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A4.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A5
-            // 
-            this.BetNo_A5.Location = new System.Drawing.Point(140, 0);
-            this.BetNo_A5.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A5.MaxLength = 2;
-            this.BetNo_A5.Name = "BetNo_A5";
-            this.BetNo_A5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A5.TabIndex = 4;
-            this.BetNo_A5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A5.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A5.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A6
-            // 
-            this.BetNo_A6.Location = new System.Drawing.Point(175, 0);
-            this.BetNo_A6.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A6.MaxLength = 2;
-            this.BetNo_A6.Name = "BetNo_A6";
-            this.BetNo_A6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A6.TabIndex = 5;
-            this.BetNo_A6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A6.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A6.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A7
-            // 
-            this.BetNo_A7.Location = new System.Drawing.Point(210, 0);
-            this.BetNo_A7.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A7.MaxLength = 2;
-            this.BetNo_A7.Name = "BetNo_A7";
-            this.BetNo_A7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A7.TabIndex = 6;
-            this.BetNo_A7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A7.Visible = false;
-            this.BetNo_A7.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A7.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A8
-            // 
-            this.BetNo_A8.Location = new System.Drawing.Point(245, 0);
-            this.BetNo_A8.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A8.MaxLength = 2;
-            this.BetNo_A8.Name = "BetNo_A8";
-            this.BetNo_A8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A8.TabIndex = 7;
-            this.BetNo_A8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A8.Visible = false;
-            this.BetNo_A8.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A8.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // BetNo_A9
-            // 
-            this.BetNo_A9.Location = new System.Drawing.Point(280, 0);
-            this.BetNo_A9.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_A9.MaxLength = 2;
-            this.BetNo_A9.Name = "BetNo_A9";
-            this.BetNo_A9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_A9.TabIndex = 8;
-            this.BetNo_A9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_A9.Visible = false;
-            this.BetNo_A9.TextChanged += new System.EventHandler(this.BetNo_TextChanged);
-            this.BetNo_A9.Enter += new System.EventHandler(this.BetNo_Enter);
-            // 
-            // panelE
-            // 
-            this.panelE.Controls.Add(this.BetNo_E9);
-            this.panelE.Controls.Add(this.BetNo_E1);
-            this.panelE.Controls.Add(this.BetNo_E2);
-            this.panelE.Controls.Add(this.BetNo_E8);
-            this.panelE.Controls.Add(this.BetNo_E3);
-            this.panelE.Controls.Add(this.BetNo_E7);
-            this.panelE.Controls.Add(this.BetNo_E4);
-            this.panelE.Controls.Add(this.BetNo_E6);
-            this.panelE.Controls.Add(this.BetNo_E5);
-            this.panelE.Location = new System.Drawing.Point(42, 181);
-            this.panelE.Margin = new System.Windows.Forms.Padding(2);
-            this.panelE.Name = "panelE";
-            this.panelE.Size = new System.Drawing.Size(304, 20);
-            this.panelE.TabIndex = 8;
-            // 
-            // BetNo_E9
-            // 
-            this.BetNo_E9.Location = new System.Drawing.Point(280, 0);
-            this.BetNo_E9.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E9.MaxLength = 2;
-            this.BetNo_E9.Name = "BetNo_E9";
-            this.BetNo_E9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E9.TabIndex = 28;
-            this.BetNo_E9.TabStop = false;
-            this.BetNo_E9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_E9.Visible = false;
-            // 
-            // BetNo_E1
-            // 
-            this.BetNo_E1.Location = new System.Drawing.Point(0, 0);
-            this.BetNo_E1.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E1.MaxLength = 2;
-            this.BetNo_E1.Name = "BetNo_E1";
-            this.BetNo_E1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E1.TabIndex = 28;
-            this.BetNo_E1.TabStop = false;
-            this.BetNo_E1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_E2
-            // 
-            this.BetNo_E2.Location = new System.Drawing.Point(35, 0);
-            this.BetNo_E2.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E2.MaxLength = 2;
-            this.BetNo_E2.Name = "BetNo_E2";
-            this.BetNo_E2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E2.TabIndex = 28;
-            this.BetNo_E2.TabStop = false;
-            this.BetNo_E2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_E8
-            // 
-            this.BetNo_E8.Location = new System.Drawing.Point(245, 0);
-            this.BetNo_E8.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E8.MaxLength = 2;
-            this.BetNo_E8.Name = "BetNo_E8";
-            this.BetNo_E8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E8.TabIndex = 28;
-            this.BetNo_E8.TabStop = false;
-            this.BetNo_E8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_E8.Visible = false;
-            // 
-            // BetNo_E3
-            // 
-            this.BetNo_E3.Location = new System.Drawing.Point(70, 0);
-            this.BetNo_E3.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E3.MaxLength = 2;
-            this.BetNo_E3.Name = "BetNo_E3";
-            this.BetNo_E3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E3.TabIndex = 28;
-            this.BetNo_E3.TabStop = false;
-            this.BetNo_E3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_E7
-            // 
-            this.BetNo_E7.Location = new System.Drawing.Point(210, 0);
-            this.BetNo_E7.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E7.MaxLength = 2;
-            this.BetNo_E7.Name = "BetNo_E7";
-            this.BetNo_E7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E7.TabIndex = 28;
-            this.BetNo_E7.TabStop = false;
-            this.BetNo_E7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_E7.Visible = false;
-            // 
-            // BetNo_E4
-            // 
-            this.BetNo_E4.Location = new System.Drawing.Point(105, 0);
-            this.BetNo_E4.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E4.MaxLength = 2;
-            this.BetNo_E4.Name = "BetNo_E4";
-            this.BetNo_E4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E4.TabIndex = 28;
-            this.BetNo_E4.TabStop = false;
-            this.BetNo_E4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_E6
-            // 
-            this.BetNo_E6.Location = new System.Drawing.Point(175, 0);
-            this.BetNo_E6.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E6.MaxLength = 2;
-            this.BetNo_E6.Name = "BetNo_E6";
-            this.BetNo_E6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E6.TabIndex = 28;
-            this.BetNo_E6.TabStop = false;
-            this.BetNo_E6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_E5
-            // 
-            this.BetNo_E5.Location = new System.Drawing.Point(140, 0);
-            this.BetNo_E5.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_E5.MaxLength = 2;
-            this.BetNo_E5.Name = "BetNo_E5";
-            this.BetNo_E5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_E5.TabIndex = 28;
-            this.BetNo_E5.TabStop = false;
-            this.BetNo_E5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelD
-            // 
-            this.panelD.Controls.Add(this.BetNo_D7);
-            this.panelD.Controls.Add(this.BetNo_D1);
-            this.panelD.Controls.Add(this.BetNo_D2);
-            this.panelD.Controls.Add(this.BetNo_D3);
-            this.panelD.Controls.Add(this.BetNo_D4);
-            this.panelD.Controls.Add(this.BetNo_D5);
-            this.panelD.Controls.Add(this.BetNo_D6);
-            this.panelD.Controls.Add(this.BetNo_D9);
-            this.panelD.Controls.Add(this.BetNo_D8);
-            this.panelD.Location = new System.Drawing.Point(42, 150);
-            this.panelD.Margin = new System.Windows.Forms.Padding(2);
-            this.panelD.Name = "panelD";
-            this.panelD.Size = new System.Drawing.Size(304, 20);
-            this.panelD.TabIndex = 6;
-            // 
-            // BetNo_D7
-            // 
-            this.BetNo_D7.Location = new System.Drawing.Point(209, 0);
-            this.BetNo_D7.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D7.MaxLength = 2;
-            this.BetNo_D7.Name = "BetNo_D7";
-            this.BetNo_D7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D7.TabIndex = 28;
-            this.BetNo_D7.TabStop = false;
-            this.BetNo_D7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_D7.Visible = false;
-            // 
-            // BetNo_D1
-            // 
-            this.BetNo_D1.Location = new System.Drawing.Point(0, 0);
-            this.BetNo_D1.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D1.MaxLength = 2;
-            this.BetNo_D1.Name = "BetNo_D1";
-            this.BetNo_D1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D1.TabIndex = 28;
-            this.BetNo_D1.TabStop = false;
-            this.BetNo_D1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D2
-            // 
-            this.BetNo_D2.Location = new System.Drawing.Point(35, 0);
-            this.BetNo_D2.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D2.MaxLength = 2;
-            this.BetNo_D2.Name = "BetNo_D2";
-            this.BetNo_D2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D2.TabIndex = 28;
-            this.BetNo_D2.TabStop = false;
-            this.BetNo_D2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D3
-            // 
-            this.BetNo_D3.Location = new System.Drawing.Point(70, 0);
-            this.BetNo_D3.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D3.MaxLength = 2;
-            this.BetNo_D3.Name = "BetNo_D3";
-            this.BetNo_D3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D3.TabIndex = 28;
-            this.BetNo_D3.TabStop = false;
-            this.BetNo_D3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D4
-            // 
-            this.BetNo_D4.Location = new System.Drawing.Point(105, 0);
-            this.BetNo_D4.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D4.MaxLength = 2;
-            this.BetNo_D4.Name = "BetNo_D4";
-            this.BetNo_D4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D4.TabIndex = 28;
-            this.BetNo_D4.TabStop = false;
-            this.BetNo_D4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D5
-            // 
-            this.BetNo_D5.Location = new System.Drawing.Point(140, 0);
-            this.BetNo_D5.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D5.MaxLength = 2;
-            this.BetNo_D5.Name = "BetNo_D5";
-            this.BetNo_D5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D5.TabIndex = 28;
-            this.BetNo_D5.TabStop = false;
-            this.BetNo_D5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D6
-            // 
-            this.BetNo_D6.Location = new System.Drawing.Point(175, 0);
-            this.BetNo_D6.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D6.MaxLength = 2;
-            this.BetNo_D6.Name = "BetNo_D6";
-            this.BetNo_D6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D6.TabIndex = 28;
-            this.BetNo_D6.TabStop = false;
-            this.BetNo_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_D9
-            // 
-            this.BetNo_D9.Location = new System.Drawing.Point(280, 0);
-            this.BetNo_D9.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D9.MaxLength = 2;
-            this.BetNo_D9.Name = "BetNo_D9";
-            this.BetNo_D9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D9.TabIndex = 28;
-            this.BetNo_D9.TabStop = false;
-            this.BetNo_D9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_D9.Visible = false;
-            // 
-            // BetNo_D8
-            // 
-            this.BetNo_D8.Location = new System.Drawing.Point(245, 0);
-            this.BetNo_D8.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_D8.MaxLength = 2;
-            this.BetNo_D8.Name = "BetNo_D8";
-            this.BetNo_D8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_D8.TabIndex = 28;
-            this.BetNo_D8.TabStop = false;
-            this.BetNo_D8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_D8.Visible = false;
-            // 
-            // panelC
-            // 
-            this.panelC.Controls.Add(this.BetNo_C9);
-            this.panelC.Controls.Add(this.BetNo_C1);
-            this.panelC.Controls.Add(this.BetNo_C2);
-            this.panelC.Controls.Add(this.BetNo_C3);
-            this.panelC.Controls.Add(this.BetNo_C4);
-            this.panelC.Controls.Add(this.BetNo_C5);
-            this.panelC.Controls.Add(this.BetNo_C6);
-            this.panelC.Controls.Add(this.BetNo_C7);
-            this.panelC.Controls.Add(this.BetNo_C8);
-            this.panelC.Location = new System.Drawing.Point(42, 119);
-            this.panelC.Margin = new System.Windows.Forms.Padding(2);
-            this.panelC.Name = "panelC";
-            this.panelC.Size = new System.Drawing.Size(304, 20);
-            this.panelC.TabIndex = 4;
-            // 
-            // BetNo_C9
-            // 
-            this.BetNo_C9.Location = new System.Drawing.Point(280, 0);
-            this.BetNo_C9.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C9.MaxLength = 2;
-            this.BetNo_C9.Name = "BetNo_C9";
-            this.BetNo_C9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C9.TabIndex = 28;
-            this.BetNo_C9.TabStop = false;
-            this.BetNo_C9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_C9.Visible = false;
-            // 
-            // BetNo_C1
-            // 
-            this.BetNo_C1.Location = new System.Drawing.Point(0, 0);
-            this.BetNo_C1.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C1.MaxLength = 2;
-            this.BetNo_C1.Name = "BetNo_C1";
-            this.BetNo_C1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C1.TabIndex = 28;
-            this.BetNo_C1.TabStop = false;
-            this.BetNo_C1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C2
-            // 
-            this.BetNo_C2.Location = new System.Drawing.Point(35, 0);
-            this.BetNo_C2.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C2.MaxLength = 2;
-            this.BetNo_C2.Name = "BetNo_C2";
-            this.BetNo_C2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C2.TabIndex = 28;
-            this.BetNo_C2.TabStop = false;
-            this.BetNo_C2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C3
-            // 
-            this.BetNo_C3.Location = new System.Drawing.Point(70, 0);
-            this.BetNo_C3.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C3.MaxLength = 2;
-            this.BetNo_C3.Name = "BetNo_C3";
-            this.BetNo_C3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C3.TabIndex = 28;
-            this.BetNo_C3.TabStop = false;
-            this.BetNo_C3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C4
-            // 
-            this.BetNo_C4.Location = new System.Drawing.Point(105, 0);
-            this.BetNo_C4.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C4.MaxLength = 2;
-            this.BetNo_C4.Name = "BetNo_C4";
-            this.BetNo_C4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C4.TabIndex = 28;
-            this.BetNo_C4.TabStop = false;
-            this.BetNo_C4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C5
-            // 
-            this.BetNo_C5.Location = new System.Drawing.Point(140, 0);
-            this.BetNo_C5.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C5.MaxLength = 2;
-            this.BetNo_C5.Name = "BetNo_C5";
-            this.BetNo_C5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C5.TabIndex = 28;
-            this.BetNo_C5.TabStop = false;
-            this.BetNo_C5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C6
-            // 
-            this.BetNo_C6.Location = new System.Drawing.Point(175, 0);
-            this.BetNo_C6.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C6.MaxLength = 2;
-            this.BetNo_C6.Name = "BetNo_C6";
-            this.BetNo_C6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C6.TabIndex = 28;
-            this.BetNo_C6.TabStop = false;
-            this.BetNo_C6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_C7
-            // 
-            this.BetNo_C7.Location = new System.Drawing.Point(210, 0);
-            this.BetNo_C7.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C7.MaxLength = 2;
-            this.BetNo_C7.Name = "BetNo_C7";
-            this.BetNo_C7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C7.TabIndex = 28;
-            this.BetNo_C7.TabStop = false;
-            this.BetNo_C7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_C7.Visible = false;
-            // 
-            // BetNo_C8
-            // 
-            this.BetNo_C8.Location = new System.Drawing.Point(245, 0);
-            this.BetNo_C8.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_C8.MaxLength = 2;
-            this.BetNo_C8.Name = "BetNo_C8";
-            this.BetNo_C8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_C8.TabIndex = 28;
-            this.BetNo_C8.TabStop = false;
-            this.BetNo_C8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_C8.Visible = false;
-            // 
-            // panelB
-            // 
-            this.panelB.Controls.Add(this.BetNo_B1);
-            this.panelB.Controls.Add(this.BetNo_B2);
-            this.panelB.Controls.Add(this.BetNo_B3);
-            this.panelB.Controls.Add(this.BetNo_B4);
-            this.panelB.Controls.Add(this.BetNo_B5);
-            this.panelB.Controls.Add(this.BetNo_B6);
-            this.panelB.Controls.Add(this.BetNo_B7);
-            this.panelB.Controls.Add(this.BetNo_B8);
-            this.panelB.Controls.Add(this.BetNo_B9);
-            this.panelB.Location = new System.Drawing.Point(42, 88);
-            this.panelB.Margin = new System.Windows.Forms.Padding(2);
-            this.panelB.Name = "panelB";
-            this.panelB.Size = new System.Drawing.Size(304, 20);
-            this.panelB.TabIndex = 2;
-            // 
-            // BetNo_B1
-            // 
-            this.BetNo_B1.Location = new System.Drawing.Point(0, 0);
-            this.BetNo_B1.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B1.MaxLength = 2;
-            this.BetNo_B1.Name = "BetNo_B1";
-            this.BetNo_B1.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B1.TabIndex = 10;
-            this.BetNo_B1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B2
-            // 
-            this.BetNo_B2.Location = new System.Drawing.Point(35, 0);
-            this.BetNo_B2.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B2.MaxLength = 2;
-            this.BetNo_B2.Name = "BetNo_B2";
-            this.BetNo_B2.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B2.TabIndex = 11;
-            this.BetNo_B2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B3
-            // 
-            this.BetNo_B3.Location = new System.Drawing.Point(70, 0);
-            this.BetNo_B3.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B3.MaxLength = 2;
-            this.BetNo_B3.Name = "BetNo_B3";
-            this.BetNo_B3.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B3.TabIndex = 12;
-            this.BetNo_B3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B4
-            // 
-            this.BetNo_B4.Location = new System.Drawing.Point(105, 0);
-            this.BetNo_B4.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B4.MaxLength = 2;
-            this.BetNo_B4.Name = "BetNo_B4";
-            this.BetNo_B4.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B4.TabIndex = 13;
-            this.BetNo_B4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B5
-            // 
-            this.BetNo_B5.Location = new System.Drawing.Point(140, 0);
-            this.BetNo_B5.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B5.MaxLength = 2;
-            this.BetNo_B5.Name = "BetNo_B5";
-            this.BetNo_B5.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B5.TabIndex = 14;
-            this.BetNo_B5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B6
-            // 
-            this.BetNo_B6.Location = new System.Drawing.Point(175, 0);
-            this.BetNo_B6.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B6.MaxLength = 2;
-            this.BetNo_B6.Name = "BetNo_B6";
-            this.BetNo_B6.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B6.TabIndex = 15;
-            this.BetNo_B6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BetNo_B7
-            // 
-            this.BetNo_B7.Location = new System.Drawing.Point(210, 0);
-            this.BetNo_B7.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B7.MaxLength = 2;
-            this.BetNo_B7.Name = "BetNo_B7";
-            this.BetNo_B7.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B7.TabIndex = 16;
-            this.BetNo_B7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_B7.Visible = false;
-            // 
-            // BetNo_B8
-            // 
-            this.BetNo_B8.Location = new System.Drawing.Point(245, 0);
-            this.BetNo_B8.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B8.MaxLength = 2;
-            this.BetNo_B8.Name = "BetNo_B8";
-            this.BetNo_B8.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B8.TabIndex = 17;
-            this.BetNo_B8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_B8.Visible = false;
-            // 
-            // BetNo_B9
-            // 
-            this.BetNo_B9.Location = new System.Drawing.Point(280, 0);
-            this.BetNo_B9.Margin = new System.Windows.Forms.Padding(5);
-            this.BetNo_B9.MaxLength = 2;
-            this.BetNo_B9.Name = "BetNo_B9";
-            this.BetNo_B9.Size = new System.Drawing.Size(25, 21);
-            this.BetNo_B9.TabIndex = 18;
-            this.BetNo_B9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BetNo_B9.Visible = false;
             // 
             // tabPage1
             // 
@@ -2075,16 +1352,6 @@
             this.panel_Parameters.PerformLayout();
             this.panel_Bet.ResumeLayout(false);
             this.panel_Bet.PerformLayout();
-            this.panelA.ResumeLayout(false);
-            this.panelA.PerformLayout();
-            this.panelE.ResumeLayout(false);
-            this.panelE.PerformLayout();
-            this.panelD.ResumeLayout(false);
-            this.panelD.PerformLayout();
-            this.panelC.ResumeLayout(false);
-            this.panelC.PerformLayout();
-            this.panelB.ResumeLayout(false);
-            this.panelB.PerformLayout();
             this.panel_SmallKeyBoard.ResumeLayout(false);
             this.panel_keyboard.ResumeLayout(false);
             this.tableLayoutPanel_SomePra.ResumeLayout(false);
@@ -2137,35 +1404,11 @@
         private System.Windows.Forms.Label label_TQtime;
         private System.Windows.Forms.Panel panel_Parameters;
         private System.Windows.Forms.Panel panel_Bet;
-        private System.Windows.Forms.TextBox BetNo_A2;
-        private System.Windows.Forms.TextBox BetNo_A3;
-        private System.Windows.Forms.TextBox BetNo_A5;
-        private System.Windows.Forms.TextBox BetNo_A4;
         private System.Windows.Forms.TextBox Multiple;
         private System.Windows.Forms.Label label_Multiple;
-        private System.Windows.Forms.TextBox BetNo_D5;
-        private System.Windows.Forms.TextBox BetNo_C5;
-        private System.Windows.Forms.TextBox BetNo_B5;
-        private System.Windows.Forms.TextBox BetNo_D4;
-        private System.Windows.Forms.TextBox BetNo_C4;
-        private System.Windows.Forms.TextBox BetNo_B4;
-        private System.Windows.Forms.TextBox BetNo_D3;
-        private System.Windows.Forms.TextBox BetNo_C3;
-        private System.Windows.Forms.TextBox BetNo_B3;
-        private System.Windows.Forms.TextBox BetNo_D2;
-        private System.Windows.Forms.TextBox BetNo_C2;
-        private System.Windows.Forms.TextBox BetNo_B2;
-        private System.Windows.Forms.TextBox BetNo_D1;
-        private System.Windows.Forms.TextBox BetNo_C1;
-        private System.Windows.Forms.TextBox BetNo_B1;
         private System.Windows.Forms.Label label_DLineBetNo;
         private System.Windows.Forms.Label label_CLineBetNo;
         private System.Windows.Forms.Label label_BLineBetNo;
-        private System.Windows.Forms.TextBox BetNo_E5;
-        private System.Windows.Forms.TextBox BetNo_E4;
-        private System.Windows.Forms.TextBox BetNo_E3;
-        private System.Windows.Forms.TextBox BetNo_E2;
-        private System.Windows.Forms.TextBox BetNo_E1;
         private System.Windows.Forms.Label label_ELineBetNo;
         private System.Windows.Forms.Button BtnF5;
         private System.Windows.Forms.Button BtnF4;
@@ -2191,39 +1434,14 @@
         private System.Windows.Forms.Button BtnI;
         private System.Windows.Forms.Button BtnH;
         private System.Windows.Forms.Panel panel_keyboard;
-        private System.Windows.Forms.TextBox BetNo_E6;
-        private System.Windows.Forms.TextBox BetNo_D6;
-        private System.Windows.Forms.TextBox BetNo_C6;
-        private System.Windows.Forms.TextBox BetNo_B6;
-        private System.Windows.Forms.TextBox BetNo_A6;
         private System.Windows.Forms.Label label_SixthBetNo;
         private System.Windows.Forms.Label label_FifthBetNo;
         private System.Windows.Forms.Label label_FourthBetNo;
         private System.Windows.Forms.Label label_ThirdBetNo;
         private System.Windows.Forms.Label label_SecondBetNo;
         private System.Windows.Forms.Label label_ALineBetNo;
-        private System.Windows.Forms.TextBox BetNo_E7;
-        private System.Windows.Forms.TextBox BetNo_D7;
-        private System.Windows.Forms.TextBox BetNo_C7;
-        private System.Windows.Forms.TextBox BetNo_B7;
-        private System.Windows.Forms.TextBox BetNo_A7;
         private System.Windows.Forms.Label label_SeventhBetNo;
-        private System.Windows.Forms.TextBox BetNo_E8;
-        private System.Windows.Forms.TextBox BetNo_D8;
-        private System.Windows.Forms.TextBox BetNo_C8;
-        private System.Windows.Forms.TextBox BetNo_B8;
-        private System.Windows.Forms.TextBox BetNo_A8;
         private System.Windows.Forms.Label label_EighthBetNo;
-        private System.Windows.Forms.TextBox BetNo_EBlue;
-        private System.Windows.Forms.TextBox BetNo_E9;
-        private System.Windows.Forms.TextBox BetNo_DBlue;
-        private System.Windows.Forms.TextBox BetNo_D9;
-        private System.Windows.Forms.TextBox BetNo_CBlue;
-        private System.Windows.Forms.TextBox BetNo_C9;
-        private System.Windows.Forms.TextBox BetNo_BBlue;
-        private System.Windows.Forms.TextBox BetNo_B9;
-        private System.Windows.Forms.TextBox BetNo_ABlue;
-        private System.Windows.Forms.TextBox BetNo_A9;
         private System.Windows.Forms.Label label_BlueBetNo;
         private System.Windows.Forms.Label label_NinthBetNo;
         private System.Windows.Forms.Label label_Date0;
@@ -2234,12 +1452,6 @@
         private System.Windows.Forms.Button Btn_Logonoff;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SomePra;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.TextBox BetNo_A1;
-        private System.Windows.Forms.Panel panelA;
-        private System.Windows.Forms.Panel panelE;
-        private System.Windows.Forms.Panel panelD;
-        private System.Windows.Forms.Panel panelC;
-        private System.Windows.Forms.Panel panelB;
         private System.Windows.Forms.TabPage tabPage1;
     }
 }

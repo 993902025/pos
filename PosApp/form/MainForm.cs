@@ -60,6 +60,7 @@ namespace LotPos
             _pageNum = 1;
             _loginPattern = posconfig.LoginPattern;
 
+            CreatBox(1);
         }
 
         
@@ -135,7 +136,7 @@ namespace LotPos
             Update_panel_Parameters_Show(); //
 
             //初始化光标
-            nownumbox = BetNo_A1;  
+            nownumbox = lstBox.First().First();  
             nownumbox.Focus();      
 
             toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
@@ -226,7 +227,7 @@ namespace LotPos
             //textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
-            TestLog("" + string.Compare(BetNo_A1.Name, BetNo_A2.Name));
+            TestLog("" + string.Compare(lstBox.First().First().Name, lstBox[0][2].Name));
         }
 
         //新期查询 暂未启用 lias投注版本的
@@ -487,7 +488,7 @@ namespace LotPos
                 nownumbox = (TextBox)ActiveControl;
                 //TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
             }
-            else if ( ((TextBox)sender).Text.Length <= 0 && nownumbox != BetNo_A1)
+            else if ( ((TextBox)sender).Text.Length <= 0 && nownumbox != lstBox.First().First())
             {
                 SelectNextControl((Control)this.ActiveControl, false, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
@@ -501,7 +502,7 @@ namespace LotPos
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BetNo_TextChanged(object sender, EventArgs e)
+        public void BetNo_TextChanged(object sender, EventArgs e)
         {
             if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text)> 32)
             {
@@ -518,7 +519,7 @@ namespace LotPos
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BetNo_Enter(object sender, EventArgs e)
+        public void BetNo_Enter(object sender, EventArgs e)
         {
             nownumbox = (TextBox)sender;
             nownumbox.Select(nownumbox.TextLength, 0);
@@ -665,9 +666,9 @@ namespace LotPos
             Control.ControlCollection pans= panel_Bet.Controls;
             foreach (Control panel in pans)
             {
-                if (panel.GetType() == typeof(Panel) && panel.Name == panelA.Name)
+                if (panel.GetType() == typeof(Panel))
                 {
-                    Control.ControlCollection tboxs = panelA.Controls;
+                    Control.ControlCollection tboxs = Controls;
                     foreach (Control tbox in tboxs)
                     {
                         if (tbox.GetType() == typeof(TextBox) && tbox.Visible == true)
@@ -734,8 +735,82 @@ namespace LotPos
                 
             }
         }
+
+
+
+        string _wf;
+
+        List<List<TextBox>> lstBox = new List<List<TextBox>>();
+
+        int _location_x;    //锚点x
+        int _location_y;    //锚点y
+        int _count_x;       //单行个数
+        int _count_y;       //行数
+        int _margin;        //间距
+        int _width;         //宽
+        int _height;         //高
+
+        private void CreatBox(int wf)
+        {
+            _location_x = 40;   
+            _location_y = 55;
+            _count_x = 0;
+            _count_y = 0;
+            _width = 25;        
+            _height = 20;
+
+            switch (wf)
+            {
+                case 0:
+                    _count_x = 5;
+                    _count_y = 5;
+                    _margin = 10;
+                    break;
+                case 1:
+                    _count_x = 7;
+                    _count_y = 5;
+                    _margin = 10;
+                    break;
+                default:
+                    break;
+            }
+
+            for (int i = 0; i < _count_y; i++)
+            {
+                string name1 = (1 + i).ToString();
+                List<TextBox> lstText = new List<TextBox>();
+                lstBox.Add(lstText);
+                for (int j = 0; j < _count_x; j++)
+                {
+                    if (j == (_count_x - 1) && wf == 1)
+                    {
+                        _location_x += (9 - 6)*(_width + _margin);
+                    }
+                    string name2 = (j + 1).ToString();
+                    TextBox tbox = new TextBox();
+                    panel_Bet.Controls.Add(tbox);
+                    tbox.Name = "Bet" + name1 + name2;
+                    tbox.MaxLength = 2;
+                    tbox.Location = new Point(_location_x, _location_y);
+                    tbox.Margin = new Padding(5);
+                    tbox.Size = new Size(_width, _height);
+                    tbox.TextAlign = HorizontalAlignment.Center;
+                    tbox.Visible = true;
+                    tbox.TextChanged += new EventHandler(BetNo_TextChanged);
+                    tbox.Enter += new EventHandler(BetNo_Enter);
+                    lstText.Add(tbox);
+                    _location_x += _width + _margin;
+                    Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
+                }
+                _location_x = 40;
+                _location_y += _height + _margin;
+
+                Console.Write("y" + (i + 1) + ":" + _location_y + "\t");
+            }
+        }
+
     }
 
-   
+
 
 }
