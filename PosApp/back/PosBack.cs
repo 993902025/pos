@@ -28,6 +28,7 @@ namespace LotPos
 
         List<string> prakey = new List<string> { "gamename", "drawno", "xszbm", "lsh" ,"smallcount","balance","tqtime"};
         List<string> pravalue = new List<string>();
+        
 
         public PosBack()
         {
@@ -113,34 +114,110 @@ namespace LotPos
 
         //保存投注号码串的List数组
         public List<string> lstbetnum = new List<string>();
+        //保存send投注号码串
+        public string sendbetnum = "";
+
         /// <summary>
         /// 将合法数据放入号码串数组
         /// </summary>
         /// <param name="strnum"></param>
         /// <param name="wf"></param>
         /// <returns></returns>
-        public int AddListBetNum(string strnum, int wf)
+        public int AddListBetNum(int wf, string strnum, string mul)
         {
             switch (wf)
             {
-                case 0:
-                    lstbetnum.IndexOf(conl,);
+                case 0: //c515 5
+                    for (int i = 0; i < lstbetnum.Count; i++)
+                    {
+                        if (lstbetnum[i] == strnum)
+                        {
+                            return -1;
+                        }                        
+                    }
+                    break;
+                case 1: //lot 6 - 1
+                    for (int i = (lstbetnum.Count/7) * 7; i < lstbetnum.Count; i++)
+                    {
+                        if ((lstbetnum.Count % 6) == 0)
+                        {
+                            break;
+                        }
+                        if (lstbetnum[ i ] == strnum)
+                        {
+                            return -1;
+                        }
+                    }
                     break;
                 default:
                     break;
             }
-            for (int i = 0; i < tboxlist.Count - 1; i++)
-            {
-                if (tbox.Text == tboxlist[i].Text)
-                {
-                    //Console.WriteLine();
-                    return -2;
-                }
-            }
             return 0;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lstbox"></param>
+        /// <param name="mul"></param>
+        /// <param name="wf"></param>
+        /// <param name="fs"></param>
+        /// <returns></returns>
+        public int MakeBetString(List<List<TextBox>> lstbox,string mul, int wf, int fs)
+        {
+            bool isenough = true;       //该行号码个数是否足够，true=足够，false不足；
+            string geshu = string.Empty;
+            for (int i = 0; i < lstbox.Count; i++)
+            {
+                List<TextBox> lstcon = lstbox[i];
+                geshu = (lstcon.Count - 1).ToString();
+                //遍历检验每一行的值合法性 是否有空 或者是否 有重号
+                for (int j = 0; j < lstcon.Count; j++)
+                {
+                    Control conl = lstcon[j];
+                    if (conl.Text == string.Empty)
+                    {
+                        if (lstcon == lstbox[0])
+                        {                           
+                            return -1;
+                        }
+                        else
+                        {
+                            isenough = false;
+                            break;
+                        }
+                    }
+                    for (int k = 0; k < lstcon.Count - 1; k++)
+                    {
+                        if (conl.Tag != null && conl.Tag.ToString() == ("blue" + i))
+                        {
+                            break;
+                        }
+                        if (j != k && conl.Text == lstcon[k].Text)
+                        {
+                            return -2;
+                        }
+                    }
+                    isenough = true;
+                }
+                //对可以组成投注号码的行，将值取出放到字符串中保存用于传输使用
+                if (isenough)   //当该行足够时，加前缀，组串
+                {
+                    sendbetnum += mul.PadLeft(3,'0') + geshu.PadLeft(2, '0');
+                    for (int j = 0; j < lstcon.Count; j++)
+                    {
+                        Control conl = lstcon[j];
+                        if (conl.Tag != null && conl.Tag.ToString() == ("blue" + i))
+                        {
+                            sendbetnum += "01";
+                        }
+                        sendbetnum += conl.Text;
+                    }
+                }
+            }
+            Console.Write(sendbetnum);
+            return 0;
+        }
 
 
         public void SortBetNum()

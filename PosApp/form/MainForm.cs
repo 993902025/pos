@@ -36,10 +36,10 @@ namespace LotPos
 
         Timer dtime;
 
+        string sendbetstr = "";
 
         static int sequence = 0;
         string sk = "111111";
-        string sendbetstr = "";
         byte[] btmsg = new byte[1024];
         string smsg2 = "";
         string ServerIP = "10.1.1.192";
@@ -648,10 +648,7 @@ namespace LotPos
             else if (BtnName == BtnF8.Name)
             {
                 TestLog( "调用：Bet " + BtnName);
-                if (DOF8Bet() == 0)
-                {
-                    Betqueren();
-                }
+                DOF8Bet(1, ref sendbetstr);
             }
             //
             else if ( BtnName == BtnF9.Name)
@@ -671,90 +668,39 @@ namespace LotPos
 
         #endregion
 
-        void DOF8Bet(int _wf)
+        int fs = 1;
+
+        /// <summary>
+        /// 处理投注的号码；是否合法？写入待发送串；
+        /// </summary>
+        /// <param name="_wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
+        /// <param name="betnum"> 用于接受组成的字符串 </param>
+        void DOF8Bet(int _wf,ref string betnum)
         {
+            string sendbetnum = string.Empty; 
             PosBack posback = new PosBack();
-            for (int i = 0; i < lstBox.Count; i++ )
+
+            //取出倍数输入框控件中的值 是空时默认为 1
+            string multiple = (Multiple.Text == string.Empty) ? "1" : Multiple.Text;
+            
+            int result = posback.Tmp(lstBox, multiple, _wf, fs);
+            string sendstr = posback.sendbetnum;
+            //secstr = posback.lstbetnum[(i * (lstcon.Count - 1)) + (i + j)];
+            switch (result)
             {
-                bool isenough = true;        //该行号码个数是否足够，true=足够，false不足；
-                List<TextBox> lstcon = lstBox[i];
-                for (int j = 0; j < lstcon.Count; j++)
-                {
-                    Control conl = lstcon[j];
-                    if (conl.Text == string.Empty)
-                    {
-                        if (lstcon == lstBox[1])
-                        {
-                            TestLog("号码不足");
-                            return;
-                        }
-                        else
-                        {
-                            isenough = false;
-                        }
-                    }
-                }
-                for (int j = 0; j < lstcon.Count; j++)
-                {
-                    if (!isenough)
-                    {
-                        break;
-                    }
-                    Control conl = lstcon[j];
-                    for (int k = 0; k < posback.lstbetnum.Count; k++)    
-                    {
-                        string have = posback.lstbetnum[i];
-
-                        int result = posback.AddListBetNum(conl.Text, _wf);
-                        switch (result)
-                        {
-                            case 0:
-                                break;
-                            case -1:
-                                TestLog("号码重复 " + " " + conl.Text + "[" + conl.Name + "}");
-                                break;
-                            default:
-                                break;
-                        }
-
-                    }
-                }
+                case 0:
+                    betsock.sendmsg(sendstr);
+                    ;
+                    break;
+                case -1:
+                    TestLog("号码不足");
+                    break;
+                case -2:
+                    TestLog("存在重号");
+                    break;
+                default:
+                    break;
             }
-
-
-            
-
-
-            PosBack posback = new PosBack();
-                    foreach (Control tbox in tboxs)
-                    {
-                        if (tbox.GetType() == typeof(TextBox) && tbox.Visible == true)
-                        {
-                            if (tbox.Text == string.Empty)
-                            {
-                                TestLog("号码不足");
-                                return -1;
-                            }
-                            //TestLog(tbox.Name + "||" + tbox.Text);
-                            if (posback.ListBetNum(tbox) != 0)
-                            {
-                                TestLog("号码重复！！");
-                                return -2;
-                            }
-                        }
-                    }
-                    posback.SortBetNum();
-                    TestLog("\r\n-----");
-                    foreach (Control tbox in PosBack.tboxlist)
-                    {
-                        TestLog(tbox.Name + "||" + tbox.Text);
-                    }
-                
-                //Console.Write(conindex.Name + "||" + conindex.Text + "||" + conindex.TabIndex + "\r\n");
-            
-            return 0;
-            //string BetAStr = BetNo_A1.Text + BetNo_A2 + BetNo_A3 + BetNo_A4 + BetNo_A5 + BetNo_A6 + BetNo_A7 + BetNo_A8 + BetNo_A9;
-
         }
 
 
@@ -771,7 +717,7 @@ namespace LotPos
                 PosBack posback = new PosBack();
                 foreach (Control conl in lstcon)
                 {
-                    posback.ListBetNum(conl);
+                    //posback.ListBetNum(conl);
                 }
             }
         }
@@ -856,6 +802,11 @@ namespace LotPos
                     tbox.Enter += new EventHandler(BetNo_Enter);
                     lstText.Add(tbox);
                     _location_x += _width + _margin;
+                    if (wf == 1 && j == 6)
+                    {
+                        tbox.Tag = "blue"+ i.ToString();
+                    }
+
                     Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
                 }
                 _location_x = 40;
