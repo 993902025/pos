@@ -19,7 +19,7 @@ namespace LotPos
         public static string errstring;
         byte[] result = new byte[1024];   
         
-        public int inisocket(string ServerIP, int port)
+        public int Inisocket(string ServerIP, int port)
         {
             sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ip = IPAddress.Parse(ServerIP);
@@ -37,7 +37,7 @@ namespace LotPos
             }
         }
 
-        public int sendmsg(string smsg2)
+        public int Sendmsg(string smsg2)
         { 
             try
             {
@@ -50,7 +50,7 @@ namespace LotPos
                 return -1;
             }
         }
-        public string recvmsg()
+        public string Recvmsg()
         { 
             try
             {
@@ -68,7 +68,7 @@ namespace LotPos
             }
         }
 
-        public void closesock()
+        public void Closesock()
         {
             try
             {

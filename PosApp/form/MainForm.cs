@@ -21,7 +21,7 @@ namespace LotPos
         /* 定义类 
          */
         //public LogOnForm logonform;     //登录界面类
-            //后台业务处理类
+        //后台业务处理类
         PosConfig posconfig;        //配置文件类 
         SocketClass betsock = new SocketClass();
 
@@ -33,9 +33,10 @@ namespace LotPos
         */
         public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
-
+        int _wf;
         Timer dtime;
 
+        
         string sendbetstr = "";
 
         static int sequence = 0;
@@ -59,11 +60,11 @@ namespace LotPos
             //posback = new PosBack();
             _pageNum = 1;
             _loginPattern = posconfig.LoginPattern;
-
-            CreatBox(1);
+            _wf = 1;
+            CreatBox(_wf);
         }
 
-        
+
         /// <summary>
         /// 处理登录界面返回结果
         /// </summary>
@@ -78,8 +79,8 @@ namespace LotPos
             {
                 //  TODO:   此处建立acceptor连接
                 PosBack posback = new PosBack();
-                posback.GetPra();       //模拟取参
-                logonform.Close();              
+                posback.GetPra(_loginPattern);       //模拟取参
+                logonform.Close();
             }
             //退出 or 取消登录
             else if (logonform.DialogResult == DialogResult.Cancel)
@@ -112,9 +113,9 @@ namespace LotPos
         //加载主界面
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            switch(_pageNum)
-            { 
+
+            switch (_pageNum)
+            {
 
                 case 0:
                     AtLogonForm(_pageNum);//加载登录界面
@@ -125,10 +126,10 @@ namespace LotPos
                     break;
 
             }
-            
-            _pageNum = 1;
 
-            label_LoginPattern.Text = posconfig.LoginPattern;   //显示启动模式
+            _pageNum = 1;
+                        
+            ShowPattern(_loginPattern);     //显示启动模式
             dtime.Start();      //开启显示时间
 
             tabControl1.Visible = true;     //标签控制页
@@ -136,8 +137,8 @@ namespace LotPos
             Update_panel_Parameters_Show(); //
 
             //初始化光标
-            nownumbox = lstBox.First().First();  
-            nownumbox.Focus();      
+            nownumbox = lstBox.First().First();
+            nownumbox.Focus();
 
             toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
             toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
@@ -147,12 +148,32 @@ namespace LotPos
         }
 
         /// <summary>
+        /// 显示启动模式,将配置文件中内容转成中文显示
+        /// "1"="单机" "2"="联网"
+        /// </summary>
+        /// <param name="loginPattern"> "1"="单机" "2"="联网"</param>
+        void ShowPattern(string loginPattern)
+        {
+            switch (loginPattern)
+            {
+                case "1":
+                    label_LoginPattern.Text = "单机";
+                    break;
+                case "2":
+                    label_LoginPattern.Text = "联网";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
         /// 站点玩法等参数显示
         /// </summary>
         void Update_panel_Parameters_Show()
         {
             PosBack posback = new PosBack();
-            posback.GetPra();       //模拟取参
+            posback.GetPra(_loginPattern);       //模拟取参
             GameName.Text = posback.gamename;
             DrawNo.Text = posback.drawno;
             AgentId.Text = posback.xszbm;
@@ -163,7 +184,7 @@ namespace LotPos
 
             panel_Parameters.Visible = true;    //显示参数区域
         }
-               
+
         /// <summary>
         /// 右上角信息栏时间
         /// </summary>
@@ -198,7 +219,7 @@ namespace LotPos
         {
 
         }
-                        
+
         /// <summary>
         /// 登录\注销
         /// </summary>
@@ -208,7 +229,7 @@ namespace LotPos
         {
             AtLogonForm(_pageNum);
         }
-        
+
         /// <summary>
         /// 投注确认 显示票面
         /// </summary>
@@ -349,7 +370,7 @@ namespace LotPos
             int money = 0;                              //金额
             //int ret = betnum.cfof_check_ball(sball, ref playtype, ref money);       
             //检查投注号码合法 + 计算投注方式和金额        
-            if (0 == betnum.cfof_check_ball(sball, ref playtype, ref money))
+            if (0 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
                 string betdetail = ((Multiple.Text == string.Empty) ? "1" : Multiple.Text).PadLeft(3, '0') + (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
                 money = money * Convert.ToInt16((Multiple.Text == string.Empty) ? "1" : Multiple.Text);
@@ -358,19 +379,19 @@ namespace LotPos
                 textBox3.Text += "\r\nbetbody:" + betmsgbody;
                 return betmsgbody;
             }
-            else if (-1 == betnum.cfof_check_ball(sball, ref playtype, ref money))
+            else if (-1 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
                 textBox_test.Text += "\r\n[ERR]:" + "投注号码个数有误";
                 return "";
             }
-            else if (-3 == betnum.cfof_check_ball(sball, ref playtype, ref money))
+            else if (-3 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
                 textBox_test.Text += "\r\n[ERR]:" + "投注号码有重复";
                 return "";
             }
             else
             {
-                textBox_test.Text += "\r\n[ERR]:" + betnum.cfof_check_ball(sball, ref playtype, ref money);
+                textBox_test.Text += "\r\n[ERR]:" + betnum.Cfof_check_ball(sball, ref playtype, ref money);
                 return "";
             }
         }
@@ -400,13 +421,13 @@ namespace LotPos
             string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
             smsg2 = msglen + shead + msbody + "|" + szy;
             //建socket链接
-            if (0 == betsock.inisocket(ServerIP, betport))
+            if (0 == betsock.Inisocket(ServerIP, betport))
             {
                 //发送send
-                betsock.sendmsg(smsg2);
+                betsock.Sendmsg(smsg2);
                 textBox3.Text += "send message is:" + smsg2 + "\r\n";
                 //接受recv
-                string srecmsg = betsock.recvmsg();
+                string srecmsg = betsock.Recvmsg();
 
                 textBox_test.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
                 string[] sArray = srecmsg.Split('|');
@@ -445,7 +466,7 @@ namespace LotPos
             }
             try
             {
-                betsock.closesock();
+                betsock.Closesock();
             }
             catch
             {
@@ -481,26 +502,28 @@ namespace LotPos
          * 
          * */
         #region 号码输入框输入的处理块
-            
+
         /// <summary>
-        /// 满足(TextBox.Text.Length >= 2)，焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
+        /// 满足(TextBox.Text.Length >= 2)，
+        /// 焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
         /// </summary>
         /// <param name="sender"> 控件对象 </param>
         void CheckTextFocus(object sender)
         {
-            if ( ((TextBox)sender ).Text.Length >= 2 )
+            if (((TextBox)sender).Text.Length >= 2)
             {
                 SelectNextControl((Control)this.ActiveControl, true, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
                 //TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
             }
-            else if ( ((TextBox)sender).Text.Length <= 0 && nownumbox != lstBox.First().First())
+            else if (((TextBox)sender).Text.Length <= 0 && nownumbox != lstBox.First().First())
             {
                 SelectNextControl((Control)this.ActiveControl, false, true, true, false);
                 nownumbox = (TextBox)ActiveControl;
+                BetNo_Enter(sender, null);
                 //TestLog("focus to " + ActiveControl.Name);
             }
-            
+
         }
 
         /// <summary>
@@ -510,9 +533,9 @@ namespace LotPos
         /// <param name="e"></param>
         public void BetNo_TextChanged(object sender, EventArgs e)
         {
-            if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text)> 32)
+            if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text) > 32)
             {
-                TestLog("选号不能超过32");                
+                TestLog("选号不能超过32");
             }
             else
             {
@@ -528,9 +551,10 @@ namespace LotPos
         public void BetNo_Enter(object sender, EventArgs e)
         {
             nownumbox = (TextBox)sender;
-            nownumbox.Select(nownumbox.TextLength, 0);
+            nownumbox.SelectionStart = nownumbox.Text.Length;
+            //nownumbox.Select(nownumbox.TextLength, 0);
         }
-        
+
         /// <summary>
         /// 键盘事件，界面所有空间注册键盘事件的第一层事件处理
         /// </summary>
@@ -538,13 +562,9 @@ namespace LotPos
         /// <returns></returns>
         protected override bool ProcessDialogKey(Keys keyData)
         {
-            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);         
-            if (keyData == Keys.Up)
-            {
-
-            }
+            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);
             int keyvalue = Convert.ToInt32(keyData.ToString("D"));     // Convert.ToInt16(e.KeyChar);
-            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105))  || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552)
+            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105)) || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552 || keyData == Keys.Tab)
             {
                 return false;
             }
@@ -566,7 +586,7 @@ namespace LotPos
         private void PosKeyDown(object sender, KeyEventArgs e)
         {
             //TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
-            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || (e.KeyValue >= 96 && e.KeyValue <= 105) || e.KeyValue == 262162 || e.KeyValue == 131089 || e.KeyValue == 65552)
+            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || (e.KeyValue >= 96 && e.KeyValue <= 105) || e.KeyValue == 18 || e.KeyValue == 131089 || e.KeyValue == 65552 || e.KeyValue == 9 || e.KeyData == Keys.Left || e.KeyData == Keys.Right || e.KeyData == Keys.Up || e.KeyData == Keys.Down)
             {
                 e.Handled = false;
             }
@@ -633,7 +653,7 @@ namespace LotPos
                 }
             }
             //ESC
-            if ( BtnName == BtnEscape.Name)
+            else if ( BtnName == BtnEscape.Name)
             {
                 // 此处调用 ESC 相关
                 TestLog("调用:ESC" + BtnName);
@@ -673,23 +693,23 @@ namespace LotPos
         /// <summary>
         /// 处理投注的号码；是否合法？写入待发送串；
         /// </summary>
-        /// <param name="_wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
+        /// <param name="wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
         /// <param name="betnum"> 用于接受组成的字符串 </param>
-        void DOF8Bet(int _wf,ref string betnum)
+        void DOF8Bet(int wf,ref string betnum)
         {
-            string sendbetnum = string.Empty; 
-            PosBack posback = new PosBack();
+            string sendbetnum = string.Empty;
+            BetNum betnumclass = new BetNum();
 
             //取出倍数输入框控件中的值 是空时默认为 1
             string multiple = (Multiple.Text == string.Empty) ? "1" : Multiple.Text;
             
-            int result = posback.Tmp(lstBox, multiple, _wf, fs);
-            string sendstr = posback.sendbetnum;
+            int result = betnumclass.MakeBetString(lstBox, multiple, wf, fs);
+            string sendstr = betnumclass.sendbetnum;
             //secstr = posback.lstbetnum[(i * (lstcon.Count - 1)) + (i + j)];
             switch (result)
             {
                 case 0:
-                    betsock.sendmsg(sendstr);
+                    betsock.Sendmsg(sendstr);
                     ;
                     break;
                 case -1:
@@ -737,7 +757,7 @@ namespace LotPos
 
         #region 初始化号码框
 
-        string _wf;
+        
         List<List<TextBox>> lstBox = new List<List<TextBox>>();
         int _location_x;    //锚点x
         int _location_y;    //锚点y
@@ -800,13 +820,16 @@ namespace LotPos
                     tbox.Visible = true;
                     tbox.TextChanged += new EventHandler(BetNo_TextChanged);
                     tbox.Enter += new EventHandler(BetNo_Enter);
-                    lstText.Add(tbox);
-                    _location_x += _width + _margin;
+                    tbox.TabStop = true;
+                    tbox.TabIndex = i * _count_x + j;// (i * (_count_x - 1)) + (i + j);
+
                     if (wf == 1 && j == 6)
                     {
                         tbox.Tag = "blue"+ i.ToString();
                     }
 
+                    lstText.Add(tbox);
+                    _location_x += _width + _margin;
                     Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
                 }
                 _location_x = 40;

@@ -22,13 +22,20 @@ namespace LotPos
             _filename = Process.GetCurrentProcess().ProcessName + ".txt";
 
 
-            if (!File.Exists(_path +  _filename))
+            if (!File.Exists(_path + "\\" +  _filename))
             {
                 try
                 {
-                    Console.WriteLine("初始化模拟参数文件：" + _path + _filename);
-                    string inistr = "gamename=\r\n\r\ndrawno=\r\n\r\nxszbm=\r\n\r\nlsh=\r\n\r\nsmallcount=\r\n\r\nbalance=\r\n\r\ntqtime=\r\n".ToUpper();
-                    FileStream newfile = File.Create(_path + _filename);
+                    Console.WriteLine("\r\n初始化模拟参数文件：" + _path + "\\" + _filename);
+                    string inistr = 
+                        "gamename=Lot\r\n\r\n" +
+                        "drawno=2017099\r\n\r\n" +
+                        "xszbm=33010123\r\n\r\n" +
+                        "lsh=123456\r\n\r\n" +
+                        "smallcount=1\r\n\r\n" +
+                        "balance=999999.98\r\n\r\n" +
+                        "tqtime=11:44:55\r\n".ToUpper();
+                    FileStream newfile = File.Create(_path + "\\" + _filename);
                     newfile.Write(Encoding.UTF8.GetBytes(inistr),0, inistr.Length);
                     newfile.Close();
                 }
@@ -74,9 +81,9 @@ namespace LotPos
             string temstr = string.Empty;
             try
             {
-                if (!File.Exists(_path + _filename))
+                if (File.Exists(_path + "\\" + _filename))
                 {
-                    StreamReader sread = new StreamReader(_path + _filename);
+                    StreamReader sread = new StreamReader(_path + "\\" + _filename);
                     while (!sread.EndOfStream)
                     {
                         temstr = Regex.Replace(sread.ReadLine(), @"\s", "");
@@ -96,5 +103,7 @@ namespace LotPos
                 throw;
             }
         }
+
+
     }
 }

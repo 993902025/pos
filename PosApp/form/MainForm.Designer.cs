@@ -1222,9 +1222,9 @@
             this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Date.AutoSize = true;
-            this.label_Date.Location = new System.Drawing.Point(180, 0);
+            this.label_Date.Location = new System.Drawing.Point(156, 0);
             this.label_Date.Name = "label_Date";
-            this.label_Date.Size = new System.Drawing.Size(161, 31);
+            this.label_Date.Size = new System.Drawing.Size(161, 28);
             this.label_Date.TabIndex = 33;
             this.label_Date.Text = "2017-06-17 12:54:57 星期六";
             this.label_Date.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1234,9 +1234,9 @@
             this.label_Date0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Date0.AutoSize = true;
-            this.label_Date0.Location = new System.Drawing.Point(133, 0);
+            this.label_Date0.Location = new System.Drawing.Point(109, 0);
             this.label_Date0.Name = "label_Date0";
-            this.label_Date0.Size = new System.Drawing.Size(41, 31);
+            this.label_Date0.Size = new System.Drawing.Size(41, 28);
             this.label_Date0.TabIndex = 44;
             this.label_Date0.Text = "时间：";
             this.label_Date0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1245,11 +1245,12 @@
             // 
             this.label_LoginPattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_LoginPattern.AutoSize = true;
             this.label_LoginPattern.Location = new System.Drawing.Point(50, 0);
             this.label_LoginPattern.Name = "label_LoginPattern";
-            this.label_LoginPattern.Size = new System.Drawing.Size(77, 31);
+            this.label_LoginPattern.Size = new System.Drawing.Size(53, 28);
             this.label_LoginPattern.TabIndex = 45;
-            this.label_LoginPattern.Text = "LoginPattern";
+            this.label_LoginPattern.Text = "启动模式";
             this.label_LoginPattern.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -1258,7 +1259,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 31);
+            this.label2.Size = new System.Drawing.Size(41, 28);
             this.label2.TabIndex = 56;
             this.label2.Text = "模式：";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1281,9 +1282,9 @@
             this.Btn_Logonoff.AutoSize = true;
             this.Btn_Logonoff.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Btn_Logonoff.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Btn_Logonoff.Location = new System.Drawing.Point(347, 3);
+            this.Btn_Logonoff.Location = new System.Drawing.Point(323, 3);
             this.Btn_Logonoff.Name = "Btn_Logonoff";
-            this.Btn_Logonoff.Size = new System.Drawing.Size(69, 25);
+            this.Btn_Logonoff.Size = new System.Drawing.Size(69, 22);
             this.Btn_Logonoff.TabIndex = 4;
             this.Btn_Logonoff.TabStop = false;
             this.Btn_Logonoff.Text = "登录/注销";
@@ -1306,11 +1307,11 @@
             this.tableLayoutPanel_SomePra.Controls.Add(this.label_LoginPattern, 1, 0);
             this.tableLayoutPanel_SomePra.Controls.Add(this.label_Date0, 2, 0);
             this.tableLayoutPanel_SomePra.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel_SomePra.Location = new System.Drawing.Point(561, 10);
+            this.tableLayoutPanel_SomePra.Location = new System.Drawing.Point(585, 10);
             this.tableLayoutPanel_SomePra.Name = "tableLayoutPanel_SomePra";
             this.tableLayoutPanel_SomePra.RowCount = 1;
             this.tableLayoutPanel_SomePra.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel_SomePra.Size = new System.Drawing.Size(419, 31);
+            this.tableLayoutPanel_SomePra.Size = new System.Drawing.Size(395, 28);
             this.tableLayoutPanel_SomePra.TabIndex = 29;
             this.toolTip1.SetToolTip(this.tableLayoutPanel_SomePra, "ip port");
             // 
