@@ -32,7 +32,7 @@ namespace LotPos
 
             posconfig.GetIPAndPort(ref ip, ref port);
 
-            loginpattern = posconfig.LoginPattern;
+            loginpattern = PosConfig.LoginPattern;
 
             textBox_UserName.Focus();
         }
@@ -62,23 +62,24 @@ namespace LotPos
             int result = loginback.Login(username, password);
 
             //启动模式决定是否进行连接定向
-            if (loginpattern == "online")
-            {
-                PosBack posback = new PosBack();
-                switch (posback.Con_Director(ip, port))
-                {
-                    case 0:
-                        ;//连接成功;
-                        break;
-                    case -1:
-                        //
-                        return;
-                    case -2:
-                        return;
-                    default:
-                        return;
-                }                
-            }
+            //if (loginpattern == "online")
+            //{
+            //    PosBack posback = new PosBack();
+            //    switch (posback.Con_Director(sock))
+            //    {
+            //        case 0:
+
+            //            ;//连接成功;
+            //            break;
+            //        case -1:
+            //            //
+            //            return;
+            //        case -2:
+            //            return;
+            //        default:
+            //            return;
+            //    }                
+            //}
 
             this.DialogResult = DialogResult.OK;   
             this.Close();

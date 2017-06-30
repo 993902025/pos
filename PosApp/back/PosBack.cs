@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,43 +16,40 @@ namespace LotPos
          * 取参参数
          * 
          */
-        //string _agentpra, _pra;
-        public string gamename;
-        public string drawno;
-        public string xszbm;
-        public string lsh;
-        public string smallcount;
-        public string balance;
-        public string tqtime;
+        public static string gamename;
+        public static string drawno;
+        public static string xszbm;
+        public static string lsh;
+        public static string smallcount;
+        public static string balance;
+        public static string tqtime;
 
-        public static List<Control> tboxlist;
-
-        List<string> prakey = new List<string> { "gamename", "drawno", "xszbm", "lsh" ,"smallcount","balance","tqtime"};
-        List<string> pravalue = new List<string>();
+        const string SEP2 = "$";
         
 
+        List<string> prakey = new List<string> {
+            "gamename",
+            "drawno",
+            "xszbm",
+            "lsh" ,
+            "smallcount",
+            "balance",
+            "tqtime" };
 
-
+        List<string> pravalue = new List<string>();
+        
+        
         public PosBack()
         {
-            tboxlist = new List<Control>();
         }
 
-        //取参
+        #region 取参 
 
-
-
-
-        //联机模式取参
-        //public int GetPra(ref string pra)
-        //{
-
-        //     _pra = pra;
-        //    int re_num = 0;
-        //    return re_num;
-        //}
-
-
+        /// <summary>
+        /// 取参导向 根据启动模式选择
+        /// </summary>
+        /// <param name="Pattern"></param>
+        /// <returns></returns>
         public int GetPra(string Pattern)
         {
             switch (Pattern)
@@ -65,6 +63,10 @@ namespace LotPos
             }
         }
 
+        /// <summary>
+        /// 联网模式取参
+        /// </summary>
+        /// <returns></returns>
         public int OnLineGetPra()
         {
             return -1;
@@ -114,9 +116,18 @@ namespace LotPos
             return 0;
         }
 
-        public int Con_Director(string ip, int port)
-        {
+        #endregion
 
+        public int Con_Director(SocketClass sock)
+        {
+            const string SERVERCONNECT = "SERVERCONNECT";
+            string sendmsg = "";
+            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+            PosString posstr = new PosString();
+            posstr.IniMsgStr("1", SERVERCONNECT, headmsg, ref sendmsg);
+            sock.Sendmsg(sendmsg);
+
+            sock.Recvmsg();
             //socket 类处理
             return 0;
         }
@@ -137,42 +148,24 @@ namespace LotPos
             return regex.IsMatch(str.Trim());
         }
 
+        void Register(Socket sock)
+        {
+            const string REGISTER = "REGISTER";
+            string sendmsg = "";
+            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+
+            PosString posstr = new PosString();
+
+            posstr.IniMsgStr("1", REGISTER, headmsg, ref sendmsg);
+
+           
+
+            //sock.Send();
+
+            //sock.Receive();
+        }
+
         
 
-        public void SortBetNum()
-        {
-            Control strtemp;
-            for (int i = tboxlist.Count -1; i > 0; i--)
-            {
-                for (int j = i - 1; j >= 0; j--)
-                {
-                    //if (Convert.ToInt16(tboxlist[i].Text) < Convert.ToInt16(tboxlist[j].Text))
-                    if (string.Compare(tboxlist[i].Name, tboxlist[j].Name) < 0)
-                    {
-                        strtemp = tboxlist[j];
-                        tboxlist[j] = tboxlist[i];
-                        tboxlist[i] = strtemp;
-                    }
-                }
-            }
-        }
-
-        public void CheckBetNum()
-        {
-            Control strtemp;
-            for (int i = 0 ; i < tboxlist.Count - 1; i--)
-            {
-                for (int j = i - 1; j >= 0; j--)
-                {
-                    //if (Convert.ToInt16(tboxlist[i].Text) < Convert.ToInt16(tboxlist[j].Text))
-                    if (string.Compare(tboxlist[i].Name, tboxlist[j].Name) > 0)
-                    {
-                        strtemp = tboxlist[j];
-                        tboxlist[j] = tboxlist[i];
-                        tboxlist[i] = strtemp;
-                    }
-                }
-            }
-        }
     }
 }

@@ -15,23 +15,26 @@ namespace LotPos
     public class SocketClass
     {
         public static Action<string > sendmessage;
-        Socket sct;
+        public static Socket sct;
+        public string serverIP;
+        public int port;
         public static string errstring;
         byte[] result = new byte[1024];   
+
+
+
         
         public int Inisocket(string ServerIP, int port)
         {
-            sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPAddress ip = IPAddress.Parse(ServerIP);
-
+            //IPAddress ip = IPAddress.Parse(ServerIP);
             try
             {
-                sct.Connect(ip, port);
+                sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                sct.Connect(serverIP, port);
                 return 0;
             }
             catch (Exception ex)
-            {
-                errstring = ex.Message;
+            {               
                 MessageBox.Show(ex.Message);
                 return -4; 
             }
@@ -50,12 +53,14 @@ namespace LotPos
                 return -1;
             }
         }
+
         public string Recvmsg()
         { 
             try
             {
                 byte[] brecmsg = new byte[1024];
                 string srecmsg = "";
+               
                 sct.Receive(brecmsg);
                 srecmsg = Encoding.ASCII.GetString(brecmsg);
                 return srecmsg;

@@ -17,12 +17,12 @@ namespace LotPos
         public string configName;
 
         public string configValue;
-        public string ServerIP;
-        public int Port;
-        public string xszbm;
-        public string zdh;
+        public static string ServerIP;      //中间层dire服务器IP
+        public static int Port;             //中间层dire服务器端口
+        public static string xszbm;         //本机销售站编码
+        public static string zdh;         //本机终端号
 
-        public string LoginPattern;
+        public static string LoginPattern;     //启动模式
 
         public void GetIPAndPort(ref string serverip, ref int port)
         {

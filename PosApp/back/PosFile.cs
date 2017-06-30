@@ -11,17 +11,19 @@ namespace LotPos
 {
     class PosFile
     {
-        public string _filename;
+        public string _filename;    // 程序名
+        string _path;               // 程序路径
         //public string _str_result; //存读到的值
-        string _path;
 
         //F:\123\C#/pos/PosApp/bin/Debug/LotPos.exe
+        /// <summary>
+        /// 初始化模拟取参文件，如果缺少文件则创建文件模板
+        /// </summary>
         public  PosFile()
         {
             _path = Application.StartupPath;//@".\"
             _filename = Process.GetCurrentProcess().ProcessName + ".txt";
-
-
+            
             if (!File.Exists(_path + "\\" +  _filename))
             {
                 try
@@ -104,6 +106,6 @@ namespace LotPos
             }
         }
 
-
+        
     }
 }

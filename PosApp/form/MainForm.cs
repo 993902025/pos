@@ -34,8 +34,10 @@ namespace LotPos
         public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
         int _wf;
-        Timer dtime;
+        string[] str_wf = { "C515", "LOT", "3D", "P6C", "C730", "K512" };
 
+        Timer dtime;
+        SocketClass sock;
         
         string sendbetstr = "";
 
@@ -59,7 +61,7 @@ namespace LotPos
             posconfig = new PosConfig();
             //posback = new PosBack();
             _pageNum = 1;
-            _loginPattern = posconfig.LoginPattern;
+            _loginPattern = PosConfig.LoginPattern;
             _wf = 1;
             CreatBox(_wf);
         }
@@ -78,7 +80,12 @@ namespace LotPos
             if (logonform.DialogResult == DialogResult.OK)
             {
                 //  TODO:   此处建立acceptor连接
+                
+
                 PosBack posback = new PosBack();
+                sock = new SocketClass();
+                posback.Con_Director(sock);
+
                 posback.GetPra(_loginPattern);       //模拟取参
                 logonform.Close();
             }
@@ -140,9 +147,9 @@ namespace LotPos
             nownumbox = lstBox.First().First();
             nownumbox.Focus();
 
-            toolTip1.SetToolTip(tableLayoutPanel_SomePra, posconfig.ServerIP + "\r\n" + posconfig.Port);
-            toolTip1.SetToolTip(Btn_Logonoff, posconfig.ServerIP + "\r\n" + posconfig.Port);
-            toolTip1.SetToolTip(label_Date, posconfig.ServerIP + "\r\n" + posconfig.Port);
+            toolTip1.SetToolTip(tableLayoutPanel_SomePra, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(Btn_Logonoff, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(label_Date, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
 
 
         }
@@ -174,13 +181,13 @@ namespace LotPos
         {
             PosBack posback = new PosBack();
             posback.GetPra(_loginPattern);       //模拟取参
-            GameName.Text = posback.gamename;
-            DrawNo.Text = posback.drawno;
-            AgentId.Text = posback.xszbm;
-            Lsh.Text = posback.lsh;
-            SmallCount.Text = posback.smallcount;
-            Balance.Text = posback.balance;
-            TQTime.Text = posback.tqtime;
+            GameName.Text = str_wf[_wf];    //(PosBack.gamename == null) ? str_wf[_wf] : PosBack.gamename;
+            DrawNo.Text =  PosBack.drawno;
+            AgentId.Text = PosConfig.xszbm;
+            Lsh.Text = PosBack.lsh;
+            SmallCount.Text = PosBack.smallcount;
+            Balance.Text = PosBack.balance;
+            TQTime.Text = PosBack.tqtime;
 
             panel_Parameters.Visible = true;    //显示参数区域
         }
@@ -637,8 +644,7 @@ namespace LotPos
         /// <param name="e"></param>
         private void KeyBtnClick(object sender, EventArgs e)
         {
-            TypeToType tot = new TypeToType();
-            string BtnName = sender.GetType() == typeof(string) ? tot.StrToKey(sender) : ((Control)sender).Name;
+            string BtnName = sender.GetType() == typeof(string) ? ("Btn" + Convert.ToString(sender)) : ((Control)sender).Name;
             nownumbox.Focus();
             //退格BACKSPACE
             if ( BtnName == BtnBack.Name)
