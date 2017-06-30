@@ -616,7 +616,6 @@
             this.Multiple.Size = new System.Drawing.Size(25, 21);
             this.Multiple.TabIndex = 28;
             this.Multiple.TabStop = false;
-            this.Multiple.Text = "99";
             this.Multiple.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_Multiple
@@ -1270,7 +1269,7 @@
             this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox_LotteryPicture.Location = new System.Drawing.Point(632, 44);
             this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
-            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(240, 300);
+            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(280, 350);
             this.groupBox_LotteryPicture.TabIndex = 28;
             this.groupBox_LotteryPicture.TabStop = false;
             this.groupBox_LotteryPicture.Text = "票面";

@@ -65,9 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="back\BetNum.cs" />
     <Compile Include="back\LoginBack.cs" />
-    <Compile Include="BetNum.cs" />
+    <Compile Include="back\BetNum.cs" />
     <Compile Include="BzWebSec.cs" />
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>
@@ -82,11 +81,11 @@
       <DependentUpon>LogOnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="back\PosBack.cs" />
-    <Compile Include="PosConfig.cs" />
+    <Compile Include="back\PosConfig.cs" />
     <Compile Include="back\PosFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocketClass.cs" />
+    <Compile Include="back\SocketClass.cs" />
     <Compile Include="back\PosString.cs" />
     <EmbeddedResource Include="form\LogOnForm.resx">
       <DependentUpon>LogOnForm.cs</DependentUpon>

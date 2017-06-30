@@ -28,7 +28,7 @@ namespace LotPos
         {
             string str;
             Random r = new Random();        //  操作序列号：随机数
-
+            
             str = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.ToString() + SEP1 + opcode + SEP1 + istr;
             switch (opcode)
             {
@@ -42,6 +42,12 @@ namespace LotPos
             str = str + SEP1;           
 
             ostr = "@" + str.Length + SEP1 + str;
+            
+        }
+
+
+        public void Encode(string istr, ref string ostr)
+        {
             
         }
 

@@ -182,9 +182,9 @@ namespace LotPos
             PosBack posback = new PosBack();
             posback.GetPra(_loginPattern);       //模拟取参
             GameName.Text = str_wf[_wf];    //(PosBack.gamename == null) ? str_wf[_wf] : PosBack.gamename;
-            DrawNo.Text =  PosBack.drawno;
+            DrawNo.Text =  PosBack.drawno[0];
             AgentId.Text = PosConfig.xszbm;
-            Lsh.Text = PosBack.lsh;
+            Lsh.Text = PosBack.lsh[0];
             SmallCount.Text = PosBack.smallcount;
             Balance.Text = PosBack.balance;
             TQTime.Text = PosBack.tqtime;
@@ -245,6 +245,13 @@ namespace LotPos
             if (true)
             {
                 groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
+                Label lab = new Label();
+                groupBox_LotteryPicture.Controls.Add(lab);
+                BetNum betnumclass = new BetNum();
+                for (int i = 0; i < betnumclass.lstbetnum.Count; i++)
+                {
+                    lab.Text = betnumclass.lstbetnum[i];
+                }
             }
         }
 
@@ -674,7 +681,11 @@ namespace LotPos
             else if (BtnName == BtnF8.Name)
             {
                 TestLog( "调用：Bet " + BtnName);
-                DOF8Bet(1, ref sendbetstr);
+                if (DOF8Bet(1, ref sendbetstr) == 0)
+                {
+                    Betqueren();
+                }
+                
             }
             //
             else if ( BtnName == BtnF9.Name)
@@ -694,14 +705,14 @@ namespace LotPos
 
         #endregion
 
-        int fs = 1;
+        int fs = 0;     //投注方式，暂时1单式，后面再细化
 
         /// <summary>
         /// 处理投注的号码；是否合法？写入待发送串；
         /// </summary>
         /// <param name="wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
         /// <param name="betnum"> 用于接受组成的字符串 </param>
-        void DOF8Bet(int wf,ref string betnum)
+        int DOF8Bet(int wf,ref string betnum)
         {
             string sendbetnum = string.Empty;
             BetNum betnumclass = new BetNum();
@@ -715,18 +726,26 @@ namespace LotPos
             switch (result)
             {
                 case 0:
-                    betsock.Sendmsg(sendstr);
+                    if (_loginPattern == "2")
+                    {
+                        betsock.Sendmsg(sendstr);
+                    }
+                    else
+                    {
+                        betnumclass.AloneBet(wf, fs, multiple);
+                    }
                     ;
                     break;
                 case -1:
                     TestLog("号码不足");
-                    break;
+                    return -1;
                 case -2:
                     TestLog("存在重号");
-                    break;
+                    return -2;
                 default:
-                    break;
+                    return -10;
             }
+            return 0;
         }
 
 

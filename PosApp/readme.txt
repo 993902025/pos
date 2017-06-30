@@ -30,3 +30,8 @@
 		tqtime
 		
 		
+
+
+单机投注存储
+
+signkey	xszbm	zdh	wf	drawno	lsh	bettime		理论cashtime	投注方式	金额	注数	倍数	5号码		

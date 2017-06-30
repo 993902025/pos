@@ -16,16 +16,19 @@ namespace LotPos
          * 取参参数
          * 
          */
-        public static string gamename;
-        public static string drawno;
+        public static string[] gamename = new string[6];
+        public static string[] drawno = new string[6];
         public static string xszbm;
-        public static string lsh;
+        public static string[] lsh = new string[6];
         public static string smallcount;
         public static string balance;
         public static string tqtime;
+        public static string zdh;
 
         const string SEP2 = "$";
-        
+
+        string mac;
+        string pink;
 
         List<string> prakey = new List<string> {
             "gamename",
@@ -41,6 +44,8 @@ namespace LotPos
         
         public PosBack()
         {
+            xszbm = PosConfig.xszbm;
+            zdh = PosConfig.zdh;
         }
 
         #region 取参 
@@ -89,16 +94,16 @@ namespace LotPos
                 switch (i)
                 {
                     case 0:
-                        gamename = pravalue[0];
+                        gamename[1] = pravalue[0];
                         break;
                     case 1:
-                        drawno = pravalue[1];
+                        drawno[1] = pravalue[1];
                         break;
                     case 2:
                         xszbm = pravalue[2];
                         break;
                     case 3:
-                        lsh = pravalue[3];
+                        lsh[1] = pravalue[3];
                         break;
                     case 4:
                         smallcount = pravalue[4];
@@ -120,21 +125,52 @@ namespace LotPos
 
         public int Con_Director(SocketClass sock)
         {
-            const string SERVERCONNECT = "SERVERCONNECT";
-            string sendmsg = "";
+            const string SERVERCONNECT = "SERVERCONNECT";   //操作码
+            string sendmsg = "";    //待发送串
+            string recvmsg = "";    //接受串
+            string[] sarray;    //解析结果存放数组
+
             string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+
             PosString posstr = new PosString();
             posstr.IniMsgStr("1", SERVERCONNECT, headmsg, ref sendmsg);
+            //发送
             sock.Sendmsg(sendmsg);
+            //接受
+            recvmsg = sock.Recvmsg();
 
-            sock.Recvmsg();
-            //socket 类处理
+            //解析recvmsg内容，取出acceptor的ip和port
+            sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
+            sock.serverIP = sarray[8];    //
+            sock.port = Convert.ToInt16(sarray[9]);
+
             return 0;
         }
         //
+        /// <summary>
+        /// 签到Register
+        /// </summary>
+        /// <param name="sock"></param>
+        void Register(SocketClass sock)
+        {
+            const string REGISTER = "REGISTER";
+            string sendmsg = "";
+            string recvmsg = "";
+            string[] sarray;
 
-        //按键是否为数字键
-        public static bool IsNumber(string str)
+            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+
+            PosString posstr = new PosString();
+
+            posstr.IniMsgStr("1", REGISTER, headmsg, ref sendmsg);
+
+            sock.Sendmsg(sendmsg);
+
+            recvmsg = sock.Recvmsg();
+        }
+
+    //按键是否为数字键
+    public static bool IsNumber(string str)
         {
             string regextext = @"^(-?\d+)(\.\d+)?$";
             Regex regex = new Regex(regextext, RegexOptions.None);
@@ -148,22 +184,7 @@ namespace LotPos
             return regex.IsMatch(str.Trim());
         }
 
-        void Register(Socket sock)
-        {
-            const string REGISTER = "REGISTER";
-            string sendmsg = "";
-            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
-
-            PosString posstr = new PosString();
-
-            posstr.IniMsgStr("1", REGISTER, headmsg, ref sendmsg);
-
-           
-
-            //sock.Send();
-
-            //sock.Receive();
-        }
+        
 
         
 
