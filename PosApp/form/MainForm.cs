@@ -53,6 +53,8 @@ namespace LotPos
         public MainForm()
         {
             InitializeComponent();
+            _wf = 1;
+            CreatBox(_wf);
             dtime = new Timer()
             {
                 Interval = 1000
@@ -62,10 +64,50 @@ namespace LotPos
             //posback = new PosBack();
             _pageNum = 1;
             _loginPattern = PosConfig.LoginPattern;
-            _wf = 1;
-            CreatBox(_wf);
         }
 
+
+        /// <summary>
+        /// 加载主界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            switch (_pageNum)
+            {
+
+                case 0:
+                    AtLogonForm(_pageNum);//加载登录界面
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+
+            }
+
+
+            _pageNum = 1;
+
+            ShowPattern(_loginPattern);     //显示启动模式
+            dtime.Start();      //开启显示时间
+
+            tabControl1.Visible = true;     //标签控制页
+
+            ShowPage_1(_pageNum);
+            Update_panel_Parameters_Show(_wf); //
+
+            //初始化光标
+            nownumbox = lstBox.First().First();
+            nownumbox.Focus();
+
+            toolTip1.SetToolTip(tableLayoutPanel_SomePra, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(Btn_Logonoff, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(label_Date, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            
+        }
 
         /// <summary>
         /// 处理登录界面返回结果
@@ -117,42 +159,7 @@ namespace LotPos
             }
         }
 
-        //加载主界面
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-            switch (_pageNum)
-            {
-
-                case 0:
-                    AtLogonForm(_pageNum);//加载登录界面
-                    break;
-                case 1:
-                    break;
-                default:
-                    break;
-
-            }
-
-            _pageNum = 1;
-                        
-            ShowPattern(_loginPattern);     //显示启动模式
-            dtime.Start();      //开启显示时间
-
-            tabControl1.Visible = true;     //标签控制页
-            ShowPage_1(_pageNum);
-            Update_panel_Parameters_Show(); //
-
-            //初始化光标
-            nownumbox = lstBox.First().First();
-            nownumbox.Focus();
-
-            toolTip1.SetToolTip(tableLayoutPanel_SomePra, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-            toolTip1.SetToolTip(Btn_Logonoff, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-            toolTip1.SetToolTip(label_Date, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-
-
-        }
+        
 
         /// <summary>
         /// 显示启动模式,将配置文件中内容转成中文显示
@@ -177,19 +184,24 @@ namespace LotPos
         /// <summary>
         /// 站点玩法等参数显示
         /// </summary>
-        void Update_panel_Parameters_Show()
+        void Update_panel_Parameters_Show(int wf)
         {
             PosBack posback = new PosBack();
             posback.GetPra(_loginPattern);       //模拟取参
-            GameName.Text = str_wf[_wf];    //(PosBack.gamename == null) ? str_wf[_wf] : PosBack.gamename;
-            DrawNo.Text =  PosBack.drawno[0];
-            AgentId.Text = PosConfig.xszbm;
-            Lsh.Text = PosBack.lsh[0];
-            SmallCount.Text = PosBack.smallcount;
-            Balance.Text = PosBack.balance;
-            TQTime.Text = PosBack.tqtime;
+            for (int i = 0; i < tabControl1.TabCount; i++)
+            {
+               
 
-            panel_Parameters.Visible = true;    //显示参数区域
+                GameName.Text = str_wf[wf];    //(PosBack.gamename == null) ? str_wf[_wf] : PosBack.gamename;
+                DrawNo.Text = PosBack.drawno[wf];
+                AgentId.Text = PosConfig.xszbm;
+                Lsh.Text = PosBack.lsh[wf];
+                SmallCount.Text = PosBack.smallcount;
+                Balance.Text = PosBack.balance;
+                TQTime.Text = PosBack.tqtime;
+            }
+
+            panelC515_Parameters.Visible = true;    //显示参数区域
         }
 
         /// <summary>
@@ -206,7 +218,9 @@ namespace LotPos
 
         void ShowPage_1(int pagenum)
         {
-            panel_Parameters.Show();
+            tabControl1.SelectTab(1);
+            tabControl1.SelectedTab.Controls.Add(panelC515_Parameters);
+            panelC515_Parameters.Show();
             panel_Bet.Show();
             panel_keyboard.Show();
         }
@@ -216,17 +230,7 @@ namespace LotPos
 
         }
 
-
-        /// <summary>
-        /// 点击标签切换玩法
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Page_C515_Click(object sender, EventArgs e)
-        {
-
-        }
-
+              
         /// <summary>
         /// 登录\注销
         /// </summary>
@@ -866,6 +870,85 @@ namespace LotPos
 
         #endregion
 
+        /// <summary>
+        /// 切换选择标签页时间，将参数列表数据更新匹配该page，并显示在该page，
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            int index = tabControl1.SelectedIndex;
+            Console.WriteLine(index);
+            Update_panel_Parameters_Show(index);
+            ChangePage(index);
+            tabControl1.SelectedTab.Controls.Add(panelC515_Parameters);
+            tabControl1.SelectedTab.Controls.Add(panel_Bet);
+            panelC515_Parameters.Show();
+            panel_Bet.Show();
+        }
+
+        private void ChangePage(int wf)
+        {
+            switch (wf)
+            {
+                case 0:
+                    for (int i = 0; i < lstBox.Count; i++)
+                    {
+                        for (int j = 0; j < lstBox[i].Count; j++)
+                        {
+                            lstBox[i][j].Visible = true;
+                            if (j >= 5 )
+                            {
+                                lstBox[i][j].Visible = false;
+                            }
+                        }
+                    }
+                    break;
+                case 1:
+
+                    for (int i = 0; i < lstBox.Count; i++)
+                    {
+                        for (int j = 0; j < lstBox[i].Count; j++)
+                        {
+                            lstBox[i][j].Visible = true;
+                        }
+                    }
+                    break;
+
+                case 2:
+
+                    for (int i = 0; i < lstBox.Count; i++)
+                    {
+                        for (int j = 0; j < lstBox[i].Count; j++)
+                        {
+                            lstBox[i][j].Visible = true;
+                            if (j >= 3)
+                            {
+                                lstBox[i][j].Visible = false;
+                            }
+                        }
+                    }
+                    break;
+                case 3:
+
+                    for (int i = 0; i < lstBox.Count; i++)
+                    {
+                        for (int j = 0; j < lstBox[i].Count; j++)
+                        {
+                            lstBox[i][j].Visible = true;
+                            if (j >= 7)
+                            {
+                                lstBox[i][j].Visible = false;
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
     }
 
 

@@ -48,8 +48,8 @@
             this.Num_8 = new System.Windows.Forms.Button();
             this.Num_7 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Page_C515 = new System.Windows.Forms.TabPage();
-            this.panel_Parameters = new System.Windows.Forms.Panel();
+            this.PageC515 = new System.Windows.Forms.TabPage();
+            this.panelC515_Parameters = new System.Windows.Forms.Panel();
             this.lable_DrawNo = new System.Windows.Forms.Label();
             this.TQTime = new System.Windows.Forms.Label();
             this.label_AgentId = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@
             this.label_ELineBetNo = new System.Windows.Forms.Label();
             this.label_FirstBetNo = new System.Windows.Forms.Label();
             this.label_SecondBetNo = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PageLot = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.panel_SmallKeyBoard = new System.Windows.Forms.Panel();
             this.BtnF9 = new System.Windows.Forms.Button();
@@ -120,9 +120,11 @@
             this.Btn_Logonoff = new System.Windows.Forms.Button();
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Page3D = new System.Windows.Forms.TabPage();
+            this.PageC730 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
-            this.Page_C515.SuspendLayout();
-            this.panel_Parameters.SuspendLayout();
+            this.PageC515.SuspendLayout();
+            this.panelC515_Parameters.SuspendLayout();
             this.panel_Bet.SuspendLayout();
             this.panel_SmallKeyBoard.SuspendLayout();
             this.panel_keyboard.SuspendLayout();
@@ -341,8 +343,10 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.Page_C515);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.PageC515);
+            this.tabControl1.Controls.Add(this.PageLot);
+            this.tabControl1.Controls.Add(this.Page3D);
+            this.tabControl1.Controls.Add(this.PageC730);
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Name = "tabControl1";
@@ -351,43 +355,43 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabStop = false;
             this.tabControl1.Visible = false;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
-            // Page_C515
+            // PageC515
             // 
-            this.Page_C515.BackColor = System.Drawing.Color.Transparent;
-            this.Page_C515.Controls.Add(this.panel_Parameters);
-            this.Page_C515.Controls.Add(this.panel_Bet);
-            this.Page_C515.Location = new System.Drawing.Point(4, 22);
-            this.Page_C515.Margin = new System.Windows.Forms.Padding(10);
-            this.Page_C515.Name = "Page_C515";
-            this.Page_C515.Padding = new System.Windows.Forms.Padding(10);
-            this.Page_C515.Size = new System.Drawing.Size(602, 239);
-            this.Page_C515.TabIndex = 0;
-            this.Page_C515.Text = "C515";
-            this.Page_C515.Click += new System.EventHandler(this.Page_C515_Click);
+            this.PageC515.BackColor = System.Drawing.Color.Transparent;
+            this.PageC515.Controls.Add(this.panelC515_Parameters);
+            this.PageC515.Controls.Add(this.panel_Bet);
+            this.PageC515.Location = new System.Drawing.Point(4, 22);
+            this.PageC515.Margin = new System.Windows.Forms.Padding(10);
+            this.PageC515.Name = "PageC515";
+            this.PageC515.Padding = new System.Windows.Forms.Padding(10);
+            this.PageC515.Size = new System.Drawing.Size(602, 239);
+            this.PageC515.TabIndex = 0;
+            this.PageC515.Text = "15选5";
             // 
-            // panel_Parameters
+            // panelC515_Parameters
             // 
-            this.panel_Parameters.Controls.Add(this.lable_DrawNo);
-            this.panel_Parameters.Controls.Add(this.TQTime);
-            this.panel_Parameters.Controls.Add(this.label_AgentId);
-            this.panel_Parameters.Controls.Add(this.label_TQtime);
-            this.panel_Parameters.Controls.Add(this.label_Lsh);
-            this.panel_Parameters.Controls.Add(this.Balance);
-            this.panel_Parameters.Controls.Add(this.label_SmallCount);
-            this.panel_Parameters.Controls.Add(this.label_Balance);
-            this.panel_Parameters.Controls.Add(this.label_GameNo);
-            this.panel_Parameters.Controls.Add(this.GameName);
-            this.panel_Parameters.Controls.Add(this.DrawNo);
-            this.panel_Parameters.Controls.Add(this.SmallCount);
-            this.panel_Parameters.Controls.Add(this.AgentId);
-            this.panel_Parameters.Controls.Add(this.Lsh);
-            this.panel_Parameters.Location = new System.Drawing.Point(10, 10);
-            this.panel_Parameters.Margin = new System.Windows.Forms.Padding(10);
-            this.panel_Parameters.Name = "panel_Parameters";
-            this.panel_Parameters.Size = new System.Drawing.Size(145, 155);
-            this.panel_Parameters.TabIndex = 42;
-            this.panel_Parameters.Visible = false;
+            this.panelC515_Parameters.Controls.Add(this.lable_DrawNo);
+            this.panelC515_Parameters.Controls.Add(this.TQTime);
+            this.panelC515_Parameters.Controls.Add(this.label_AgentId);
+            this.panelC515_Parameters.Controls.Add(this.label_TQtime);
+            this.panelC515_Parameters.Controls.Add(this.label_Lsh);
+            this.panelC515_Parameters.Controls.Add(this.Balance);
+            this.panelC515_Parameters.Controls.Add(this.label_SmallCount);
+            this.panelC515_Parameters.Controls.Add(this.label_Balance);
+            this.panelC515_Parameters.Controls.Add(this.label_GameNo);
+            this.panelC515_Parameters.Controls.Add(this.GameName);
+            this.panelC515_Parameters.Controls.Add(this.DrawNo);
+            this.panelC515_Parameters.Controls.Add(this.SmallCount);
+            this.panelC515_Parameters.Controls.Add(this.AgentId);
+            this.panelC515_Parameters.Controls.Add(this.Lsh);
+            this.panelC515_Parameters.Location = new System.Drawing.Point(10, 10);
+            this.panelC515_Parameters.Margin = new System.Windows.Forms.Padding(10);
+            this.panelC515_Parameters.Name = "panelC515_Parameters";
+            this.panelC515_Parameters.Size = new System.Drawing.Size(145, 155);
+            this.panelC515_Parameters.TabIndex = 42;
+            this.panelC515_Parameters.Visible = false;
             // 
             // lable_DrawNo
             // 
@@ -519,6 +523,7 @@
             this.GameName.Name = "GameName";
             this.GameName.Size = new System.Drawing.Size(35, 12);
             this.GameName.TabIndex = 34;
+            this.GameName.Tag = "GameName";
             this.GameName.Text = "QL515";
             this.GameName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -609,7 +614,7 @@
             // 
             // Multiple
             // 
-            this.Multiple.Location = new System.Drawing.Point(182, 1);
+            this.Multiple.Location = new System.Drawing.Point(182, 4);
             this.Multiple.Margin = new System.Windows.Forms.Padding(5);
             this.Multiple.MaxLength = 2;
             this.Multiple.Name = "Multiple";
@@ -621,7 +626,7 @@
             // label_Multiple
             // 
             this.label_Multiple.AutoSize = true;
-            this.label_Multiple.Location = new System.Drawing.Point(137, 4);
+            this.label_Multiple.Location = new System.Drawing.Point(137, 7);
             this.label_Multiple.Margin = new System.Windows.Forms.Padding(5);
             this.label_Multiple.Name = "label_Multiple";
             this.label_Multiple.Size = new System.Drawing.Size(35, 12);
@@ -812,14 +817,16 @@
             this.label_SecondBetNo.Text = "2";
             this.label_SecondBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabPage1
+            // PageLot
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(602, 239);
-            this.tabPage1.TabIndex = 1;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.PageLot.BackColor = System.Drawing.Color.Transparent;
+            this.PageLot.Location = new System.Drawing.Point(4, 22);
+            this.PageLot.Margin = new System.Windows.Forms.Padding(10);
+            this.PageLot.Name = "PageLot";
+            this.PageLot.Padding = new System.Windows.Forms.Padding(10);
+            this.PageLot.Size = new System.Drawing.Size(602, 239);
+            this.PageLot.TabIndex = 2;
+            this.PageLot.Text = "双色球";
             // 
             // textBox13
             // 
@@ -1319,6 +1326,24 @@
             this.toolTip1.BackColor = System.Drawing.Color.Transparent;
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
             // 
+            // Page3D
+            // 
+            this.Page3D.Location = new System.Drawing.Point(4, 22);
+            this.Page3D.Name = "Page3D";
+            this.Page3D.Size = new System.Drawing.Size(602, 239);
+            this.Page3D.TabIndex = 3;
+            this.Page3D.Text = "3D";
+            this.Page3D.UseVisualStyleBackColor = true;
+            // 
+            // PageC730
+            // 
+            this.PageC730.Location = new System.Drawing.Point(4, 22);
+            this.PageC730.Name = "PageC730";
+            this.PageC730.Size = new System.Drawing.Size(602, 239);
+            this.PageC730.TabIndex = 4;
+            this.PageC730.Text = "七乐彩";
+            this.PageC730.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1347,9 +1372,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
             this.tabControl1.ResumeLayout(false);
-            this.Page_C515.ResumeLayout(false);
-            this.panel_Parameters.ResumeLayout(false);
-            this.panel_Parameters.PerformLayout();
+            this.PageC515.ResumeLayout(false);
+            this.panelC515_Parameters.ResumeLayout(false);
+            this.panelC515_Parameters.PerformLayout();
             this.panel_Bet.ResumeLayout(false);
             this.panel_Bet.PerformLayout();
             this.panel_SmallKeyBoard.ResumeLayout(false);
@@ -1381,7 +1406,7 @@
         private System.Windows.Forms.Button Num_8;
         private System.Windows.Forms.Button Num_7;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Page_C515;
+        private System.Windows.Forms.TabPage PageC515;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label_AgentId;
         private System.Windows.Forms.Label label_FirstBetNo;
@@ -1402,7 +1427,7 @@
         private System.Windows.Forms.Label label_Balance;
         private System.Windows.Forms.Label TQTime;
         private System.Windows.Forms.Label label_TQtime;
-        private System.Windows.Forms.Panel panel_Parameters;
+        private System.Windows.Forms.Panel panelC515_Parameters;
         private System.Windows.Forms.Panel panel_Bet;
         private System.Windows.Forms.TextBox Multiple;
         private System.Windows.Forms.Label label_Multiple;
@@ -1452,7 +1477,9 @@
         private System.Windows.Forms.Button Btn_Logonoff;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_SomePra;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage PageLot;
+        private System.Windows.Forms.TabPage Page3D;
+        private System.Windows.Forms.TabPage PageC730;
     }
 }
 
