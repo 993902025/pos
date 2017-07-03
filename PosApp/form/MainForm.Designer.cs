@@ -83,6 +83,8 @@
             this.label_FirstBetNo = new System.Windows.Forms.Label();
             this.label_SecondBetNo = new System.Windows.Forms.Label();
             this.PageLot = new System.Windows.Forms.TabPage();
+            this.Page3D = new System.Windows.Forms.TabPage();
+            this.PageC730 = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.panel_SmallKeyBoard = new System.Windows.Forms.Panel();
             this.BtnF9 = new System.Windows.Forms.Button();
@@ -120,14 +122,15 @@
             this.Btn_Logonoff = new System.Windows.Forms.Button();
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.Page3D = new System.Windows.Forms.TabPage();
-            this.PageC730 = new System.Windows.Forms.TabPage();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
             this.panelC515_Parameters.SuspendLayout();
             this.panel_Bet.SuspendLayout();
             this.panel_SmallKeyBoard.SuspendLayout();
             this.panel_keyboard.SuspendLayout();
+            this.groupBox_LotteryPicture.SuspendLayout();
             this.tableLayoutPanel_SomePra.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -828,6 +831,24 @@
             this.PageLot.TabIndex = 2;
             this.PageLot.Text = "双色球";
             // 
+            // Page3D
+            // 
+            this.Page3D.Location = new System.Drawing.Point(4, 22);
+            this.Page3D.Name = "Page3D";
+            this.Page3D.Size = new System.Drawing.Size(602, 239);
+            this.Page3D.TabIndex = 3;
+            this.Page3D.Text = "3D";
+            this.Page3D.UseVisualStyleBackColor = true;
+            // 
+            // PageC730
+            // 
+            this.PageC730.Location = new System.Drawing.Point(4, 22);
+            this.PageC730.Name = "PageC730";
+            this.PageC730.Size = new System.Drawing.Size(602, 239);
+            this.PageC730.TabIndex = 4;
+            this.PageC730.Text = "七乐彩";
+            this.PageC730.UseVisualStyleBackColor = true;
+            // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(236, 638);
@@ -1274,6 +1295,7 @@
             // 
             this.groupBox_LotteryPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox_LotteryPicture.Controls.Add(this.label1);
             this.groupBox_LotteryPicture.Location = new System.Drawing.Point(632, 44);
             this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
             this.groupBox_LotteryPicture.Size = new System.Drawing.Size(280, 350);
@@ -1326,23 +1348,18 @@
             this.toolTip1.BackColor = System.Drawing.Color.Transparent;
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
             // 
-            // Page3D
+            // printDialog1
             // 
-            this.Page3D.Location = new System.Drawing.Point(4, 22);
-            this.Page3D.Name = "Page3D";
-            this.Page3D.Size = new System.Drawing.Size(602, 239);
-            this.Page3D.TabIndex = 3;
-            this.Page3D.Text = "3D";
-            this.Page3D.UseVisualStyleBackColor = true;
+            this.printDialog1.UseEXDialog = true;
             // 
-            // PageC730
+            // label1
             // 
-            this.PageC730.Location = new System.Drawing.Point(4, 22);
-            this.PageC730.Name = "PageC730";
-            this.PageC730.Size = new System.Drawing.Size(602, 239);
-            this.PageC730.TabIndex = 4;
-            this.PageC730.Text = "七乐彩";
-            this.PageC730.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "00";
             // 
             // MainForm
             // 
@@ -1379,6 +1396,8 @@
             this.panel_Bet.PerformLayout();
             this.panel_SmallKeyBoard.ResumeLayout(false);
             this.panel_keyboard.ResumeLayout(false);
+            this.groupBox_LotteryPicture.ResumeLayout(false);
+            this.groupBox_LotteryPicture.PerformLayout();
             this.tableLayoutPanel_SomePra.ResumeLayout(false);
             this.tableLayoutPanel_SomePra.PerformLayout();
             this.ResumeLayout(false);
@@ -1480,6 +1499,8 @@
         private System.Windows.Forms.TabPage PageLot;
         private System.Windows.Forms.TabPage Page3D;
         private System.Windows.Forms.TabPage PageC730;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

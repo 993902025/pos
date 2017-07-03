@@ -248,14 +248,14 @@ namespace LotPos
         {
             if (true)
             {
-                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
-                Label lab = new Label();
-                groupBox_LotteryPicture.Controls.Add(lab);
-                BetNum betnumclass = new BetNum();
-                for (int i = 0; i < betnumclass.lstbetnum.Count; i++)
-                {
-                    lab.Text = betnumclass.lstbetnum[i];
-                }
+                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192); PaintPicture();
+                 Label lab = new Label();
+                //groupBox_LotteryPicture.Controls.Add(lab);
+                //BetNum betnumclass = new BetNum();
+                //for (int i = 0; i < betnumclass.lstbetnum.Count; i++)
+                //{
+                //    lab.Text = betnumclass.lstbetnum[i];
+                //}
             }
         }
 
@@ -759,18 +759,10 @@ namespace LotPos
             textBox_test.Text += str + "\r\n";
         }
 
-        private void GetNo()
-        {
-            foreach (List<TextBox> lstcon in lstBox)
-            {
-                PosBack posback = new PosBack();
-                foreach (Control conl in lstcon)
-                {
-                    //posback.ListBetNum(conl);
-                }
-            }
-        }
         
+        /// <summary>
+        /// 清空投注区内号码
+        /// </summary>
         private void ClearBet()
         {
             foreach (List<TextBox> lstcon in lstBox)
@@ -859,19 +851,19 @@ namespace LotPos
 
                     lstText.Add(tbox);
                     _location_x += _width + _margin;
-                    Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
+                    //Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
                 }
                 _location_x = 40;
                 _location_y += _height + _margin;
 
-                Console.Write("y" + (i + 1) + ":" + _location_y + "\t");
+                //Console.Write("y" + (i + 1) + ":" + _location_y + "\t");
             }
         }
 
         #endregion
 
         /// <summary>
-        /// 切换选择标签页时间，将参数列表数据更新匹配该page，并显示在该page，
+        /// 切换选择标签页时，将参数列表数据更新匹配该page，并显示在该page，
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -887,6 +879,10 @@ namespace LotPos
             panel_Bet.Show();
         }
 
+        /// <summary>
+        /// 切换TabPage时更新投注区
+        /// </summary>
+        /// <param name="wf"></param>
         private void ChangePage(int wf)
         {
             switch (wf)
@@ -948,6 +944,34 @@ namespace LotPos
             }
 
 
+        }
+
+        private void PaintPicture()
+        {
+            int locatX = 20;
+            int locatY = 50;
+            for (int i = 0; i < lstBox.Count; i++)
+            {
+                for (int j = 0; j < lstBox[i].Count; j++)
+                {
+                    
+                    Label lab = new Label();
+                    groupBox_LotteryPicture.Controls.Add(lab);
+                    if ( groupBox_LotteryPicture.Size.Width - locatX <= 30)
+                    {
+                        locatX = 20;
+                        locatY += 20;
+                    }
+                    lab.Location = new Point(locatX, locatY);
+                    lab.Size = new Size(20, 12);
+                    lab.Text = lstBox[i][j].Text;
+                    locatX += 20;
+                    Console.Write("x" + (j + 1) + ":" + locatX + "\t");
+                }
+                locatX = 20;
+                locatY += 20;
+                Console.WriteLine("y" + (i + 1) + ":" + locatY + "\t");
+            }
         }
     }
 
