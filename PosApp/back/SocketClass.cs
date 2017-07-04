@@ -14,28 +14,32 @@ namespace LotPos
 {
     public class SocketClass
     {
-        public static Action<string > sendmessage;
         public static Socket sct;
-        public string serverIP;
-        public int port;
+        public static string serverIP;
+        public static int port;
         public static string errstring;
-        byte[] result = new byte[1024];   
+        byte[] result = new byte[1024];
+        public static bool sockSwitch;
 
 
+        public SocketClass()
+        {
+            sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        }
 
         
-        public int Inisocket(string ServerIP, int port)
+        public int Inisocket(string ServerIP, int Port)
         {
             //IPAddress ip = IPAddress.Parse(ServerIP);
             try
             {
-                sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                sct.Connect(serverIP, port);
+                sct.Connect(ServerIP, Port);
+                sockSwitch = true;
                 return 0;
             }
             catch (Exception ex)
             {               
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "Inisocket");
                 return -4; 
             }
         }
@@ -49,7 +53,7 @@ namespace LotPos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "Sendmsg");
                 return -1;
             }
         }
@@ -78,6 +82,7 @@ namespace LotPos
             try
             {
                 sct.Shutdown(SocketShutdown.Both);
+                sockSwitch = false;
             }
             catch
             {

@@ -128,6 +128,10 @@ namespace LotPos
         }
 
 
+
+        List<string> lstpic = new List<string>();
+
+
         public void AloneBet(int wf, int fs, string mul)
         {
             DateTime dt = DateTime.Now;
@@ -152,18 +156,8 @@ namespace LotPos
                 mul.PadRight(10, '\0'),
                 betnumstr.PadRight(50, '\0')
             };
-            //alonestr.Add(codestr);
-            //alonestr.Add(PosBack.xszbm);
-            //alonestr.Add(PosBack.zdh);
-            //alonestr.Add(PosBack.drawno[wf]);
-            //alonestr.Add(PosBack.lsh[wf]);
-            //alonestr.Add(betdt);
-            //alonestr.Add(cashdt);
-            //alonestr.Add(fs.ToString());
-            //alonestr.Add((2 * Convert.ToInt16(mul) * betcount).ToString());
-            //alonestr.Add(betcount.ToString());
-            //alonestr.Add(mul);            
-            //alonestr.Add(betnumstr);
+            lstpic.Add(alonestr[0]);
+            lstpic.Add(alonestr[1]);
 
             PosFile posfile = new PosFile();
             posfile.Filebet(alonestr);

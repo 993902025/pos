@@ -27,11 +27,12 @@ namespace LotPos
         public void IniMsgStr(string s_r, string opcode, string istr, ref string ostr)
         {
             string str;
-            Random r = new Random();        //  操作序列号：随机数
+            Random r = new Random(6666);        //  操作序列号：随机数
             
-            str = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.ToString() + SEP1 + opcode + SEP1 + istr;
+            str = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.Next(9999).ToString().PadLeft(4, '0') + SEP1 + opcode + SEP1 + istr;
             switch (opcode)
             {
+
                 case "GETPARAM":
                     //encode
                     break;
@@ -41,7 +42,7 @@ namespace LotPos
 
             str = str + SEP1;           
 
-            ostr = "@" + str.Length + SEP1 + str;
+            ostr = "@" + str.Length.ToString().PadLeft(4,'0') + SEP1 + str;
             
         }
 

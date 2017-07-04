@@ -119,10 +119,17 @@
             this.label_LoginPattern = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox_LotteryPicture = new System.Windows.Forms.GroupBox();
+            this.pic1 = new System.Windows.Forms.Label();
             this.Btn_Logonoff = new System.Windows.Forms.Button();
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.pic2 = new System.Windows.Forms.Label();
+            this.pic3 = new System.Windows.Forms.Label();
+            this.pic4 = new System.Windows.Forms.Label();
+            this.pic5 = new System.Windows.Forms.Label();
+            this.pic6 = new System.Windows.Forms.Label();
+            this.pic7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
@@ -148,7 +155,7 @@
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox3.Location = new System.Drawing.Point(498, 610);
+            this.textBox3.Location = new System.Drawing.Point(510, 610);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -162,7 +169,7 @@
             // 
             this.textBox_test.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox_test.CausesValidation = false;
-            this.textBox_test.Location = new System.Drawing.Point(632, 432);
+            this.textBox_test.Location = new System.Drawing.Point(683, 480);
             this.textBox_test.Multiline = true;
             this.textBox_test.Name = "textBox_test";
             this.textBox_test.ReadOnly = true;
@@ -174,7 +181,7 @@
             // 
             // btn_test
             // 
-            this.btn_test.Location = new System.Drawing.Point(716, 544);
+            this.btn_test.Location = new System.Drawing.Point(590, 563);
             this.btn_test.Name = "btn_test";
             this.btn_test.Size = new System.Drawing.Size(75, 23);
             this.btn_test.TabIndex = 5111;
@@ -1295,13 +1302,33 @@
             // 
             this.groupBox_LotteryPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_LotteryPicture.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox_LotteryPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox_LotteryPicture.BackgroundImage")));
+            this.groupBox_LotteryPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox_LotteryPicture.Controls.Add(this.label1);
-            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(632, 44);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic7);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic6);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic5);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic4);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic3);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic2);
+            this.groupBox_LotteryPicture.Controls.Add(this.pic1);
+            this.groupBox_LotteryPicture.Location = new System.Drawing.Point(633, 44);
             this.groupBox_LotteryPicture.Name = "groupBox_LotteryPicture";
-            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(280, 350);
+            this.groupBox_LotteryPicture.Size = new System.Drawing.Size(351, 430);
             this.groupBox_LotteryPicture.TabIndex = 28;
             this.groupBox_LotteryPicture.TabStop = false;
             this.groupBox_LotteryPicture.Text = "票面";
+            // 
+            // pic1
+            // 
+            this.pic1.AutoSize = true;
+            this.pic1.BackColor = System.Drawing.Color.Transparent;
+            this.pic1.Location = new System.Drawing.Point(35, 85);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(191, 12);
+            this.pic1.TabIndex = 0;
+            this.pic1.Text = "43E00E-7DC398B-000000-000000-00";
+            this.pic1.Visible = false;
             // 
             // Btn_Logonoff
             // 
@@ -1335,7 +1362,7 @@
             this.tableLayoutPanel_SomePra.Controls.Add(this.label_LoginPattern, 1, 0);
             this.tableLayoutPanel_SomePra.Controls.Add(this.label_Date0, 2, 0);
             this.tableLayoutPanel_SomePra.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel_SomePra.Location = new System.Drawing.Point(585, 10);
+            this.tableLayoutPanel_SomePra.Location = new System.Drawing.Point(609, 10);
             this.tableLayoutPanel_SomePra.Name = "tableLayoutPanel_SomePra";
             this.tableLayoutPanel_SomePra.RowCount = 1;
             this.tableLayoutPanel_SomePra.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1352,20 +1379,89 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // pic2
+            // 
+            this.pic2.AutoSize = true;
+            this.pic2.BackColor = System.Drawing.Color.Transparent;
+            this.pic2.Location = new System.Drawing.Point(240, 85);
+            this.pic2.Name = "pic2";
+            this.pic2.Size = new System.Drawing.Size(29, 12);
+            this.pic2.TabIndex = 1;
+            this.pic2.Text = "站点";
+            this.pic2.Visible = false;
+            // 
+            // pic3
+            // 
+            this.pic3.AutoSize = true;
+            this.pic3.BackColor = System.Drawing.Color.Transparent;
+            this.pic3.Location = new System.Drawing.Point(35, 103);
+            this.pic3.Name = "pic3";
+            this.pic3.Size = new System.Drawing.Size(191, 12);
+            this.pic3.TabIndex = 4;
+            this.pic3.Text = "特征码 AAAAA00000BBBBB0  654321";
+            this.pic3.Visible = false;
+            // 
+            // pic4
+            // 
+            this.pic4.AutoSize = true;
+            this.pic4.BackColor = System.Drawing.Color.Transparent;
+            this.pic4.Location = new System.Drawing.Point(240, 103);
+            this.pic4.Name = "pic4";
+            this.pic4.Size = new System.Drawing.Size(41, 12);
+            this.pic4.TabIndex = 6;
+            this.pic4.Text = "流水号";
+            this.pic4.Visible = false;
+            // 
+            // pic5
+            // 
+            this.pic5.AutoSize = true;
+            this.pic5.BackColor = System.Drawing.Color.Transparent;
+            this.pic5.Location = new System.Drawing.Point(35, 122);
+            this.pic5.Name = "pic5";
+            this.pic5.Size = new System.Drawing.Size(89, 12);
+            this.pic5.TabIndex = 8;
+            this.pic5.Text = "销售期 2017099";
+            this.pic5.Visible = false;
+            // 
+            // pic6
+            // 
+            this.pic6.AutoSize = true;
+            this.pic6.BackColor = System.Drawing.Color.Transparent;
+            this.pic6.Location = new System.Drawing.Point(137, 122);
+            this.pic6.Name = "pic6";
+            this.pic6.Size = new System.Drawing.Size(89, 12);
+            this.pic6.TabIndex = 9;
+            this.pic6.Text = "兑奖期 2017099";
+            this.pic6.Visible = false;
+            // 
+            // pic7
+            // 
+            this.pic7.AutoSize = true;
+            this.pic7.BackColor = System.Drawing.Color.Transparent;
+            this.pic7.Location = new System.Drawing.Point(240, 122);
+            this.pic7.Name = "pic7";
+            this.pic7.Size = new System.Drawing.Size(41, 12);
+            this.pic7.TabIndex = 12;
+            this.pic7.Text = "金  额";
+            this.pic7.Visible = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 134);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(50, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 12);
-            this.label1.TabIndex = 0;
+            this.label1.Size = new System.Drawing.Size(34, 25);
+            this.label1.TabIndex = 13;
             this.label1.Text = "00";
+            this.label1.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 586);
+            this.ClientSize = new System.Drawing.Size(1008, 586);
             this.Controls.Add(this.tableLayoutPanel_SomePra);
             this.Controls.Add(this.panel_keyboard);
             this.Controls.Add(this.button3);
@@ -1500,6 +1596,13 @@
         private System.Windows.Forms.TabPage Page3D;
         private System.Windows.Forms.TabPage PageC730;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Label pic1;
+        private System.Windows.Forms.Label pic2;
+        private System.Windows.Forms.Label pic4;
+        private System.Windows.Forms.Label pic3;
+        private System.Windows.Forms.Label pic7;
+        private System.Windows.Forms.Label pic6;
+        private System.Windows.Forms.Label pic5;
         private System.Windows.Forms.Label label1;
     }
 }

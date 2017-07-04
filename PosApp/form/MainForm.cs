@@ -36,6 +36,8 @@ namespace LotPos
         int _wf;
         string[] str_wf = { "C515", "LOT", "3D", "P6C", "C730", "K512" };
 
+        int heartbeatdt = 0;
+
         Timer dtime;
         SocketClass sock;
         
@@ -62,7 +64,7 @@ namespace LotPos
             dtime.Tick += new EventHandler(Dtime_tick);
             posconfig = new PosConfig();
             //posback = new PosBack();
-            _pageNum = 1;
+            _pageNum = 0;
             _loginPattern = PosConfig.LoginPattern;
         }
 
@@ -125,10 +127,11 @@ namespace LotPos
                 
 
                 PosBack posback = new PosBack();
+                posback.Con_Director();
                 sock = new SocketClass();
-                posback.Con_Director(sock);
-
-                posback.GetPra(_loginPattern);       //模拟取参
+                posback.NewSock(sock);
+                posback.Con_Acceptor(sock);
+                //posback.GetPra(_loginPattern);       //模拟取参
                 logonform.Close();
             }
             //退出 or 取消登录
@@ -213,6 +216,12 @@ namespace LotPos
         {
             //显示时间
             label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
+            if (_loginPattern == "2" && SocketClass.sockSwitch && heartbeatdt >= 30)
+            {
+                heartbeatdt = 0;
+                //PosBack.ACTIVETEST(sock);
+            }
+            heartbeatdt++;
         }
 
 
@@ -749,6 +758,8 @@ namespace LotPos
                 default:
                     return -10;
             }
+
+
             return 0;
         }
 
@@ -946,30 +957,55 @@ namespace LotPos
 
         }
 
+
         private void PaintPicture()
         {
-            int locatX = 20;
-            int locatY = 50;
+            const int x = 50;
+            const int y = 160;
+            int locatX = x;
+            int locatY = y;
+
+            
+            pic1.Visible = true;            
+            pic2.Visible = true;
+            pic3.Visible = true;
+            pic4.Visible = true;
+            pic5.Visible = true;
+            pic6.Visible = true;
+            pic7.Visible = true;
+            pic1.Text = "43E00E-7DC398B-000000-000000-00";
+            pic2.Text = "站点\0" + PosBack.xszbm;
+            pic3.Text = "特征码 AAAAA00000BBBBB0  654321";
+            pic4.Text = "流水号\0" + PosBack.lsh[_wf];
+            pic5.Text = "销售期\0" + PosBack.drawno[_wf];
+            pic6.Text = "兑奖期\0" + PosBack.drawno[_wf];
+            pic7.Text = "金额\0";
+
             for (int i = 0; i < lstBox.Count; i++)
             {
                 for (int j = 0; j < lstBox[i].Count; j++)
-                {
-                    
+                {                    
                     Label lab = new Label();
                     groupBox_LotteryPicture.Controls.Add(lab);
                     if ( groupBox_LotteryPicture.Size.Width - locatX <= 30)
                     {
-                        locatX = 20;
-                        locatY += 20;
+                        locatX = x;
+                        locatY += 40;
+                    }
+                    if (lstBox[i][j].Tag != null && lstBox[i][j].Tag.ToString() == "blue" + i)
+                    {
+                        //lab.Text = "+";
                     }
                     lab.Location = new Point(locatX, locatY);
-                    lab.Size = new Size(20, 12);
-                    lab.Text = lstBox[i][j].Text;
-                    locatX += 20;
+                    lab.Text += lstBox[i][j].Text;
+                    lab.BackColor = Color.Transparent;
+                    lab.AutoSize = true;
+                    locatX += 40;
+                    lab.Font =  new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
                     Console.Write("x" + (j + 1) + ":" + locatX + "\t");
                 }
-                locatX = 20;
-                locatY += 20;
+                locatX = x;
+                locatY += 30;
                 Console.WriteLine("y" + (i + 1) + ":" + locatY + "\t");
             }
         }

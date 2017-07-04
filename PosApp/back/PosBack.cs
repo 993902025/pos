@@ -27,8 +27,9 @@ namespace LotPos
 
         const string SEP2 = "$";
 
-        string mac;
-        string pink;
+        string appid;
+        string mackey;
+        string pinkey;
 
         List<string> prakey = new List<string> {
             "gamename",
@@ -48,6 +49,16 @@ namespace LotPos
             zdh = PosConfig.zdh;
         }
 
+        //public SocketClass  NewSock()
+        //{
+        //    SocketClass sock = new SocketClass();
+        //    sock.Inisocket(PosConfig.ServerIP, PosConfig.Port);
+        //}
+        public void NewSock(SocketClass sock)
+        {            
+            sock.Inisocket(PosConfig.ServerIP, PosConfig.Port);
+        }
+
         #region 取参 
 
         /// <summary>
@@ -62,7 +73,7 @@ namespace LotPos
                 case "1":
                     return AloneGetPra();
                 case "2":
-                    return OnLineGetPra();
+                   // return OnLineGetPra(sock);
                 default:
                     return -20;
             }
@@ -72,9 +83,28 @@ namespace LotPos
         /// 联网模式取参
         /// </summary>
         /// <returns></returns>
-        public int OnLineGetPra()
+        public int OnLineGetPra(SocketClass sock)
         {
-            return -1;
+            const string GETPARAM = "GETPARAM";   //操作码
+            string sendmsg = "";    //待发送串
+            string recvmsg = "";    //接受串
+            string[] sarray;    //解析结果存放数组
+
+            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+
+            PosString posstr = new PosString();
+            posstr.IniMsgStr("1", GETPARAM, headmsg, ref sendmsg);
+            //发送
+            sock.Sendmsg(sendmsg);
+            //接受
+            recvmsg = sock.Recvmsg();
+            Console.WriteLine("Con_Director recvmsg:\t" + recvmsg);
+            //解析recvmsg内容，取出acceptor的ip和port
+            sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
+            SocketClass.serverIP = sarray[6].ToString().Split('$')[1];    //
+            SocketClass.port = Convert.ToInt16(sarray[6].ToString().Split('$')[2]);
+
+            return 0;
         }
 
         
@@ -123,27 +153,49 @@ namespace LotPos
 
         #endregion
 
-        public int Con_Director(SocketClass sock)
+        public int Con_Director()
         {
+            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                sock.Connect(PosConfig.ServerIP, PosConfig.Port);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Inisocket\t" + ex.Message);
+                return -4;
+            }
             const string SERVERCONNECT = "SERVERCONNECT";   //操作码
             string sendmsg = "";    //待发送串
             string recvmsg = "";    //接受串
             string[] sarray;    //解析结果存放数组
+            byte[] brecmsg = new byte[4096];
 
-            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+            string msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
 
             PosString posstr = new PosString();
-            posstr.IniMsgStr("1", SERVERCONNECT, headmsg, ref sendmsg);
+            posstr.IniMsgStr("1", SERVERCONNECT, msgbody, ref sendmsg);
             //发送
-            sock.Sendmsg(sendmsg);
+            sock.Send(Encoding.ASCII.GetBytes(sendmsg));
             //接受
-            recvmsg = sock.Recvmsg();
+            try
+            {
 
+            sock.Receive(brecmsg);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            recvmsg = Encoding.ASCII.GetString(brecmsg);
+            Console.WriteLine("Con_Director recvmsg:\t" + recvmsg);
             //解析recvmsg内容，取出acceptor的ip和port
             sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
-            sock.serverIP = sarray[8];    //
-            sock.port = Convert.ToInt16(sarray[9]);
+            SocketClass.serverIP = sarray[6].ToString().Split('$')[1] ;    //
+            SocketClass.port = Convert.ToInt16(sarray[6].ToString().Split('$')[2]);
 
+            sock.Close();
             return 0;
         }
         //
@@ -157,16 +209,29 @@ namespace LotPos
             string sendmsg = "";
             string recvmsg = "";
             string[] sarray;
-
-            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+            string msgbody = "";
+            int ifrecon = 0;
+            if (ifrecon == 0)
+            {
+                msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
+            }
+            else if (ifrecon == 1)
+            {
+                msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 1 + SEP2 + null;
+            }
 
             PosString posstr = new PosString();
 
-            posstr.IniMsgStr("1", REGISTER, headmsg, ref sendmsg);
+            posstr.IniMsgStr("1", REGISTER, msgbody, ref sendmsg);
 
             sock.Sendmsg(sendmsg);
 
             recvmsg = sock.Recvmsg();
+            Console.WriteLine("REGISTER recvmsg:\t" + recvmsg);
+            sarray = recvmsg.Split('|');
+            appid = sarray[6].ToString().Split('$')[1];    //
+            pinkey =sarray[6].ToString().Split('$')[2];
+            mackey = sarray[6].ToString().Split('$')[3];
         }
 
     //按键是否为数字键
@@ -184,6 +249,24 @@ namespace LotPos
             return regex.IsMatch(str.Trim());
         }
 
+        /// <summary>
+        /// 链路心跳
+        /// </summary>
+        /// <param name="sock"></param>
+        public static void ACTIVETEST(SocketClass sock)
+        {
+
+        }
+
+        /// <summary>
+        /// 与acceptor的链接模块
+        /// </summary>
+        /// <param name="sock"></param>
+        public void Con_Acceptor(SocketClass sock)
+        {
+            Register(sock);
+            //OnLineGetPra(sock);
+        }
         
 
         
