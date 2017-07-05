@@ -11,10 +11,8 @@ namespace LotPos
 {
     public class PosBack
     {
-
         /*
          * 取参参数
-         * 
          */
         public static string[] gamename = new string[6];
         public static string[] drawno = new string[6];
@@ -48,19 +46,12 @@ namespace LotPos
             xszbm = PosConfig.xszbm;
             zdh = PosConfig.zdh;
         }
-
-        //public SocketClass  NewSock()
-        //{
-        //    SocketClass sock = new SocketClass();
-        //    sock.Inisocket(PosConfig.ServerIP, PosConfig.Port);
-        //}
+        
         public void NewSock(SocketClass sock)
         {            
-            sock.Inisocket(PosConfig.ServerIP, PosConfig.Port);
+            sock.Inisocket();
         }
-
-        #region 取参 
-
+                
         /// <summary>
         /// 取参导向 根据启动模式选择
         /// </summary>
@@ -90,19 +81,17 @@ namespace LotPos
             string recvmsg = "";    //接受串
             string[] sarray;    //解析结果存放数组
 
-            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
-
-            PosString posstr = new PosString();
-            posstr.IniMsgStr("1", GETPARAM, headmsg, ref sendmsg);
+            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + appid;
+            
+            IniMsgStr("1", GETPARAM, headmsg, ref sendmsg);
             //发送
             sock.Sendmsg(sendmsg);
             //接受
             recvmsg = sock.Recvmsg();
-            Console.WriteLine("Con_Director recvmsg:\t" + recvmsg);
+            //Console.WriteLine("GETPARAM recvmsg:\t" + recvmsg);
             //解析recvmsg内容，取出acceptor的ip和port
             sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
-            SocketClass.serverIP = sarray[6].ToString().Split('$')[1];    //
-            SocketClass.port = Convert.ToInt16(sarray[6].ToString().Split('$')[2]);
+            
 
             return 0;
         }
@@ -150,15 +139,15 @@ namespace LotPos
             }            
             return 0;
         }
+        
 
-        #endregion
 
         public int Con_Director()
         {
-            Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Socket sock2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                sock.Connect(PosConfig.ServerIP, PosConfig.Port);
+                sock2.Connect(PosConfig.ServerIP, PosConfig.Port);
             }
             catch (Exception ex)
             {
@@ -172,33 +161,29 @@ namespace LotPos
             byte[] brecmsg = new byte[4096];
 
             string msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
-
-            PosString posstr = new PosString();
-            posstr.IniMsgStr("1", SERVERCONNECT, msgbody, ref sendmsg);
+            
+            IniMsgStr("1", SERVERCONNECT, msgbody, ref sendmsg);
             //发送
-            sock.Send(Encoding.ASCII.GetBytes(sendmsg));
+            sock2.Send(Encoding.ASCII.GetBytes(sendmsg));
             //接受
             try
             {
-
-            sock.Receive(brecmsg);
-
+                sock2.Receive(brecmsg);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            recvmsg = Encoding.ASCII.GetString(brecmsg);
-            Console.WriteLine("Con_Director recvmsg:\t" + recvmsg);
+            recvmsg = Encoding.ASCII.GetString(brecmsg);            
             //解析recvmsg内容，取出acceptor的ip和port
             sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
             SocketClass.serverIP = sarray[6].ToString().Split('$')[1] ;    //
             SocketClass.port = Convert.ToInt16(sarray[6].ToString().Split('$')[2]);
 
-            sock.Close();
+            sock2.Close();
             return 0;
         }
-        //
+        
         /// <summary>
         /// 签到Register
         /// </summary>
@@ -219,10 +204,8 @@ namespace LotPos
             {
                 msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 1 + SEP2 + null;
             }
-
-            PosString posstr = new PosString();
-
-            posstr.IniMsgStr("1", REGISTER, msgbody, ref sendmsg);
+            
+            IniMsgStr("1", REGISTER, msgbody, ref sendmsg);
 
             sock.Sendmsg(sendmsg);
 
@@ -265,11 +248,69 @@ namespace LotPos
         public void Con_Acceptor(SocketClass sock)
         {
             Register(sock);
-            //OnLineGetPra(sock);
+            OnLineGetPra(sock);
         }
+
+
+        string key = "";
+        const string SEP1 = "|";
         
 
-        
+        /// <summary>
+        /// 生成数据包(所有)
+        /// </summary>
+        /// <param name="s_r"> 包类型：1为请求包，0为应答包；</param>
+        /// <param name="opcode"> 操作码：包请求操作动作 </param>
+        /// <param name="istr"> 包体数据域 </param>
+        /// <param name="ostr"> 传出的完整数据包</param>
+        public void IniMsgStr(string s_r, string opcode, string istr, ref string ostr)
+        {
+            string shead;
+            string str;
+            Random r = new Random();        //  操作序列号：随机数
+            string msgbody = istr;
+            string msgmac = "";
+
+            shead = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.Next(9999).ToString().PadLeft(4, '0') + SEP1 + opcode + SEP1;
+            str = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.Next(9999).ToString().PadLeft(4, '0') + SEP1 + opcode + SEP1 + istr;
+
+            if (opcode != "SERVERCONNECT" && opcode != "REGISTER" && opcode != "ACTIVETEST")
+            {
+                msgbody = Encode(istr, pinkey);
+                msgmac = CalMac(str, mackey);
+            }
+            str = string.Empty;
+            str = shead + msgbody + SEP1 + msgmac;
+
+            ostr = "@" + str.Length.ToString().PadLeft(4, '0') + SEP1 + str;
+
+            CheckMac(shead + msgbody + SEP1, msgmac, mackey);
+
+        }
+
+
+        public string Encode(string istr, string key)
+        {
+            StringBuilder result = new StringBuilder(4096);
+            BzSec.encode(istr, result, key);
+            return result.ToString();
+        }
+
+        public string CalMac(string istr, string key)
+        {
+            StringBuilder result = new StringBuilder(4096);
+            BzSec.calmac(istr, result, key);
+            return result.ToString();
+        }
+
+        public string CheckMac(string istr,string msgmac, string key)
+        {
+            StringBuilder result = new StringBuilder(4096);
+            BzSec.checkmac(istr, msgmac, key);
+            Console.WriteLine(result);
+            return result.ToString();
+        }
+
 
     }
 }

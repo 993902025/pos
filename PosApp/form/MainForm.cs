@@ -89,8 +89,6 @@ namespace LotPos
                     break;
 
             }
-
-
             _pageNum = 1;
 
             ShowPattern(_loginPattern);     //显示启动模式
@@ -124,7 +122,6 @@ namespace LotPos
             if (logonform.DialogResult == DialogResult.OK)
             {
                 //  TODO:   此处建立acceptor连接
-                
 
                 PosBack posback = new PosBack();
                 posback.Con_Director();
@@ -448,7 +445,7 @@ namespace LotPos
             string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
             smsg2 = msglen + shead + msbody + "|" + szy;
             //建socket链接
-            if (0 == betsock.Inisocket(ServerIP, betport))
+            if (0 == betsock.Inisocket())
             {
                 //发送send
                 betsock.Sendmsg(smsg2);

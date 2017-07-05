@@ -24,16 +24,23 @@ namespace LotPos
 
         public SocketClass()
         {
-            sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                sct = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "SocketClass");
+            }
         }
 
         
-        public int Inisocket(string ServerIP, int Port)
+        public int Inisocket()//string ServerIP, int Port)
         {
             //IPAddress ip = IPAddress.Parse(ServerIP);
             try
             {
-                sct.Connect(ServerIP, Port);
+                sct.Connect(serverIP, port);
                 sockSwitch = true;
                 return 0;
             }
@@ -63,10 +70,9 @@ namespace LotPos
             try
             {
                 byte[] brecmsg = new byte[1024];
-                string srecmsg = "";
                
                 sct.Receive(brecmsg);
-                srecmsg = Encoding.ASCII.GetString(brecmsg);
+                string srecmsg = Encoding.ASCII.GetString(brecmsg);
                 return srecmsg;
                 
             }

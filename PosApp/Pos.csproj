@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="back\LoginBack.cs" />
     <Compile Include="back\BetNum.cs" />
+    <Compile Include="BzSec.cs" />
     <Compile Include="BzWebSec.cs" />
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>

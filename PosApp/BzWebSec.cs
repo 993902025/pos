@@ -30,5 +30,6 @@ namespace LotPos
         [DllImport("E:\\siguoyi\\123\\pos\\LotPos\\bin\\Debug\\BzWebSec.dll", EntryPoint = "WebMD5String16")]
         public static extern void WebMD5String16(string cInfo, string cDigest);
 
+
     }
 }
