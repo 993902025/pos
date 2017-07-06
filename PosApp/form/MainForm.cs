@@ -32,7 +32,7 @@ namespace LotPos
         /* 界面参数配置
         */
         public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
-        string _loginPattern;       //启动模式，由配置文件获取
+        string _loginPattern;       //启动模式，由配置文件获取 "1"=单机   "2"=联网
         int _wf;            //对应参数索引 0=c515    1=3d    2=lot   3=c730  4=p6c   5=k512
         string[] str_wf = { "C515", "3D", "LOT", "C730", "P6C", "K512" };
         int betcount;
@@ -123,14 +123,19 @@ namespace LotPos
             //确认登录
             if (logonform.DialogResult == DialogResult.OK)
             {
-                //  TODO:   此处建立acceptor连接
-
                 PosBack posback = new PosBack();
-                posback.Con_Director();
-                sock = new SocketClass();
-                posback.NewSock(sock);
-                posback.Con_Acceptor(sock);
-                //posback.GetPra(_loginPattern);       //模拟取参
+                if (_loginPattern == "2")
+                {
+                    posback.Con_Director();
+                    sock = new SocketClass();
+                    posback.NewSock(sock);
+                    posback.Register(sock);     //签到
+                    posback.GetParam(sock);     //取参
+                }
+                else
+                {
+                    posback.GetParam();       //单机取参
+                }
                 logonform.Close();
             }
             //退出 or 取消登录
@@ -816,7 +821,7 @@ namespace LotPos
         int _count_y;       //行数
         int _margin;        //间距
         int _width;         //宽
-        int _height;         //高
+        int _height;        //高
         
         /// <summary>
         /// 动态初始化投注号码输入框部分，并将每个号码框放入List保存
@@ -930,19 +935,8 @@ namespace LotPos
                         }
                     }
                     break;
+
                 case 1:
-
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                        }
-                    }
-                    break;
-
-                case 2:
-
                     for (int i = 0; i < lstBox.Count; i++)
                     {
                         for (int j = 0; j < lstBox[i].Count; j++)
@@ -955,8 +949,18 @@ namespace LotPos
                         }
                     }
                     break;
-                case 3:
 
+                case 2:
+                    for (int i = 0; i < lstBox.Count; i++)
+                    {
+                        for (int j = 0; j < lstBox[i].Count; j++)
+                        {
+                            lstBox[i][j].Visible = true;
+                        }
+                    }
+                    break;
+
+                case 3:
                     for (int i = 0; i < lstBox.Count; i++)
                     {
                         for (int j = 0; j < lstBox[i].Count; j++)
@@ -969,11 +973,10 @@ namespace LotPos
                         }
                     }
                     break;
+
                 default:
                     break;
-            }
-
-
+            }            
         }
 
 
@@ -983,7 +986,6 @@ namespace LotPos
             const int y = 160;
             int locatX = x;
             int locatY = y;
-
             
             pic1.Visible = true;            
             pic2.Visible = true;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,48 +54,31 @@ namespace LotPos
             sock.Inisocket();
         }
                 
-        /// <summary>
-        /// 取参导向 根据启动模式选择
-        /// </summary>
-        /// <param name="Pattern"></param>
-        /// <returns></returns>
-        public int GetPra(string Pattern)
-        {
-            switch (Pattern)
-            {
-                case "1":
-                    return AloneGetPra();
-                case "2":
-                   // return OnLineGetPra(sock);
-                default:
-                    return -20;
-            }
-        }
-
+        
         /// <summary>
         /// 联网模式取参
         /// </summary>
         /// <returns></returns>
-        public int OnLineGetPra(SocketClass sock)
+        public int GetParam(SocketClass sock)
         {
             const string GETPARAM = "GETPARAM";   //操作码
             string sendmsg = "";    //待发送串
             string recvmsg = "";    //接受串
             string[] sarray;    //解析结果存放数组
 
-            string headmsg = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + appid;
+            string msgbody = PosConfig.xszbm + "$" + PosConfig.zdh + "$" + appid;     //数据域包体
             
-            IniMsgStr("1", GETPARAM, headmsg, ref sendmsg);
+            IniMsgStr("1", GETPARAM, msgbody, ref sendmsg);
             //发送
             sock.Sendmsg(sendmsg);
             //接受
             recvmsg = sock.Recvmsg();
-            //Console.WriteLine("GETPARAM recvmsg:\t" + recvmsg);
-            //解析recvmsg内容，取出acceptor的ip和port
 
+         //解析取参结果
+            //拆分接受包
             sarray = recvmsg.Split('|');
-
-            string[] prasplitgame = Decode(sarray[6], pinkey).Substring(2).Split('#');
+            //
+            string[] prasplitgame = Decode(recvmsg.Split('|')[6], pinkey).Substring(2).Split('#');
             pralst = new string[prasplitgame.Length][];
 
             for (int i = 0; i < prasplitgame.Length; i++)
@@ -111,7 +93,7 @@ namespace LotPos
         /// 单机模式 模拟取参
         /// </summary>
         /// <returns></returns>
-        public int AloneGetPra( )
+        public int GetParam( )
         {
 
             PosFile pf = new PosFile();
@@ -169,8 +151,8 @@ namespace LotPos
             byte[] brecmsg = new byte[4096];
 
             string msgbody = PosConfig.xszbm + SEP2 + PosConfig.zdh + SEP2 + 0 + SEP2;
-            
             IniMsgStr("1", SERVERCONNECT, msgbody, ref sendmsg);
+
             //发送
             sock2.Send(Encoding.ASCII.GetBytes(sendmsg));
             //接受
@@ -180,7 +162,7 @@ namespace LotPos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);                
             }
             recvmsg = Encoding.ASCII.GetString(brecmsg);            
             //解析recvmsg内容，取出acceptor的ip和port
@@ -196,7 +178,7 @@ namespace LotPos
         /// 签到Register
         /// </summary>
         /// <param name="sock"></param>
-        void Register(SocketClass sock)
+        public void Register(SocketClass sock)
         {
             const string REGISTER = "REGISTER";
             string sendmsg = "";
@@ -218,27 +200,13 @@ namespace LotPos
             sock.Sendmsg(sendmsg);
 
             recvmsg = sock.Recvmsg();
-            Console.WriteLine("REGISTER recvmsg:\t" + recvmsg);
+
             sarray = recvmsg.Split('|');
-            appid = sarray[6].ToString().Split('$')[1];    //
-            pinkey =sarray[6].ToString().Split('$')[2];
+            appid = sarray[6].ToString().Split('$')[1]; 
+            pinkey = sarray[6].ToString().Split('$')[2];     
             mackey = sarray[6].ToString().Split('$')[3];
         }
 
-        //按键是否为数字键
-        public static bool IsNumber(string str)
-        {
-            string regextext = @"^(-?\d+)(\.\d+)?$";
-            Regex regex = new Regex(regextext, RegexOptions.None);
-            return regex.IsMatch(str.Trim());
-        }
-        //按键是否为字母键
-        public static bool IsLetter(string str)
-        {
-            string regextext = @"^[A-Za-z]+$";
-            Regex regex = new Regex(regextext, RegexOptions.None);
-            return regex.IsMatch(str.Trim());
-        }
 
         /// <summary>
         /// 链路心跳
@@ -248,20 +216,9 @@ namespace LotPos
         {
 
         }
-
-        /// <summary>
-        /// 与acceptor的链接模块
-        /// </summary>
-        /// <param name="sock"></param>
-        public void Con_Acceptor(SocketClass sock)
-        {
-            Register(sock);
-            OnLineGetPra(sock);
-        }
         
         const string SEP1 = "|";
         
-
         /// <summary>
         /// 生成数据包(所有)
         /// </summary>
@@ -289,12 +246,9 @@ namespace LotPos
             str = shead + msgbody + SEP1 + msgmac;
 
             ostr = "@" + str.Length.ToString().PadLeft(4, '0') + SEP1 + str;
-            
-
 
         }
-
-
+        
         public string Encode(string istr, string key)
         {
             StringBuilder result = new StringBuilder(4096);
