@@ -69,10 +69,15 @@ namespace LotPos
         { 
             try
             {
-                byte[] brecmsg = new byte[1024];
-               
-                sct.Receive(brecmsg);
-                string srecmsg = Encoding.ASCII.GetString(brecmsg);
+                byte[] msglen = new byte[10];
+                byte[] msgbyte;
+                string srecmsg = "";
+                sct.Receive(msglen, 5, 0);
+                int length = Convert.ToInt32(Encoding.ASCII.GetString(msglen).Trim('@'));
+                msgbyte = new byte[length + 100];
+                sct.Receive(msgbyte);
+                srecmsg += Encoding.ASCII.GetString(msgbyte);
+                
                 return srecmsg;
                 
             }

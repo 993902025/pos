@@ -119,18 +119,20 @@
             this.label_LoginPattern = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox_LotteryPicture = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pic7 = new System.Windows.Forms.Label();
+            this.pic6 = new System.Windows.Forms.Label();
+            this.pic5 = new System.Windows.Forms.Label();
+            this.pic4 = new System.Windows.Forms.Label();
+            this.pic3 = new System.Windows.Forms.Label();
+            this.pic2 = new System.Windows.Forms.Label();
             this.pic1 = new System.Windows.Forms.Label();
             this.Btn_Logonoff = new System.Windows.Forms.Button();
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.pic2 = new System.Windows.Forms.Label();
-            this.pic3 = new System.Windows.Forms.Label();
-            this.pic4 = new System.Windows.Forms.Label();
-            this.pic5 = new System.Windows.Forms.Label();
-            this.pic6 = new System.Windows.Forms.Label();
-            this.pic7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PageP6c = new System.Windows.Forms.TabPage();
+            this.PageK512 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
             this.panelC515_Parameters.SuspendLayout();
@@ -354,9 +356,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.PageC515);
-            this.tabControl1.Controls.Add(this.PageLot);
             this.tabControl1.Controls.Add(this.Page3D);
+            this.tabControl1.Controls.Add(this.PageLot);
             this.tabControl1.Controls.Add(this.PageC730);
+            this.tabControl1.Controls.Add(this.PageP6c);
+            this.tabControl1.Controls.Add(this.PageK512);
             this.tabControl1.Location = new System.Drawing.Point(10, 10);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(10);
             this.tabControl1.Name = "tabControl1";
@@ -1319,6 +1323,84 @@
             this.groupBox_LotteryPicture.TabStop = false;
             this.groupBox_LotteryPicture.Text = "票面";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(50, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "00";
+            this.label1.Visible = false;
+            // 
+            // pic7
+            // 
+            this.pic7.AutoSize = true;
+            this.pic7.BackColor = System.Drawing.Color.Transparent;
+            this.pic7.Location = new System.Drawing.Point(240, 122);
+            this.pic7.Name = "pic7";
+            this.pic7.Size = new System.Drawing.Size(41, 12);
+            this.pic7.TabIndex = 12;
+            this.pic7.Text = "金  额";
+            this.pic7.Visible = false;
+            // 
+            // pic6
+            // 
+            this.pic6.AutoSize = true;
+            this.pic6.BackColor = System.Drawing.Color.Transparent;
+            this.pic6.Location = new System.Drawing.Point(137, 122);
+            this.pic6.Name = "pic6";
+            this.pic6.Size = new System.Drawing.Size(89, 12);
+            this.pic6.TabIndex = 9;
+            this.pic6.Text = "兑奖期 2017099";
+            this.pic6.Visible = false;
+            // 
+            // pic5
+            // 
+            this.pic5.AutoSize = true;
+            this.pic5.BackColor = System.Drawing.Color.Transparent;
+            this.pic5.Location = new System.Drawing.Point(35, 122);
+            this.pic5.Name = "pic5";
+            this.pic5.Size = new System.Drawing.Size(89, 12);
+            this.pic5.TabIndex = 8;
+            this.pic5.Text = "销售期 2017099";
+            this.pic5.Visible = false;
+            // 
+            // pic4
+            // 
+            this.pic4.AutoSize = true;
+            this.pic4.BackColor = System.Drawing.Color.Transparent;
+            this.pic4.Location = new System.Drawing.Point(240, 103);
+            this.pic4.Name = "pic4";
+            this.pic4.Size = new System.Drawing.Size(41, 12);
+            this.pic4.TabIndex = 6;
+            this.pic4.Text = "流水号";
+            this.pic4.Visible = false;
+            // 
+            // pic3
+            // 
+            this.pic3.AutoSize = true;
+            this.pic3.BackColor = System.Drawing.Color.Transparent;
+            this.pic3.Location = new System.Drawing.Point(35, 103);
+            this.pic3.Name = "pic3";
+            this.pic3.Size = new System.Drawing.Size(191, 12);
+            this.pic3.TabIndex = 4;
+            this.pic3.Text = "特征码 AAAAA00000BBBBB0  654321";
+            this.pic3.Visible = false;
+            // 
+            // pic2
+            // 
+            this.pic2.AutoSize = true;
+            this.pic2.BackColor = System.Drawing.Color.Transparent;
+            this.pic2.Location = new System.Drawing.Point(240, 85);
+            this.pic2.Name = "pic2";
+            this.pic2.Size = new System.Drawing.Size(29, 12);
+            this.pic2.TabIndex = 1;
+            this.pic2.Text = "站点";
+            this.pic2.Visible = false;
+            // 
             // pic1
             // 
             this.pic1.AutoSize = true;
@@ -1379,83 +1461,23 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // pic2
+            // PageP6c
             // 
-            this.pic2.AutoSize = true;
-            this.pic2.BackColor = System.Drawing.Color.Transparent;
-            this.pic2.Location = new System.Drawing.Point(240, 85);
-            this.pic2.Name = "pic2";
-            this.pic2.Size = new System.Drawing.Size(29, 12);
-            this.pic2.TabIndex = 1;
-            this.pic2.Text = "站点";
-            this.pic2.Visible = false;
+            this.PageP6c.Location = new System.Drawing.Point(4, 22);
+            this.PageP6c.Name = "PageP6c";
+            this.PageP6c.Size = new System.Drawing.Size(602, 239);
+            this.PageP6c.TabIndex = 5;
+            this.PageP6c.Text = "生肖6+1";
+            this.PageP6c.UseVisualStyleBackColor = true;
             // 
-            // pic3
+            // PageK512
             // 
-            this.pic3.AutoSize = true;
-            this.pic3.BackColor = System.Drawing.Color.Transparent;
-            this.pic3.Location = new System.Drawing.Point(35, 103);
-            this.pic3.Name = "pic3";
-            this.pic3.Size = new System.Drawing.Size(191, 12);
-            this.pic3.TabIndex = 4;
-            this.pic3.Text = "特征码 AAAAA00000BBBBB0  654321";
-            this.pic3.Visible = false;
-            // 
-            // pic4
-            // 
-            this.pic4.AutoSize = true;
-            this.pic4.BackColor = System.Drawing.Color.Transparent;
-            this.pic4.Location = new System.Drawing.Point(240, 103);
-            this.pic4.Name = "pic4";
-            this.pic4.Size = new System.Drawing.Size(41, 12);
-            this.pic4.TabIndex = 6;
-            this.pic4.Text = "流水号";
-            this.pic4.Visible = false;
-            // 
-            // pic5
-            // 
-            this.pic5.AutoSize = true;
-            this.pic5.BackColor = System.Drawing.Color.Transparent;
-            this.pic5.Location = new System.Drawing.Point(35, 122);
-            this.pic5.Name = "pic5";
-            this.pic5.Size = new System.Drawing.Size(89, 12);
-            this.pic5.TabIndex = 8;
-            this.pic5.Text = "销售期 2017099";
-            this.pic5.Visible = false;
-            // 
-            // pic6
-            // 
-            this.pic6.AutoSize = true;
-            this.pic6.BackColor = System.Drawing.Color.Transparent;
-            this.pic6.Location = new System.Drawing.Point(137, 122);
-            this.pic6.Name = "pic6";
-            this.pic6.Size = new System.Drawing.Size(89, 12);
-            this.pic6.TabIndex = 9;
-            this.pic6.Text = "兑奖期 2017099";
-            this.pic6.Visible = false;
-            // 
-            // pic7
-            // 
-            this.pic7.AutoSize = true;
-            this.pic7.BackColor = System.Drawing.Color.Transparent;
-            this.pic7.Location = new System.Drawing.Point(240, 122);
-            this.pic7.Name = "pic7";
-            this.pic7.Size = new System.Drawing.Size(41, 12);
-            this.pic7.TabIndex = 12;
-            this.pic7.Text = "金  额";
-            this.pic7.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(50, 160);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "00";
-            this.label1.Visible = false;
+            this.PageK512.Location = new System.Drawing.Point(4, 22);
+            this.PageK512.Name = "PageK512";
+            this.PageK512.Size = new System.Drawing.Size(602, 239);
+            this.PageK512.TabIndex = 6;
+            this.PageK512.Text = "快乐12";
+            this.PageK512.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1604,6 +1626,8 @@
         private System.Windows.Forms.Label pic6;
         private System.Windows.Forms.Label pic5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage PageP6c;
+        private System.Windows.Forms.TabPage PageK512;
     }
 }
 

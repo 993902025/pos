@@ -33,8 +33,9 @@ namespace LotPos
         */
         public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
         string _loginPattern;       //启动模式，由配置文件获取
-        int _wf;
-        string[] str_wf = { "C515", "LOT", "3D", "P6C", "C730", "K512" };
+        int _wf;            //对应参数索引 0=c515    1=3d    2=lot   3=c730  4=p6c   5=k512
+        string[] str_wf = { "C515", "3D", "LOT", "C730", "P6C", "K512" };
+        int betcount;
 
         int heartbeatdt = 0;
 
@@ -56,6 +57,7 @@ namespace LotPos
         {
             InitializeComponent();
             _wf = 1;
+            betcount = 0;
             CreatBox(_wf);
             dtime = new Timer()
             {
@@ -186,22 +188,42 @@ namespace LotPos
         /// </summary>
         void Update_panel_Parameters_Show(int wf)
         {
-            PosBack posback = new PosBack();
-            posback.GetPra(_loginPattern);       //模拟取参
-            for (int i = 0; i < tabControl1.TabCount; i++)
+            //PosBack posback = new PosBack();
+            //posback.GetPra(_loginPattern);       //模拟取参
+            if (wf == 5)
             {
-               
+                for (int i = 0; i < tabControl1.TabCount; i++)
+                {
 
-                GameName.Text = str_wf[wf];    //(PosBack.gamename == null) ? str_wf[_wf] : PosBack.gamename;
-                DrawNo.Text = PosBack.drawno[wf];
-                AgentId.Text = PosConfig.xszbm;
-                Lsh.Text = PosBack.lsh[wf];
-                SmallCount.Text = PosBack.smallcount;
-                Balance.Text = PosBack.balance;
-                TQTime.Text = PosBack.tqtime;
+                    GameName.Text = (PosBack.pralst[wf][2] == null) ? str_wf[_wf] : PosBack.pralst[wf][2];      //玩法
+                    DrawNo.Text = PosBack.pralst[wf][23];       //期号
+                    AgentId.Text = PosConfig.xszbm;     //站号
+                    Lsh.Text = PosBack.pralst[wf][26];      //流水号
+                    SmallCount.Text = PosBack.pralst[wf][26] + @"/" + betcount;     //小计
+                    Balance.Text = PosBack.pralst[wf][24];      //余额
+                    TQTime.Text = PosBack.pralst[wf][21];       //特权时间
+
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < tabControl1.TabCount; i++)
+                {
+
+                    GameName.Text = (PosBack.pralst[wf][2] == null) ? str_wf[_wf] : PosBack.pralst[wf][2];      //玩法
+                    DrawNo.Text = PosBack.pralst[wf][25];       //期号
+                    AgentId.Text = PosConfig.xszbm;     //站号
+                    Lsh.Text = PosBack.pralst[wf][27];      //流水号
+                    SmallCount.Text = PosBack.pralst[wf][28] + @"/" + betcount;     //小计
+                    Balance.Text = PosBack.pralst[wf][26];      //余额
+                    TQTime.Text = PosBack.pralst[wf][23];       //特权时间
+
+                }
             }
 
             panelC515_Parameters.Visible = true;    //显示参数区域
+
         }
 
         /// <summary>

@@ -29,6 +29,9 @@ namespace LotPos
         string mackey;
         string pinkey;
 
+        //List<List<string>> pralst = new List<List<string>>(6);
+        public static string[][] pralst;    //保存每个玩法取参结果的二维数组
+
         List<string> prakey = new List<string> {
             "gamename",
             "drawno",
@@ -90,12 +93,19 @@ namespace LotPos
             recvmsg = sock.Recvmsg();
             //Console.WriteLine("GETPARAM recvmsg:\t" + recvmsg);
             //解析recvmsg内容，取出acceptor的ip和port
-            sarray = recvmsg.Split('|');    //此处可考虑在PosString类中添加方法具体实现
-            
+
+            sarray = recvmsg.Split('|');
+
+            string[] prasplitgame = Decode(sarray[6], pinkey).Substring(2).Split('#');
+            pralst = new string[prasplitgame.Length][];
+
+            for (int i = 0; i < prasplitgame.Length; i++)
+            {
+                pralst[i] = prasplitgame[i].Split('$');
+            }
 
             return 0;
         }
-
         
         /// <summary>
         /// 单机模式 模拟取参
@@ -140,8 +150,6 @@ namespace LotPos
             return 0;
         }
         
-
-
         public int Con_Director()
         {
             Socket sock2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -217,8 +225,8 @@ namespace LotPos
             mackey = sarray[6].ToString().Split('$')[3];
         }
 
-    //按键是否为数字键
-    public static bool IsNumber(string str)
+        //按键是否为数字键
+        public static bool IsNumber(string str)
         {
             string regextext = @"^(-?\d+)(\.\d+)?$";
             Regex regex = new Regex(regextext, RegexOptions.None);
@@ -250,9 +258,7 @@ namespace LotPos
             Register(sock);
             OnLineGetPra(sock);
         }
-
-
-        string key = "";
+        
         const string SEP1 = "|";
         
 
@@ -272,7 +278,7 @@ namespace LotPos
             string msgmac = "";
 
             shead = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.Next(9999).ToString().PadLeft(4, '0') + SEP1 + opcode + SEP1;
-            str = s_r + SEP1 + 1 + SEP1 + 0 + SEP1 + r.Next(9999).ToString().PadLeft(4, '0') + SEP1 + opcode + SEP1 + istr;
+            str = shead + istr;
 
             if (opcode != "SERVERCONNECT" && opcode != "REGISTER" && opcode != "ACTIVETEST")
             {
@@ -283,8 +289,8 @@ namespace LotPos
             str = shead + msgbody + SEP1 + msgmac;
 
             ostr = "@" + str.Length.ToString().PadLeft(4, '0') + SEP1 + str;
+            
 
-            CheckMac(shead + msgbody + SEP1, msgmac, mackey);
 
         }
 
@@ -296,6 +302,14 @@ namespace LotPos
             return result.ToString();
         }
 
+        public string Decode(string istr, string key)
+        {
+            StringBuilder result = new StringBuilder(4096);
+            BzSec.decode(istr, result, key);
+            return result.ToString();
+        }
+        
+        //
         public string CalMac(string istr, string key)
         {
             StringBuilder result = new StringBuilder(4096);
