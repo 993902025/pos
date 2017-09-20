@@ -65,26 +65,11 @@
             this.AgentId = new System.Windows.Forms.Label();
             this.Lsh = new System.Windows.Forms.Label();
             this.panel_Bet = new System.Windows.Forms.Panel();
-            this.Multiple = new System.Windows.Forms.TextBox();
-            this.label_Multiple = new System.Windows.Forms.Label();
-            this.label_BlueBetNo = new System.Windows.Forms.Label();
-            this.label_NinthBetNo = new System.Windows.Forms.Label();
-            this.label_EighthBetNo = new System.Windows.Forms.Label();
-            this.label_SeventhBetNo = new System.Windows.Forms.Label();
-            this.label_SixthBetNo = new System.Windows.Forms.Label();
-            this.label_FifthBetNo = new System.Windows.Forms.Label();
-            this.label_FourthBetNo = new System.Windows.Forms.Label();
-            this.label_ThirdBetNo = new System.Windows.Forms.Label();
-            this.label_ALineBetNo = new System.Windows.Forms.Label();
-            this.label_BLineBetNo = new System.Windows.Forms.Label();
-            this.label_CLineBetNo = new System.Windows.Forms.Label();
-            this.label_DLineBetNo = new System.Windows.Forms.Label();
-            this.label_ELineBetNo = new System.Windows.Forms.Label();
-            this.label_FirstBetNo = new System.Windows.Forms.Label();
-            this.label_SecondBetNo = new System.Windows.Forms.Label();
-            this.PageLot = new System.Windows.Forms.TabPage();
             this.Page3D = new System.Windows.Forms.TabPage();
+            this.PageLot = new System.Windows.Forms.TabPage();
             this.PageC730 = new System.Windows.Forms.TabPage();
+            this.PageP6c = new System.Windows.Forms.TabPage();
+            this.PageK512 = new System.Windows.Forms.TabPage();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.panel_SmallKeyBoard = new System.Windows.Forms.Panel();
             this.BtnF9 = new System.Windows.Forms.Button();
@@ -131,8 +116,7 @@
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.PageP6c = new System.Windows.Forms.TabPage();
-            this.PageK512 = new System.Windows.Forms.TabPage();
+            this.betnoinputbox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
             this.panelC515_Parameters.SuspendLayout();
@@ -601,23 +585,7 @@
             // panel_Bet
             // 
             this.panel_Bet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_Bet.Controls.Add(this.Multiple);
-            this.panel_Bet.Controls.Add(this.label_Multiple);
-            this.panel_Bet.Controls.Add(this.label_BlueBetNo);
-            this.panel_Bet.Controls.Add(this.label_NinthBetNo);
-            this.panel_Bet.Controls.Add(this.label_EighthBetNo);
-            this.panel_Bet.Controls.Add(this.label_SeventhBetNo);
-            this.panel_Bet.Controls.Add(this.label_SixthBetNo);
-            this.panel_Bet.Controls.Add(this.label_FifthBetNo);
-            this.panel_Bet.Controls.Add(this.label_FourthBetNo);
-            this.panel_Bet.Controls.Add(this.label_ThirdBetNo);
-            this.panel_Bet.Controls.Add(this.label_ALineBetNo);
-            this.panel_Bet.Controls.Add(this.label_BLineBetNo);
-            this.panel_Bet.Controls.Add(this.label_CLineBetNo);
-            this.panel_Bet.Controls.Add(this.label_DLineBetNo);
-            this.panel_Bet.Controls.Add(this.label_ELineBetNo);
-            this.panel_Bet.Controls.Add(this.label_FirstBetNo);
-            this.panel_Bet.Controls.Add(this.label_SecondBetNo);
+            this.panel_Bet.Controls.Add(this.betnoinputbox);
             this.panel_Bet.Location = new System.Drawing.Point(175, 10);
             this.panel_Bet.Margin = new System.Windows.Forms.Padding(10);
             this.panel_Bet.Name = "panel_Bet";
@@ -626,210 +594,14 @@
             this.panel_Bet.TabIndex = 0;
             this.panel_Bet.Visible = false;
             // 
-            // Multiple
+            // Page3D
             // 
-            this.Multiple.Location = new System.Drawing.Point(182, 4);
-            this.Multiple.Margin = new System.Windows.Forms.Padding(5);
-            this.Multiple.MaxLength = 2;
-            this.Multiple.Name = "Multiple";
-            this.Multiple.Size = new System.Drawing.Size(25, 21);
-            this.Multiple.TabIndex = 28;
-            this.Multiple.TabStop = false;
-            this.Multiple.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label_Multiple
-            // 
-            this.label_Multiple.AutoSize = true;
-            this.label_Multiple.Location = new System.Drawing.Point(137, 7);
-            this.label_Multiple.Margin = new System.Windows.Forms.Padding(5);
-            this.label_Multiple.Name = "label_Multiple";
-            this.label_Multiple.Size = new System.Drawing.Size(35, 12);
-            this.label_Multiple.TabIndex = 27;
-            this.label_Multiple.Text = "倍数:";
-            this.label_Multiple.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_BlueBetNo
-            // 
-            this.label_BlueBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_BlueBetNo.AutoSize = true;
-            this.label_BlueBetNo.Location = new System.Drawing.Point(355, 36);
-            this.label_BlueBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_BlueBetNo.Name = "label_BlueBetNo";
-            this.label_BlueBetNo.Size = new System.Drawing.Size(29, 12);
-            this.label_BlueBetNo.TabIndex = 27;
-            this.label_BlueBetNo.Text = "蓝球";
-            this.label_BlueBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_NinthBetNo
-            // 
-            this.label_NinthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_NinthBetNo.AutoSize = true;
-            this.label_NinthBetNo.Location = new System.Drawing.Point(320, 36);
-            this.label_NinthBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_NinthBetNo.Name = "label_NinthBetNo";
-            this.label_NinthBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_NinthBetNo.TabIndex = 27;
-            this.label_NinthBetNo.Text = "9";
-            this.label_NinthBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_NinthBetNo.Visible = false;
-            // 
-            // label_EighthBetNo
-            // 
-            this.label_EighthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_EighthBetNo.AutoSize = true;
-            this.label_EighthBetNo.Location = new System.Drawing.Point(285, 36);
-            this.label_EighthBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_EighthBetNo.Name = "label_EighthBetNo";
-            this.label_EighthBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_EighthBetNo.TabIndex = 27;
-            this.label_EighthBetNo.Text = "8";
-            this.label_EighthBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_EighthBetNo.Visible = false;
-            // 
-            // label_SeventhBetNo
-            // 
-            this.label_SeventhBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_SeventhBetNo.AutoSize = true;
-            this.label_SeventhBetNo.Enabled = false;
-            this.label_SeventhBetNo.Location = new System.Drawing.Point(250, 36);
-            this.label_SeventhBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_SeventhBetNo.Name = "label_SeventhBetNo";
-            this.label_SeventhBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_SeventhBetNo.TabIndex = 27;
-            this.label_SeventhBetNo.Text = "7";
-            this.label_SeventhBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_SeventhBetNo.Visible = false;
-            // 
-            // label_SixthBetNo
-            // 
-            this.label_SixthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_SixthBetNo.AutoSize = true;
-            this.label_SixthBetNo.Location = new System.Drawing.Point(215, 36);
-            this.label_SixthBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_SixthBetNo.Name = "label_SixthBetNo";
-            this.label_SixthBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_SixthBetNo.TabIndex = 27;
-            this.label_SixthBetNo.Text = "6";
-            this.label_SixthBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_FifthBetNo
-            // 
-            this.label_FifthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_FifthBetNo.AutoSize = true;
-            this.label_FifthBetNo.Location = new System.Drawing.Point(180, 36);
-            this.label_FifthBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_FifthBetNo.Name = "label_FifthBetNo";
-            this.label_FifthBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_FifthBetNo.TabIndex = 27;
-            this.label_FifthBetNo.Text = "5";
-            this.label_FifthBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_FourthBetNo
-            // 
-            this.label_FourthBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_FourthBetNo.AutoSize = true;
-            this.label_FourthBetNo.Location = new System.Drawing.Point(145, 36);
-            this.label_FourthBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_FourthBetNo.Name = "label_FourthBetNo";
-            this.label_FourthBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_FourthBetNo.TabIndex = 27;
-            this.label_FourthBetNo.Text = "4";
-            this.label_FourthBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_ThirdBetNo
-            // 
-            this.label_ThirdBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_ThirdBetNo.AutoSize = true;
-            this.label_ThirdBetNo.Location = new System.Drawing.Point(110, 36);
-            this.label_ThirdBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_ThirdBetNo.Name = "label_ThirdBetNo";
-            this.label_ThirdBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_ThirdBetNo.TabIndex = 27;
-            this.label_ThirdBetNo.Text = "3";
-            this.label_ThirdBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_ALineBetNo
-            // 
-            this.label_ALineBetNo.AutoSize = true;
-            this.label_ALineBetNo.Location = new System.Drawing.Point(15, 60);
-            this.label_ALineBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_ALineBetNo.Name = "label_ALineBetNo";
-            this.label_ALineBetNo.Size = new System.Drawing.Size(17, 12);
-            this.label_ALineBetNo.TabIndex = 27;
-            this.label_ALineBetNo.Text = "A:";
-            this.label_ALineBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_BLineBetNo
-            // 
-            this.label_BLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_BLineBetNo.AutoSize = true;
-            this.label_BLineBetNo.Location = new System.Drawing.Point(15, 90);
-            this.label_BLineBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_BLineBetNo.Name = "label_BLineBetNo";
-            this.label_BLineBetNo.Size = new System.Drawing.Size(17, 12);
-            this.label_BLineBetNo.TabIndex = 27;
-            this.label_BLineBetNo.Text = "B:";
-            this.label_BLineBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_CLineBetNo
-            // 
-            this.label_CLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_CLineBetNo.AutoSize = true;
-            this.label_CLineBetNo.Location = new System.Drawing.Point(15, 120);
-            this.label_CLineBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_CLineBetNo.Name = "label_CLineBetNo";
-            this.label_CLineBetNo.Size = new System.Drawing.Size(17, 12);
-            this.label_CLineBetNo.TabIndex = 27;
-            this.label_CLineBetNo.Text = "C:";
-            this.label_CLineBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_DLineBetNo
-            // 
-            this.label_DLineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_DLineBetNo.AutoSize = true;
-            this.label_DLineBetNo.Location = new System.Drawing.Point(15, 150);
-            this.label_DLineBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_DLineBetNo.Name = "label_DLineBetNo";
-            this.label_DLineBetNo.Size = new System.Drawing.Size(17, 12);
-            this.label_DLineBetNo.TabIndex = 27;
-            this.label_DLineBetNo.Text = "D:";
-            this.label_DLineBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_ELineBetNo
-            // 
-            this.label_ELineBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_ELineBetNo.AutoSize = true;
-            this.label_ELineBetNo.Location = new System.Drawing.Point(15, 180);
-            this.label_ELineBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_ELineBetNo.Name = "label_ELineBetNo";
-            this.label_ELineBetNo.Size = new System.Drawing.Size(17, 12);
-            this.label_ELineBetNo.TabIndex = 27;
-            this.label_ELineBetNo.Text = "E:";
-            this.label_ELineBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_FirstBetNo
-            // 
-            this.label_FirstBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_FirstBetNo.AutoSize = true;
-            this.label_FirstBetNo.Location = new System.Drawing.Point(40, 36);
-            this.label_FirstBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_FirstBetNo.Name = "label_FirstBetNo";
-            this.label_FirstBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_FirstBetNo.TabIndex = 27;
-            this.label_FirstBetNo.Text = "1";
-            this.label_FirstBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_SecondBetNo
-            // 
-            this.label_SecondBetNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label_SecondBetNo.AutoSize = true;
-            this.label_SecondBetNo.Location = new System.Drawing.Point(75, 36);
-            this.label_SecondBetNo.Margin = new System.Windows.Forms.Padding(5);
-            this.label_SecondBetNo.Name = "label_SecondBetNo";
-            this.label_SecondBetNo.Size = new System.Drawing.Size(11, 12);
-            this.label_SecondBetNo.TabIndex = 27;
-            this.label_SecondBetNo.Text = "2";
-            this.label_SecondBetNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Page3D.Location = new System.Drawing.Point(4, 22);
+            this.Page3D.Name = "Page3D";
+            this.Page3D.Size = new System.Drawing.Size(602, 239);
+            this.Page3D.TabIndex = 3;
+            this.Page3D.Text = "3D";
+            this.Page3D.UseVisualStyleBackColor = true;
             // 
             // PageLot
             // 
@@ -842,15 +614,6 @@
             this.PageLot.TabIndex = 2;
             this.PageLot.Text = "双色球";
             // 
-            // Page3D
-            // 
-            this.Page3D.Location = new System.Drawing.Point(4, 22);
-            this.Page3D.Name = "Page3D";
-            this.Page3D.Size = new System.Drawing.Size(602, 239);
-            this.Page3D.TabIndex = 3;
-            this.Page3D.Text = "3D";
-            this.Page3D.UseVisualStyleBackColor = true;
-            // 
             // PageC730
             // 
             this.PageC730.Location = new System.Drawing.Point(4, 22);
@@ -859,6 +622,24 @@
             this.PageC730.TabIndex = 4;
             this.PageC730.Text = "七乐彩";
             this.PageC730.UseVisualStyleBackColor = true;
+            // 
+            // PageP6c
+            // 
+            this.PageP6c.Location = new System.Drawing.Point(4, 22);
+            this.PageP6c.Name = "PageP6c";
+            this.PageP6c.Size = new System.Drawing.Size(602, 239);
+            this.PageP6c.TabIndex = 5;
+            this.PageP6c.Text = "生肖6+1";
+            this.PageP6c.UseVisualStyleBackColor = true;
+            // 
+            // PageK512
+            // 
+            this.PageK512.Location = new System.Drawing.Point(4, 22);
+            this.PageK512.Name = "PageK512";
+            this.PageK512.Size = new System.Drawing.Size(602, 239);
+            this.PageK512.TabIndex = 6;
+            this.PageK512.Text = "快乐12";
+            this.PageK512.UseVisualStyleBackColor = true;
             // 
             // textBox13
             // 
@@ -1461,23 +1242,16 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // PageP6c
+            // betnoinputbox
             // 
-            this.PageP6c.Location = new System.Drawing.Point(4, 22);
-            this.PageP6c.Name = "PageP6c";
-            this.PageP6c.Size = new System.Drawing.Size(602, 239);
-            this.PageP6c.TabIndex = 5;
-            this.PageP6c.Text = "生肖6+1";
-            this.PageP6c.UseVisualStyleBackColor = true;
-            // 
-            // PageK512
-            // 
-            this.PageK512.Location = new System.Drawing.Point(4, 22);
-            this.PageK512.Name = "PageK512";
-            this.PageK512.Size = new System.Drawing.Size(602, 239);
-            this.PageK512.TabIndex = 6;
-            this.PageK512.Text = "快乐12";
-            this.PageK512.UseVisualStyleBackColor = true;
+            this.betnoinputbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.betnoinputbox.BackColor = System.Drawing.SystemColors.Info;
+            this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
+            this.betnoinputbox.Name = "betnoinputbox";
+            this.betnoinputbox.Size = new System.Drawing.Size(341, 14);
+            this.betnoinputbox.TabIndex = 0;
+            this.betnoinputbox.WordWrap = false;
             // 
             // MainForm
             // 
@@ -1546,7 +1320,6 @@
         private System.Windows.Forms.TabPage PageC515;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label_AgentId;
-        private System.Windows.Forms.Label label_FirstBetNo;
         private System.Windows.Forms.Label lable_DrawNo;
         private System.Windows.Forms.Panel panel_SmallKeyBoard;
         private System.Windows.Forms.Button BtnF9;
@@ -1566,12 +1339,6 @@
         private System.Windows.Forms.Label label_TQtime;
         private System.Windows.Forms.Panel panelC515_Parameters;
         private System.Windows.Forms.Panel panel_Bet;
-        private System.Windows.Forms.TextBox Multiple;
-        private System.Windows.Forms.Label label_Multiple;
-        private System.Windows.Forms.Label label_DLineBetNo;
-        private System.Windows.Forms.Label label_CLineBetNo;
-        private System.Windows.Forms.Label label_BLineBetNo;
-        private System.Windows.Forms.Label label_ELineBetNo;
         private System.Windows.Forms.Button BtnF5;
         private System.Windows.Forms.Button BtnF4;
         private System.Windows.Forms.Button BtnF3;
@@ -1596,16 +1363,6 @@
         private System.Windows.Forms.Button BtnI;
         private System.Windows.Forms.Button BtnH;
         private System.Windows.Forms.Panel panel_keyboard;
-        private System.Windows.Forms.Label label_SixthBetNo;
-        private System.Windows.Forms.Label label_FifthBetNo;
-        private System.Windows.Forms.Label label_FourthBetNo;
-        private System.Windows.Forms.Label label_ThirdBetNo;
-        private System.Windows.Forms.Label label_SecondBetNo;
-        private System.Windows.Forms.Label label_ALineBetNo;
-        private System.Windows.Forms.Label label_SeventhBetNo;
-        private System.Windows.Forms.Label label_EighthBetNo;
-        private System.Windows.Forms.Label label_BlueBetNo;
-        private System.Windows.Forms.Label label_NinthBetNo;
         private System.Windows.Forms.Label label_Date0;
         private System.Windows.Forms.Label label_Date;
         private System.Windows.Forms.Label label_LoginPattern;
@@ -1628,6 +1385,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage PageP6c;
         private System.Windows.Forms.TabPage PageK512;
+        private System.Windows.Forms.TextBox betnoinputbox;
     }
 }
 

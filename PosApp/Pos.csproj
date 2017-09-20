@@ -69,6 +69,7 @@
     <Compile Include="back\BetNum.cs" />
     <Compile Include="BzSec.cs" />
     <Compile Include="BzWebSec.cs" />
+    <Compile Include="Controller\TimeTaskControl.cs" />
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,10 +85,13 @@
     <Compile Include="back\PosBack.cs" />
     <Compile Include="back\PosConfig.cs" />
     <Compile Include="back\PosFile.cs" />
+    <Compile Include="Model\BetStrModel.cs" />
+    <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="back\SocketClass.cs" />
     <Compile Include="back\PosString.cs" />
+    <Compile Include="Protocol\TaskPro.cs" />
     <EmbeddedResource Include="form\LogOnForm.resx">
       <DependentUpon>LogOnForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,5 +136,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

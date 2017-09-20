@@ -423,8 +423,8 @@ namespace LotPos
             //检查投注号码合法 + 计算投注方式和金额        
             if (0 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
-                string betdetail = ((Multiple.Text == string.Empty) ? "1" : Multiple.Text).PadLeft(3, '0') + (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
-                money = money * Convert.ToInt16((Multiple.Text == string.Empty) ? "1" : Multiple.Text);
+                string betdetail =  (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
+                money = money ;
                 string smoney = string.Format("{0:f2}", money);
                 string betmsgbody = agentid + "$" + gamename + "$" + drawno + "$" + ticket + "$" + playtype + "$" + smoney + "$" + betdetail + "$" + "$" + "$" + "$" + "$" + "01" + "$" + "$";
                 textBox3.Text += "\r\nbetbody:" + betmsgbody;
@@ -755,7 +755,7 @@ namespace LotPos
             BetNum betnumclass = new BetNum();
 
             //取出倍数输入框控件中的值 是空时默认为 1
-            string multiple = (Multiple.Text == string.Empty) ? "1" : Multiple.Text;
+            string multiple =  "1" ;
             
             int result = betnumclass.MakeBetString(lstBox, multiple, wf, fs);
             string sendstr = betnumclass.sendbetnum;
