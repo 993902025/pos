@@ -70,6 +70,7 @@
     <Compile Include="BzSec.cs" />
     <Compile Include="BzWebSec.cs" />
     <Compile Include="Controller\NetControl.cs" />
+    <Compile Include="Controller\SocketInstance.cs" />
     <Compile Include="Controller\TimeTaskControl.cs" />
     <Compile Include="form\MainForm.cs">
       <SubType>Form</SubType>

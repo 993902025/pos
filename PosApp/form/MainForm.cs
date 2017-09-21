@@ -29,21 +29,11 @@ namespace LotPos
          */
         TextBox nownumbox = null;       //当期输入框控件
 
-        /* 界面参数配置
-        */
-        public static int _pageNum;        //界面标记 0=加载 1=主界面 2=投注界面
-        string _loginPattern;       //启动模式，由配置文件获取 "1"=单机   "2"=联网
-        int _wf;            //对应参数索引 0=c515    1=3d    2=lot   3=c730  4=p6c   5=k512
-        string[] str_wf = { "C515", "3D", "LOT", "C730", "P6C", "K512" };
         int betcount;
 
         int heartbeatdt = 0;
-
-        Timer dtime;
-        SocketClass sock;
         
         string sendbetstr = "";
-
         static int sequence = 0;
         string sk = "111111";
         byte[] btmsg = new byte[1024];
@@ -56,18 +46,6 @@ namespace LotPos
         public MainForm()
         {
             InitializeComponent();
-            _wf = 1;
-            betcount = 0;
-            CreatBox(_wf);
-            dtime = new Timer()
-            {
-                Interval = 1000
-            };
-            dtime.Tick += new EventHandler(Dtime_tick);
-            posconfig = new PosConfig();
-            //posback = new PosBack();
-            _pageNum = 0;
-            _loginPattern = PosConfig.LoginPattern;
         }
 
 
@@ -78,28 +56,14 @@ namespace LotPos
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            switch (_pageNum)
-            {
-
-                case 0:
-                    AtLogonForm(_pageNum);//加载登录界面
-                    break;
-                case 1:
-                    break;
-                default:
-                    break;
-
-            }
-            _pageNum = 1;
-
-            ShowPattern(_loginPattern);     //显示启动模式
-            dtime.Start();      //开启显示时间
+             
+                    AtLogonForm(1);//加载登录界面  
+             
 
             tabControl1.Visible = true;     //标签控制页
 
-            ShowPage_1(_pageNum);
-            Update_panel_Parameters_Show(_wf); //
+            ShowPage_1(1);
+            Update_panel_Parameters_Show(1); //
 
             //初始化光标
             nownumbox = lstBox.First().First();
@@ -200,7 +164,7 @@ namespace LotPos
                 for (int i = 0; i < tabControl1.TabCount; i++)
                 {
 
-                    GameName.Text = (PosBack.pralst[wf][2] == null) ? str_wf[_wf] : PosBack.pralst[wf][2];      //玩法
+                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
                     DrawNo.Text = PosBack.pralst[wf][23];       //期号
                     AgentId.Text = PosConfig.xszbm;     //站号
                     Lsh.Text = PosBack.pralst[wf][26];      //流水号
@@ -216,7 +180,7 @@ namespace LotPos
                 for (int i = 0; i < tabControl1.TabCount; i++)
                 {
 
-                    GameName.Text = (PosBack.pralst[wf][2] == null) ? str_wf[_wf] : PosBack.pralst[wf][2];      //玩法
+                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
                     DrawNo.Text = PosBack.pralst[wf][25];       //期号
                     AgentId.Text = PosConfig.xszbm;     //站号
                     Lsh.Text = PosBack.pralst[wf][27];      //流水号
