@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LotPos.Medel
+namespace LotPos.Model
 {
     public class BetStrModel
     {
