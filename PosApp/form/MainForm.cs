@@ -13,6 +13,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
 using LotPos.back;
+using JunKeyBoardLib;
 
 namespace LotPos
 {
@@ -25,6 +26,8 @@ namespace LotPos
         PosConfig posconfig;        //配置文件类 
         SocketClass betsock = new SocketClass();
 
+        JunKeyBoard jkb;
+
         /* 控件参数类
          */
         TextBox nownumbox = null;       //当期输入框控件
@@ -32,7 +35,7 @@ namespace LotPos
         int betcount;
 
         int heartbeatdt = 0;
-        
+
         string sendbetstr = "";
         static int sequence = 0;
         string sk = "111111";
@@ -46,6 +49,7 @@ namespace LotPos
         public MainForm()
         {
             InitializeComponent();
+            jkb = new JunKeyBoard(this);
         }
 
 
@@ -57,16 +61,13 @@ namespace LotPos
         private void Form1_Load(object sender, EventArgs e)
         {
             AtLogonForm(1);//加载登录界面  
-            
-            tabControl1.Visible = true;     //标签控制页
 
+            tabControl1.Visible = true;     //标签控制页
 
             ShowPage_1(1);
             Update_panel_Parameters_Show(1); //
-             
-            
         }
-
+        
         /// <summary>
         /// 处理登录界面返回结果
         /// </summary>
@@ -75,10 +76,7 @@ namespace LotPos
         void AtLogonForm(int pageNum)
         {
         }
-
         
-         
-
         /// <summary>
         /// 站点玩法等参数显示
         /// </summary>
@@ -91,7 +89,7 @@ namespace LotPos
             SmallCount.Text = @"/" + betcount;     //小计
             Balance.Text = "余额";
             TQTime.Text = "特权时间";
-            
+
             panelC515_Parameters.Visible = true;    //显示参数区域
 
         }
@@ -105,8 +103,7 @@ namespace LotPos
         {
 
         }
-
-
+        
         void ShowPage_1(int pagenum)
         {
             tabControl1.SelectTab(1);
@@ -121,14 +118,14 @@ namespace LotPos
 
         }
 
-              
+
         /// <summary>
         /// 登录\注销
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
-        { 
+        {
         }
 
         /// <summary>
@@ -139,7 +136,7 @@ namespace LotPos
             if (true)
             {
                 groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192); PaintPicture();
-                 Label lab = new Label();
+                Label lab = new Label();
                 //groupBox_LotteryPicture.Controls.Add(lab);
                 //BetNum betnumclass = new BetNum();
                 //for (int i = 0; i < betnumclass.lstbetnum.Count; i++)
@@ -158,7 +155,7 @@ namespace LotPos
 
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
         private void Btn_test_Click(object sender, EventArgs e)
-        { 
+        {
         }
 
         //新期查询 暂未启用 lias投注版本的
@@ -275,8 +272,8 @@ namespace LotPos
             //检查投注号码合法 + 计算投注方式和金额        
             if (0 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
-                string betdetail =  (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
-                money = money ;
+                string betdetail = (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
+                money = money;
                 string smoney = string.Format("{0:f2}", money);
                 string betmsgbody = agentid + "$" + gamename + "$" + drawno + "$" + ticket + "$" + playtype + "$" + smoney + "$" + betdetail + "$" + "$" + "$" + "$" + "$" + "01" + "$" + "$";
                 textBox3.Text += "\r\nbetbody:" + betmsgbody;
@@ -376,11 +373,12 @@ namespace LotPos
         }
 
         //信息输出栏定位末行
-        private void TextBox3_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            textBox3.Focus();//获取焦点
-            textBox3.Select(textBox3.TextLength, 0);//光标定位到文本最后
-            textBox3.ScrollToCaret();
+            TextBox obj = (TextBox)sender;
+            obj.Focus();//获取焦点
+            obj.Select(obj.TextLength, 0);//光标定位到文本最后
+            obj.ScrollToCaret();
         }
 
         //信息输出栏定位末行
@@ -389,43 +387,13 @@ namespace LotPos
 
             textBox_test.Focus();//获取焦点
             textBox_test.Select(textBox_test.TextLength, 0);//光标定位到文本最后
-            textBox_test.ScrollToCaret(); 
-
+            textBox_test.ScrollToCaret();
         }
 
         private void ToolTip1_Popup(object sender, PopupEventArgs e)
         {
         }
 
-        /*
-         * 
-         * 
-         * 
-         * */
-        #region 号码输入框输入的处理块
-
-        /// <summary>
-        /// 满足(TextBox.Text.Length >= 2)，
-        /// 焦点移动到下一TabIndex索引的控件 (以后可重载移动条件)
-        /// </summary>
-        /// <param name="sender"> 控件对象 </param>
-        void CheckTextFocus(object sender)
-        {
-            if (((TextBox)sender).Text.Length >= 2)
-            {
-                SelectNextControl((Control)this.ActiveControl, true, true, true, false);
-                nownumbox = (TextBox)ActiveControl;
-                //TestLog("nownumbox = " + nownumbox.Name +"\tfocus to " + ActiveControl.Name);
-            }
-            else if (((TextBox)sender).Text.Length <= 0 && nownumbox != lstBox.First().First())
-            {
-                SelectNextControl((Control)this.ActiveControl, false, true, true, false);
-                nownumbox = (TextBox)ActiveControl;
-                BetNo_Enter(sender, null);
-                //TestLog("focus to " + ActiveControl.Name);
-            }
-
-        }
 
         /// <summary>
         /// 所有 BetNo(BetNo_A1 - BetNo_XX) 的 TextChanged 事件都指向该事件实现
@@ -437,11 +405,7 @@ namespace LotPos
             if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text) > 32)
             {
                 TestLog("选号不能超过32");
-            }
-            else
-            {
-                CheckTextFocus(sender);
-            }
+            } 
         }
 
         /// <summary>
@@ -455,168 +419,24 @@ namespace LotPos
             nownumbox.SelectionStart = nownumbox.Text.Length;
             //nownumbox.Select(nownumbox.TextLength, 0);
         }
-
-        /// <summary>
-        /// 键盘事件，界面所有空间注册键盘事件的第一层事件处理
-        /// </summary>
-        /// <param name="keyData"></param>
-        /// <returns></returns>
-        protected override bool ProcessDialogKey(Keys keyData)
-        {
-            //TestLog(Convert.ToInt32(keyData.ToString("D")) +  "\r\n||" + keyData.ToString() + "\r\n||" + keyData);
-            int keyvalue = Convert.ToInt32(keyData.ToString("D"));     // Convert.ToInt16(e.KeyChar);
-            if ((keyvalue >= 48 && keyvalue <= 57) || ((keyvalue >= 96 && keyvalue <= 105)) || keyvalue == 262162 || keyvalue == 131089 || keyvalue == 65552 || keyData == Keys.Tab)
-            {
-                return false;
-            }
-            else     //
-            {   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
-                object keytobtn = new object();
-                keytobtn = Convert.ToString(keyData);
-                KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
-                return true;
-                //TestLog("功能：" + e.KeyChar);
-            }
-        }
-
-        /// <summary>
-        /// 第一层键盘事件不处理的，第二层再处理部分；如退格、方向键等；
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PosKeyDown(object sender, KeyEventArgs e)
-        {
-            //TestLog(e.KeyData.ToString() + e.KeyValue.ToString());
-            if ((e.KeyValue >= 48 && e.KeyValue <= 57) || (e.KeyValue >= 96 && e.KeyValue <= 105) || e.KeyValue == 18 || e.KeyValue == 131089 || e.KeyValue == 65552 || e.KeyValue == 9 || e.KeyData == Keys.Left || e.KeyData == Keys.Right || e.KeyData == Keys.Up || e.KeyData == Keys.Down)
-            {
-                e.Handled = false;
-            }
-            else// if (PosBack.IsLetter(Convert.ToString(e.KeyCode)))     //
-            {
-                e.Handled = true;   //表处理过(即该事件被抛弃，不触发输入,下面再进行具体处理;)
-                object keytobtn = new object();
-                keytobtn = Convert.ToString(e.KeyData);
-                KeyBtnClick(keytobtn, KeyPressEventArgs.Empty);
-                //TestLog("功能：" + e.KeyChar);
-            }
-        }
-
-        /// <summary>
-        /// 激活主界面时
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainForm_Activated(object sender, EventArgs e)
-        { 
-        }
-
-        /// <summary>
-        /// 小键盘区域数字点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Num_Click(object sender, EventArgs e)
-        {
-            string numstr = ((Control)sender).Text;
-            
-            TestLog("NumClick " + ((Button)sender).Text);
-        }
-
          
 
-        /// <summary>
-        /// 功能按键点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void KeyBtnClick(object sender, EventArgs e)
-        { 
-            string BtnName = sender.GetType() == typeof(string) ? ("Btn" + Convert.ToString(sender)) : ((Control)sender).Name;
-            TestLog("调用:" + BtnName);
-            //退格BACKSPACE
-            if ( BtnName == BtnBack.Name)
-            { 
-            }
-            //ESC
-            else if ( BtnName == BtnEscape.Name)
-            {
-                // 此处调用 ESC 相关
-                TestLog("调用:ESC" + BtnName);
-            }
-            //确定Enter
-            else if ( BtnName == BtnEnter.Name)
-            {
-                // 调用 F8Bet 投注相关
-                TestLog("调用: " + BtnName); //Betqueren();
-            }
-            //F8Bet
-            else if (BtnName == BtnF8.Name)
-            {
-                TestLog( "调用：Bet " + BtnName); 
-                
-            }
-            //
-            else if ( BtnName == BtnF9.Name)
-            {
-                TestLog("调用： " + BtnName);
-            }
-            else if ( BtnName == BtnA.Name)
-            {
-                TestLog("调用：  " + BtnName);
-                panel_Bet.Visible = true;       //显示投注号码区域
-            }
-            else if (BtnName == BtnC.Name)
-            {
-                TestLog("调用：  " + BtnName);
-            }
-        }
-
-        #endregion
-
-        int fs = 0;     //投注方式，暂时1单式，后面再细化
-
-        /// <summary>
-        /// 处理投注的号码；是否合法？写入待发送串；
-        /// </summary>
-        /// <param name="wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
-        /// <param name="betnum"> 用于接受组成的字符串 </param>
-        int DOF8Bet(int wf,ref string betnum)
-        {
-            string sendbetnum = string.Empty;
-            BetNum betnumclass = new BetNum();
-
-            //取出倍数输入框控件中的值 是空时默认为 1
-            string multiple =  "1" ;
-            
-            int result = betnumclass.MakeBetString(lstBox, multiple, wf, fs);
-            string sendstr = betnumclass.sendbetnum;
-            //secstr = posback.lstbetnum[(i * (lstcon.Count - 1)) + (i + j)];
-            switch (result)
-            {
-                case 0:
-                    if (true)
-                    {
-                        betsock.Sendmsg(sendstr);
-                    }
-                    else
-                    {
-                        betnumclass.AloneBet(wf, fs, multiple);
-                    }
-                    ;
-                    break;
-                case -1:
-                    TestLog("号码不足");
-                    return -1;
-                case -2:
-                    TestLog("存在重号");
-                    return -2;
-                default:
-                    return -10;
-            }
 
 
-            return 0;
-        }
+
+        //a-z|A-Z	65-90
+        //F1-F12	112-123
+        //0-9	48-57
+        //PageUp	33
+        //PageDown	34
+        //End	35
+        //Home	36
+        //左(←)    37
+        //上( ↑ )  38
+        //右(→)    39
+        //下( ↓ )  40
+         
+             
 
 
         public void TestLog(string str)
@@ -624,109 +444,8 @@ namespace LotPos
             Console.WriteLine(str);
             textBox_test.Text += str + "\r\n";
         }
-
-        
-        /// <summary>
-        /// 清空投注区内号码
-        /// </summary>
-        private void ClearBet()
-        {
-            foreach (List<TextBox> lstcon in lstBox)
-            {
-                foreach (Control conl in lstcon)
-                {
-                    conl.Text = string.Empty;
-                }
-            }
-        }
-
-
-
-        #region 初始化号码框
-
-        
-        List<List<TextBox>> lstBox = new List<List<TextBox>>();
-        int _location_x;    //锚点x
-        int _location_y;    //锚点y
-        int _count_x;       //单行个数
-        int _count_y;       //行数
-        int _margin;        //间距
-        int _width;         //宽
-        int _height;        //高
-        
-        /// <summary>
-        /// 动态初始化投注号码输入框部分，并将每个号码框放入List保存
-        /// </summary>
-        /// <param name="wf"> 玩法参数，不同玩法的号码框个数不同 </param>
-        /// 
-        private void CreatBox(int wf)
-        {
-            _location_x = 40;   
-            _location_y = 55;
-            _count_x = 0;
-            _count_y = 0;
-            _width = 25;        
-            _height = 20;
-
-            switch (wf)
-            {
-                case 0:
-                    _count_x = 5;
-                    _count_y = 5;
-                    _margin = 10;
-                    break;
-                case 1:
-                    _count_x = 7;
-                    _count_y = 5;
-                    _margin = 10;
-                    break;
-                default:
-                    break;
-            }
-
-            for (int i = 0; i < _count_y; i++)
-            {
-                string name1 = (1 + i).ToString();
-                List<TextBox> lstText = new List<TextBox>();
-                lstBox.Add(lstText);
-                for (int j = 0; j < _count_x; j++)
-                {
-                    if (j == (_count_x - 1) && wf == 1)
-                    {
-                        _location_x += (9 - 6)*(_width + _margin);
-                    }
-                    string name2 = (j + 1).ToString();
-                    TextBox tbox = new TextBox();
-                    panel_Bet.Controls.Add(tbox);
-                    tbox.Name = "Bet" + name1 + name2;
-                    tbox.MaxLength = 2;
-                    tbox.Location = new Point(_location_x, _location_y);
-                    tbox.Margin = new Padding(5);
-                    tbox.Size = new Size(_width, _height);
-                    tbox.TextAlign = HorizontalAlignment.Center;
-                    tbox.Visible = true;
-                    tbox.TextChanged += new EventHandler(BetNo_TextChanged);
-                    tbox.Enter += new EventHandler(BetNo_Enter);
-                    tbox.TabStop = true;
-                    tbox.TabIndex = i * _count_x + j;// (i * (_count_x - 1)) + (i + j);
-
-                    if (wf == 1 && j == 6)
-                    {
-                        tbox.Tag = "blue"+ i.ToString();
-                    }
-
-                    lstText.Add(tbox);
-                    _location_x += _width + _margin;
-                    //Console.Write("x" + (j + 1) + ":" + _location_x + "\t");
-                }
-                _location_x = 40;
-                _location_y += _height + _margin;
-
-                //Console.Write("y" + (i + 1) + ":" + _location_y + "\t");
-            }
-        }
-
-        #endregion
+         
+         
 
         /// <summary>
         /// 切换选择标签页时，将参数列表数据更新匹配该page，并显示在该page，
@@ -751,63 +470,7 @@ namespace LotPos
         /// <param name="wf"></param>
         private void ChangePage(int wf)
         {
-            switch (wf)
-            {
-                case 0:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                            if (j >= 5 )
-                            {
-                                lstBox[i][j].Visible = false;
-                            }
-                        }
-                    }
-                    break;
-
-                case 1:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                            if (j >= 3)
-                            {
-                                lstBox[i][j].Visible = false;
-                            }
-                        }
-                    }
-                    break;
-
-                case 2:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                        }
-                    }
-                    break;
-
-                case 3:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                            if (j >= 7)
-                            {
-                                lstBox[i][j].Visible = false;
-                            }
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
-            }            
+            
         }
 
 
@@ -817,8 +480,8 @@ namespace LotPos
             const int y = 160;
             int locatX = x;
             int locatY = y;
-            
-            pic1.Visible = true;            
+
+            pic1.Visible = true;
             pic2.Visible = true;
             pic3.Visible = true;
             pic4.Visible = true;
@@ -832,33 +495,67 @@ namespace LotPos
             pic5.Text = "销售期\0";
             pic6.Text = "兑奖期\0";
             pic7.Text = "金额\0";
+            
+        }
 
-            for (int i = 0; i < lstBox.Count; i++)
+        private void AppKeyPress(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine("Form.KeyPress: '" + e.KeyChar.ToString() + "' pressed.");
+            if (e.KeyChar >= KeyPro.PAGEUP && e.KeyChar <= KeyPro.Z)
             {
-                for (int j = 0; j < lstBox[i].Count; j++)
-                {                    
-                    Label lab = new Label();
-                    groupBox_LotteryPicture.Controls.Add(lab);
-                    if ( groupBox_LotteryPicture.Size.Width - locatX <= 30)
-                    {
-                        locatX = x;
-                        locatY += 40;
-                    }
-                    if (lstBox[i][j].Tag != null && lstBox[i][j].Tag.ToString() == "blue" + i)
-                    {
-                        //lab.Text = "+";
-                    }
-                    lab.Location = new Point(locatX, locatY);
-                    lab.Text += lstBox[i][j].Text;
-                    lab.BackColor = Color.Transparent;
-                    lab.AutoSize = true;
-                    locatX += 40;
-                    lab.Font =  new System.Drawing.Font("微软雅黑", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-                    Console.Write("x" + (j + 1) + ":" + locatX + "\t");
+                switch (e.KeyChar)
+                {
+                    case (char)KeyPro.PAGEUP: break;
+                    case (char)KeyPro.PAGEDOWN: break;
+                    case (char)KeyPro.END: break;
+                    case (char)KeyPro.HOME: break;
+                    case (char)KeyPro.LEFT: break;
+                    case (char)KeyPro.UP: break;
+                    case (char)KeyPro.RIGHT: break;
+                    case (char)KeyPro.DOWN: break;
+                    case (char)KeyPro.ZERO: break;
+                    case (char)KeyPro.ONE: break;
+                    case (char)KeyPro.TWO: break;
+                    case (char)KeyPro.THREE: break;
+                    case (char)KeyPro.FOUR: break;
+                    case (char)KeyPro.FIVE: break;
+                    case (char)KeyPro.SIX: break;
+                    case (char)KeyPro.SEVEN: break;
+                    case (char)KeyPro.EIGHT: break;
+                    case (char)KeyPro.NINE: break;
+                    case (char)KeyPro.A: break;
+                    case (char)KeyPro.B: break;
+                    case (char)KeyPro.C: break;
+                    case (char)KeyPro.D: break;
+                    case (char)KeyPro.E: break;
+                    case (char)KeyPro.F: break;
+                    case (char)KeyPro.G: break;
+                    case (char)KeyPro.H: break;
+                    case (char)KeyPro.I: break;
+                    case (char)KeyPro.J: break;
+                    case (char)KeyPro.K: break;
+                    case (char)KeyPro.L: break;
+                    case (char)KeyPro.M: break;
+                    case (char)KeyPro.N: break;
+                    case (char)KeyPro.O: break;
+                    case (char)KeyPro.P: break;
+                    case (char)KeyPro.Q: break;
+                    case (char)KeyPro.R: break;
+                    case (char)KeyPro.S: break;
+                    case (char)KeyPro.T: break;
+                    case (char)KeyPro.U: break;
+                    case (char)KeyPro.V: break;
+                    case (char)KeyPro.W: break;
+                    case (char)KeyPro.X: break;
+                    case (char)KeyPro.Y: break;
+                    case (char)KeyPro.Z:
+                        break;
+                    default:
+                        break;
+
                 }
-                locatX = x;
-                locatY += 30;
-                Console.WriteLine("y" + (i + 1) + ":" + locatY + "\t");
+                Console.WriteLine("Form.KeyPress: '" + e.KeyChar.ToString() + "' consumed.");
+                e.Handled = true;
             }
         }
     }

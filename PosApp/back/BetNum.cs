@@ -64,65 +64,14 @@ namespace LotPos
         /// <param name="wf"></param>
         /// <param name="fs"></param>
         /// <returns></returns>
-        public int MakeBetString(List<List<TextBox>> lstbox, string mul, int wf, int fs)
+        public int MakeBetString(TextBox textbox, string mul, int wf, int fs)
         {
             
             betcount = 5;       
             bool isenough = true;       //该行号码个数是否足够，true=足够，false不足；
             string geshu = string.Empty;
-            for (int i = 0; i < lstbox.Count; i++)
-            {
-                List<TextBox> lstcon = lstbox[i];
-                geshu = (lstcon.Count - 1).ToString();
-                //遍历检验每一行的值合法性 是否有空 或者是否 有重号
-                for (int j = 0; j < lstcon.Count; j++) 
-                {
-                    Control conl = lstcon[j];
-                    if (conl.Text == string.Empty)
-                    {
-                        if (lstcon == lstbox[0])
-                        {
-                            return -1;
-                        }
-                        else
-                        {
-                            betcount--;             //某行不足时，不对改行处理，同时注数减少一注
-                            isenough = false;
-                            break;
-                        }
-                    }
-                    //检查是否有重号
-                    for (int k = 0; k < lstcon.Count - 1; k++)
-                    {
-                        if (conl.Tag != null && conl.Tag.ToString() == ("blue" + i))    //不检查蓝球
-                        {
-                            break;
-                        }
-                        if (j != k && conl.Text == lstcon[k].Text)
-                        {
-                            return -2;
-                        }
-                    }
-                    isenough = true;
-                }
-                //对可以组成投注号码的行，将值取出放到字符串中保存用于传输使用
-                if (isenough)   //当该行足够时，加前缀，组串
-                {
-                    sendbetnum += mul.PadLeft(3, '0') + geshu.PadLeft(2, '0');
-                    for (int j = 0; j < lstcon.Count; j++)
-                    {
-                        Control conl = lstcon[j];
-                        if (conl.Tag != null && conl.Tag.ToString() == ("blue" + i))
-                        {
-                            betnumstr += ";";
-                            sendbetnum += "01";
-                        }
-                        sendbetnum += conl.Text;
-                        betnumstr += conl.Text;
-                    }
-                }
-                betnumstr += "|";
-            }
+            
+
             Console.Write(sendbetnum);
             return 0;
         }

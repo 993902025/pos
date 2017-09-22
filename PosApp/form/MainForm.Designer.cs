@@ -149,7 +149,7 @@
             this.textBox3.Size = new System.Drawing.Size(208, 57);
             this.textBox3.TabIndex = 3111;
             this.textBox3.TabStop = false;
-            this.textBox3.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
+            this.textBox3.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // textBox_test
             // 
@@ -208,7 +208,7 @@
             this.Num_3.Size = new System.Drawing.Size(50, 45);
             this.Num_3.TabIndex = 10;
             this.Num_3.TabStop = false;
-            this.Num_3.Text = "3";
+            this.Num_3.Text = "&3";
             this.Num_3.UseVisualStyleBackColor = true;
             this.Num_3.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -220,7 +220,7 @@
             this.Num_2.Size = new System.Drawing.Size(50, 45);
             this.Num_2.TabIndex = 9;
             this.Num_2.TabStop = false;
-            this.Num_2.Text = "2";
+            this.Num_2.Text = "&2";
             this.Num_2.UseVisualStyleBackColor = true;
             this.Num_2.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -232,7 +232,7 @@
             this.Num_1.Size = new System.Drawing.Size(50, 45);
             this.Num_1.TabIndex = 8;
             this.Num_1.TabStop = false;
-            this.Num_1.Text = "1";
+            this.Num_1.Text = "&1";
             this.Num_1.UseVisualStyleBackColor = true;
             this.Num_1.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -257,7 +257,7 @@
             this.Num_6.Size = new System.Drawing.Size(50, 45);
             this.Num_6.TabIndex = 6;
             this.Num_6.TabStop = false;
-            this.Num_6.Text = "6";
+            this.Num_6.Text = "&6";
             this.Num_6.UseVisualStyleBackColor = true;
             this.Num_6.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -269,7 +269,7 @@
             this.Num_5.Size = new System.Drawing.Size(50, 45);
             this.Num_5.TabIndex = 5;
             this.Num_5.TabStop = false;
-            this.Num_5.Text = "5";
+            this.Num_5.Text = "&5";
             this.Num_5.UseVisualStyleBackColor = true;
             this.Num_5.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -281,7 +281,7 @@
             this.Num_4.Size = new System.Drawing.Size(50, 45);
             this.Num_4.TabIndex = 4;
             this.Num_4.TabStop = false;
-            this.Num_4.Text = "4";
+            this.Num_4.Text = "&4";
             this.Num_4.UseVisualStyleBackColor = true;
             this.Num_4.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -306,7 +306,7 @@
             this.Num_9.Size = new System.Drawing.Size(50, 45);
             this.Num_9.TabIndex = 24;
             this.Num_9.TabStop = false;
-            this.Num_9.Text = "9";
+            this.Num_9.Text = "&9";
             this.Num_9.UseVisualStyleBackColor = true;
             this.Num_9.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -318,7 +318,7 @@
             this.Num_8.Size = new System.Drawing.Size(50, 45);
             this.Num_8.TabIndex = 1;
             this.Num_8.TabStop = false;
-            this.Num_8.Text = "8";
+            this.Num_8.Text = "&8";
             this.Num_8.UseVisualStyleBackColor = true;
             this.Num_8.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -330,7 +330,7 @@
             this.Num_7.Size = new System.Drawing.Size(50, 45);
             this.Num_7.TabIndex = 0;
             this.Num_7.TabStop = false;
-            this.Num_7.Text = "7";
+            this.Num_7.Text = "&7";
             this.Num_7.UseVisualStyleBackColor = true;
             this.Num_7.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -719,7 +719,7 @@
             this.Num_0.Size = new System.Drawing.Size(50, 45);
             this.Num_0.TabIndex = 100;
             this.Num_0.TabStop = false;
-            this.Num_0.Text = "0";
+            this.Num_0.Text = "&0";
             this.Num_0.UseVisualStyleBackColor = true;
             this.Num_0.Click += new System.EventHandler(this.Num_Click);
             // 
@@ -897,12 +897,13 @@
             this.BtnC.Size = new System.Drawing.Size(50, 45);
             this.BtnC.TabIndex = 25;
             this.BtnC.TabStop = false;
-            this.BtnC.Text = "C";
+            this.BtnC.Text = "&C";
             this.BtnC.UseVisualStyleBackColor = true;
             this.BtnC.Click += new System.EventHandler(this.KeyBtnClick);
             // 
             // BtnEscape
             // 
+            this.BtnEscape.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnEscape.Location = new System.Drawing.Point(5, 5);
             this.BtnEscape.Margin = new System.Windows.Forms.Padding(5);
             this.BtnEscape.Name = "BtnEscape";
@@ -922,7 +923,7 @@
             this.BtnG.Size = new System.Drawing.Size(50, 45);
             this.BtnG.TabIndex = 25;
             this.BtnG.TabStop = false;
-            this.BtnG.Text = "G";
+            this.BtnG.Text = "&G";
             this.BtnG.UseVisualStyleBackColor = true;
             this.BtnG.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -934,7 +935,7 @@
             this.BtnF.Size = new System.Drawing.Size(50, 45);
             this.BtnF.TabIndex = 25;
             this.BtnF.TabStop = false;
-            this.BtnF.Text = "F";
+            this.BtnF.Text = "&F";
             this.BtnF.UseVisualStyleBackColor = true;
             this.BtnF.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -958,7 +959,7 @@
             this.BtnD.Size = new System.Drawing.Size(50, 45);
             this.BtnD.TabIndex = 25;
             this.BtnD.TabStop = false;
-            this.BtnD.Text = "D";
+            this.BtnD.Text = "&D";
             this.BtnD.UseVisualStyleBackColor = true;
             this.BtnD.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -970,7 +971,7 @@
             this.BtnK.Size = new System.Drawing.Size(50, 45);
             this.BtnK.TabIndex = 25;
             this.BtnK.TabStop = false;
-            this.BtnK.Text = "K";
+            this.BtnK.Text = "&K";
             this.BtnK.UseVisualStyleBackColor = true;
             this.BtnK.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -982,7 +983,7 @@
             this.BtnJ.Size = new System.Drawing.Size(50, 45);
             this.BtnJ.TabIndex = 25;
             this.BtnJ.TabStop = false;
-            this.BtnJ.Text = "J";
+            this.BtnJ.Text = "&J";
             this.BtnJ.UseVisualStyleBackColor = true;
             this.BtnJ.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -994,7 +995,7 @@
             this.BtnI.Size = new System.Drawing.Size(50, 45);
             this.BtnI.TabIndex = 25;
             this.BtnI.TabStop = false;
-            this.BtnI.Text = "I";
+            this.BtnI.Text = "&I";
             this.BtnI.UseVisualStyleBackColor = true;
             this.BtnI.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -1006,7 +1007,7 @@
             this.BtnH.Size = new System.Drawing.Size(50, 45);
             this.BtnH.TabIndex = 25;
             this.BtnH.TabStop = false;
-            this.BtnH.Text = "H";
+            this.BtnH.Text = "&H";
             this.BtnH.UseVisualStyleBackColor = true;
             this.BtnH.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -1255,8 +1256,11 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.BtnEnter;
+            this.AccessibleName = "3";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnEscape;
             this.ClientSize = new System.Drawing.Size(1008, 586);
             this.Controls.Add(this.tableLayoutPanel_SomePra);
             this.Controls.Add(this.panel_keyboard);
@@ -1276,10 +1280,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "0";
-            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PosKeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AppKeyPress);
             this.tabControl1.ResumeLayout(false);
             this.PageC515.ResumeLayout(false);
             this.panelC515_Parameters.ResumeLayout(false);
