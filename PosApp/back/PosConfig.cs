@@ -17,8 +17,8 @@ namespace LotPos
         public string configName;
 
         public string configValue;
-        public static string ServerIP;      //中间层dire服务器IP
-        public static int Port;             //中间层dire服务器端口
+        public string ip;      //中间层dire服务器IP
+        public int port;             //中间层dire服务器端口
         public static string xszbm;         //本机销售站编码
         public static string zdh;         //本机终端号
 
@@ -27,10 +27,10 @@ namespace LotPos
         public void GetIPAndPort(ref string serverip, ref int port)
         {
 
-            serverip = ConfigurationManager.AppSettings["ServerIP"];
-            //ConfigurationSettings.AppSettings["ServerIP"];
+            serverip = ConfigurationManager.AppSettings["ip"];
+            //ConfigurationSettings.AppSettings["ip"];
 
-            port = Convert.ToInt16(ConfigurationManager.AppSettings["Port"]);
+            port = Convert.ToInt16(ConfigurationManager.AppSettings["port"]);
 
             Console.WriteLine("|" + serverip + "\t" + port);
 
@@ -43,31 +43,25 @@ namespace LotPos
         public void UpdateIp(string serverip)
         {
 
-            ConfigurationManager.AppSettings["ServerIP"] = serverip;
+            ConfigurationManager.AppSettings["ip"] = serverip;
         }
 
         public void UpdatePort(string port)
         {
-            //ConfigurationSettings.AppSettings["Port"] = port;
+            //ConfigurationSettings.AppSettings["port"] = port;
 
         }
 
         public PosConfig()
-
         {
             xszbm = ConfigurationManager.AppSettings["XSZBM"];
             zdh = ConfigurationManager.AppSettings["ZDH"];
 
             LoginPattern = ConfigurationManager.AppSettings["LoginPattern"];
 
-            ServerIP = ConfigurationManager.AppSettings["ServerIP"];
-            Port = Convert.ToInt16(ConfigurationManager.AppSettings["Port"]);
-            //
-
-            // TODO: 在此处添加构造函数逻辑
-
-            //
-
+            this.ip = ConfigurationManager.AppSettings["ip"];
+            this.port = Convert.ToInt16(ConfigurationManager.AppSettings["port"]);
+             
         }
 
         public string ReadConfig(string configKey)

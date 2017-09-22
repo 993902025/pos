@@ -69,19 +69,21 @@
     <Compile Include="back\BetNum.cs" />
     <Compile Include="BzSec.cs" />
     <Compile Include="BzWebSec.cs" />
+    <Compile Include="Controller\GameK512.cs" />
     <Compile Include="Controller\NetControl.cs" />
     <Compile Include="Controller\SocketInstance.cs" />
     <Compile Include="Controller\TimeTaskControl.cs" />
-    <Compile Include="form\MainForm.cs">
+    <Compile Include="Controller\ViewControl.cs" />
+    <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\MainForm.Designer.cs">
+    <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\LogOnForm.cs">
+    <Compile Include="View\LogOnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\LogOnForm.Designer.cs">
+    <Compile Include="View\LogOnForm.Designer.cs">
       <DependentUpon>LogOnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="back\PosBack.cs" />
@@ -94,10 +96,10 @@
     <Compile Include="back\SocketClass.cs" />
     <Compile Include="back\PosString.cs" />
     <Compile Include="Protocol\TaskPro.cs" />
-    <EmbeddedResource Include="form\LogOnForm.resx">
+    <EmbeddedResource Include="View\LogOnForm.resx">
       <DependentUpon>LogOnForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\MainForm.resx">
+    <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
