@@ -44,7 +44,7 @@ namespace LotPos.Controller
             }
         }
 
-        
+
         public void write(string str)
         {
             NetControl netcontrol = new NetControl();

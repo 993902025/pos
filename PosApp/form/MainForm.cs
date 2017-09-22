@@ -13,18 +13,11 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Controls;
 using LotPos.back;
-using LotPos.Model;
-using LotPos.Controller;
 
 namespace LotPos
 {
     public partial class MainForm : Form
     {
-        AppModel app;
-        Model.MenuModel menu;
-        ViewControl viewcontrol;
-
-
         /* 定义类 
          */
         //public LogOnForm logonform;     //登录界面类
@@ -54,7 +47,8 @@ namespace LotPos
         {
             InitializeComponent();
         }
-        
+
+
         /// <summary>
         /// 加载主界面
         /// </summary>
@@ -62,27 +56,22 @@ namespace LotPos
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            app = AppModel.Instance;
+             
+                    AtLogonForm(1);//加载登录界面  
+             
 
-            viewcontrol = new ViewControl();
-
-            viewcontrol.LoadLogForm(app.isStartOnline); //加载登录界面  
-            
             tabControl1.Visible = true;     //标签控制页
 
-
-
-            FreshParametersView(viewcontrol);
-
-
-
-            ShowPage_1(1);  //
+            ShowPage_1(1);
+            Update_panel_Parameters_Show(1); //
 
             //初始化光标
             nownumbox = lstBox.First().First();
             nownumbox.Focus();
 
-
+            toolTip1.SetToolTip(tableLayoutPanel_SomePra, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(Btn_Logonoff, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
+            toolTip1.SetToolTip(label_Date, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
             
         }
 
@@ -91,10 +80,54 @@ namespace LotPos
         /// </summary>
         /// <param name="pageNum"></param>
         /// <returns></returns>
-        void LoadLogOnForm(bool value)
+        void AtLogonForm(int pageNum)
         {
-            
-            
+            LogOnForm logonform = new LogOnForm();
+            logonform.ShowDialog();
+            //确认登录
+            if (logonform.DialogResult == DialogResult.OK)
+            {
+                PosBack posback = new PosBack();
+                if (_loginPattern == "2")
+                {
+                    posback.Con_Director();
+                    sock = new SocketClass();
+                    posback.NewSock(sock);
+                    posback.Register(sock);     //签到
+                    posback.GetParam(sock);     //取参
+                }
+                else
+                {
+                    posback.GetParam();       //单机取参
+                }
+                logonform.Close();
+            }
+            //退出 or 取消登录
+            else if (logonform.DialogResult == DialogResult.Cancel)
+            {
+                //程序启动时将直接退出，而不是返回主界面
+                if (_pageNum == 0)
+                {
+                    try
+                    {
+                        this.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.ToString());
+                        throw;
+                    }
+                }
+                try
+                {
+                    logonform.Close();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.ToString());
+                    throw;
+                }
+            }
         }
 
         
@@ -122,16 +155,41 @@ namespace LotPos
         /// <summary>
         /// 站点玩法等参数显示
         /// </summary>
-        void FreshParametersView(object obj)
+        void Update_panel_Parameters_Show(int wf)
         {
+            //PosBack posback = new PosBack();
+            //posback.GetPra(_loginPattern);       //模拟取参
+            if (wf == 5)
+            {
+                for (int i = 0; i < tabControl1.TabCount; i++)
+                {
 
-            GameName.Text = "";      //玩法
-            DrawNo.Text = "";       //期号
-            AgentId.Text = "";     //站号
-            Lsh.Text = "";      //流水号
-            SmallCount.Text = "";     //小计
-            Balance.Text = "";     //余额
-            TQTime.Text = "";      //特权时间
+                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
+                    DrawNo.Text = PosBack.pralst[wf][23];       //期号
+                    AgentId.Text = PosConfig.xszbm;     //站号
+                    Lsh.Text = PosBack.pralst[wf][26];      //流水号
+                    SmallCount.Text = PosBack.pralst[wf][26] + @"/" + betcount;     //小计
+                    Balance.Text = PosBack.pralst[wf][24];      //余额
+                    TQTime.Text = PosBack.pralst[wf][21];       //特权时间
+
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < tabControl1.TabCount; i++)
+                {
+
+                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
+                    DrawNo.Text = PosBack.pralst[wf][25];       //期号
+                    AgentId.Text = PosConfig.xszbm;     //站号
+                    Lsh.Text = PosBack.pralst[wf][27];      //流水号
+                    SmallCount.Text = PosBack.pralst[wf][28] + @"/" + betcount;     //小计
+                    Balance.Text = PosBack.pralst[wf][26];      //余额
+                    TQTime.Text = PosBack.pralst[wf][23];       //特权时间
+
+                }
+            }
 
             panelC515_Parameters.Visible = true;    //显示参数区域
 
@@ -235,7 +293,7 @@ namespace LotPos
             //string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
             //smsg2 = msglen + shead + msbody + "|" + szy;
             ////建socket链接
-            //if ( 0 == selsock.inisocket(ip, selport))
+            //if ( 0 == selsock.inisocket(ServerIP, selport))
             //{
             //    //发送send
             //    selsock.sendmsg(smsg2);

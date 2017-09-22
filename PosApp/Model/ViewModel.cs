@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LotPos.Model
+namespace LotPos.Medel
 {
     public class MenuModel
     {
@@ -12,7 +12,7 @@ namespace LotPos.Model
         public int menuId_I { get; set; }
         public int menuId_II { get; set; }
         public int menuId_III { get; set; }
-         
+
         public MenuModel() { }
 
         public MenuModel(int menuId_I, int menuId_II, int menuId_III)
@@ -38,16 +38,14 @@ namespace LotPos.Model
 
         public static AppModel instance;
 
-        public bool isStartOnline;  //启动模式
+        public bool isStartOnline;
 
-        public bool isLogIn;    //登录状态
+        private string ip;
 
-        public bool isOnline;   //网络在线状态
+        private int port;
 
-        public string ip;
 
-        public int port;
-        
+
         public static AppModel Instance
         {
             get
@@ -62,24 +60,11 @@ namespace LotPos.Model
 
         private AppModel()
         {
-            this.isStartOnline = false;
-            this.isLogIn = false;
-            this.isOnline = false;
-            
+
         }
-        
-    }
-
-    public  class ViewModel
-    {
-
-        public Dictionary<string, string> paramDict;
-        
-        public List<string> paramList;
-
-        public ViewModel() { }
 
     }
+
 
     
 

@@ -35,9 +35,9 @@ namespace LotPos
         }
 
         
-        public int Inisocket()//string ip, int port)
+        public int Inisocket()//string ServerIP, int Port)
         {
-            //IPAddress ip = IPAddress.Parse(ip);
+            //IPAddress ip = IPAddress.Parse(ServerIP);
             try
             {
                 sct.Connect(serverIP, port);

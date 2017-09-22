@@ -164,7 +164,7 @@
             this.label_Port.Name = "label_Port";
             this.label_Port.Size = new System.Drawing.Size(29, 12);
             this.label_Port.TabIndex = 3;
-            this.label_Port.Text = "port";
+            this.label_Port.Text = "Port";
             // 
             // label_IP
             // 

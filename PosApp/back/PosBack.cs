@@ -137,7 +137,7 @@ namespace LotPos
             Socket sock2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                sock2.Connect(PosConfig.ip, PosConfig.port);
+                sock2.Connect(PosConfig.ServerIP, PosConfig.Port);
             }
             catch (Exception ex)
             {

@@ -65,7 +65,6 @@
             this.AgentId = new System.Windows.Forms.Label();
             this.Lsh = new System.Windows.Forms.Label();
             this.panel_Bet = new System.Windows.Forms.Panel();
-            this.betnoinputbox = new System.Windows.Forms.TextBox();
             this.Page3D = new System.Windows.Forms.TabPage();
             this.PageLot = new System.Windows.Forms.TabPage();
             this.PageC730 = new System.Windows.Forms.TabPage();
@@ -117,6 +116,7 @@
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.betnoinputbox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
             this.panelC515_Parameters.SuspendLayout();
@@ -593,17 +593,6 @@
             this.panel_Bet.Size = new System.Drawing.Size(407, 220);
             this.panel_Bet.TabIndex = 0;
             this.panel_Bet.Visible = false;
-            // 
-            // betnoinputbox
-            // 
-            this.betnoinputbox.BackColor = System.Drawing.Color.Gray;
-            this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.betnoinputbox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
-            this.betnoinputbox.Name = "betnoinputbox";
-            this.betnoinputbox.Size = new System.Drawing.Size(341, 19);
-            this.betnoinputbox.TabIndex = 0;
-            this.betnoinputbox.WordWrap = false;
             // 
             // Page3D
             // 
@@ -1252,6 +1241,17 @@
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
+            // 
+            // betnoinputbox
+            // 
+            this.betnoinputbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.betnoinputbox.BackColor = System.Drawing.SystemColors.Info;
+            this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
+            this.betnoinputbox.Name = "betnoinputbox";
+            this.betnoinputbox.Size = new System.Drawing.Size(341, 14);
+            this.betnoinputbox.TabIndex = 0;
+            this.betnoinputbox.WordWrap = false;
             // 
             // MainForm
             // 
