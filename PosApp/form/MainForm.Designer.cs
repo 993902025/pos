@@ -65,6 +65,7 @@
             this.AgentId = new System.Windows.Forms.Label();
             this.Lsh = new System.Windows.Forms.Label();
             this.panel_Bet = new System.Windows.Forms.Panel();
+            this.betnoinputbox = new System.Windows.Forms.TextBox();
             this.Page3D = new System.Windows.Forms.TabPage();
             this.PageLot = new System.Windows.Forms.TabPage();
             this.PageC730 = new System.Windows.Forms.TabPage();
@@ -116,7 +117,6 @@
             this.tableLayoutPanel_SomePra = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.betnoinputbox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.PageC515.SuspendLayout();
             this.panelC515_Parameters.SuspendLayout();
@@ -594,6 +594,17 @@
             this.panel_Bet.TabIndex = 0;
             this.panel_Bet.Visible = false;
             // 
+            // betnoinputbox
+            // 
+            this.betnoinputbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.betnoinputbox.BackColor = System.Drawing.SystemColors.Info;
+            this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
+            this.betnoinputbox.Name = "betnoinputbox";
+            this.betnoinputbox.Size = new System.Drawing.Size(341, 14);
+            this.betnoinputbox.TabIndex = 0;
+            this.betnoinputbox.WordWrap = false;
+            // 
             // Page3D
             // 
             this.Page3D.Location = new System.Drawing.Point(4, 22);
@@ -862,7 +873,7 @@
             this.BtnA.Size = new System.Drawing.Size(50, 45);
             this.BtnA.TabIndex = 25;
             this.BtnA.TabStop = false;
-            this.BtnA.Text = "A";
+            this.BtnA.Text = "&A";
             this.BtnA.UseVisualStyleBackColor = true;
             this.BtnA.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -874,7 +885,7 @@
             this.BtnB.Size = new System.Drawing.Size(50, 45);
             this.BtnB.TabIndex = 25;
             this.BtnB.TabStop = false;
-            this.BtnB.Text = "B";
+            this.BtnB.Text = "&B";
             this.BtnB.UseVisualStyleBackColor = true;
             this.BtnB.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -935,7 +946,7 @@
             this.BtnE.Size = new System.Drawing.Size(50, 45);
             this.BtnE.TabIndex = 25;
             this.BtnE.TabStop = false;
-            this.BtnE.Text = "E";
+            this.BtnE.Text = "&E";
             this.BtnE.UseVisualStyleBackColor = true;
             this.BtnE.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -1241,17 +1252,6 @@
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
-            // 
-            // betnoinputbox
-            // 
-            this.betnoinputbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.betnoinputbox.BackColor = System.Drawing.SystemColors.Info;
-            this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
-            this.betnoinputbox.Name = "betnoinputbox";
-            this.betnoinputbox.Size = new System.Drawing.Size(341, 14);
-            this.betnoinputbox.TabIndex = 0;
-            this.betnoinputbox.WordWrap = false;
             // 
             // MainForm
             // 
