@@ -16,7 +16,12 @@ namespace LotPos.Controller
 
         }
 
+        public int MenuSwitch()
+        {
 
+
+            return -1;
+        }
 
     }
 }
