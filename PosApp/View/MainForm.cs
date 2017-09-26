@@ -63,8 +63,12 @@ namespace LotPos
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            AtLogonForm(1);//加载登录界面  
-            
+            app = AppModel.Instance;
+
+            viewcontrol = new ViewControl();
+
+            viewcontrol.LoadLogForm(app.isStartOnline); //加载登录界面  
+
             tabControl1.Visible = true;     //标签控制页
 
 
