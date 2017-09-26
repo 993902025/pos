@@ -51,7 +51,7 @@ namespace LotPos.Controller
             {
                 timer = new Timer(new TimerCallback(StartTimeTask), null, GETTIMETASK, GETTIMETASK);
             }
-            catch (Exception exc)
+            catch (Exception )
             {
                 //error日志
             }
@@ -64,7 +64,7 @@ namespace LotPos.Controller
             {
                 timer.Change(Timeout.Infinite, GETTIMETASK);
             }
-            SocketClass sock;
+            
         }
 
 

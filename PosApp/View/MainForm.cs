@@ -14,6 +14,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Controls;
 using LotPos.back;
 using JunKeyBoardLib;
+using LotPos.Model;
+using LotPos.Controller;
 
 namespace LotPos
 {
@@ -56,7 +58,7 @@ namespace LotPos
             InitializeComponent();
             jkb = new JunKeyBoard(this);
         }
-        
+
         /// <summary>
         /// 加载主界面
         /// </summary>
@@ -68,27 +70,15 @@ namespace LotPos
 
             viewcontrol = new ViewControl();
 
-            viewcontrol.LoadLogForm(app.isStartOnline); //加载登录界面  
-
-            AtLogonForm(1);//加载登录界面  
-             
+            viewcontrol.LoadLogForm(app.isStartOnline); //加载登录界面   
 
             tabControl1.Visible = true;     //标签控制页
-
 
             ShowPage_1(1);
             Update_panel_Parameters_Show(1); //
 
-            //初始化光标
-            nownumbox = lstBox.First().First();
-            nownumbox.Focus();
-
-            toolTip1.SetToolTip(tableLayoutPanel_SomePra, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-            toolTip1.SetToolTip(Btn_Logonoff, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-            toolTip1.SetToolTip(label_Date, PosConfig.ServerIP + "\r\n" + PosConfig.Port);
-            
         }
-        
+
         /// <summary>
         /// 处理登录界面返回结果
         /// </summary>
@@ -96,55 +86,10 @@ namespace LotPos
         /// <returns></returns>
         void LoadLogOnForm(bool value)
         {
-            LogOnForm logonform = new LogOnForm();
-            logonform.ShowDialog();
-            //确认登录
-            if (logonform.DialogResult == DialogResult.OK)
-            {
-                PosBack posback = new PosBack();
-                if (_loginPattern == "2")
-                {
-                    posback.Con_Director();
-                    sock = new SocketClass();
-                    posback.NewSock(sock);
-                    posback.Register(sock);     //签到
-                    posback.GetParam(sock);     //取参
-                }
-                else
-                {
-                    posback.GetParam();       //单机取参
-                }
-                logonform.Close();
-            }
-            //退出 or 取消登录
-            else if (logonform.DialogResult == DialogResult.Cancel)
-            {
-                //程序启动时将直接退出，而不是返回主界面
-                if (_pageNum == 0)
-                {
-                    try
-                    {
-                        this.Close();
-                    }
-                    catch (Exception exc)
-                    {
-                        MessageBox.Show(exc.ToString());
-                        throw;
-                    }
-                }
-                try
-                {
-                    logonform.Close();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.ToString());
-                    throw;
-                }
-            }
+
         }
 
-        
+
 
         /// <summary>
         /// 显示启动模式,将配置文件中内容转成中文显示
@@ -178,7 +123,7 @@ namespace LotPos
                 for (int i = 0; i < tabControl1.TabCount; i++)
                 {
 
-                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
+                    GameName.Text = PosBack.pralst[wf][2];      //玩法
                     DrawNo.Text = PosBack.pralst[wf][23];       //期号
                     AgentId.Text = PosConfig.xszbm;     //站号
                     Lsh.Text = PosBack.pralst[wf][26];      //流水号
@@ -194,7 +139,7 @@ namespace LotPos
                 for (int i = 0; i < tabControl1.TabCount; i++)
                 {
 
-                    GameName.Text =   PosBack.pralst[wf][2];      //玩法
+                    GameName.Text = PosBack.pralst[wf][2];      //玩法
                     DrawNo.Text = PosBack.pralst[wf][25];       //期号
                     AgentId.Text = PosConfig.xszbm;     //站号
                     Lsh.Text = PosBack.pralst[wf][27];      //流水号
@@ -209,22 +154,8 @@ namespace LotPos
 
         }
 
-        /// <summary>
-        /// 右上角信息栏时间
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Dtime_tick(object sender, EventArgs e)
-        {
-            //显示时间
-            label_Date.Text = string.Format("{0:yyyy-MM-dd HH:mm:ss dddd}", DateTime.Now);
-            if (_loginPattern == "2" && SocketClass.sockSwitch && heartbeatdt >= 30)
-            {
-                heartbeatdt = 0;
-                //PosBack.ACTIVETEST(sock);
-            }
-            heartbeatdt++;
-        }
+
+
 
 
         void ShowPage_1(int pagenum)
@@ -249,7 +180,7 @@ namespace LotPos
         /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
-            AtLogonForm(_pageNum);
+
         }
 
         /// <summary>
@@ -259,7 +190,9 @@ namespace LotPos
         {
             if (true)
             {
-                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192); PaintPicture();
+                groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
+
+
                 Label lab = new Label();
                 //groupBox_LotteryPicture.Controls.Add(lab);
                 //BetNum betnumclass = new BetNum();
@@ -402,7 +335,7 @@ namespace LotPos
             if (0 == betnum.Cfof_check_ball(sball, ref playtype, ref money))
             {
                 string betdetail = (sball.Length / 2).ToString().PadLeft(2, '0') + sball;            //号码串   （倍数+号码个数+号码）
-                money = money;
+                money = 1;
                 string smoney = string.Format("{0:f2}", money);
                 string betmsgbody = agentid + "$" + gamename + "$" + drawno + "$" + ticket + "$" + playtype + "$" + smoney + "$" + betdetail + "$" + "$" + "$" + "$" + "$" + "01" + "$" + "$";
                 textBox3.Text += "\r\nbetbody:" + betmsgbody;
@@ -487,10 +420,7 @@ namespace LotPos
         {
             if (false)  //完整版应该为 (_pageNum != 0 ) 调试版本省略确认框 == 0
             {
-                if (MessageBox.Show("确认退出程序？", "程序退出确认", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                }
+
             }
             try
             {
@@ -533,14 +463,7 @@ namespace LotPos
         /// <param name="e"></param>
         public void BetNo_TextChanged(object sender, EventArgs e)
         {
-            if (((TextBox)sender).Text != string.Empty && Convert.ToInt16(((TextBox)sender).Text) > 32)
-            {
-                TestLog("选号不能超过32");
-            }
-            else
-            {
-                CheckTextFocus(sender);
-            }
+
         }
 
         /// <summary>
@@ -554,7 +477,7 @@ namespace LotPos
             nownumbox.SelectionStart = nownumbox.Text.Length;
             //nownumbox.Select(nownumbox.TextLength, 0);
         }
-         
+
 
         /// <summary>
         /// 激活主界面时
@@ -578,13 +501,13 @@ namespace LotPos
             nownumbox.Focus();
             if (nownumbox.Text.Length > 0)
             {
-                CheckTextFocus(nownumbox);
+
             }
-            nownumbox.Text += numstr;          
+            nownumbox.Text += numstr;
             //BetNo_TextChanged((Object)nownumbox, null);
             TestLog("NumClick " + ((Button)sender).Text);
         }
-        
+
 
         /// <summary>
         /// 功能按键点击事件
@@ -596,25 +519,18 @@ namespace LotPos
             string BtnName = sender.GetType() == typeof(string) ? ("Btn" + Convert.ToString(sender)) : ((Control)sender).Name;
             nownumbox.Focus();
             //退格BACKSPACE
-            if ( BtnName == BtnBack.Name)
+            if (BtnName == BtnBack.Name)
             {
-                if (nownumbox.Text.Length > 0)
-                {
-                    nownumbox.Text = nownumbox.Text.Remove(nownumbox.Text.Length - 1);
-                }
-                else
-                {
-                    CheckTextFocus(nownumbox);
-                }
+
             }
             //ESC
-            else if ( BtnName == BtnEscape.Name)
+            else if (BtnName == BtnEscape.Name)
             {
                 // 此处调用 ESC 相关
                 TestLog("调用:ESC" + BtnName);
             }
             //确定Enter
-            else if ( BtnName == BtnEnter.Name)
+            else if (BtnName == BtnEnter.Name)
             {
                 // 调用 F8Bet 投注相关
                 TestLog("调用: " + BtnName); //Betqueren();
@@ -622,19 +538,16 @@ namespace LotPos
             //F8Bet
             else if (BtnName == BtnF8.Name)
             {
-                TestLog( "调用：Bet " + BtnName);
-                if (DOF8Bet(1, ref sendbetstr) == 0)
-                {
-                    Betqueren();
-                }
-                
+                TestLog("调用：Bet " + BtnName);
+
+
             }
             //
-            else if ( BtnName == BtnF9.Name)
+            else if (BtnName == BtnF9.Name)
             {
                 TestLog("调用： " + BtnName);
             }
-            else if ( BtnName == BtnA.Name)
+            else if (BtnName == BtnA.Name)
             {
                 TestLog("调用：  " + BtnName);
                 panel_Bet.Visible = true;       //显示投注号码区域
@@ -645,52 +558,6 @@ namespace LotPos
             }
         }
 
-        #endregion
-
-        int fs = 0;     //投注方式，暂时1单式，后面再细化
-
-        /// <summary>
-        /// 处理投注的号码；是否合法？写入待发送串；
-        /// </summary>
-        /// <param name="wf"> 玩法标识，不同玩法的个数不同，组串方式不同</param>
-        /// <param name="betnum"> 用于接受组成的字符串 </param>
-        int DOF8Bet(int wf,ref string betnum)
-        {
-            string sendbetnum = string.Empty;
-            BetNum betnumclass = new BetNum();
-
-            //取出倍数输入框控件中的值 是空时默认为 1
-            string multiple =  "1" ;
-            
-            int result = betnumclass.MakeBetString(lstBox, multiple, wf, fs);
-            string sendstr = betnumclass.sendbetnum;
-            //secstr = posback.lstbetnum[(i * (lstcon.Count - 1)) + (i + j)];
-            switch (result)
-            {
-                case 0:
-                    if (_loginPattern == "2")
-                    {
-                        betsock.Sendmsg(sendstr);
-                    }
-                    else
-                    {
-                        betnumclass.AloneBet(wf, fs, multiple);
-                    }
-                    ;
-                    break;
-                case -1:
-                    TestLog("号码不足");
-                    return -1;
-                case -2:
-                    TestLog("存在重号");
-                    return -2;
-                default:
-                    return -10;
-            }
-
-
-            return 0;
-        }
 
 
         public void TestLog(string str)
@@ -699,7 +566,7 @@ namespace LotPos
             textBox_test.Text += str + "\r\n";
         }
 
-        
+
         /// <summary>
         /// 清空投注区内号码
         /// </summary>
@@ -715,10 +582,8 @@ namespace LotPos
         }
 
 
+         
 
-        #region 初始化号码框
-
-        
         List<List<TextBox>> lstBox = new List<List<TextBox>>();
         int _location_x;    //锚点x
         int _location_y;    //锚点y
@@ -727,69 +592,28 @@ namespace LotPos
         int _margin;        //间距
         int _width;         //宽
         int _height;        //高
-        
+
         /// <summary>
         /// 切换选择标签页时，将参数列表数据更新匹配该page，并显示在该page，
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        private void TabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             int index = tabControl1.SelectedIndex;
             Console.WriteLine(index);
             Update_panel_Parameters_Show(index);
-            ChangePage(index);
+
             tabControl1.SelectedTab.Controls.Add(panelC515_Parameters);
             tabControl1.SelectedTab.Controls.Add(panel_Bet);
             panelC515_Parameters.Show();
             panel_Bet.Show();
         }
 
-        /// <summary>
-        /// 切换TabPage时更新投注区
-        /// </summary>
-        /// <param name="wf"></param>
-        private void ChangePage(int wf)
-        {
-            
-        }
-
-                case 2:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                        }
-                    }
-                    break;
-
-                case 3:
-                    for (int i = 0; i < lstBox.Count; i++)
-                    {
-                        for (int j = 0; j < lstBox[i].Count; j++)
-                        {
-                            lstBox[i][j].Visible = true;
-                            if (j >= 7)
-                            {
-                                lstBox[i][j].Visible = false;
-                            }
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
-            }            
-        }
 
 
         private void PaintPicture()
         {
-            const int x = 50;
-            const int y = 160;
-            int locatX = x;
-            int locatY = y;
 
             pic1.Visible = true;
             pic2.Visible = true;
@@ -805,7 +629,7 @@ namespace LotPos
             pic5.Text = "销售期\0";
             pic6.Text = "兑奖期\0";
             pic7.Text = "金额\0";
-            
+
         }
 
         private void AppKeyPress(object sender, KeyPressEventArgs e)
@@ -869,7 +693,4 @@ namespace LotPos
             }
         }
     }
-
-
-
 }

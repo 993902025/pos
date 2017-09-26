@@ -353,7 +353,7 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabStop = false;
             this.tabControl1.Visible = false;
-            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.TabControl1_Selecting);
             // 
             // PageC515
             // 
@@ -1282,7 +1282,6 @@
             this.Text = "0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AppKeyPress);
             this.tabControl1.ResumeLayout(false);
             this.PageC515.ResumeLayout(false);
             this.panelC515_Parameters.ResumeLayout(false);
