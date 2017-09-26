@@ -596,12 +596,12 @@
             // 
             // betnoinputbox
             // 
-            this.betnoinputbox.BackColor = System.Drawing.Color.Gray;
+            this.betnoinputbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.betnoinputbox.BackColor = System.Drawing.SystemColors.Info;
             this.betnoinputbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.betnoinputbox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.betnoinputbox.Location = new System.Drawing.Point(35, 70);
             this.betnoinputbox.Name = "betnoinputbox";
-            this.betnoinputbox.Size = new System.Drawing.Size(341, 19);
+            this.betnoinputbox.Size = new System.Drawing.Size(341, 14);
             this.betnoinputbox.TabIndex = 0;
             this.betnoinputbox.WordWrap = false;
             // 
@@ -873,7 +873,7 @@
             this.BtnA.Size = new System.Drawing.Size(50, 45);
             this.BtnA.TabIndex = 25;
             this.BtnA.TabStop = false;
-            this.BtnA.Text = "A";
+            this.BtnA.Text = "&A";
             this.BtnA.UseVisualStyleBackColor = true;
             this.BtnA.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -885,7 +885,7 @@
             this.BtnB.Size = new System.Drawing.Size(50, 45);
             this.BtnB.TabIndex = 25;
             this.BtnB.TabStop = false;
-            this.BtnB.Text = "B";
+            this.BtnB.Text = "&B";
             this.BtnB.UseVisualStyleBackColor = true;
             this.BtnB.Click += new System.EventHandler(this.KeyBtnClick);
             // 
@@ -947,7 +947,7 @@
             this.BtnE.Size = new System.Drawing.Size(50, 45);
             this.BtnE.TabIndex = 25;
             this.BtnE.TabStop = false;
-            this.BtnE.Text = "E";
+            this.BtnE.Text = "&E";
             this.BtnE.UseVisualStyleBackColor = true;
             this.BtnE.Click += new System.EventHandler(this.KeyBtnClick);
             // 
