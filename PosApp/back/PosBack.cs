@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LotPos.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -135,15 +136,7 @@ namespace LotPos
         public int Con_Director()
         {
             Socket sock2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                sock2.Connect(PosConfig.ip, PosConfig.port);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Inisocket\t" + ex.Message);
-                return -4;
-            }
+            SocketInstance socketIns;
             const string SERVERCONNECT = "SERVERCONNECT";   //操作码
             string sendmsg = "";    //待发送串
             string recvmsg = "";    //接受串

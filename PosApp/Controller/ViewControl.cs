@@ -25,7 +25,5 @@ namespace LotPos.Controller
         }
 
 
-        public 
-
     }
 }

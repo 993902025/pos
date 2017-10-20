@@ -8,18 +8,20 @@ namespace LotPos.Model
 {
     public class MenuModel
     {
+        public int thisPage;
+        public int lastPage;
+        public int nextPage;
 
-        public int MenuId_I { get; set; }
-        public int MenuId_II { get; set; }
-        public int MenuId_III { get; set; }
+        public object ViewInstance;
+
+
+
+
          
         public MenuModel() { }
 
         public MenuModel(int menuId_I, int menuId_II, int menuId_III)
-        {
-            this.MenuId_I = menuId_I;
-            this.MenuId_II = menuId_I;
-            this.MenuId_III = menuId_III;
+        { 
         }
 
 

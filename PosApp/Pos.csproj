@@ -72,6 +72,7 @@
     <Compile Include="back\BetNum.cs" />
     <Compile Include="BzSec.cs" />
     <Compile Include="BzWebSec.cs" />
+    <Compile Include="Controller\ConfigInstance.cs" />
     <Compile Include="Controller\GameK512.cs" />
     <Compile Include="Controller\NetControl.cs" />
     <Compile Include="Controller\SocketInstance.cs" />
