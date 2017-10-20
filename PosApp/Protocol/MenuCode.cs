@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace LotPos.Protocol
 {
-    public static class TaskPro
+    public class MenuCode
     {
-
-
+        
     }
-
-
-
-
 }

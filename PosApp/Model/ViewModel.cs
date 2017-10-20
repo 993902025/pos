@@ -9,19 +9,28 @@ namespace LotPos.Model
     public class MenuModel
     {
         public int thisPage;
-        public int lastPage;
+
+        public int backpage;
+
         public int nextPage;
+
 
         public object ViewInstance;
 
-
-
-
-         
+        List<MenuModel> sonmenu;
+                 
         public MenuModel() { }
 
         public MenuModel(int menuId_I, int menuId_II, int menuId_III)
-        { 
+        {
+        }
+
+        /// <summary>
+        /// 获取菜单信息
+        /// </summary>
+        public void GetMenuInfo()
+        {
+
         }
 
 
@@ -79,7 +88,10 @@ namespace LotPos.Model
         
         public List<string> paramList;
 
+        
+
         public ViewModel() { }
+
 
     }
 

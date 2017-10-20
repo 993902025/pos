@@ -51,12 +51,12 @@ namespace LotPos
             if (textBox_UserName.Text.Length == 0 || textBox_UserName.Text.Length < 1)
             {
                 //(new WarningModel("账号不合法", delegate { print("回调测试"); }));
-                return;
+                //return;
             }
             if (textBox_PsWd.Text.Length == 0 || textBox_PsWd.Text.Length < 1)
             {
                 //(new WarningModel("密码不合法"));
-                return;
+                //return;
             }
             
             LoginBack loginback = new LoginBack();

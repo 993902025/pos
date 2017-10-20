@@ -29,8 +29,7 @@ namespace LotPos
         /* 定义类 
          */
         //public LogOnForm logonform;     //登录界面类
-        //后台业务处理类
-        PosConfig posconfig;        //配置文件类 
+
         SocketClass betsock = new SocketClass();
 
         JunKeyBoard jkb;
@@ -72,7 +71,7 @@ namespace LotPos
 
             viewcontrol.LoadLogForm(app.isStartOnline); //加载登录界面   
 
-            tabControl1.Visible = true;     //标签控制页
+            tabControl.Visible = true;     //标签控制页
 
             ShowPage_1(1);
             Update_panel_Parameters_Show(1); //
@@ -118,59 +117,19 @@ namespace LotPos
         {
             //PosBack posback = new PosBack();
             //posback.GetPra(_loginPattern);       //模拟取参
-            if (wf == 5)
-            {
-                for (int i = 0; i < tabControl1.TabCount; i++)
-                {
-
-                    GameName.Text = PosBack.pralst[wf][2];      //玩法
-                    DrawNo.Text = PosBack.pralst[wf][23];       //期号
-                    AgentId.Text = PosConfig.xszbm;     //站号
-                    Lsh.Text = PosBack.pralst[wf][26];      //流水号
-                    SmallCount.Text = PosBack.pralst[wf][26] + @"/" + betcount;     //小计
-                    Balance.Text = PosBack.pralst[wf][24];      //余额
-                    TQTime.Text = PosBack.pralst[wf][21];       //特权时间
-
-                }
-
-            }
-            else
-            {
-                for (int i = 0; i < tabControl1.TabCount; i++)
-                {
-
-                    GameName.Text = PosBack.pralst[wf][2];      //玩法
-                    DrawNo.Text = PosBack.pralst[wf][25];       //期号
-                    AgentId.Text = PosConfig.xszbm;     //站号
-                    Lsh.Text = PosBack.pralst[wf][27];      //流水号
-                    SmallCount.Text = PosBack.pralst[wf][28] + @"/" + betcount;     //小计
-                    Balance.Text = PosBack.pralst[wf][26];      //余额
-                    TQTime.Text = PosBack.pralst[wf][23];       //特权时间
-
-                }
-            }
-
-            panelC515_Parameters.Visible = true;    //显示参数区域
+            
 
         }
-
-
-
-
-
+        
         void ShowPage_1(int pagenum)
         {
-            tabControl1.SelectTab(1);
-            tabControl1.SelectedTab.Controls.Add(panelC515_Parameters);
-            panelC515_Parameters.Show();
+            tabControl.SelectTab(5);
+            tabControl.SelectedTab.Controls.Add(panel_Parameters);
+            panel_Parameters.Show();
             panel_Bet.Show();
             panel_keyboard.Show();
         }
-
-        void PanelParameters()
-        {
-
-        }
+        
 
 
         /// <summary>
@@ -217,19 +176,17 @@ namespace LotPos
             //textBox_test.Text += pf._filename;
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
-            TestLog("" + string.Compare(lstBox.First().First().Name, lstBox[0][2].Name));
+            //TestLog("");
         }
 
         //新期查询 暂未启用 lias投注版本的
         private void Issuequery_msg()
         {
             //SocketClass selsock = new SocketClass();
-
             //string shead = "1|1|0|003170|ISSUEQUERY|" + agentidbox.Text + "|";
             //string sbody = agentidbox.Text + "$" + gamenamebox.Text + "$" + "2017020$"; 
             //string s1 = shead + sbody + sk;
             //StringBuilder s2 = new StringBuilder(512);
-
             ////BzWebSec bzsec = new BzWebSec();//不需要new 因为bzwebsec中这些方法是static
             //BzWebSec.WebMD5String32(s1, s2);
             //string szy = s2.ToString();
@@ -289,7 +246,6 @@ namespace LotPos
                     }
                 }
             }
-
             str1 = "";
             str2 = "";
             return 0;
@@ -497,13 +453,8 @@ namespace LotPos
         private void Num_Click(object sender, EventArgs e)
         {
             string numstr = ((Control)sender).Text;
-            //
-            nownumbox.Focus();
-            if (nownumbox.Text.Length > 0)
-            {
-
-            }
-            nownumbox.Text += numstr;
+            
+            betnuminputbox.Text += numstr;
             //BetNo_TextChanged((Object)nownumbox, null);
             TestLog("NumClick " + ((Button)sender).Text);
         }
@@ -572,42 +523,29 @@ namespace LotPos
         /// </summary>
         private void ClearBet()
         {
-            foreach (List<TextBox> lstcon in lstBox)
-            {
-                foreach (Control conl in lstcon)
-                {
-                    conl.Text = string.Empty;
-                }
-            }
         }
-
-
-         
-
-        List<List<TextBox>> lstBox = new List<List<TextBox>>();
-        int _location_x;    //锚点x
-        int _location_y;    //锚点y
-        int _count_x;       //单行个数
-        int _count_y;       //行数
-        int _margin;        //间距
-        int _width;         //宽
-        int _height;        //高
+        
 
         /// <summary>
         /// 切换选择标签页时，将参数列表数据更新匹配该page，并显示在该page，
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        private void TabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            int index = tabControl1.SelectedIndex;
+            int index = tabControl.SelectedIndex;
             Console.WriteLine(index);
             Update_panel_Parameters_Show(index);
 
-            tabControl1.SelectedTab.Controls.Add(panelC515_Parameters);
-            tabControl1.SelectedTab.Controls.Add(panel_Bet);
-            panelC515_Parameters.Show();
+            tabControl.SelectedTab.Controls.Add(panel_Parameters);
+            tabControl.SelectedTab.Controls.Add(panel_Bet);
+            panel_Parameters.Show();
             panel_Bet.Show();
+        }
+
+        private void TabControlChange()
+        {
+
         }
 
 
