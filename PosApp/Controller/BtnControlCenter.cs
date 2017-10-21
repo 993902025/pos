@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LotPos.Medel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,14 @@ namespace LotPos.Controller
         {
             
             return -1;
+        }
+
+
+
+        
+        public void BtnEscAction(MenuModel menu)
+        {
+
         }
 
     }

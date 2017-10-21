@@ -353,6 +353,66 @@ namespace LotPos
             Bet_msg(sendbetstr);
         }
 
+
+        /// <summary>
+        /// 小键盘区域数字点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Num_Click(object sender, EventArgs e)
+        {
+            string numstr = ((Control)sender).Text;
+
+            TestLog("NumClick " + ((Button)sender).Text);
+        }
+        
+
+        /// <summary>
+        /// 功能按键点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void KeyBtnClick(object sender, EventArgs e)
+        {
+            string BtnName = sender.GetType() == typeof(string) ? ("Btn" + Convert.ToString(sender)) : ((Control)sender).Name;
+            TestLog("调用:" + BtnName);
+            //退格BACKSPACE
+            if (BtnName == BtnBack.Name)
+            {
+            }
+            //ESC
+            else if (BtnName == BtnEscape.Name)
+            {
+                // 此处调用 ESC 相关
+                TestLog("调用:ESC" + BtnName);
+            }
+            //确定Enter
+            else if (BtnName == BtnEnter.Name)
+            {
+                // 调用 F8Bet 投注相关
+                TestLog("调用: " + BtnName); //Betqueren();
+            }
+            //F8Bet
+            else if (BtnName == BtnF8.Name)
+            {
+                TestLog("调用：Bet " + BtnName);
+
+            }
+            //
+            else if (BtnName == BtnF9.Name)
+            {
+                TestLog("调用： " + BtnName);
+            }
+            else if (BtnName == BtnA.Name)
+            {
+                TestLog("调用：  " + BtnName);
+                panel_Bet.Visible = true;       //显示投注号码区域
+            }
+            else if (BtnName == BtnC.Name)
+            {
+                TestLog("调用：  " + BtnName);
+            }
+        }
         //关闭窗口事件
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

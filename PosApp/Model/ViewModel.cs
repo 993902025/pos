@@ -13,6 +13,8 @@ namespace LotPos.Medel
         public int menuId_II { get; set; }
         public int menuId_III { get; set; }
 
+        public object menu { get; set; }
+
         public MenuModel() { }
 
         public MenuModel(int menuId_I, int menuId_II, int menuId_III)
@@ -22,6 +24,10 @@ namespace LotPos.Medel
             this.menuId_III = menuId_III;
         }
 
+        public T MenuActionl<T>( )
+        {
+            return (T)menu;
+        }
 
     }
 
