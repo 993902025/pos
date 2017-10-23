@@ -32,7 +32,7 @@ namespace LotPos
 
         SocketClass betsock = new SocketClass();
 
-        JunKeyBoard jkb;
+        //JunKeyBoard jkb;
 
         /* 控件参数类
          */
@@ -55,7 +55,7 @@ namespace LotPos
         public MainForm()
         {
             InitializeComponent();
-            jkb = new JunKeyBoard(this);
+            
         }
 
         /// <summary>
@@ -85,11 +85,8 @@ namespace LotPos
         /// <returns></returns>
         void LoadLogOnForm(bool value)
         {
-
         }
-
-
-
+        
         /// <summary>
         /// 显示启动模式,将配置文件中内容转成中文显示
         /// "1"="单机" "2"="联网"
@@ -117,8 +114,6 @@ namespace LotPos
         {
             //PosBack posback = new PosBack();
             //posback.GetPra(_loginPattern);       //模拟取参
-            
-
         }
         
         void ShowPage_1(int pagenum)
@@ -129,8 +124,6 @@ namespace LotPos
             panel_Bet.Show();
             panel_keyboard.Show();
         }
-        
-
 
         /// <summary>
         /// 登录\注销
@@ -139,7 +132,6 @@ namespace LotPos
         /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
-
         }
 
         /// <summary>
@@ -150,8 +142,7 @@ namespace LotPos
             if (true)
             {
                 groupBox_LotteryPicture.BackColor = Color.FromArgb(255, 192, 192);
-
-
+                
                 Label lab = new Label();
                 //groupBox_LotteryPicture.Controls.Add(lab);
                 //BetNum betnumclass = new BetNum();
@@ -166,7 +157,6 @@ namespace LotPos
         //select 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Issuequery_msg();
         }
 
         //showbet button 生成投注号码 、 检查投注号码 、 生成发送串 
@@ -177,45 +167,6 @@ namespace LotPos
             //string sball = redballstring.Text;
             //sendbetstr = ini_betstr(sball);
             //TestLog("");
-        }
-
-        //新期查询 暂未启用 lias投注版本的
-        private void Issuequery_msg()
-        {
-            //SocketClass selsock = new SocketClass();
-            //string shead = "1|1|0|003170|ISSUEQUERY|" + agentidbox.Text + "|";
-            //string sbody = agentidbox.Text + "$" + gamenamebox.Text + "$" + "2017020$"; 
-            //string s1 = shead + sbody + sk;
-            //StringBuilder s2 = new StringBuilder(512);
-            ////BzWebSec bzsec = new BzWebSec();//不需要new 因为bzwebsec中这些方法是static
-            //BzWebSec.WebMD5String32(s1, s2);
-            //string szy = s2.ToString();
-            //int stp = -1;
-            //stp = BzWebSec.WebEncodeString(sbody, sk, s2);
-            //string msbody = s2.ToString();
-            //int imsglen = shead.Length + szy.Length + msbody.Length + 1;
-            //string msglen = "@" + (imsglen.ToString()).PadLeft(4, '0') + "|";
-            //smsg2 = msglen + shead + msbody + "|" + szy;
-            ////建socket链接
-            //if ( 0 == selsock.inisocket(ip, selport))
-            //{
-            //    //发送send
-            //    selsock.sendmsg(smsg2);
-            //    textBox3.Text += "send message is:" + smsg2 + "\r\n";
-            //    //接受recv
-            //    string srecmsg = selsock.recvmsg();
-            //    textBox4.Text += "\r\nreceive message is:" + srecmsg + "\r\n";
-            //    string[] sArray = srecmsg.Split('|');
-            //    string srembody = sArray[7];
-            //    BzWebSec.WebDecodeString(srembody, sk, s2);
-            //    string srebody = s2.ToString();
-            //    textBox4.Text += "\r\n" + srebody;
-            //    selsock.closesock();
-            //}
-            //else
-            //{
-            //    textBox4.Text += " " + "\r\n" + SocketClass.errstring;
-            //}
         }
 
         #region 检查选号
@@ -363,20 +314,11 @@ namespace LotPos
 
         }
 
-        //bet button 弃用 lias投注版本的
-        private void Button3_Click(object sender, EventArgs e)
-        {
-            string sball = textBox13.Text;
-            sendbetstr = Ini_betstr(sball);
-            Bet_msg(sendbetstr);
-        }
-
         //关闭窗口事件
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (false)  //完整版应该为 (_pageNum != 0 ) 调试版本省略确认框 == 0
             {
-
             }
             try
             {
@@ -403,15 +345,14 @@ namespace LotPos
             textBox_test.Focus();//获取焦点
             textBox_test.Select(textBox_test.TextLength, 0);//光标定位到文本最后
             textBox_test.ScrollToCaret();
-            nownumbox.Focus();  //焦点返回到上一指定控件
+            //nownumbox.Focus();  //焦点返回到上一指定控件
 
         }
 
         private void ToolTip1_Popup(object sender, PopupEventArgs e)
         {
         }
-
-
+        
         /// <summary>
         /// 所有 BetNo(BetNo_A1 - BetNo_XX) 的 TextChanged 事件都指向该事件实现
         /// </summary>
@@ -419,7 +360,6 @@ namespace LotPos
         /// <param name="e"></param>
         public void BetNo_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         /// <summary>
@@ -431,6 +371,10 @@ namespace LotPos
         {
             nownumbox = (TextBox)sender;
             nownumbox.SelectionStart = nownumbox.Text.Length;
+            string numstr = ((Control)sender).Text;
+
+            betnuminputbox.Text += numstr;
+
             //nownumbox.Select(nownumbox.TextLength, 0);
         }
 
@@ -452,11 +396,11 @@ namespace LotPos
         /// <param name="e"></param>
         private void Num_Click(object sender, EventArgs e)
         {
-            string numstr = ((Control)sender).Text;
+            string numstr = ((Control)sender).Tag.ToString();
             
             betnuminputbox.Text += numstr;
             //BetNo_TextChanged((Object)nownumbox, null);
-            TestLog("NumClick " + ((Button)sender).Text);
+            TestLog("NumClick " + ((Button)sender).Tag.ToString());
         }
 
 
@@ -468,7 +412,7 @@ namespace LotPos
         private void KeyBtnClick(object sender, EventArgs e)
         {
             string BtnName = sender.GetType() == typeof(string) ? ("Btn" + Convert.ToString(sender)) : ((Control)sender).Name;
-            nownumbox.Focus();
+            
             //退格BACKSPACE
             if (BtnName == BtnBack.Name)
             {
@@ -490,8 +434,6 @@ namespace LotPos
             else if (BtnName == BtnF8.Name)
             {
                 TestLog("调用：Bet " + BtnName);
-
-
             }
             //
             else if (BtnName == BtnF9.Name)
@@ -570,6 +512,10 @@ namespace LotPos
 
         }
 
+
+
+
+        
         private void AppKeyPress(object sender, KeyPressEventArgs e)
         {
             Console.WriteLine("Form.KeyPress: '" + e.KeyChar.ToString() + "' pressed.");
@@ -626,9 +572,15 @@ namespace LotPos
                         break;
 
                 }
-                Console.WriteLine("Form.KeyPress: '" + e.KeyChar.ToString() + "' consumed.");
                 e.Handled = true;
             }
+
+            if (e.KeyChar >= 0 && e.KeyChar <= 9)
+            {
+                Console.WriteLine("Form.KeyPress: '" + e.KeyChar.ToString() + "' number.");
+            }
+
         }
+        
     }
 }

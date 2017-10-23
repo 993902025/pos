@@ -9,8 +9,14 @@ namespace LotPos.Controller
 {
     public class NetControl
     {
+        /// <summary>
+        /// 通讯包长度
+        /// </summary>
         private string dataLength;
 
+        /// <summary>
+        /// 通讯包类型
+        /// </summary>
         private string dataType;
         private string dataOrd;
         private string dataOverSign, handleOrd;

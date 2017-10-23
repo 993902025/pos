@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace LotPos.Controller
 {
-    public class GameK512
+    public class GameK512 : AbsGames
     {
-        public List<string> k512Param;
-
 
         public GameK512()
         {
 
         }
 
-        public int MenuSwitch()
-        {
-
-
+        public override int MenuSwitch()
+        {            
             return -1;
         }
+
+
 
     }
 }

@@ -185,7 +185,6 @@
             this.button3.TabStop = false;
             this.button3.Text = "bet";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // BtnEnter
             // 
@@ -208,6 +207,7 @@
             this.Num_3.Size = new System.Drawing.Size(50, 45);
             this.Num_3.TabIndex = 10;
             this.Num_3.TabStop = false;
+            this.Num_3.Tag = "3";
             this.Num_3.Text = "&3";
             this.Num_3.UseVisualStyleBackColor = true;
             this.Num_3.Click += new System.EventHandler(this.Num_Click);
@@ -220,6 +220,7 @@
             this.Num_2.Size = new System.Drawing.Size(50, 45);
             this.Num_2.TabIndex = 9;
             this.Num_2.TabStop = false;
+            this.Num_2.Tag = "2";
             this.Num_2.Text = "&2";
             this.Num_2.UseVisualStyleBackColor = true;
             this.Num_2.Click += new System.EventHandler(this.Num_Click);
@@ -232,6 +233,7 @@
             this.Num_1.Size = new System.Drawing.Size(50, 45);
             this.Num_1.TabIndex = 8;
             this.Num_1.TabStop = false;
+            this.Num_1.Tag = "1";
             this.Num_1.Text = "&1";
             this.Num_1.UseVisualStyleBackColor = true;
             this.Num_1.Click += new System.EventHandler(this.Num_Click);
@@ -257,6 +259,7 @@
             this.Num_6.Size = new System.Drawing.Size(50, 45);
             this.Num_6.TabIndex = 6;
             this.Num_6.TabStop = false;
+            this.Num_6.Tag = "6";
             this.Num_6.Text = "&6";
             this.Num_6.UseVisualStyleBackColor = true;
             this.Num_6.Click += new System.EventHandler(this.Num_Click);
@@ -269,6 +272,7 @@
             this.Num_5.Size = new System.Drawing.Size(50, 45);
             this.Num_5.TabIndex = 5;
             this.Num_5.TabStop = false;
+            this.Num_5.Tag = "5";
             this.Num_5.Text = "&5";
             this.Num_5.UseVisualStyleBackColor = true;
             this.Num_5.Click += new System.EventHandler(this.Num_Click);
@@ -281,6 +285,7 @@
             this.Num_4.Size = new System.Drawing.Size(50, 45);
             this.Num_4.TabIndex = 4;
             this.Num_4.TabStop = false;
+            this.Num_4.Tag = "4";
             this.Num_4.Text = "&4";
             this.Num_4.UseVisualStyleBackColor = true;
             this.Num_4.Click += new System.EventHandler(this.Num_Click);
@@ -306,6 +311,7 @@
             this.Num_9.Size = new System.Drawing.Size(50, 45);
             this.Num_9.TabIndex = 24;
             this.Num_9.TabStop = false;
+            this.Num_9.Tag = "9";
             this.Num_9.Text = "&9";
             this.Num_9.UseVisualStyleBackColor = true;
             this.Num_9.Click += new System.EventHandler(this.Num_Click);
@@ -318,6 +324,7 @@
             this.Num_8.Size = new System.Drawing.Size(50, 45);
             this.Num_8.TabIndex = 1;
             this.Num_8.TabStop = false;
+            this.Num_8.Tag = "8";
             this.Num_8.Text = "&8";
             this.Num_8.UseVisualStyleBackColor = true;
             this.Num_8.Click += new System.EventHandler(this.Num_Click);
@@ -330,6 +337,7 @@
             this.Num_7.Size = new System.Drawing.Size(50, 45);
             this.Num_7.TabIndex = 0;
             this.Num_7.TabStop = false;
+            this.Num_7.Tag = "7";
             this.Num_7.Text = "&7";
             this.Num_7.UseVisualStyleBackColor = true;
             this.Num_7.Click += new System.EventHandler(this.Num_Click);
@@ -719,6 +727,7 @@
             this.Num_0.Size = new System.Drawing.Size(50, 45);
             this.Num_0.TabIndex = 100;
             this.Num_0.TabStop = false;
+            this.Num_0.Tag = "0";
             this.Num_0.Text = "&0";
             this.Num_0.UseVisualStyleBackColor = true;
             this.Num_0.Click += new System.EventHandler(this.Num_Click);

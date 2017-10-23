@@ -33,7 +33,6 @@ namespace LotPos.Model
 
         }
 
-
     }
 
     public class GameModel
@@ -58,7 +57,9 @@ namespace LotPos.Model
         public string ip;
 
         public int port;
-        
+
+        public Dictionary<int, Dictionary<string, string>> allGameParamDict;
+
         public static AppModel Instance
         {
             get
