@@ -134,14 +134,10 @@ namespace LotPos
         /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
-            Thread sockThread = new Thread(new ThreadStart(SockThread));
-            sockThread.IsBackground = true;
-            sockThread.Start();
 
-            SockThread();
-            RegisterControl regcon = new RegisterControl();
-            
+            RegisterControl regcon = new RegisterControl();            
             regcon.send();
+            regcon.recv();
         }
 
         private void SockThread()

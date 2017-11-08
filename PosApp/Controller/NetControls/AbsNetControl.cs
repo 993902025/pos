@@ -101,6 +101,7 @@ namespace LotPos.Controller.NetControls
 
         public List<string> packet;
 
+        SocketInstance socket = new SocketInstance();
 
         public  Dictionary<int, string> packetDict = new Dictionary<int, string>()
         {
@@ -131,9 +132,16 @@ namespace LotPos.Controller.NetControls
             dataLen = "@" + str.Length.ToString().PadLeft(4, '0');
             str = dataLen + "|" + str;
 
-            SocketInstance socket = new SocketInstance();
+           
 
             socket.write(str);
+        }
+
+        virtual public void recv()
+        {
+            string str = "x";
+            //socket.Receive(ref str);
+            Console.WriteLine(str);
         }
 
         public void Encode()

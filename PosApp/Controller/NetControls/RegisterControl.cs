@@ -48,5 +48,7 @@ namespace LotPos.Controller.NetControls
             result = "33010002" + "$" + "10002" + "$" + "0" + "$";
             return result;
         }
+
+         
     }
 }
