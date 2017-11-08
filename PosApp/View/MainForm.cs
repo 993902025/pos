@@ -16,6 +16,8 @@ using LotPos.back;
 using JunKeyBoardLib;
 using LotPos.Model;
 using LotPos.Controller;
+using LotPos.Controller.NetControls;
+using System.Threading;
 
 namespace LotPos
 {
@@ -132,6 +134,19 @@ namespace LotPos
         /// <param name="e"></param>
         private void Btn_Logonoff_Click(object sender, EventArgs e)
         {
+            Thread sockThread = new Thread(new ThreadStart(SockThread));
+            sockThread.IsBackground = true;
+            sockThread.Start();
+
+            SockThread();
+            RegisterControl regcon = new RegisterControl();
+            
+            regcon.send();
+        }
+
+        private void SockThread()
+        {
+            SocketInstance sock = new SocketInstance();
         }
 
         /// <summary>

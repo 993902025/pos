@@ -77,6 +77,8 @@
     <Compile Include="Controller\IGames.cs" />
     <Compile Include="Controller\NetControl.cs" />
     <Compile Include="Controller\NetControls\AbsNetControl.cs" />
+    <Compile Include="Controller\NetControls\ActivetestControl.cs" />
+    <Compile Include="Controller\NetControls\GetparamControl.cs" />
     <Compile Include="Controller\NetControls\RegisterControl.cs" />
     <Compile Include="Controller\SocketInstance.cs" />
     <Compile Include="Controller\TimeTaskControl.cs" />

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LotPos.Controller.NetControls
 {
-    public class RegisterControl : AbsNetControl
+    class GetparamControl : AbsNetControl
     {
-        public RegisterControl()
+        public GetparamControl()
         {
             IniSocketSendPacket();
         }
@@ -19,9 +19,10 @@ namespace LotPos.Controller.NetControls
             packetDict[DATAORD] = "1";
             packetDict[DATAOVERSIGN] = "0";
             packetDict[HANDLEORD] = "123";
-            packetDict[HANDCODE] = "REGISTER";
-            packetDict[DATABODY] = GetBody();
-            packetDict[MAC] = "abcdef0123456789"; 
+            packetDict[HANDCODE] = "GETPARAM";
+            packetDict[DATABODY] = "";
+            packetDict[MAC] = "abcdef0123456789";
+            packetDict[NUMSIGN] = "";
         }
 
         override public void send()
@@ -32,7 +33,7 @@ namespace LotPos.Controller.NetControls
             + packetDict[HANDLEORD] + "|"
             + packetDict[HANDCODE] + "|"
             + packetDict[DATABODY] + "|"
-            + packetDict[MAC]  ;
+            + packetDict[MAC];
 
             dataLen = "@" + str.Length.ToString().PadLeft(4, '0');
             str = dataLen + "|" + str;

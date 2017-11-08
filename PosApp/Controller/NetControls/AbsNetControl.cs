@@ -101,6 +101,7 @@ namespace LotPos.Controller.NetControls
 
         public List<string> packet;
 
+
         public  Dictionary<int, string> packetDict = new Dictionary<int, string>()
         {
             //{DATALEN,   },
@@ -114,32 +115,30 @@ namespace LotPos.Controller.NetControls
             {NUMSIGN, numSign}
         };
 
-        public void send()
-        {
-            string str = packetDict[DATATYPE]
-            + packetDict[DATAORD]
-            + packetDict[DATAOVERSIGN]
-            + packetDict[HANDLEORD]
-            + packetDict[HANDCODE]
-            + packetDict[DATABODY]
-            + packetDict[MAC]
-            + packetDict[NUMSIGN];
-            
-            dataLen = str.Length.ToString();
+        public abstract void IniSocketSendPacket();
 
-            str = dataLen + "$"
-            + packetDict[DATATYPE] + "$"
-            + packetDict[DATAORD] + "$"
-            + packetDict[DATAOVERSIGN] + "$"
-            + packetDict[HANDLEORD] + "$"
-            + packetDict[HANDCODE] + "$"
-            + packetDict[DATABODY] + "$"
-            + packetDict[MAC] + "$"
+        virtual public void send()
+        {
+            string str = packetDict[DATATYPE] + "|"
+            + packetDict[DATAORD] + "|"
+            + packetDict[DATAOVERSIGN] + "|"
+            + packetDict[HANDLEORD] + "|"
+            + packetDict[HANDCODE] + "|"
+            + packetDict[DATABODY] + "|"
+            + packetDict[MAC] + "|"
             + packetDict[NUMSIGN];
+
+            dataLen = "@" + str.Length.ToString().PadLeft(4, '0');
+            str = dataLen + "|" + str;
 
             SocketInstance socket = new SocketInstance();
 
             socket.write(str);
+        }
+
+        public void Encode()
+        {
+           
         }
 
     }

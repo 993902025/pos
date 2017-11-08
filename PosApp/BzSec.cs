@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace LotPos
 {
+
+    /// <summary>
+    /// pos终端用加密
+    /// </summary>
     public class BzSec
     {
         [DllImport(@"E:\siguoyi\123\pos\bzsec.dll", EntryPoint = "checkmac")]

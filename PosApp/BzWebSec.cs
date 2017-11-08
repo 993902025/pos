@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace LotPos
 {
-    public class BzWebSec
+    public class BzWebSec 
     {
         [DllImport("BzWebSec.dll", EntryPoint = "WebMD5String32")]
         public static extern void WebMD5String32(string cInfo, StringBuilder cDigest);

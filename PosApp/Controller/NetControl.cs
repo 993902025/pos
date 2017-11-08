@@ -18,7 +18,7 @@ namespace LotPos.Controller
             
         }
 
-        public string IniSocketSendPacket()
+        override public void IniSocketSendPacket()
         {
             string result = string.Empty;
 
@@ -40,9 +40,7 @@ namespace LotPos.Controller
                 result += item.Value + "|";
             }
             result = length.ToString() + result;
-
-            return result;
-
+            
         }
     }
 
