@@ -30,7 +30,7 @@ namespace LotPos.Controller
             }
         }
 
-        private SocketInstance()
+        public SocketInstance()
         {
             
             try

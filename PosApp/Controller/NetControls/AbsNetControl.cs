@@ -113,5 +113,34 @@ namespace LotPos.Controller.NetControls
             {MAC, mac},
             {NUMSIGN, numSign}
         };
+
+        public void send()
+        {
+            string str = packetDict[DATATYPE]
+            + packetDict[DATAORD]
+            + packetDict[DATAOVERSIGN]
+            + packetDict[HANDLEORD]
+            + packetDict[HANDCODE]
+            + packetDict[DATABODY]
+            + packetDict[MAC]
+            + packetDict[NUMSIGN];
+            
+            dataLen = str.Length.ToString();
+
+            str = dataLen + "$"
+            + packetDict[DATATYPE] + "$"
+            + packetDict[DATAORD] + "$"
+            + packetDict[DATAOVERSIGN] + "$"
+            + packetDict[HANDLEORD] + "$"
+            + packetDict[HANDCODE] + "$"
+            + packetDict[DATABODY] + "$"
+            + packetDict[MAC] + "$"
+            + packetDict[NUMSIGN];
+
+            SocketInstance socket = new SocketInstance();
+
+            socket.write(str);
+        }
+
     }
 }
