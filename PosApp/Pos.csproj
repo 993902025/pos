@@ -83,6 +83,7 @@
     <Compile Include="Controller\SocketInstance.cs" />
     <Compile Include="Controller\TimeTaskControl.cs" />
     <Compile Include="Controller\ViewControl.cs" />
+    <Compile Include="Model\MessageBuffer.cs" />
     <Compile Include="Protocol\MenuCode.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +151,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

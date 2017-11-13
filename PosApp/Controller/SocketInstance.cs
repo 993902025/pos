@@ -5,27 +5,23 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LotPos.Model;
+
 
 namespace LotPos.Controller
 {
     public class SocketInstance
     {
-
         public static SocketInstance instance;
-
         private Socket socket;
-
         private string ip = "10.1.1.170";
-
         private int port = 5555;
 
         byte[] msglen = new byte[10];
-
-        byte[] msgbuff = new byte[5120];
-        
+        byte[] msgbuff = new byte[5120];        
         //private byte[] readbuff = new byte[5120];
-
         private List<byte> cache = new List<byte>();
+        private List<MessageBuffer> bufferList = new List<MessageBuffer>();
 
         public static SocketInstance Instance
         {
@@ -40,14 +36,14 @@ namespace LotPos.Controller
         }
 
         public SocketInstance()
-        {
-            
+        {            
             try
             {
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Connect(ip, port);
-
                 socket.BeginReceive(msgbuff, 0, msgbuff.Length, SocketFlags.None, read, null);
+                Thread td = new Thread(AcceptInfo);
+
             }
             catch (Exception exc)
             {
@@ -55,44 +51,44 @@ namespace LotPos.Controller
                 throw;
             }
         }
+                
 
-        
+
         public void write(string str)
         {
-            //NetControl netcontrol = new NetControl();
-            //string sendstr = netcontrol.IniSocketSendPacket();
-            //string sendstr = netcontrol.IniSocketSendPacket();
+        //NetControl netcontrol = new NetControl();
+        //string sendstr = netcontrol.IniSocketSendPacket();
+        //string sendstr = netcontrol.IniSocketSendPacket();
             try
             {
                 socket.Send(Encoding.ASCII.GetBytes(str));
             }
             catch (Exception ex)
             {
-                //(ex.Message + "Sendmsg");
-                
+                //(ex.Message + "Sendmsg");                
                 return ;
             }
             
         }
 
+        void AcceptInfo()
+        {
+            while (true)
+            {
+                socket.BeginReceive(msgbuff, 0, msgbuff.Length, SocketFlags.None, read, null);
+            }
+        }
 
         public string Receive()
         {
             try
             {
-
                 string srecmsg = "";
-
-                //socket.Receive(msglen, 5, 0);
-                
+                //socket.Receive(msglen, 5, 0);                
                 //msglen = new byte[Convert.ToInt32(Encoding.ASCII.GetString(msglen).Trim('@'))];
-
-                socket.Receive(msgbuff);//, Convert.ToInt32(msglen), 0);
-                 
+                socket.Receive(msgbuff);//, Convert.ToInt32(msglen), 0);                 
                 srecmsg += Encoding.ASCII.GetString(msgbuff);
-
                 return srecmsg;
-
             }
             catch (Exception ex)
             { 
@@ -109,8 +105,6 @@ namespace LotPos.Controller
                 byte[] message = new byte[length];
                 Buffer.BlockCopy(msgbuff, 0, message, 0, length);
                 cache.AddRange(message);
-
-
                 //if (!isReading)
                 //{
                 //    isReading = true;
@@ -124,8 +118,7 @@ namespace LotPos.Controller
             {
                 socket.Close();
                 throw;
-            }
-      
+            }      
         }
 
         private void onData()
@@ -147,7 +140,6 @@ namespace LotPos.Controller
             ////尾递归，防止在消息处理过程中有其他消息到达而没有经过处理
             //onData();
         }
-
 
         public byte[] encode(List<byte> cache)
         {
