@@ -101,9 +101,12 @@ namespace LotPos.Controller.NetControls
 
         public List<string> packet;
 
+        
         SocketInstance socket = new SocketInstance();
 
-        public  Dictionary<int, string> packetDict = new Dictionary<int, string>()
+        public Dictionary<int, string> packetDict = new Dictionary<int, string>();
+        /*
+         * public  Dictionary<int, string> packetDict = new Dictionary<int, string>()
         {
             //{DATALEN,   },
             {DATATYPE,dataType},
@@ -115,7 +118,9 @@ namespace LotPos.Controller.NetControls
             {MAC, mac},
             {NUMSIGN, numSign}
         };
+        */
 
+        
         public abstract void IniSocketSendPacket();
 
         virtual public void send()

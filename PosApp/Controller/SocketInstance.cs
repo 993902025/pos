@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using LotPos.Model;
-
+using System.ComponentModel;
 
 namespace LotPos.Controller
 {
@@ -22,6 +22,9 @@ namespace LotPos.Controller
         //private byte[] readbuff = new byte[5120];
         private List<byte> cache = new List<byte>();
         private List<MessageBuffer> bufferList = new List<MessageBuffer>();
+
+        private object lockObj = "";
+        private object lockSocket = "";
 
         public static SocketInstance Instance
         {
@@ -42,7 +45,7 @@ namespace LotPos.Controller
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Connect(ip, port);
                 socket.BeginReceive(msgbuff, 0, msgbuff.Length, SocketFlags.None, read, null);
-                Thread td = new Thread(AcceptInfo);
+                
 
             }
             catch (Exception exc)
@@ -51,7 +54,25 @@ namespace LotPos.Controller
                 throw;
             }
         }
-                
+
+        public bool StartSocketClient()
+        {
+            try
+            {
+                //conn();
+
+                BackgroundWorker receiveMessage = new BackgroundWorker();
+                receiveMessage.DoWork += new DoWorkEventHandler(ReceiveMessage_DoWork);
+                receiveMessage.RunWorkerAsync();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                //SaveErrorLog.Save(typeof(SocketClient), e);
+                return false;
+            }
+        }
 
 
         public void write(string str)
@@ -71,13 +92,8 @@ namespace LotPos.Controller
             
         }
 
-        void AcceptInfo()
-        {
-            while (true)
-            {
-                socket.BeginReceive(msgbuff, 0, msgbuff.Length, SocketFlags.None, read, null);
-            }
-        }
+
+
 
         public string Receive()
         {
@@ -95,6 +111,102 @@ namespace LotPos.Controller
                 throw;
             }
         }
+
+        #region 接收数据
+        private void ReceiveMessage_DoWork(object obj, DoWorkEventArgs args)
+        {
+            while (true)
+            {
+                try
+                {
+                    lock (lockSocket)
+                    {
+                        if (socket != null)
+                        {
+
+                            int buflen = socket.Available;
+                            if (buflen > 6)
+                            {
+                                byte[] data = new byte[6];
+                                socket.Receive(data, 6, SocketFlags.None);
+                                string head = Encoding.UTF8.GetString(data);
+                                if (head.StartsWith("@"))
+                                {
+                                    buflen = Convert.ToInt32(head.Substring(1, 4));
+                                }
+                                else
+                                {
+                                    buflen = buflen - 6;
+                                }
+
+                                data = new byte[buflen];
+                                int receiveLength = 0;
+                                while (receiveLength < buflen)
+                                {
+                                    if (socket.Available < 0)
+                                    {
+                                        Thread.Sleep(10);
+                                        continue;
+                                    }
+                                    receiveLength += socket.Receive(data, receiveLength, buflen - receiveLength, SocketFlags.None);
+                                }
+                                string body = Encoding.UTF8.GetString(data);
+
+                                //解析BODY
+                                MessageBuffer buffer = GetMessageBuffer(body);
+                                if (buffer != null)
+                                {
+                                    lock (lockObj)
+                                    {
+                                        bufferList.Add(buffer);
+                                    }
+                                }
+                                else
+                                {
+                                    //解析数据失败
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+
+                        }
+                        else
+                        {
+                            Thread.Sleep(10);
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        #endregion
+
+        #region 解析body
+        private MessageBuffer GetMessageBuffer(string body)
+        {
+            string[] bodys = body.Split('|');
+            if (bodys.Length > 3)
+            {
+                MessageBuffer buffer = new MessageBuffer()
+                {
+                    dataType = bodys[1],
+                    dataBody = bodys[3]
+                };
+
+                return buffer;
+            }
+
+            return null;
+        }
+        #endregion
 
         public void read(IAsyncResult iar)
         {

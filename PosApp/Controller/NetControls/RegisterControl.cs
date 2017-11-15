@@ -8,11 +8,17 @@ namespace LotPos.Controller.NetControls
 {
     public class RegisterControl : AbsNetControl
     {
+        /// <summary>
+        /// 签到业务
+        /// </summary>
         public RegisterControl()
         {
-            IniSocketSendPacket();
+            //IniSocketSendPacket();
         }
 
+        /// <summary>
+        /// 初始化签到报文字段内容 主要是HANDCODE业务编码和DATABODY包体  签到不需要数字签名
+        /// </summary>
         override public void IniSocketSendPacket()
         {
             packetDict[DATATYPE] = "1";
@@ -23,6 +29,7 @@ namespace LotPos.Controller.NetControls
             packetDict[DATABODY] = GetBody();
             packetDict[MAC] = "abcdef0123456789"; 
         }
+
 
         override public void send()
         {
