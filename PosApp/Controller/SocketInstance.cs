@@ -74,22 +74,21 @@ namespace LotPos.Controller
             }
         }
 
-
-        public void write(string str)
+        //@包长度|包类型|包序号|包结束标志|操作序列号|操作码|数据域1……$数据域n|MAC字段
+        public bool send(string str)
         {
-        //NetControl netcontrol = new NetControl();
-        //string sendstr = netcontrol.IniSocketSendPacket();
-        //string sendstr = netcontrol.IniSocketSendPacket();
             try
             {
-                socket.Send(Encoding.ASCII.GetBytes(str));
+                byte[] sendMsg = Encoding.Default.GetBytes(str);
+                bw.Write(sendMsg, 0, sendMsg.Length);
+                bw.Flush();
+                return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                //(ex.Message + "Sendmsg");                
-                return ;
+                return false;
             }
-            
+
         }
 
 
